@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBANI - Organiza sorteos y rifas profesionales online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#/inicio" class="logo nav-link">IBANI</a>
+      <nav class="nav" aria-label="Principal">
+        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__list">
+          <li><a href="#/inicio" class="nav__link active" data-route="inicio">Inicio</a></li>
+          <li><a href="#/caracteristicas" class="nav__link" data-route="caracteristicas">Características</a></li>
+          <li><a href="#/como-funciona" class="nav__link" data-route="como-funciona">Cómo Funciona</a></li>
+          <li><a href="#/precios" class="nav__link" data-route="precios">Precios</a></li>
+          <li><a href="#/faq" class="nav__link" data-route="faq">FAQ</a></li>
+          <li><a href="#/contacto" class="nav__link" data-route="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="#login" class="btn btn--ghost">Iniciar Sesión</a>
+        <a href="#registro" class="btn btn--primary">Comenzar Gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- Página: Inicio -->
+    <div class="page" id="page-inicio" data-route="inicio">
+    <section class="hero" id="inicio">
+      <div class="hero__bg"></div>
+      <div class="hero__container">
+        <h1 class="hero__title">
+          Todo lo que necesitas para <span class="text-gradient">sorteos exitosos</span>
+        </h1>
+        <p class="hero__subtitle">
+          La plataforma más completa para organizar sorteos y rifas online. Segura, transparente y fácil de usar.
+        </p>
+        <div class="hero__cta">
+          <a href="#registro" class="btn btn--primary btn--lg">Crear Sorteo</a>
+          <a href="#demo" class="btn btn--outline btn--lg">Ver Demo</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat" data-count="10000">0</div>
+          <div class="stat" data-count="500000">0</div>
+          <div class="stat" data-count="99.9">0</div>
+          <div class="stat" data-count="2000000">0</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Página: Características -->
+    <div class="page" id="page-caracteristicas" data-route="caracteristicas">
+    <section class="features" id="caracteristicas">
+      <div class="container">
+        <h2 class="section-title">Todo lo que necesitas para organizar sorteos exitosos</h2>
+        <p class="section-subtitle">Funcionalidades pensadas para que tu sorteo sea un éxito</p>
+        <div class="features__grid">
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">📅</div>
+            <h3>Venta de Boletos Online 24/7</h3>
+            <p>Vende números las 24 horas, gestiona premios y recibe pagos de forma segura.</p>
+          </article>
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">🎡</div>
+            <h3>Sorteos Transparentes y Verificables</h3>
+            <p>Transmisión en vivo y resultados seguros. Inicia el sorteo con un clic.</p>
+            <div class="feature-card__demo">
+              <div class="raffle-wheel" id="raffleWheel">
+                <div class="raffle-wheel__circle"></div>
+                <button type="button" class="raffle-wheel__btn" id="btnIniciarSorteo">INICIAR SORTEO</button>
+              </div>
+              <div class="raffle-wheel__winner" id="winnerDisplay">Ganador: —</div>
+            </div>
+          </article>
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">📊</div>
+            <h3>Dashboard de Control Total</h3>
+            <p>Gestiona rifas activas, participantes, pagos y estadísticas en un solo lugar.</p>
+          </article>
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">💳</div>
+            <h3>Múltiples Métodos de Pago</h3>
+            <p>Tarjetas, transferencias, PayPal y más. Pagos rápidos y seguros.</p>
+          </article>
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">👥</div>
+            <h3>Gestión de Participantes</h3>
+            <p>Lista de participantes, verificación y comunicación integrada.</p>
+          </article>
+          <article class="feature-card" data-aos>
+            <div class="feature-card__icon">🎨</div>
+            <h3>Personalización Total</h3>
+            <p>Colores, logo y estilo a tu medida para tu marca.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Página: Cómo funciona -->
+    <div class="page" id="page-como-funciona" data-route="como-funciona">
+    <section class="steps" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title">5 pasos para tu sorteo exitoso</h2>
+        <div class="steps__flow">
+          <div class="step-card" data-step="1">
+            <div class="step-card__content">
+              <span class="step-card__num">1</span>
+              <h3>Crea tu cuenta</h3>
+              <p>Regístrate en minutos con tu email.</p>
+            </div>
+            <div class="step-card__form">
+              <input type="text" placeholder="Nombre" aria-label="Nombre">
+              <input type="email" placeholder="Correo electrónico" aria-label="Email">
+              <input type="password" placeholder="Contraseña" aria-label="Contraseña">
+              <button type="button" class="btn btn--primary btn--sm">Registrarse</button>
+            </div>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step-card" data-step="2">
+            <div class="step-card__content">
+              <span class="step-card__num">2</span>
+              <h3>Configura tu sorteo</h3>
+              <p>Tipo, participantes y premio.</p>
+            </div>
+            <div class="step-card__form">
+              <select aria-label="Tipo de sorteo"><option>Tipo de sorteo</option></select>
+              <input type="number" placeholder="Número de participantes" aria-label="Participantes">
+              <input type="text" placeholder="Premio" aria-label="Premio">
+              <button type="button" class="btn btn--primary btn--sm">Crear sorteo</button>
+            </div>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step-card" data-step="3">
+            <div class="step-card__content">
+              <span class="step-card__num">3</span>
+              <h3>Comparte tus boletos</h3>
+              <p>WhatsApp, redes y más.</p>
+            </div>
+            <div class="step-card__share">
+              <button type="button" class="share-btn" title="Mensaje">💬</button>
+              <button type="button" class="share-btn" title="WhatsApp">📱</button>
+              <button type="button" class="share-btn" title="Facebook">f</button>
+              <button type="button" class="share-btn" title="Twitter">𝕏</button>
+              <button type="button" class="share-btn" title="Email">✉</button>
+            </div>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step-card" data-step="4">
+            <div class="step-card__content">
+              <span class="step-card__num">4</span>
+              <h3>Recibe pagos cómodamente</h3>
+              <p>Múltiples pasarelas de pago.</p>
+            </div>
+            <div class="step-card__payments">
+              <span class="payment-badge">PayPal</span>
+              <span class="payment-badge">Visa</span>
+              <span class="payment-badge">Mastercard</span>
+              <span class="payment-badge">AMEX</span>
+            </div>
+          </div>
+          <div class="step-arrow" aria-hidden="true">→</div>
+          <div class="step-card" data-step="5">
+            <div class="step-card__content">
+              <span class="step-card__num">5</span>
+              <h3>Realiza el sorteo</h3>
+              <p>Gira la ruleta y elige al ganador.</p>
+            </div>
+            <div class="step-card__wheel-mini">
+              <div class="mini-wheel" id="miniWheel"></div>
+              <div class="mini-winner">Ganador: <span id="miniWinnerNum">—</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Página: Precios -->
+    <div class="page" id="page-precios" data-route="precios">
+    <section class="pricing" id="precios">
+      <div class="container">
+        <h2 class="section-title">Calcula el costo de tu rifa</h2>
+        <p class="section-subtitle">Paga por rifa, sin sorpresas. Precio por número según cantidad.</p>
+        <div class="pricing-calc">
+          <div class="pricing-calc__presets">
+            <button type="button" class="preset-btn" data-qty="1">1</button>
+            <button type="button" class="preset-btn" data-qty="10">10</button>
+            <button type="button" class="preset-btn" data-qty="100">100</button>
+            <button type="button" class="preset-btn" data-qty="1000">1,000</button>
+            <button type="button" class="preset-btn active" data-qty="10000">10,000</button>
+          </div>
+          <div class="pricing-calc__controls">
+            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Menos">−</button>
+            <input type="number" id="qtyInput" value="10000" min="1" max="100000" aria-label="Cantidad de números">
+            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Más">+</button>
+          </div>
+          <div class="pricing-calc__result">
+            <span class="pricing-calc__price" id="displayPrice">159.00</span> US$
+          </div>
+          <p class="pricing-calc__nums"><span id="displayNums">10,000</span> Números</p>
+          <div class="pricing-calc__slider-wrap">
+            <input type="range" id="qtySlider" min="100" max="25000" value="10000" step="100" class="pricing-calc__slider">
+            <span class="pricing-calc__per-num" id="perNum">0.0159 US$</span>
+          </div>
+          <ul class="pricing-calc__includes">
+            <li>✓ Comisiones bajas y transparentes</li>
+            <li>✓ Pagos rápidos y seguros</li>
+            <li>✓ Soporte técnico 24/7</li>
+            <li>✓ Herramientas de marketing</li>
+          </ul>
+          <a href="#registro" class="btn btn--primary btn--block">Comenzar Ahora</a>
+        </div>
+        <div class="pricing-table-wrap">
+          <h3>Tabla de precios</h3>
+          <div class="pricing-table" role="table">
+            <div class="pricing-table__row pricing-table__head">
+              <span>N° de Números</span>
+              <span>Precio por N°</span>
+              <span>Comisión por Venta</span>
+            </div>
+            <div class="pricing-table__row" data-tier="100"><span>100</span><span>0.2000 US$</span><span>10%</span></div>
+            <div class="pricing-table__row" data-tier="500"><span>500</span><span>0.0800 US$</span><span>8%</span></div>
+            <div class="pricing-table__row" data-tier="1000"><span>1,000</span><span>0.0500 US$</span><span>6%</span></div>
+            <div class="pricing-table__row" data-tier="5000"><span>5,000</span><span>0.0250 US$</span><span>5%</span></div>
+            <div class="pricing-table__row highlight" data-tier="10000"><span>10,000</span><span>0.0159 US$</span><span>4%</span></div>
+            <div class="pricing-table__row" data-tier="25000"><span>25,000</span><span>0.0120 US$</span><span>3%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Página: FAQ -->
+    <div class="page" id="page-faq" data-route="faq">
+    <section class="faq-section" id="faq">
+      <div class="faq-section__hero">
+        <p class="faq-section__label">CENTRO DE AYUDA</p>
+        <h2 class="section-title">Preguntas <span class="text-gradient">Frecuentes</span></h2>
+        <p class="section-subtitle">Encuentra respuestas a las preguntas más comunes sobre IBANI</p>
+        <div class="faq-search">
+          <span class="faq-search__icon" aria-hidden="true">🔍</span>
+          <input type="search" id="faqSearch" placeholder="Buscar en las preguntas frecuentes..." aria-label="Buscar en FAQ">
+        </div>
+        <div class="faq-categories">
+          <button type="button" class="faq-cat active" data-category="general">General</button>
+          <button type="button" class="faq-cat" data-category="cuenta">Cuenta y Registro</button>
+          <button type="button" class="faq-cat" data-category="sorteos">Sorteos</button>
+          <button type="button" class="faq-cat" data-category="pagos">Pagos</button>
+          <button type="button" class="faq-cat" data-category="boletos">Boletos</button>
+          <button type="button" class="faq-cat" data-category="planes">Planes y Precios</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="faq-list" id="faqList">
+          <div class="faq-item" data-category="general">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+              ¿Qué es IBANI?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+              <p>IBANI es una plataforma en línea para organizar sorteos y rifas de forma segura, transparente y fácil. Permite vender boletos, gestionar pagos y realizar el sorteo con total verificación.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="general">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+              ¿Para quién está diseñada la plataforma?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+              <p>Para organizadores de rifas, ONGs, emprendedores, comunidades y cualquier persona que quiera realizar sorteos legales con venta de números y sorteo verificado.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="general">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+              ¿Es legal organizar sorteos con IBANI?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+              <p>Sí. La plataforma está diseñada para sorteos y rifas que cumplan la normativa local. Te recomendamos revisar las leyes de tu país o región antes de organizar un sorteo.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="general">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+              ¿En qué países está disponible?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+              <p>IBANI está disponible en múltiples países de Latinoamérica y España. Los métodos de pago y monedas pueden variar según la región.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="cuenta">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+              ¿Cómo creo mi cuenta?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+              <p>Haz clic en "Comenzar Gratis", ingresa tu nombre, correo y contraseña. Recibirás un email de verificación para activar tu cuenta.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="pagos">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+              ¿Qué métodos de pago aceptan?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+              <p>Aceptamos tarjetas de crédito/débito (Visa, Mastercard, AMEX), PayPal y transferencias según tu país. Los pagos son procesados de forma segura.</p>
+            </div>
+          </div>
+          <div class="faq-item" data-category="planes">
+            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">
+              ¿Hay cargos ocultos?
+              <span class="faq-item__icon"></span>
+            </button>
+            <div class="faq-item__a" id="faq-a7" role="region" aria-labelledby="faq-q7">
+              <p>No. El precio que ves en la calculadora es el costo por rifa. La comisión por venta se muestra en la tabla de precios según la cantidad de números.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq-cta">
+        <p class="faq-cta__title">¿No encontraste lo que buscabas?</p>
+        <p class="faq-cta__text">Nuestro equipo está listo para ayudarte</p>
+        <a href="#/contacto" class="btn btn--primary nav-link">Contactar</a>
+      </div>
+    </section>
+    </div>
+
+    <!-- Página: Contacto -->
+    <div class="page" id="page-contacto" data-route="contacto">
+    <section class="contact" id="contacto">
+      <div class="container">
+        <h2 class="section-title">¿Cómo podemos ayudarte?</h2>
+        <p class="section-subtitle">Estamos aquí para responder tus preguntas y ayudarte a tener éxito con tus sorteos</p>
+        <div class="contact-cards">
+          <a href="mailto:soporte@ibani.app" class="contact-card">
+            <span class="contact-card__icon">✉️</span>
+            <strong>soporte@ibani.app</strong>
+            <span>Respuesta en 24h</span>
+          </a>
+          <a href="tel:+16471247496" class="contact-card">
+            <span class="contact-card__icon">📞</span>
+            <strong>647 124 7496</strong>
+            <span>Lun - Vie, 9am - 6pm</span>
+          </a>
+          <a href="#" class="contact-card">
+            <span class="contact-card__icon">💬</span>
+            <strong>Chat en vivo</strong>
+            <span>Disponible ahora · Respuesta inmediata</span>
+          </a>
+          <a href="https://wa.me/16471247496" class="contact-card" target="_blank" rel="noopener">
+            <span class="contact-card__icon">WhatsApp</span>
+            <strong>647 124 7496</strong>
+            <span>Escríbenos directo</span>
+          </a>
+        </div>
+        <div class="contact__grid">
+          <div class="contact-form-wrap">
+            <h3>Envíanos un mensaje</h3>
+            <p>Completa el formulario y te responderemos lo antes posible.</p>
+            <form class="contact-form" id="contactForm" novalidate>
+              <label class="sr-only" for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" placeholder="Nombre completo *" required>
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email *" required>
+              <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+              <input type="text" name="company" placeholder="Empresa (opcional)">
+              <label class="sr-only" for="queryType">Tipo de consulta</label>
+              <select id="queryType" name="queryType" required>
+                <option value="">Tipo de consulta *</option>
+                <option value="general">Consulta General</option>
+                <option value="soporte">Soporte Técnico</option>
+                <option value="ventas">Ventas</option>
+              </select>
+              <input type="text" name="subject" placeholder="Asunto *" required>
+              <label class="sr-only" for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="4" placeholder="Cuéntanos más detalles... *" required></textarea>
+              <label class="checkbox-label">
+                <input type="checkbox" name="privacy" required>
+                <span>Acepto la <a href="#">política de privacidad</a> y el tratamiento de mis datos personales.</span>
+              </label>
+              <button type="submit" class="btn btn--primary btn--block">Enviar Mensaje</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Información de Contacto</h3>
+            <p><strong>Oficina Principal</strong><br>Santo Domingo, República Dominicana.</p>
+            <p><strong>Horario</strong><br>Lunes a Viernes: 9:00 AM - 6:00 PM (CST)<br>Soporte técnico: 24/7</p>
+            <p><strong>Emails</strong><br>General: info@ibani.app<br>Soporte: soporte@ibani.app<br>Ventas: ventas@ibani.app</p>
+            <div class="contact-info__faq">
+              <p><strong>¿Buscas respuestas rápidas?</strong></p>
+              <p>Consulta nuestra sección de preguntas frecuentes.</p>
+              <a href="#/faq" class="btn btn--outline btn--sm nav-link">Ver Preguntas Frecuentes →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-final">
+      <div class="container">
+        <h2>¿Listo para organizar tu primer sorteo?</h2>
+        <p>Crea el tuyo con la mejor plataforma. Comienza hoy y lanza tu rifa en minutos.</p>
+        <div class="cta-final__buttons">
+          <a href="#registro" class="btn btn--white btn--lg">Crear mi rifa</a>
+          <a href="#demo" class="btn btn--outline-white btn--lg">Ver demostración</a>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__brand">
+        <a href="#/inicio" class="logo logo--light nav-link">IBANI</a>
+        <p>La plataforma más completa para organizar sorteos y rifas online. Segura, transparente y fácil de usar.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <div>
+          <h4>Producto</h4>
+          <a href="#/caracteristicas" class="nav-link">Características</a>
+          <a href="#/precios" class="nav-link">Precios</a>
+          <a href="#/como-funciona" class="nav-link">Cómo Funciona</a>
+          <a href="#/faq" class="nav-link">FAQ</a>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <a href="#/contacto" class="nav-link">Contacto</a>
+          <a href="#">Blog</a>
+          <a href="#">Casos de Éxito</a>
+          <a href="#">Afiliados</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">GDPR</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <span>© 2026 IBANI. Todos los derechos reservados.</span>
+        <span>SSL Seguro · Certificado</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
