@@ -34,12 +34,12 @@ export interface Premio {
 
 export interface DiscountCode {
   id: string;
-  code: string;
-  type: "fixed" | "percent";
-  value: number;
-  min_tickets: number;
-  active: boolean;
-  used_count: number;
+  codigo: string;
+  porcentaje: number;
+  activo: boolean;
+  usos: number;
+  max_usos: number;
+  rifa_ids: string[];
 }
 
 export interface Rifa {
