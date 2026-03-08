@@ -8,7 +8,16 @@ export const adminAuth = {
 };
 
 export function adminDb() {
-  return {} as any;
+  return {
+    collection: () => ({
+      doc: () => ({
+        get: async () => ({
+          exists: false,
+          data: () => ({})
+        })
+      })
+    })
+  } as any;
 }
 
 export function initAdmin() {
