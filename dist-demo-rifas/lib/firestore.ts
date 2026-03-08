@@ -135,9 +135,9 @@ export async function cancelPagado(_b: any) { }
 export async function revertPagadoToApartado(_b: any) { }
 export async function createBoleto(_d: any) { return "demo-folio"; }
 
-export async function getBoletos() { return []; }
-export async function getBoletosPaginados(_options?: any) { return { boletos: [], hasMore: false, lastDoc: null }; }
-export async function getBoletoByFolio(_f: string) { return null; }
+export async function getBoletos(): Promise<Boleto[]> { return []; }
+export async function getBoletosPaginados(_options?: any): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> { return { boletos: [], hasMore: false, lastDoc: null }; }
+export async function getBoletoByFolio(_f: string): Promise<Boleto | null> { return null; }
 
 export async function getWhatsAppConfig() { 
   return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" }; 
@@ -185,16 +185,16 @@ export async function upsertBankAccount(_id: string, _d: any) { }
 export async function deleteBankAccount(_id: string) { }
 
 export async function createComprobante(_d: any) { return "demo-id"; }
-export async function getComprobantesPaginados() { return { comprobantes: [], hasMore: false, lastDoc: null }; }
+export async function getComprobantesPaginados(): Promise<{ comprobantes: any[], hasMore: boolean, lastDoc: any }> { return { comprobantes: [], hasMore: false, lastDoc: null }; }
 export async function updateComprobanteStatus() { }
 export async function updateComprobanteComentario() { }
 export async function getComprobanteByFolio() { return null; }
 export async function validateDiscountCode() { return null; }
 export async function incrementDiscountUse() { }
-export async function getBoletosByCelular() { return []; }
-export async function getBoletosByNumero() { return []; }
-export async function getBoletosByRifa() { return []; }
-export async function getDiscountCodes() { return []; }
+export async function getBoletosByCelular(): Promise<Boleto[]> { return []; }
+export async function getBoletosByNumero(): Promise<Boleto[]> { return []; }
+export async function getBoletosByRifa(): Promise<Boleto[]> { return []; }
+export async function getDiscountCodes(): Promise<any[]> { return []; }
 export async function createDiscountCode() { return "id"; }
 export async function updateDiscountCode() { }
 export async function deleteDiscountCode() { }
