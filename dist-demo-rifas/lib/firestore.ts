@@ -118,6 +118,8 @@ export async function reservarNumeros(_id: string, nums: number[]) {
 
 export async function markBoletoPagadoConNumeros(_b: any) { }
 export async function cancelApartado(_b: any) { }
+export async function cancelPagado(_b: any) { }
+export async function revertPagadoToApartado(_b: any) { }
 export async function createBoleto(_d: any) { return "demo-folio"; }
 
 export async function getBoletos() { return []; }
