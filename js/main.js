@@ -2,12 +2,14 @@
   'use strict';
 
   // ----- Router SPA: cada pestaña es una vista, URL con #/ruta (sin recargar) -----
-  const ROUTES = ['inicio', 'caracteristicas', 'como-funciona', 'precios', 'faq', 'contacto'];
+  const ROUTES = ['inicio', 'caracteristicas', 'como-funciona', 'precios', 'para-quien', 'seguridad', 'faq', 'contacto'];
   const TITLES = {
     inicio: 'Inicio - IBANI',
     caracteristicas: 'Características - IBANI',
     'como-funciona': 'Cómo Funciona - IBANI',
     precios: 'Precios - IBANI',
+    'para-quien': '¿Para quién es IBANI? - IBANI',
+    seguridad: 'Seguridad - IBANI',
     faq: 'Preguntas Frecuentes - IBANI',
     contacto: 'Contacto - IBANI',
   };
@@ -19,6 +21,10 @@
       if (ROUTES.indexOf(r) !== -1) return r;
     }
     return 'inicio';
+  }
+
+  function hasHash() {
+    return location.hash && location.hash.indexOf('#/') === 0;
   }
 
   function updateNavActive(route) {
@@ -97,14 +103,20 @@
       showPage(initial, true);
       updateNavActive(initial);
       document.title = TITLES[initial] || 'IBANI';
-      window.history.replaceState({ route: initial }, '', location.pathname + location.search + '#/' + initial);
+      // Solo reescribir la URL si ya había un hash; si no, dejar la URL limpia
+      if (hasHash()) {
+        window.history.replaceState({ route: initial }, '', location.pathname + location.search + '#/' + initial);
+      }
     });
   } else {
     var initial = getRoute();
     showPage(initial, true);
     updateNavActive(initial);
     document.title = TITLES[initial] || 'IBANI';
-    window.history.replaceState({ route: initial }, '', location.pathname + location.search + '#/' + initial);
+    // Solo reescribir la URL si ya había un hash; si no, dejar la URL limpia
+    if (hasHash()) {
+      window.history.replaceState({ route: initial }, '', location.pathname + location.search + '#/' + initial);
+    }
   }
 
   // ----- Tiers de precios (número -> { price, perNum }) -----
