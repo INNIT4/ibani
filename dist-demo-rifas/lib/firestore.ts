@@ -1,6 +1,18 @@
 /* eslint-disable */
 import { Timestamp } from "firebase/firestore";
 
+export const DEFAULT_SITE_TEXTS = {
+  hero_title: "Tu Sistema de Rifas Profesional",
+  hero_subtitle: "Esta es una demostración de cómo se vería tu propio sitio de sorteos.",
+  hero_banks_text: "BBVA · Santander · Banorte",
+  how_it_works_title: "¿Cómo funciona?",
+  how_it_works_steps: [
+    { title: "Demo Step 1", desc: "El usuario ve tus rifas." },
+    { title: "Demo Step 2", desc: "Eligen sus números." }
+  ],
+  faq_items: [{ q: "¿Es esto real?", a: "No, es una demostración del sistema." }]
+};
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface Ganador {
@@ -110,6 +122,7 @@ export async function createRifa(_data: any) { return "id"; }
 export async function updateRifa(_id: string, _data: any) { }
 export async function deleteRifa(_id: string) { }
 export async function anunciarGanador(_id: string, _n: number) { return {} as any; }
+export async function registrarNumerosVendidos(_rifaId: string, _nums: number[]) { }
 
 export async function getNumerosOcupados(_id: string) { return DUMMY_VEN_APS; }
 export async function reservarNumeros(_id: string, nums: number[]) { 
@@ -123,7 +136,7 @@ export async function revertPagadoToApartado(_b: any) { }
 export async function createBoleto(_d: any) { return "demo-folio"; }
 
 export async function getBoletos() { return []; }
-export async function getBoletosPaginados() { return { boletos: [], hasMore: false, lastDoc: null }; }
+export async function getBoletosPaginados(_options?: any) { return { boletos: [], hasMore: false, lastDoc: null }; }
 export async function getBoletoByFolio(_f: string) { return null; }
 
 export async function getWhatsAppConfig() { 
