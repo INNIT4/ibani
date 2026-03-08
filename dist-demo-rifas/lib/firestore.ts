@@ -111,7 +111,9 @@ export interface Comprobante {
   folio: string;
   folios: string[];
   nombre: string;
+  celular: string;
   url: string;
+  monto_total: number;
   comentario?: string;
   admin_comentario?: string;
   status: "pendiente" | "aprobado" | "rechazado";
@@ -159,7 +161,7 @@ export async function anunciarGanador(..._args: any[]) { return {} as any; }
 export async function registrarNumerosVendidos(..._args: any[]) { }
 
 export async function getNumerosOcupados(..._args: any[]) { return DUMMY_VEN_APS; }
-export async function reservarNumeros(..._args: any[]) { 
+export async function reservarNumeros(..._args: any[]) {
   console.log("DEMO: Reserva simulada de números.");
 }
 
@@ -170,13 +172,13 @@ export async function revertPagadoToApartado(..._args: any[]) { }
 export async function createBoleto(..._args: any[]) { return "demo-folio"; }
 
 export async function getBoletos(): Promise<Boleto[]> { return []; }
-export async function getBoletosPaginados(..._args: any[]): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> { 
-  return { boletos: [], hasMore: false, lastDoc: null }; 
+export async function getBoletosPaginados(..._args: any[]): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> {
+  return { boletos: [], hasMore: false, lastDoc: null };
 }
 export async function getBoletoByFolio(..._args: any[]): Promise<Boleto | null> { return null; }
 
-export async function getWhatsAppConfig() { 
-  return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" }; 
+export async function getWhatsAppConfig() {
+  return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" };
 }
 
 export async function getBankAccounts() {
@@ -197,8 +199,8 @@ export async function upsertBankAccount(..._args: any[]) { }
 export async function deleteBankAccount(..._args: any[]) { }
 
 export async function createComprobante(..._args: any[]) { return "demo-id"; }
-export async function getComprobantesPaginados(..._args: any[]): Promise<{ comprobantes: any[], hasMore: boolean, lastDoc: any }> { 
-  return { comprobantes: [], hasMore: false, lastDoc: null }; 
+export async function getComprobantesPaginados(..._args: any[]): Promise<{ comprobantes: any[], hasMore: boolean, lastDoc: any }> {
+  return { comprobantes: [], hasMore: false, lastDoc: null };
 }
 export async function updateComprobanteStatus(..._args: any[]) { }
 export async function updateComprobanteComentario(..._args: any[]) { }
