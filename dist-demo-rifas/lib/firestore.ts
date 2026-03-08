@@ -21,6 +21,7 @@ export interface Ganador {
   apellidos: string;
   folio: string;
   anunciado_at: string;
+  [key: string]: any;
 }
 
 export interface Premio {
@@ -30,6 +31,7 @@ export interface Premio {
   imagen_url?: string;
   es_principal: boolean;
   condicion?: string;
+  [key: string]: any;
 }
 
 export interface DiscountCode {
@@ -40,6 +42,7 @@ export interface DiscountCode {
   usos: number;
   max_usos: number;
   rifa_ids: string[];
+  [key: string]: any;
 }
 
 export interface Rifa {
@@ -59,6 +62,7 @@ export interface Rifa {
   num_apartados: number;
   premios?: Premio[];
   ganador?: Ganador;
+  [key: string]: any;
 }
 
 export interface Boleto {
@@ -76,18 +80,21 @@ export interface Boleto {
   precio_total: number;
   status: string;
   created_at: Timestamp;
+  [key: string]: any;
 }
 
 export interface WhatsAppConfig {
   numeros: string[];
   indice_actual: number;
   ayuda_numero?: string;
+  [key: string]: any;
 }
 
 export interface AppSettings {
   mostrar_apartados: boolean;
   cancelacion_activa: boolean;
   cancelacion_horas: number;
+  [key: string]: any;
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -104,6 +111,7 @@ export interface BankAccount {
   num_cuenta: string;
   activo: boolean;
   color?: string;
+  [key: string]: any;
 }
 
 export interface Comprobante {
@@ -113,11 +121,14 @@ export interface Comprobante {
   nombre: string;
   celular: string;
   url: string;
+  archivo_url?: string;
+  archivo_tipo?: string;
   monto_total: number;
   comentario?: string;
   admin_comentario?: string;
   status: string;
   created_at: Timestamp;
+  [key: string]: any;
 }
 
 // ─── Dummy Data ───────────────────────────────────────────────────────────────
