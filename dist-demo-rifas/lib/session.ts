@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Mock Session for Demo Mode
 export async function signSession(_uid: string, _role: string = "admin"): Promise<string> {
   return "demo-session-token";

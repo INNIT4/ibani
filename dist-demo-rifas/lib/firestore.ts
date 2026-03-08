@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable */
 import { Timestamp } from "firebase/firestore";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

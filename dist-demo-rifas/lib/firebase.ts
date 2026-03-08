@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Mock Firebase for Demo Mode
 export const db = {} as any;
 export const auth = {

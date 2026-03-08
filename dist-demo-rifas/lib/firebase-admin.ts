@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Mock Firebase Admin for Demo Mode
 export const adminAuth = {
   verifyIdToken: async (token: string) => {
