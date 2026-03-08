@@ -11,7 +11,7 @@ const EMPTY: Omit<DiscountCode, "id"> = {
 };
 
 function generateCode() {
-  const words = ["RIFA", "JANS", "WIN", "LUCKY", "PROMO", "VIP", "SUPER", "MEGA"];
+  const words = ["RIFA", "PRO", "WIN", "LUCKY", "PROMO", "VIP", "SUPER", "MEGA"];
   const word = words[Math.floor(Math.random() * words.length)];
   const num = Math.floor(Math.random() * 90) + 10;
   return `${word}${num}`;

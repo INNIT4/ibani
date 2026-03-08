@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <Image src="/images/4.jpeg" alt="Sorteos Jans" width={180} height={56} className="h-14 w-auto mb-3 rounded-sm object-contain" />
+            <Image src="/images/4.jpeg" alt="Sorteos Pro" width={180} height={56} className="h-14 w-auto mb-3 rounded-sm object-contain" />
             <p className="text-sm leading-relaxed">
               Plataforma de rifas en linea. Participa de forma segura, sencilla y transparente.
             </p>
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex flex-col gap-1 text-center sm:text-left">
-            <p>&copy; {new Date().getFullYear()} Sorteos Jans. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Sorteos Pro. Todos los derechos reservados.</p>
             <p className="text-gray-400">
               Desarrollada por{" "}
               <a 

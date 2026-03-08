@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { adminDb } from "@/lib/firebase-admin";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sorteosjans.com.mx";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://sorteospro.com.mx";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [

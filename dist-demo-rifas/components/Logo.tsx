@@ -20,7 +20,7 @@ export default function Logo({ size = "md", showText = true, lightText = false }
     <div className="flex items-center gap-3">
       {/* Circular logo */}
       <div className={`${s.circle} rounded-full overflow-hidden shadow-lg ring-2 ring-red-400/30 flex-shrink-0 relative`}>
-        <Image src="/images/3.jpeg" alt="Sorteos Jans" fill className="object-cover" sizes="120px" priority />
+        <Image src="/images/3.jpeg" alt="Sorteos Pro" fill className="object-cover" sizes="120px" priority />
       </div>
 
       {showText && (
@@ -29,7 +29,7 @@ export default function Logo({ size = "md", showText = true, lightText = false }
             Sorteos
           </span>
           <span className={`${s.text} font-black tracking-tight ${lightText ? "text-red-500" : "text-red-600 dark:text-red-400"}`}>
-            Jans
+            Pro
           </span>
         </div>
       )}

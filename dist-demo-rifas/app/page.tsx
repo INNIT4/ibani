@@ -38,21 +38,21 @@ export default async function HomePage() {
         <div className="relative max-w-4xl mx-auto text-center">
           {/* Chevrons decorativos */}
           <p className="text-brand-red/60 text-sm font-bold tracking-[0.3em] uppercase mb-6">
-            {"// SORTEOS JANS //"}
+            {"// SORTEOS PRO //"}
           </p>
 
           <div className="flex justify-center mb-8">
             <div className="w-32 h-32 overflow-hidden ring-4 ring-brand-red/50 shadow-2xl rounded-sm relative">
-              <Image src="/images/3.jpeg" alt="Sorteos Jans" fill className="object-cover" priority sizes="128px" />
+              <Image src="/images/3.jpeg" alt="Sorteos Pro" fill className="object-cover" priority sizes="128px" />
             </div>
           </div>
 
           <h1 className="text-6xl md:text-7xl font-bold uppercase tracking-wider mb-6 leading-tight">
-            {texts.hero_title.includes("Sorteos Jans") ? (
+            {texts.hero_title.includes("Sorteos Pro") ? (
               <>
-                {texts.hero_title.split("Sorteos Jans")[0]}
-                <span className="text-brand-red">Sorteos Jans</span>
-                {texts.hero_title.split("Sorteos Jans")[1]}
+                {texts.hero_title.split("Sorteos Pro")[0]}
+                <span className="text-brand-red">Sorteos Pro</span>
+                {texts.hero_title.split("Sorteos Pro")[1]}
               </>
             ) : (
               texts.hero_title

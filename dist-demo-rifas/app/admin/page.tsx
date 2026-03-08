@@ -3,17 +3,17 @@
 import { useEffect, useState } from "react";
 import { DEFAULT_SETTINGS, setAppSettings, AppSettings } from "@/lib/firestore";
 import Link from "next/link";
-import { 
-  Rocket, 
-  Settings2, 
-  Clock, 
-  Eye, 
-  EyeOff, 
-  Zap, 
-  Ticket, 
-  Users, 
-  Tag, 
-  MessageSquare, 
+import {
+  Rocket,
+  Settings2,
+  Clock,
+  Eye,
+  EyeOff,
+  Zap,
+  Ticket,
+  Users,
+  Tag,
+  MessageSquare,
   CreditCard,
   ChevronRight,
   TrendingUp,
@@ -38,7 +38,7 @@ export default function AdminDashboard() {
         ? { ...DEFAULT_SETTINGS, ...(snap.data() as Partial<AppSettings>) }
         : DEFAULT_SETTINGS;
       setSettings(s);
-      setHorasInput(String(s.cancelacion_horas));
+      setHorasInput(String(s.cancelacion_horas));i
     });
     return () => unsub();
     */
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Dashboard</h1>
-          <p className="text-slate-500 dark:text-slate-400 mt-1">Bienvenido al panel de control de Pagina Jans.</p>
+          <p className="text-slate-500 dark:text-slate-400 mt-1">Bienvenido al panel de control de Pagina Pro.</p>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <Settings2 size={120} />
             </div>
-            
+
             <div className="flex items-center gap-3 mb-8">
               <div className="p-2 bg-red-50 dark:bg-red-950/30 rounded-lg text-red-600 dark:text-red-400">
                 <Settings2 size={20} />
@@ -150,14 +150,12 @@ export default function AdminDashboard() {
                 <button
                   onClick={toggleApartados}
                   disabled={togglingApartados}
-                  className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-50 ${
-                    settings.mostrar_apartados ? "bg-green-500" : "bg-slate-200 dark:bg-slate-700"
-                  }`}
+                  className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-50 ${settings.mostrar_apartados ? "bg-green-500" : "bg-slate-200 dark:bg-slate-700"
+                    }`}
                 >
                   <span
-                    className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
-                      settings.mostrar_apartados ? "translate-x-6" : "translate-x-0"
-                    }`}
+                    className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${settings.mostrar_apartados ? "translate-x-6" : "translate-x-0"
+                      }`}
                   />
                 </button>
               </div>
@@ -180,14 +178,12 @@ export default function AdminDashboard() {
                   </div>
                   <button
                     onClick={toggleCancelacion}
-                    className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none ${
-                      settings.cancelacion_activa ? "bg-red-500" : "bg-slate-200 dark:bg-slate-700"
-                    }`}
+                    className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none ${settings.cancelacion_activa ? "bg-red-500" : "bg-slate-200 dark:bg-slate-700"
+                      }`}
                   >
                     <span
-                      className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${
-                        settings.cancelacion_activa ? "translate-x-6" : "translate-x-0"
-                      }`}
+                      className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${settings.cancelacion_activa ? "translate-x-6" : "translate-x-0"
+                        }`}
                     />
                   </button>
                 </div>
@@ -227,7 +223,7 @@ export default function AdminDashboard() {
             </div>
             <h2 className="text-xl font-bold">Accesos Rápidos</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-4">
             {quickLinks.map((item) => (
               <Link

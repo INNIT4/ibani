@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Aviso de Privacidad",
-  description: "Aviso de privacidad de Sorteos Jans conforme a la LFPDPPP.",
+  description: "Aviso de privacidad de Sorteos Pro conforme a la LFPDPPP.",
 };
 
 export default function AvisoPrivacidadPage() {
@@ -19,7 +19,7 @@ export default function AvisoPrivacidadPage() {
         <section>
           <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Identidad y domicilio del responsable</h2>
           <p>
-            <strong className="text-white">Sorteos Jans</strong> (en adelante &ldquo;el Responsable&rdquo;) es responsable del tratamiento de los datos
+            <strong className="text-white">Sorteos Pro</strong> (en adelante &ldquo;el Responsable&rdquo;) es responsable del tratamiento de los datos
             personales que nos proporcione, de conformidad con la <em>Ley Federal de Proteccion de Datos Personales
             en Posesion de los Particulares</em> (LFPDPPP) y su Reglamento.
           </p>

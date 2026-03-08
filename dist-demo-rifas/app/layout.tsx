@@ -19,23 +19,23 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://demo.ibanidigital.c
 
 export const metadata: Metadata = {
   title: {
-    default: "Sorteos Jans",
-    template: "%s | Sorteos Jans",
+    default: "Sorteos Pro",
+    template: "%s | Sorteos Pro",
   },
   description:
     "Participa en rifas en línea de forma segura. Elige tus números de la suerte y gana increíbles premios.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Sorteos Jans",
+    title: "Sorteos Pro",
     description:
       "Participa en rifas en línea de forma segura. Elige tus números de la suerte y gana increíbles premios.",
     type: "website",
     locale: "es_MX",
-    siteName: "Sorteos Jans",
+    siteName: "Sorteos Pro",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sorteos Jans",
+    title: "Sorteos Pro",
     description: "Participa en rifas en línea de forma segura.",
   },
 };

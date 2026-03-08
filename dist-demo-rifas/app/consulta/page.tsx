@@ -310,7 +310,7 @@ function BoletoCard({ boleto, rifa, showCelular }: { boleto: Boleto; rifa: Rifa 
 
   async function handleDownload() {
     setDownloading(true);
-    await downloadComprobante(boleto, rifa?.nombre ?? "Sorteos Jans");
+    await downloadComprobante(boleto, rifa?.nombre ?? "Sorteos Pro");
     setDownloading(false);
   }
 
@@ -321,7 +321,7 @@ function BoletoCard({ boleto, rifa, showCelular }: { boleto: Boleto; rifa: Rifa 
       if (!numero) { alert("No hay numero de WhatsApp configurado."); return; }
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "";
       const fecha = boleto.created_at?.toDate?.()?.toLocaleString("es-MX", { dateStyle: "short", timeStyle: "short" }) ?? new Date().toLocaleString("es-MX");
-      const rifaNombre = rifa?.nombre ?? "Sorteos Jans";
+      const rifaNombre = rifa?.nombre ?? "Sorteos Pro";
       const numsList = (boleto.numeros_completos ?? boleto.numeros);
       const message =
         `👋 Hola, soy ${boleto.nombre} ${boleto.apellidos}\nSeleccione: ${numsList.length} numeros\n──────────────\n` +

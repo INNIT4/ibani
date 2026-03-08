@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { getActiveWhatsApp, getRotatedWhatsApp, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const CACHE_KEY = "wa_tiene_numeros";
-const MSG = "Hola, me interesa participar en un sorteo de Sorteos Jans.";
+const MSG = "Hola, me interesa participar en un sorteo de Sorteos Pro.";
 
 export default function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);

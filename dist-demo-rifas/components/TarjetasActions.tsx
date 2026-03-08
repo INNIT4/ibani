@@ -26,7 +26,7 @@ export default function TarjetasActions({ folio }: { folio: string }) {
         return;
       }
 
-      let rifaNombre = "Sorteos Jans";
+      let rifaNombre = "Sorteos Pro";
       try {
         const rifa = await getRifa(boleto.rifa_id);
         if (rifa?.nombre) rifaNombre = rifa.nombre;
@@ -57,7 +57,7 @@ export default function TarjetasActions({ folio }: { folio: string }) {
         alert("No se encontró el boleto.");
         return;
       }
-      let rifaNombre = "Sorteos Jans";
+      let rifaNombre = "Sorteos Pro";
       try {
         const rifa = await getRifa(boleto.rifa_id);
         if (rifa?.nombre) rifaNombre = rifa.nombre;

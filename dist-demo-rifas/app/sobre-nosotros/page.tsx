@@ -11,10 +11,10 @@ export default async function SobreNosotrosPage() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold uppercase tracking-widest mb-2">Sobre Nosotros</h1>
       <span className="accent-bar" />
-      <p className="text-gray-400 mb-10 mt-4">Conoce mas sobre Sorteos Jans.</p>
+      <p className="text-gray-400 mb-10 mt-4">Conoce mas sobre Sorteos Pro.</p>
 
       <div className="relative rounded-sm overflow-hidden mb-10 flex-shrink-0 min-h-[400px]">
-        <Image src="/images/2.jpeg" alt="Sorteos Jans" fill className="object-cover object-center" priority />
+        <Image src="/images/2.jpeg" alt="Sorteos Pro" fill className="object-cover object-center" priority />
         <div className="absolute inset-0 bg-brand-black/60 flex flex-col justify-end p-8">
           <h2 className="text-3xl font-bold text-white mb-2 uppercase tracking-wider">{texts.about_mission_title}</h2>
           <p className="text-gray-300 text-base leading-relaxed max-w-2xl">{texts.about_mission_text}</p>

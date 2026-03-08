@@ -52,7 +52,7 @@ export async function downloadComprobante(boleto: Boleto, rifaNombre: string): P
   t(...WHITE);
   doc.setFontSize(26);
   doc.setFont("helvetica", "bold");
-  doc.text("Sorteos Jans", 105, 20, { align: "center" });
+  doc.text("Sorteos Pro", 105, 20, { align: "center" });
 
   t(...RED_100);
   doc.setFontSize(10);
@@ -229,7 +229,7 @@ export async function downloadComprobante(boleto: Boleto, rifaNombre: string): P
   t(...RED_100);
   doc.setFontSize(8);
   doc.setFont("helvetica", "normal");
-  doc.text("Sorteos Jans  —  Todos los derechos reservados", 105, 284, { align: "center" });
+  doc.text("Sorteos Pro  —  Todos los derechos reservados", 105, 284, { align: "center" });
 
   doc.save(`comprobante-${boleto.folio}.pdf`);
 }
