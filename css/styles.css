@@ -127,6 +127,7 @@ img { max-width: 100%; height: auto; }
   text-transform: uppercase;
   background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: -1px;
 }
@@ -594,9 +595,9 @@ img { max-width: 100%; height: auto; }
 .faq-item__a {
   max-height: 0;
   overflow: hidden;
-  overflow: hidden;
   transition: all 0.35s ease;
 }
+.hidden { display: none !important; }
 .faq-item__a p { padding: 0 1.5rem 1.5rem; color: var(--color-text-muted); font-size: 0.9375rem; margin: 0; }
 .faq-item.open .faq-item__a { max-height: 500px; }
 

@@ -326,35 +326,35 @@
     });
   });
 
-  // ----- FAQ: búsqueda -----
+  // ----- FAQ: Filtros (Búsqueda + Categorías) -----
   const faqSearch = document.getElementById('faqSearch');
-  if (faqSearch) {
-    faqSearch.addEventListener('input', function () {
-      const q = this.value.trim().toLowerCase();
-      faqItems.forEach(function (item) {
-        const text = (item.querySelector('.faq-item__q')?.textContent || '').toLowerCase();
-        const answer = (item.querySelector('.faq-item__a')?.textContent || '').toLowerCase();
-        const match = !q || text.includes(q) || answer.includes(q);
-        item.classList.toggle('hidden', !match);
-      });
+  const faqCats = document.querySelectorAll('.faq-cat');
+  let currentCategory = 'general';
+
+  function filterFaq() {
+    const q = faqSearch ? faqSearch.value.trim().toLowerCase() : '';
+    faqItems.forEach(function (item) {
+      const text = (item.querySelector('.faq-item__q')?.textContent || '').toLowerCase();
+      const answer = (item.querySelector('.faq-item__a')?.textContent || '').toLowerCase();
+      const itemCat = item.getAttribute('data-category');
+      
+      const matchesSearch = !q || text.includes(q) || answer.includes(q);
+      const matchesCat = currentCategory === 'general' || itemCat === currentCategory;
+      
+      item.classList.toggle('hidden', !(matchesSearch && matchesCat));
     });
   }
 
-  // ----- FAQ: categorías -----
-  const faqCats = document.querySelectorAll('.faq-cat');
+  if (faqSearch) {
+    faqSearch.addEventListener('input', filterFaq);
+  }
+
   faqCats.forEach(function (cat) {
     cat.addEventListener('click', function () {
-      faqCats.forEach(function (c) {
-        c.classList.remove('active');
-      });
+      faqCats.forEach(c => c.classList.remove('active'));
       cat.classList.add('active');
-      const category = cat.getAttribute('data-category');
-      faqItems.forEach(function (item) {
-        const itemCat = item.getAttribute('data-category');
-        const show = category === 'general' || itemCat === category;
-        item.classList.toggle('hidden', !show);
-      });
-      if (faqSearch) faqSearch.value = '';
+      currentCategory = cat.getAttribute('data-category');
+      filterFaq();
     });
   });
 
