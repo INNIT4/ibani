@@ -33,6 +33,8 @@ export default function AdminDashboard() {
   const [horasInput, setHorasInput] = useState("24");
 
   useEffect(() => {
+    // Demo Mode: Disabling live Firestore snapshots
+    /*
     const unsub = onSnapshot(doc(db, "settings", "config"), (snap) => {
       const s = snap.exists()
         ? { ...DEFAULT_SETTINGS, ...(snap.data() as Partial<AppSettings>) }
@@ -41,6 +43,9 @@ export default function AdminDashboard() {
       setHorasInput(String(s.cancelacion_horas));
     });
     return () => unsub();
+    */
+    setSettings(DEFAULT_SETTINGS);
+    setHorasInput(String(DEFAULT_SETTINGS.cancelacion_horas));
   }, []);
 
   async function toggleApartados() {
