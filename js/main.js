@@ -75,7 +75,10 @@
   function navigateTo(route, push) {
     if (ROUTES.indexOf(route) === -1) route = 'inicio';
     showPage(route, false);
-    var url = location.pathname + location.search + '#/' + route;
+    // Si es inicio, usamos URL limpia (sin hash) para no mostrar #/inicio
+    var url = route === 'inicio'
+      ? location.pathname + location.search
+      : location.pathname + location.search + '#/' + route;
     if (push !== false) {
       window.history.pushState({ route: route }, '', url);
     } else {
