@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { onSnapshot, doc } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { DEFAULT_SETTINGS, setAppSettings, AppSettings } from "@/lib/firestore";
 import Link from "next/link";
-import { setAppSettings, AppSettings, DEFAULT_SETTINGS } from "@/lib/firestore";
 import { 
   Rocket, 
   Settings2, 
