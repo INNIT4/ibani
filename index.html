@@ -6,7 +6,7 @@
   <title>IBANI - Organiza sorteos y rifas profesionales online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -41,20 +41,40 @@
     <section class="hero" id="inicio">
       <div class="hero__bg"></div>
       <div class="hero__container">
+        <div class="hero__badge animate-in">Plataforma #1 en Seguridad</div>
         <h1 class="hero__title">
-          Todo lo que necesitas para <span class="text-gradient">sorteos exitosos</span>
+          Diseña sorteos <span class="text-gradient">como un profesional</span>
         </h1>
         <p class="hero__subtitle">
-          La plataforma más completa para organizar sorteos y rifas online. Segura, transparente y fácil de usar.
+          La infraestructura más robusta y elegante para organizar tus rifas online. Automatiza tus ventas y genera confianza instantánea.
         </p>
         <div class="hero__cta">
-          <a href="https://ibanidemo.vercel.app/" target="_blank" class="btn btn--outline btn--lg">Ver Demo</a>
+          <a href="https://ibanidemo.vercel.app/" target="_blank" class="btn btn--primary btn--lg">Ver Demo Real</a>
+          <a href="#precios" class="btn btn--outline btn--lg">Ver Planes</a>
         </div>
-        <div class="hero__stats">
-          <div class="stat-item"><div class="stat" data-count="10000">0</div><p>Sorteos realizados</p></div>
-          <div class="stat-item"><div class="stat" data-count="500000">0</div><p>Usuarios registrados</p></div>
-          <div class="stat-item"><div class="stat" data-count="99.9">0</div><p>Tiempo de actividad</p></div>
-          <div class="stat-item"><div class="stat" data-count="2000000">0</div><p>Procesado en ventas</p></div>
+      </div>
+    </section>
+
+    <!-- Logo Ticker Section -->
+    <section class="logo-ticker">
+      <div class="container">
+        <p class="ticker-label">Utilizado por los mejores organizadores y marcas</p>
+        <div class="ticker-wrapper">
+          <div class="ticker-track">
+            <span class="ticker-item">SORTEOS JANS</span>
+            <span class="ticker-item">RIFAS MX</span>
+            <span class="ticker-item">GANA YA</span>
+            <span class="ticker-item">LOTERÍA DIGITAL</span>
+            <span class="ticker-item">PREMIOS PRO</span>
+            <span class="ticker-item">IBANI PARTNERS</span>
+            <!-- Duplicate for infinite effect -->
+            <span class="ticker-item">SORTEOS JANS</span>
+            <span class="ticker-item">RIFAS MX</span>
+            <span class="ticker-item">GANA YA</span>
+            <span class="ticker-item">LOTERÍA DIGITAL</span>
+            <span class="ticker-item">PREMIOS PRO</span>
+            <span class="ticker-item">IBANI PARTNERS</span>
+          </div>
         </div>
       </div>
     </section>
@@ -93,7 +113,7 @@
             <div class="feature-card__demo">
               <div class="raffle-wheel" id="raffleWheel">
                 <div class="raffle-wheel__circle"></div>
-                <button type="button" class="raffle-wheel__btn" id="btnIniciarSorteo">INICIAR SORTEO</button>
+                <button type="button" class="raffle-wheel__btn" id="btnIniciarSorteo">INICIAR</button>
               </div>
               <div class="raffle-wheel__winner" id="winnerDisplay">Ganador: —</div>
             </div>
@@ -102,7 +122,7 @@
             <div class="feature-card__icon">📊</div>
             <h3>Control Total</h3>
             <p>Panel de administración con todas las métricas.</p>
-            <a href="https://ibanidemo.vercel.app/admin" target="_blank" style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600; text-decoration: none; margin-top: 0.5rem; display: block;">Ver Demo del Panel &rarr;</a>
+            <a href="https://ibanidemo.vercel.app/admin" target="_blank" class="link-primary">Ver Demo del Panel &raquo;</a>
           </article>
           <article class="feature-card" data-aos>
             <div class="feature-card__icon">💳</div>
@@ -196,7 +216,7 @@
 
     <!-- Página: Para Quiénes -->
     <div class="page" id="page-para-quien" data-route="para-quien">
-      <section style="padding: 6rem 0; background: var(--color-bg);">
+      <section class="pricing">
         <div class="container">
           <h2 class="section-title">¿Para quién es IBANI?</h2>
           <p class="section-subtitle">Potenciamos la recaudación de fondos para todos</p>
@@ -204,58 +224,64 @@
             <div class="feature-modern-card" data-aos>
               <div class="feature-modern-icon">🏢</div>
               <h3 class="feature-modern-title">Fundaciones y ONGs</h3>
-              <p style="color: var(--color-text-muted);">Una forma transparente y efectiva de recaudar fondos para causas benéficas con pagos automáticos.</p>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Transparencia y efectividad para causas benéficas.</p>
             </div>
             <div class="feature-modern-card" data-aos>
               <div class="feature-modern-icon">🎥</div>
               <h3 class="feature-modern-title">Creadores de Contenido</h3>
-              <p style="color: var(--color-text-muted);">Monetiza a tu audiencia ofreciendo sorteos justos y emocionantes en vivo, fortaleciendo la confianza de tus seguidores.</p>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Monetiza a tu audiencia con sorteos justos en vivo.</p>
             </div>
             <div class="feature-modern-card" data-aos>
               <div class="feature-modern-icon">🎓</div>
               <h3 class="feature-modern-title">Escuelas y Comunidades</h3>
-              <p style="color: var(--color-text-muted);">Olvídate de los boletos de papel. Gestiona todo digitalmente para viajes, graduaciones o mejoras en tu comunidad.</p>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Gestiona viajes y graduaciones de forma digital.</p>
             </div>
             <div class="feature-modern-card" data-aos>
               <div class="feature-modern-icon">👤</div>
               <h3 class="feature-modern-title">Organizadores Independientes</h3>
-              <p style="color: var(--color-text-muted);">Inicia tu propio negocio de sorteos de manera profesional con herramientas de control total desde el primer día.</p>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Inicia tu negocio de sorteos de manera profesional.</p>
             </div>
           </div>
         </div>
       </section>
-      <section style="padding: 4rem 2rem; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: white; margin: 0 auto 3rem; border-radius: 20px; max-width: 1200px; text-align: center; box-shadow: var(--shadow-lg);">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">¿Listo para empezar?</h2>
-        <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9; line-height: 1.7;">Únete a miles de organizadores que ya confían en IBANI para sus rifas y sorteos.</p>
-
-      </section>
+      
+      <div class="container" style="padding-bottom: 8rem;">
+        <div class="pricing-card pricing-card--featured" style="text-align: center; padding: 4rem;">
+          <h2 class="section-title" style="margin-bottom: 1rem;">¿Listo para empezar?</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;">Únete a los organizadores que ya confían en IBANI.</p>
+          <a href="#contacto" class="btn btn--primary btn--lg">Crear mi Sorteo Now</a>
+        </div>
+      </div>
     </div>
 
     <!-- Página: Seguridad -->
     <div class="page" id="page-seguridad" data-route="seguridad">
-      <section style="padding: 6rem 0; background: var(--color-bg);">
+      <section class="pricing">
         <div class="container">
-          <h2 class="section-title">Seguridad Garantizada</h2>
-          <p class="section-subtitle">Tu tranquilidad y la de tus participantes es nuestra prioridad absoluta</p>
-          <div class="integration-grid" style="margin-top: 3rem;">
-            <div class="integration-card" style="align-items: flex-start; text-align: left;">
-              <div class="icon-wrap" style="color: #22c55e; margin-bottom: 1rem; font-size: 2.5rem;">🔒</div>
-              <h3 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.75rem;">Protección de Pagos</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.7;">Transacciones cifradas mediante pasarelas oficiales (Stripe, PayPal). Tu dinero y la información de tus clientes están siempre a salvo.</p>
+          <div class="section-header">
+            <h2 class="section-title">Seguridad Garantizada</h2>
+            <p class="section-subtitle">Tu tranquilidad es nuestra prioridad absoluta</p>
+          </div>
+          <div class="bento-grid">
+            <div class="feature-modern-card">
+              <div class="feature-modern-icon" style="color: #22c55e;">🔒</div>
+              <h3 class="feature-modern-title">Protección de Pagos</h3>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Transacciones cifradas mediante pasarelas oficiales.</p>
             </div>
-            <div class="integration-card" style="align-items: flex-start; text-align: left;">
-              <div class="icon-wrap" style="color: #3b82f6; margin-bottom: 1rem; font-size: 2.5rem;">⚖️</div>
-              <h3 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.75rem;">Total Transparencia</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.7;">Utilizamos algoritmos aleatorios verificables y publicamos los resultados para que cada sorteo sea 100% confiable y comprobable.</p>
+            <div class="feature-modern-card">
+              <div class="feature-modern-icon" style="color: #3b82f6;">⚖️</div>
+              <h3 class="feature-modern-title">Total Transparencia</h3>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Algoritmos verificables para resultados 100% confiables.</p>
             </div>
-            <div class="integration-card" style="align-items: flex-start; text-align: left;">
-              <div class="icon-wrap" style="color: #8b5cf6; margin-bottom: 1rem; font-size: 2.5rem;">📜</div>
-              <h3 style="color: var(--color-text); font-size: 1.2rem; margin-bottom: 0.75rem;">Plataforma Legal</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.7;">Certificados SSL, cumplimiento de normativas de protección de datos y herramientas para operar conforme a las leyes en tu país.</p>
+            <div class="feature-modern-card">
+              <div class="feature-modern-icon" style="color: #f59e0b;">🛡️</div>
+              <h3 class="feature-modern-title">Infraestructura Robusta</h3>
+              <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Servidores de alta disponibilidad con 99.9% de uptime.</p>
             </div>
           </div>
         </div>
       </section>
+    </div>
       <section style="padding: 5rem 0; background: var(--color-bg-subtle);">
         <div class="container" style="text-align: center;">
           <h2 class="section-title" style="margin-bottom: 1.5rem;">Usamos las mejores tecnologías</h2>
@@ -288,87 +314,77 @@
 
     <!-- Página: Precios -->
     <div class="page" id="page-precios" data-route="precios">
-    <section class="pricing" id="precios" style="padding: 5rem 0; background: var(--color-bg);">
+    <section class="pricing" id="precios">
       <div class="container">
-
-        <div style="text-align: center; max-width: 680px; margin: 0 auto 4rem;">
-          <h2 class="section-title">¿Cuál es el costo?</h2>
-          <p class="section-subtitle">Todo lo que necesitas saber antes de comenzar. Sin sorpresas.</p>
+        <div class="section-header">
+          <h2 class="section-title">Elige tu plan de crecimiento</h2>
+          <p class="section-subtitle">Precios simples y transparentes adaptados a tu ritmo de trabajo.</p>
         </div>
 
-        <!-- Paso 1: Infraestructura -->
-        <div style="max-width: 860px; margin: 0 auto 3rem;">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <span style="background: var(--color-primary); color: white; border-radius: 50%; width: 2.2rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">1</span>
-            <h3 style="margin: 0; font-size: 1.3rem;">Infraestructura inicial (dominio y hosting)</h3>
-          </div>
-          <p style="color: var(--color-text-muted); line-height: 1.7; margin-bottom: 1.5rem; padding-left: 3.2rem;">
-            Para iniciar, necesitamos rentar con nuestros proveedores los recursos donde vivirá tu página de sorteo:
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; padding-left: 3.2rem;">
-            <div style="flex: 1; min-width: 260px; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem;">
-              <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🌐</div>
-              <h4 style="margin: 0 0 0.4rem; font-size: 1rem;">Dominio</h4>
-              <p style="margin: 0 0 0.75rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.5;">Tu nombre en internet.<br><span style="color: var(--color-text-muted); font-style: italic;">Ej: www.tusorteo.mx</span></p>
-              <span style="display: inline-block; background: rgba(37,99,235,0.1); color: var(--color-primary); border-radius: 999px; padding: 0.3rem 0.9rem; font-weight: 700; font-size: 0.95rem;">~$250 MXN / año</span>
+        <div class="pricing-cards">
+          <!-- Plan por Rifa -->
+          <div class="pricing-card">
+            <div class="pricing-card__header">
+              <span class="plan-name">Pro <span class="badge">Básico</span></span>
+              <div class="plan-price">
+                <span class="currency">$</span>10,000 <span class="period">/ rifa</span>
+              </div>
             </div>
-            <div style="flex: 1; min-width: 260px; background: var(--color-bg-subtle); border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem;">
-              <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">☁️</div>
-              <h4 style="margin: 0 0 0.4rem; font-size: 1rem;">Hosting</h4>
-              <p style="margin: 0 0 0.75rem; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.5;">El servidor donde se almacena tu página web. Varía según el tráfico.</p>
-              <span style="display: inline-block; background: rgba(37,99,235,0.1); color: var(--color-primary); border-radius: 999px; padding: 0.3rem 0.9rem; font-weight: 700; font-size: 0.95rem;">~$15 USD / mes</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Divisor -->
-        <div style="max-width: 860px; margin: 0 auto 3rem; border-top: 1px solid var(--color-border);"></div>
-
-        <!-- Paso 2: Nuestro servicio -->
-        <div style="max-width: 860px; margin: 0 auto 3rem;">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <span style="background: var(--color-primary); color: white; border-radius: 50%; width: 2.2rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0;">2</span>
-            <h3 style="margin: 0; font-size: 1.3rem;">Nuestro servicio</h3>
-          </div>
-          <p style="color: var(--color-text-muted); line-height: 1.7; margin-bottom: 2rem; padding-left: 3.2rem;">
-            Una vez lista tu página, el pago por nuestro servicio se realiza al momento de la entrega. <strong style="color: var(--color-text);">Cada nuevo sorteo requiere una nueva página.</strong>
-            Elige el plan que mejor se adapte a la duración de tus rifas:
-          </p>
-
-          <!-- Tarjetas de planes -->
-          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; padding-left: 3.2rem;">
-
-            <!-- Plan por Rifa -->
-            <div style="flex: 1; min-width: 280px; background: var(--color-white); border: 1px solid var(--color-border); border-radius: 20px; padding: 2rem; box-shadow: var(--shadow-sm); position: relative; overflow: hidden;">
-              <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎟️</div>
-              <h4 style="margin: 0 0 0.5rem; font-size: 1.2rem;">Precio por Rifa</h4>
-              <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.5;">Cubre toda la duración del sorteo, sin importar cuánto tiempo tarde en venderse.</p>
-              <div style="font-size: 2.5rem; font-weight: 800; color: var(--color-primary); line-height: 1;">$10,000</div>
-              <div style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem; font-weight: 500;">MXN por sorteo</div>
-              <ul class="feature-modern-list" style="font-size: 0.9rem;">
-                <li>Pago único por sorteo</li>
-                <li>Sin límite de tiempo</li>
-                <li>Ideal para rifas largas</li>
+            <div class="pricing-card__body">
+              <a href="#contacto" class="btn btn--outline btn--block">Empezar ahora</a>
+              <ul class="plan-features">
+                <li><i class="check">✓</i> 1 Sorteo completo</li>
+                <li><i class="check">✓</i> Boletos ilimitados</li>
+                <li><i class="check">✓</i> Dashboard de administración</li>
+                <li><i class="check">✓</i> Pagos vía WhatsApp/Transferencia</li>
+                <li><i class="check">✓</i> Hosting y dominio incluidos (1 año)</li>
+                <li><i class="check">✓</i> Sin límite de tiempo de venta</li>
               </ul>
             </div>
+          </div>
 
-            <!-- Plan Mensual (destacado) -->
-            <div style="flex: 1; min-width: 280px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border-radius: 20px; padding: 2rem; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; color: white;">
-              <div style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">MÁS POPULAR</div>
-              <div style="font-size: 2rem; margin-bottom: 0.75rem;">📅</div>
-              <h4 style="margin: 0 0 0.5rem; font-size: 1.2rem; color: white;">Precio por Mes</h4>
-              <p style="font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.5; opacity: 0.85;">Cubre un mes completo. Puedes lanzar múltiples sorteos durante ese período.</p>
-              <div style="font-size: 2.5rem; font-weight: 800; line-height: 1;">$7,000</div>
-              <div style="font-size: 0.9rem; margin-bottom: 1.25rem; font-weight: 500; opacity: 0.85;">MXN por mes</div>
-              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <li style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: rgba(255,255,255,0.7);">✓</span> Múltiples sorteos al mes</li>
-                <li style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: rgba(255,255,255,0.7);">✓</span> Renovación mensual flexible</li>
-                <li style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: rgba(255,255,255,0.7);">✓</span> Ideal para rifas frecuentes</li>
+          <!-- Plan Mensual (destacado) -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__header">
+              <span class="plan-name">Team <span class="badge badge--blue">Recomendado</span></span>
+              <div class="plan-price">
+                <span class="currency">$</span>7,000 <span class="period">/ mes</span>
+              </div>
+            </div>
+            <div class="pricing-card__body">
+              <a href="#contacto" class="btn btn--primary btn--block">Empezar ahora</a>
+              <ul class="plan-features">
+                <li><i class="check">✓</i> Sorteos mensuales ilimitados</li>
+                <li><i class="check">✓</i> Todo lo del plan Pro</li>
+                <li><i class="check">✓</i> Soporte prioritario 24/7</li>
+                <li><i class="check">✓</i> Multi-admin access</li>
+                <li><i class="check">✓</i> Estadísticas avanzadas de marketing</li>
+                <li><i class="check">✓</i> Renovación flexible</li>
               </ul>
             </div>
+          </div>
 
+          <!-- Plan Enterprise -->
+          <div class="pricing-card">
+            <div class="pricing-card__header">
+              <span class="plan-name">Custom</span>
+              <div class="plan-price">
+                <span class="currency">$</span>-- <span class="period">A medida</span>
+              </div>
+            </div>
+            <div class="pricing-card__body">
+              <a href="#contacto" class="btn btn--outline btn--block">Contactar ventas</a>
+              <ul class="plan-features">
+                <li><i class="check">✓</i> Volumen masivo de sorteos</li>
+                <li><i class="check">✓</i> Integración con APIs externas</li>
+                <li><i class="check">✓</i> Dominio propio avanzado</li>
+                <li><i class="check">✓</i> Desarrollo de funciones a medida</li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
         <!-- CTA WhatsApp -->
         <div style="max-width: 860px; margin: 3rem auto 0; text-align: center; padding: 2rem; background: var(--color-bg-subtle); border-radius: 16px; border: 1px solid var(--color-border);">
