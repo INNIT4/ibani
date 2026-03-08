@@ -84,6 +84,18 @@ export interface WhatsAppConfig {
   ayuda_numero?: string;
 }
 
+export interface AppSettings {
+  mostrar_apartados: boolean;
+  cancelacion_activa: boolean;
+  cancelacion_horas: number;
+}
+
+export const DEFAULT_SETTINGS: AppSettings = {
+  mostrar_apartados: true,
+  cancelacion_activa: false,
+  cancelacion_horas: 24,
+};
+
 export interface BankAccount {
   id?: string;
   banco: string;
@@ -124,30 +136,32 @@ const DUMMY_VEN_APS = {
   apartados: [5, 18, 77]
 };
 
-// ─── Mock Functions ───────────────────────────────────────────────────────────
+// ─── Mock Functions (BULLETPROOF VERSION) ────────────────────────────────────
 
 export async function getRifas(): Promise<Rifa[]> { return [DUMMY_RIFA]; }
-export async function getRifa(_id: string): Promise<Rifa | null> { return DUMMY_RIFA; }
-export async function createRifa(_data: any) { return "id"; }
-export async function updateRifa(_id: string, _data: any) { }
-export async function deleteRifa(_id: string) { }
-export async function anunciarGanador(_id: string, _n: number) { return {} as any; }
-export async function registrarNumerosVendidos(_rifaId: string, _nums: number[]) { }
+export async function getRifa(..._args: any[]): Promise<Rifa | null> { return DUMMY_RIFA; }
+export async function createRifa(..._args: any[]) { return "demo-id"; }
+export async function updateRifa(..._args: any[]) { }
+export async function deleteRifa(..._args: any[]) { }
+export async function anunciarGanador(..._args: any[]) { return {} as any; }
+export async function registrarNumerosVendidos(..._args: any[]) { }
 
-export async function getNumerosOcupados(_id: string) { return DUMMY_VEN_APS; }
-export async function reservarNumeros(_id: string, nums: number[]) { 
-  console.log("DEMO: Reserva simulada de números:", nums);
+export async function getNumerosOcupados(..._args: any[]) { return DUMMY_VEN_APS; }
+export async function reservarNumeros(..._args: any[]) { 
+  console.log("DEMO: Reserva simulada de números.");
 }
 
-export async function markBoletoPagadoConNumeros(_b: any) { }
-export async function cancelApartado(_b: any) { }
-export async function cancelPagado(_b: any) { }
-export async function revertPagadoToApartado(_b: any) { }
-export async function createBoleto(_d: any) { return "demo-folio"; }
+export async function markBoletoPagadoConNumeros(..._args: any[]) { }
+export async function cancelApartado(..._args: any[]) { }
+export async function cancelPagado(..._args: any[]) { }
+export async function revertPagadoToApartado(..._args: any[]) { }
+export async function createBoleto(..._args: any[]) { return "demo-folio"; }
 
 export async function getBoletos(): Promise<Boleto[]> { return []; }
-export async function getBoletosPaginados(_options?: any): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> { return { boletos: [], hasMore: false, lastDoc: null }; }
-export async function getBoletoByFolio(_f: string): Promise<Boleto | null> { return null; }
+export async function getBoletosPaginados(..._args: any[]): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> { 
+  return { boletos: [], hasMore: false, lastDoc: null }; 
+}
+export async function getBoletoByFolio(..._args: any[]): Promise<Boleto | null> { return null; }
 
 export async function getWhatsAppConfig() { 
   return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" }; 
@@ -159,52 +173,30 @@ export async function getBankAccounts() {
   ];
 }
 
-export interface AppSettings {
-  mostrar_apartados: boolean;
-  cancelacion_activa: boolean;
-  cancelacion_horas: number;
-}
-
-export const DEFAULT_SETTINGS: AppSettings = {
-  mostrar_apartados: true,
-  cancelacion_activa: false,
-  cancelacion_horas: 24,
-};
-
 export async function getAppSettings() { return DEFAULT_SETTINGS; }
-export async function setAppSettings(_d: any) { }
+export async function setAppSettings(..._args: any[]) { }
 
-export async function getSiteTexts() {
-  return {
-    hero_title: "Tu Sistema de Rifas Profesional",
-    hero_subtitle: "Esta es una demostración de cómo se vería tu propio sitio de sorteos.",
-    hero_banks_text: "BBVA · Santander · Banorte",
-    how_it_works_title: "¿Cómo funciona?",
-    how_it_works_steps: [
-      { title: "Demo Step 1", desc: "El usuario ve tus rifas." },
-      { title: "Demo Step 2", desc: "Eligen sus números." }
-    ],
-    faq_items: [{ q: "¿Es esto real?", a: "No, es una demostración del sistema." }]
-  } as any;
-}
-export async function setSiteTexts(_d: any) { }
-export async function cancelarBoletosExpirados(_h: number) { return 0; }
+export async function getSiteTexts() { return DEFAULT_SITE_TEXTS as any; }
+export async function setSiteTexts(..._args: any[]) { }
+export async function cancelarBoletosExpirados(..._args: any[]) { return 0; }
 export async function getAndRotateWhatsApp() { return "5500001234"; }
-export async function setWhatsAppConfig(_d: any) { }
-export async function upsertBankAccount(_id: string, _d: any) { }
-export async function deleteBankAccount(_id: string) { }
+export async function setWhatsAppConfig(..._args: any[]) { }
+export async function upsertBankAccount(..._args: any[]) { }
+export async function deleteBankAccount(..._args: any[]) { }
 
-export async function createComprobante(_d: any) { return "demo-id"; }
-export async function getComprobantesPaginados(): Promise<{ comprobantes: any[], hasMore: boolean, lastDoc: any }> { return { comprobantes: [], hasMore: false, lastDoc: null }; }
-export async function updateComprobanteStatus() { }
-export async function updateComprobanteComentario() { }
-export async function getComprobanteByFolio() { return null; }
-export async function validateDiscountCode() { return null; }
-export async function incrementDiscountUse() { }
-export async function getBoletosByCelular(): Promise<Boleto[]> { return []; }
-export async function getBoletosByNumero(): Promise<Boleto[]> { return []; }
-export async function getBoletosByRifa(): Promise<Boleto[]> { return []; }
-export async function getDiscountCodes(): Promise<any[]> { return []; }
-export async function createDiscountCode() { return "id"; }
-export async function updateDiscountCode() { }
-export async function deleteDiscountCode() { }
+export async function createComprobante(..._args: any[]) { return "demo-id"; }
+export async function getComprobantesPaginados(..._args: any[]): Promise<{ comprobantes: any[], hasMore: boolean, lastDoc: any }> { 
+  return { comprobantes: [], hasMore: false, lastDoc: null }; 
+}
+export async function updateComprobanteStatus(..._args: any[]) { }
+export async function updateComprobanteComentario(..._args: any[]) { }
+export async function getComprobanteByFolio(..._args: any[]) { return null; }
+export async function validateDiscountCode(..._args: any[]) { return null; }
+export async function incrementDiscountUse(..._args: any[]) { }
+export async function getBoletosByCelular(..._args: any[]): Promise<Boleto[]> { return []; }
+export async function getBoletosByNumero(..._args: any[]): Promise<Boleto[]> { return []; }
+export async function getBoletosByRifa(..._args: any[]): Promise<Boleto[]> { return []; }
+export async function getDiscountCodes(): Promise<DiscountCode[]> { return []; }
+export async function createDiscountCode(..._args: any[]) { return "demo-coupon-id"; }
+export async function updateDiscountCode(..._args: any[]) { }
+export async function deleteDiscountCode(..._args: any[]) { }
