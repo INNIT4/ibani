@@ -38,15 +38,19 @@
   <main id="app">
     <!-- Página: Inicio -->
     <div class="page" id="page-inicio" data-route="inicio">
-    <section class="hero" id="inicio">
-      <div class="hero__bg"></div>
+    <section class="hero reveal reveal--up" id="inicio">
+      <div class="hero__floaters">
+        <div class="floater floater--1">🎟️</div>
+        <div class="floater floater--2">💰</div>
+        <div class="floater floater--3">🏆</div>
+      </div>
       <div class="hero__container">
-        <div class="hero__badge animate-in">Plataforma #1 en Seguridad</div>
+        <div class="hero__badge">Plataforma #1 en Seguridad</div>
         <h1 class="hero__title">
-          Diseña sorteos <span class="text-gradient">como un profesional</span>
+          Diseña sorteos como un profesional
         </h1>
         <p class="hero__subtitle">
-          La infraestructura más robusta y elegante para organizar tus rifas online. Automatiza tus ventas y genera confianza instantánea.
+          La infraestructura más elegante para organizar tus rifas online. Automatiza tus ventas y genera confianza instantánea.
         </p>
         <div class="hero__cta">
           <a href="https://ibanidemo.vercel.app/" target="_blank" class="btn btn--primary btn--lg">Ver Demo Real</a>
@@ -96,17 +100,17 @@
         <h2 class="section-title">Todo lo que necesitas para organizar sorteos exitosos</h2>
         <p class="section-subtitle">Funcionalidades pensadas para que tu sorteo sea un éxito</p>
         <div class="features__grid">
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--left" data-aos>
             <div class="feature-card__icon">🎨</div>
             <h3>Personalización</h3>
             <p>Adaptación de la imagen de marca de tu sorteo.</p>
           </article>
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--up" data-aos>
             <div class="feature-card__icon">🎟️</div>
             <h3>Venta Online</h3>
             <p>Gestión de boletos digitales las 24 horas.</p>
           </article>
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--right" data-aos>
             <div class="feature-card__icon">🎡</div>
             <h3>Transparencia</h3>
             <p>Sistema de sorteo justo para generar confianza.</p>
@@ -118,18 +122,18 @@
               <div class="raffle-wheel__winner" id="winnerDisplay">Ganador: —</div>
             </div>
           </article>
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--left" data-aos>
             <div class="feature-card__icon">📊</div>
             <h3>Control Total</h3>
             <p>Panel de administración con todas las métricas.</p>
             <a href="https://ibanidemo.vercel.app/admin" target="_blank" class="link-primary">Ver Demo del Panel &raquo;</a>
           </article>
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--up" data-aos>
             <div class="feature-card__icon">💳</div>
             <h3>Pagos</h3>
             <p>Integración con pasarelas de pago seguras.</p>
           </article>
-          <article class="feature-card" data-aos>
+          <article class="feature-card reveal reveal--right" data-aos>
             <div class="feature-card__icon">👥</div>
             <h3>Soporte</h3>
             <p>Gestión de participantes y atención al cliente.</p>
@@ -221,22 +225,22 @@
           <h2 class="section-title">¿Para quién es IBANI?</h2>
           <p class="section-subtitle">Potenciamos la recaudación de fondos para todos</p>
           <div class="bento-grid" style="margin-top: 3rem;">
-            <div class="feature-modern-card" data-aos>
+            <div class="feature-modern-card reveal reveal--left" data-aos>
               <div class="feature-modern-icon">🏢</div>
               <h3 class="feature-modern-title">Fundaciones y ONGs</h3>
               <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Transparencia y efectividad para causas benéficas.</p>
             </div>
-            <div class="feature-modern-card" data-aos>
+            <div class="feature-modern-card reveal reveal--right" data-aos>
               <div class="feature-modern-icon">🎥</div>
               <h3 class="feature-modern-title">Creadores de Contenido</h3>
               <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Monetiza a tu audiencia con sorteos justos en vivo.</p>
             </div>
-            <div class="feature-modern-card" data-aos>
+            <div class="feature-modern-card reveal reveal--left" data-aos>
               <div class="feature-modern-icon">🎓</div>
               <h3 class="feature-modern-title">Escuelas y Comunidades</h3>
               <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Gestiona viajes y graduaciones de forma digital.</p>
             </div>
-            <div class="feature-modern-card" data-aos>
+            <div class="feature-modern-card reveal reveal--right" data-aos>
               <div class="feature-modern-icon">👤</div>
               <h3 class="feature-modern-title">Organizadores Independientes</h3>
               <p class="ticker-label" style="text-align: left; opacity: 1; margin: 0;">Inicia tu negocio de sorteos de manera profesional.</p>
@@ -281,7 +285,6 @@
           </div>
         </div>
       </section>
-    </div>
       <section style="padding: 5rem 0; background: var(--color-bg-subtle);">
         <div class="container" style="text-align: center;">
           <h2 class="section-title" style="margin-bottom: 1.5rem;">Usamos las mejores tecnologías</h2>
@@ -323,7 +326,7 @@
 
         <div class="pricing-cards">
           <!-- Plan por Rifa -->
-          <div class="pricing-card">
+          <div class="pricing-card reveal reveal--left">
             <div class="pricing-card__header">
               <span class="plan-name">Pro <span class="badge">Básico</span></span>
               <div class="plan-price">
@@ -344,7 +347,7 @@
           </div>
 
           <!-- Plan Mensual (destacado) -->
-          <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card pricing-card--featured reveal reveal--up">
             <div class="pricing-card__header">
               <span class="plan-name">Team <span class="badge badge--blue">Recomendado</span></span>
               <div class="plan-price">
@@ -365,7 +368,7 @@
           </div>
 
           <!-- Plan Enterprise -->
-          <div class="pricing-card">
+          <div class="pricing-card reveal reveal--right">
             <div class="pricing-card__header">
               <span class="plan-name">Custom</span>
               <div class="plan-price">
@@ -849,5 +852,31 @@
   </footer>
 
   <script src="js/main.js"></script>
-</body>
+    <script>
+      // Intersection Observer for Scroll Reveals
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      function initScrollReveals() {
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      }
+
+      // Re-init when route changes
+      window.addEventListener('hashchange', () => {
+        setTimeout(initScrollReveals, 100);
+      });
+
+      document.addEventListener('DOMContentLoaded', initScrollReveals);
+    </script>
+  </body>
 </html>
