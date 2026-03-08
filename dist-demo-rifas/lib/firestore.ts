@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Timestamp } from "firebase/firestore";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -104,24 +105,24 @@ const DUMMY_VEN_APS = {
 // ─── Mock Functions ───────────────────────────────────────────────────────────
 
 export async function getRifas(): Promise<Rifa[]> { return [DUMMY_RIFA]; }
-export async function getRifa(id: string): Promise<Rifa | null> { return DUMMY_RIFA; }
-export async function createRifa(data: any) { return "id"; }
-export async function updateRifa(id: string, data: any) { }
-export async function deleteRifa(id: string) { }
-export async function anunciarGanador(id: string, n: number) { return {} as any; }
+export async function getRifa(_id: string): Promise<Rifa | null> { return DUMMY_RIFA; }
+export async function createRifa(_data: any) { return "id"; }
+export async function updateRifa(_id: string, _data: any) { }
+export async function deleteRifa(_id: string) { }
+export async function anunciarGanador(_id: string, _n: number) { return {} as any; }
 
-export async function getNumerosOcupados(id: string) { return DUMMY_VEN_APS; }
-export async function reservarNumeros(id: string, nums: number[]) { 
+export async function getNumerosOcupados(_id: string) { return DUMMY_VEN_APS; }
+export async function reservarNumeros(_id: string, nums: number[]) { 
   console.log("DEMO: Reserva simulada de números:", nums);
 }
 
-export async function markBoletoPagadoConNumeros(b: any) { }
-export async function cancelApartado(b: any) { }
-export async function createBoleto(d: any) { return "demo-folio"; }
+export async function markBoletoPagadoConNumeros(_b: any) { }
+export async function cancelApartado(_b: any) { }
+export async function createBoleto(_d: any) { return "demo-folio"; }
 
 export async function getBoletos() { return []; }
 export async function getBoletosPaginados() { return { boletos: [], hasMore: false, lastDoc: null }; }
-export async function getBoletoByFolio(f: string) { return null; }
+export async function getBoletoByFolio(_f: string) { return null; }
 
 export async function getWhatsAppConfig() { 
   return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" }; 
@@ -146,7 +147,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
 };
 
 export async function getAppSettings() { return DEFAULT_SETTINGS; }
-export async function setAppSettings(d: any) { }
+export async function setAppSettings(_d: any) { }
 
 export async function getSiteTexts() {
   return {
@@ -161,14 +162,14 @@ export async function getSiteTexts() {
     faq_items: [{ q: "¿Es esto real?", a: "No, es una demostración del sistema." }]
   } as any;
 }
-export async function setSiteTexts(d: any) { }
-export async function cancelarBoletosExpirados(h: number) { return 0; }
+export async function setSiteTexts(_d: any) { }
+export async function cancelarBoletosExpirados(_h: number) { return 0; }
 export async function getAndRotateWhatsApp() { return "5500001234"; }
-export async function setWhatsAppConfig(d: any) { }
-export async function upsertBankAccount(id: string, d: any) { }
-export async function deleteBankAccount(id: string) { }
+export async function setWhatsAppConfig(_d: any) { }
+export async function upsertBankAccount(_id: string, _d: any) { }
+export async function deleteBankAccount(_id: string) { }
 
-export async function createComprobante(d: any) { return "demo-id"; }
+export async function createComprobante(_d: any) { return "demo-id"; }
 export async function getComprobantesPaginados() { return { comprobantes: [], hasMore: false, lastDoc: null }; }
 export async function updateComprobanteStatus() { }
 export async function updateComprobanteComentario() { }
