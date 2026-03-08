@@ -106,6 +106,15 @@ export interface BankAccount {
   color?: string;
 }
 
+export interface Comprobante {
+  id: string;
+  folio: string;
+  url: string;
+  comentario?: string;
+  status: "pendiente" | "aprobado" | "rechazado";
+  created_at: Timestamp;
+}
+
 // ─── Dummy Data ───────────────────────────────────────────────────────────────
 
 const DUMMY_RIFA: Rifa = {
