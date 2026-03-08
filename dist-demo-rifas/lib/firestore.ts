@@ -110,8 +110,10 @@ export interface Comprobante {
   id: string;
   folio: string;
   folios: string[];
+  nombre: string;
   url: string;
   comentario?: string;
+  admin_comentario?: string;
   status: "pendiente" | "aprobado" | "rechazado";
   created_at: Timestamp;
 }
