@@ -109,6 +109,7 @@ export interface BankAccount {
 export interface Comprobante {
   id: string;
   folio: string;
+  folios: string[];
   url: string;
   comentario?: string;
   status: "pendiente" | "aprobado" | "rechazado";
