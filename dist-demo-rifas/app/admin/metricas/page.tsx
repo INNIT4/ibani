@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import { onSnapshot, collection } from "firebase/firestore";
-import { db } from "@/lib/firebase";
-import { Boleto, Rifa, DiscountCode } from "@/lib/firestore";
+import { Boleto, Rifa, DiscountCode, getBoletos, getRifas, getDiscountCodes } from "@/lib/firestore";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -92,25 +90,14 @@ export default function MetricasPage() {
   const [period, setPeriod]           = useState<0 | 7 | 14 | 30>(14);
   const [selectedRifaId, setSelectedRifaId] = useState<string | null>(null);
 
-  // ── Real-time subscriptions ─────────────────────────────────────────────────
+  // ── Data retrieval (Demo Mode) ──────────────────────────────────────────────
   useEffect(() => {
-    let loadedB = false, loadedR = false, loadedC = false;
-    const check = () => { if (loadedB && loadedR && loadedC) setLoading(false); };
-
-    const unsubB = onSnapshot(collection(db, "boletos"), (snap) => {
-      setBoletos(snap.docs.map((d) => ({ id: d.id, ...d.data() } as Boleto)));
-      loadedB = true; check();
+    Promise.all([getBoletos(), getRifas(), getDiscountCodes()]).then(([bs, rs, cs]) => {
+      setBoletos(bs);
+      setRifas(rs);
+      setCodes(cs);
+      setLoading(false);
     });
-    const unsubR = onSnapshot(collection(db, "rifas"), (snap) => {
-      setRifas(snap.docs.map((d) => ({ id: d.id, ...d.data() } as Rifa)));
-      loadedR = true; check();
-    });
-    const unsubC = onSnapshot(collection(db, "discount_codes"), (snap) => {
-      setCodes(snap.docs.map((d) => ({ id: d.id, ...d.data() } as DiscountCode)));
-      loadedC = true; check();
-    });
-
-    return () => { unsubB(); unsubR(); unsubC(); };
   }, []);
 
   // ── Rifa seleccionada ───────────────────────────────────────────────────────

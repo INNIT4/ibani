@@ -346,7 +346,7 @@ export default function AdminCodigosPage() {
                               setForm({
                                 ...form,
                                 rifa_ids: selected
-                                  ? current.filter((id) => id !== r.id)
+                                  ? current.filter((id: string) => id !== r.id)
                                   : [...current, r.id!],
                               });
                             }}

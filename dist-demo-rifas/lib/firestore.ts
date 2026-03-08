@@ -156,15 +156,89 @@ const DUMMY_RIFA: Rifa = {
   ]
 };
 
+const DUMMY_RIFA_2: Rifa = {
+  id: "demo-2",
+  nombre: "¡Rifa Realizada Exitosamente!",
+  descripcion: "Esta rifa ya terminó para que puedas ver cómo se muestran los ganadores.",
+  precio_boleto: 50,
+  imagen_url: "https://images.unsplash.com/photo-1593642532400-2682810df593?q=80&w=2069&auto=format&fit=crop",
+  imagenes_url: ["https://images.unsplash.com/photo-1593642532400-2682810df593?q=80&w=2069&auto=format&fit=crop"],
+  texto_inferior: "Gracias a todos por participar.",
+  num_inicio: 0,
+  num_fin: 49,
+  fecha_sorteo: new Date(Date.now() - 86400000).toISOString(),
+  activa: false,
+  num_vendidos: 50,
+  num_apartados: 0,
+  ganador: {
+    numero: 42,
+    nombre: "Lucas",
+    apellidos: "Mora",
+    folio: "WIN-999",
+    anunciado_at: new Date(Date.now() - 86400000).toISOString()
+  }
+};
+
+const DUMMY_BOLETOS: Boleto[] = [
+  {
+    id: "b1",
+    folio: "DEMO-001",
+    rifa_id: "demo-1",
+    numeros: [7, 24],
+    nombre: "Juan",
+    apellidos: "Pérez",
+    celular: "5512345678",
+    estado: "CDMX",
+    codigo_descuento: "",
+    descuento_aplicado: 0,
+    precio_total: 200,
+    status: "pagado",
+    created_at: Timestamp.now()
+  },
+  {
+    id: "b2",
+    folio: "DEMO-002",
+    rifa_id: "demo-1",
+    numeros: [45],
+    nombre: "María",
+    apellidos: "García",
+    celular: "5587654321",
+    estado: "Jalisco",
+    codigo_descuento: "PROMO",
+    descuento_aplicado: 10,
+    precio_total: 90,
+    status: "pendiente",
+    created_at: Timestamp.now()
+  },
+  {
+    id: "b3",
+    folio: "DEMO-003",
+    rifa_id: "demo-2",
+    numeros: [42],
+    nombre: "Lucas",
+    apellidos: "Mora",
+    celular: "5599008877",
+    estado: "Nuevo León",
+    codigo_descuento: "",
+    descuento_aplicado: 0,
+    precio_total: 50,
+    status: "pagado",
+    created_at: Timestamp.fromDate(new Date(Date.now() - 86400000 * 2))
+  }
+];
+
 const DUMMY_VEN_APS = {
-  vendidos: [7, 24, 45, 88, 12, 3, 99],
-  apartados: [5, 18, 77]
+  vendidos: [7, 24, 42],
+  apartados: [45]
 };
 
 // ─── Mock Functions (BULLETPROOF VERSION) ────────────────────────────────────
 
-export async function getRifas(): Promise<Rifa[]> { return [DUMMY_RIFA]; }
-export async function getRifa(..._args: any[]): Promise<Rifa | null> { return DUMMY_RIFA; }
+export async function getRifas(): Promise<Rifa[]> { return [DUMMY_RIFA, DUMMY_RIFA_2]; }
+export async function getRifa(id: string): Promise<Rifa | null> { 
+  if (id === "demo-2") return DUMMY_RIFA_2;
+  return DUMMY_RIFA; 
+}
 export async function createRifa(..._args: any[]) { return "demo-id"; }
 export async function updateRifa(..._args: any[]) { }
 export async function deleteRifa(..._args: any[]) { }
@@ -182,11 +256,13 @@ export async function cancelPagado(..._args: any[]) { }
 export async function revertPagadoToApartado(..._args: any[]) { }
 export async function createBoleto(..._args: any[]) { return "demo-folio"; }
 
-export async function getBoletos(): Promise<Boleto[]> { return []; }
+export async function getBoletos(): Promise<Boleto[]> { return DUMMY_BOLETOS; }
 export async function getBoletosPaginados(..._args: any[]): Promise<{ boletos: Boleto[], hasMore: boolean, lastDoc: any }> {
-  return { boletos: [], hasMore: false, lastDoc: null };
+  return { boletos: DUMMY_BOLETOS, hasMore: false, lastDoc: null };
 }
-export async function getBoletoByFolio(..._args: any[]): Promise<Boleto | null> { return null; }
+export async function getBoletoByFolio(folio: string): Promise<Boleto | null> { 
+  return DUMMY_BOLETOS.find(b => b.folio === folio) || null; 
+}
 
 export async function getWhatsAppConfig() {
   return { numeros: ["5500001234"], indice_actual: 0, ayuda_numero: "5500001234" };

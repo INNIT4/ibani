@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo, useRef } from "react";
-import { onSnapshot, collection } from "firebase/firestore";
-import { db } from "@/lib/firebase";
-import { Boleto, Rifa } from "@/lib/firestore";
+import { Boleto, Rifa, getBoletos, getRifas } from "@/lib/firestore";
 
 type ReportType =
   | "resumen"
@@ -89,22 +87,12 @@ export default function ReportesPage() {
   const loadedRef = useRef({ boletos: false, rifas: false });
 
   useEffect(() => {
-    const checkDone = () => {
-      if (loadedRef.current.boletos && loadedRef.current.rifas) setLoading(false);
-    };
-    const unsubBoletos = onSnapshot(collection(db, "boletos"), (snap) => {
-      setBoletos(snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Boleto));
-      loadedRef.current.boletos = true;
-      checkDone();
-    });
-    const unsubRifas = onSnapshot(collection(db, "rifas"), (snap) => {
-      const rs = snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Rifa);
+    Promise.all([getRifas(), getBoletos()]).then(([rs, bs]) => {
       setRifas(rs);
       setRifaMap(new Map(rs.map((r) => [r.id!, r])));
-      loadedRef.current.rifas = true;
-      checkDone();
+      setBoletos(bs);
+      setLoading(false);
     });
-    return () => { unsubBoletos(); unsubRifas(); };
   }, []);
 
   // Boletos for the selected rifa (or all)
