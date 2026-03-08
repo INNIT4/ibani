@@ -74,7 +74,7 @@ export interface Boleto {
   codigo_descuento: string;
   descuento_aplicado: number;
   precio_total: number;
-  status: "pendiente" | "pagado" | "cancelado";
+  status: string;
   created_at: Timestamp;
 }
 
@@ -116,7 +116,7 @@ export interface Comprobante {
   monto_total: number;
   comentario?: string;
   admin_comentario?: string;
-  status: "pendiente" | "aprobado" | "rechazado";
+  status: string;
   created_at: Timestamp;
 }
 
