@@ -451,6 +451,59 @@ img { max-width: 100%; height: auto; }
   line-height: 1.7;
   text-align: center;
 }
+
+/* Browser Mockup */
+.browser-mockup {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 
+    0 50px 100px -20px rgba(0,0,0,0.15),
+    0 30px 60px -30px rgba(0,0,0,0.2),
+    0 1px 2px rgba(0,0,0,0.05);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto;
+}
+.browser-header {
+  background: #f1f5f9;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.browser-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+.browser-header .dot:nth-child(1) { background: #ff5f57; }
+.browser-header .dot:nth-child(2) { background: #ffbd2e; }
+.browser-header .dot:nth-child(3) { background: #28c840; }
+
+.browser-address {
+  margin-left: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  flex-grow: 1;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(1.1);
+}
+
 .hero__cta { display: flex; gap: 1.5rem; justify-content: center; }
 
 /* Logo Ticker */
