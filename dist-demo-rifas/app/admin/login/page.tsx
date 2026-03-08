@@ -76,6 +76,23 @@ export default function AdminLoginPage() {
             >
               {loading ? "Iniciando sesión..." : "Entrar"}
             </button>
+
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-slate-200 dark:border-slate-700"></span>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white dark:bg-slate-800 px-2 text-slate-500">O prueba la demo</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => router.push("/admin")}
+              className="w-full py-3 bg-slate-900 dark:bg-slate-700 hover:bg-black dark:hover:bg-slate-600 text-white font-bold rounded-xl transition-colors border border-slate-700"
+            >
+              Acceso Demo (Sin Contraseña)
+            </button>
           </form>
         </div>
       </div>
