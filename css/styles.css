@@ -518,7 +518,7 @@ img { max-width: 100%; height: auto; }
   text-align: center;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: #475569;
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -857,7 +857,7 @@ img { max-width: 100%; height: auto; }
   display: flex;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #475569;
 }
 
 /* CTA Final */
