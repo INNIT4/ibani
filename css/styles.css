@@ -1337,3 +1337,58 @@ img { max-width: 100%; height: auto; }
   background: rgba(255,255,255,0.05);
   transform: translateY(-2px);
 }
+/* ===== Info Important Section ===== */
+.info-important {
+  padding: 6rem 0;
+  background: var(--color-bg-subtle);
+}
+.info-important__wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.price-faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.info-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 32px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--color-primary);
+}
+.info-card__title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.info-card__icon {
+  font-size: 1.75rem;
+}
+.info-card__description {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+.text-focus {
+  color: var(--color-text);
+}
+.text-accent {
+  color: var(--color-primary-accent);
+}
+
+@media (max-width: 768px) {
+  .info-card { padding: 2rem 1.5rem; }
+  .info-card__title { font-size: 1.15rem; }
+}

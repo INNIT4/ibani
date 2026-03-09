@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IBANI - Organiza sorteos y rifas profesionales online</title>
   <meta name="description" content="IBANI - La plataforma premium para organizar sorteos y rifas profesionales online. Segura, transparente y fácil de configurar. Crea tu propia página de rifas hoy mismo.">
+  <link rel="canonical" href="https://www.ibanidigital.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preload" as="image" href="images/demo-preview.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -449,32 +453,32 @@
     </section>
 
     <!-- 2. Información Importante -->
-    <section style="padding: 4rem 0 6rem; background: var(--color-bg-subtle);">
+    <section class="info-important">
       <div class="container">
-        <div style="max-width: 900px; margin: 0 auto;">
+        <div class="info-important__wrapper">
           
-          <div class="price-faq-grid" style="display: flex; flex-direction: column; gap: 2rem;">
+          <div class="price-faq-grid">
             
             <!-- Política de Costos de Infraestructura -->
-            <div style="background: white; padding: 2.5rem; border-radius: 30px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-              <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.2rem; color: var(--color-primary); display: flex; align-items: center; gap: 0.75rem;">
-                <span style="font-size: 1.5rem;">🌐</span> COSTOS DE INFRAESTRUCTURA
+            <div class="info-card">
+              <h3 class="info-card__title">
+                <span class="info-card__icon">🌐</span> COSTOS DE INFRAESTRUCTURA
               </h3>
-              <p style="color: var(--color-text-muted); line-height: 1.7; font-size: 1rem;">
+              <p class="info-card__description">
                 Para iniciar tu proyecto, el <strong>primer pago</strong> corresponde a la gestión del <strong>Dominio</strong> (aprox. $250 MXN anuales) y el <strong>Hosting Pro</strong> ($20 USD/mes). 
-                <strong style="color: var(--color-text);">Una vez cubierta esta infraestructura, procedemos con la configuración completa de tu sistema.</strong> 
-                Al finalizar la configuración, se te notificará que la plataforma está lista; en ese momento, <strong style="color: var(--color-primary-accent);">el plan seleccionado deberá ser liquidado para proceder con la entrega formal y activación de tu página profesional.</strong>
+                <strong class="text-focus">Una vez cubierta esta infraestructura, procedemos con la configuración completa de tu sistema.</strong> 
+                Al finalizar la configuración, se te notificará que la plataforma está lista; en ese momento, <strong class="text-accent">el plan seleccionado deberá ser liquidado para proceder con la entrega formal y activación de tu página profesional.</strong>
               </p>
             </div>
 
             <!-- Política de Soporte y Cambios -->
-            <div style="background: white; padding: 2.5rem; border-radius: 30px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-              <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--color-primary); display: flex; align-items: center; gap: 0.75rem;">
-                <span style="font-size: 1.5rem;">🛠️</span> ¿SOPORTE O CAMBIOS EN MI PÁGINA?
+            <div class="info-card">
+              <h3 class="info-card__title">
+                <span class="info-card__icon">🛠️</span> ¿SOPORTE O CAMBIOS EN MI PÁGINA?
               </h3>
-              <p style="color: var(--color-text-muted); line-height: 1.8; font-size: 1.05rem;">
-                Nuestro equipo está disponible para soporte técnico. Es importante aclarar que <strong style="color: var(--color-text);">no existen cambios sencillos sin costo</strong>. 
-                Cualquier modificación es considerada una <strong style="color: var(--color-primary-accent);">personalización</strong> y tendrá un costo de un solo pago. 
+              <p class="info-card__description">
+                Nuestro equipo está disponible para soporte técnico. Es importante aclarar que <strong class="text-focus">no existen cambios sencillos sin costo</strong>. 
+                Cualquier modificación es considerada una <strong class="text-accent">personalización</strong> y tendrá un costo de un solo pago. 
                 Tu plan contratado seguirá siendo el mismo, a menos que los cambios solicitados sean extremadamente profundos.
               </p>
             </div>
@@ -863,7 +867,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+
   <script>
     // Intersection Observer for Scroll Reveals
     const observerOptions = {
