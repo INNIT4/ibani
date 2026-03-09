@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Rajdhani } from "next/font/google";
+import { Outfit } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -8,10 +8,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
-const rajdhani = Rajdhani({
+const modernFont = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-racing",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-modern",
   display: "swap",
 });
 
@@ -44,8 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const nonce = headers().get("x-nonce") || undefined;
 
   return (
-    <html lang="es" suppressHydrationWarning className={rajdhani.variable}>
-      <body className="font-racing antialiased min-h-screen flex flex-col">
+    <html lang="es" suppressHydrationWarning className={modernFont.variable}>
+      <body className="font-modern antialiased min-h-screen flex flex-col bg-white text-slate-900">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <Navbar />
           <main className="flex-1">{children}</main>

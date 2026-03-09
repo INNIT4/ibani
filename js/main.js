@@ -213,41 +213,9 @@
     observerCards.observe(card);
   });
 
-  // ----- Ruleta principal (feature) -----
-  const raffleWheel = document.getElementById('raffleWheel');
-  const btnIniciarSorteo = document.getElementById('btnIniciarSorteo');
-  const winnerDisplay = document.getElementById('winnerDisplay');
 
-  if (raffleWheel && btnIniciarSorteo && winnerDisplay) {
-    const circle = raffleWheel.querySelector('.raffle-wheel__circle');
-    btnIniciarSorteo.addEventListener('click', function () {
-      if (raffleWheel.classList.contains('spinning')) return;
-      raffleWheel.classList.add('spinning');
-      winnerDisplay.textContent = 'Girando...';
-      btnIniciarSorteo.disabled = true;
-      setTimeout(function () {
-        const winner = Math.floor(Math.random() * 9999) + 1;
-        winnerDisplay.textContent = 'Ganador: ' + winner;
-        btnIniciarSorteo.disabled = false;
-        raffleWheel.classList.remove('spinning');
-      }, 4000);
-    });
-  }
 
-  // ----- Mini ruleta (paso 5) -----
-  const miniWheel = document.getElementById('miniWheel');
-  const miniWinnerNum = document.getElementById('miniWinnerNum');
-  if (miniWheel && miniWinnerNum) {
-    miniWheel.addEventListener('click', function () {
-      if (miniWheel.classList.contains('spin')) return;
-      miniWheel.classList.add('spin');
-      miniWinnerNum.textContent = '...';
-      setTimeout(function () {
-        miniWinnerNum.textContent = String(Math.floor(Math.random() * 9999) + 1);
-        miniWheel.classList.remove('spin');
-      }, 3000);
-    });
-  }
+
 
   // ----- Calculadora de precios -----
   const qtyInput = document.getElementById('qtyInput');
@@ -359,53 +327,7 @@
   });
 
   // ----- Formulario de contacto -----
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const queryType = document.getElementById('queryType');
-      const subject = contactForm.querySelector('[name="subject"]');
-      const message = document.getElementById('message');
-      const privacy = contactForm.querySelector('[name="privacy"]');
 
-      let valid = true;
-      [name, email, queryType, subject, message].forEach(function (field) {
-        if (!field || !field.value.trim()) {
-          valid = false;
-          field?.classList.add('error');
-        } else {
-          field?.classList.remove('error');
-        }
-      });
-      if (!privacy?.checked) {
-        valid = false;
-        privacy?.closest('.checkbox-label')?.classList.add('error');
-      } else {
-        privacy?.closest('.checkbox-label')?.classList.remove('error');
-      }
-
-      if (!valid) {
-        return;
-      }
-
-      const btn = contactForm.querySelector('button[type="submit"]');
-      const originalText = btn?.textContent;
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = 'Enviando...';
-      }
-      setTimeout(function () {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = originalText;
-        }
-        alert('Mensaje enviado. Te responderemos lo antes posible.');
-        contactForm.reset();
-      }, 800);
-    });
-  }
 
   // Enlaces # (anclas) que no son rutas #/ siguen con scroll suave
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {

@@ -18,10 +18,10 @@ interface NumberGridProps {
 
 
 const STATUS_CLASSES: Record<NumberStatus, string> = {
-  disponible:  "bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800 cursor-pointer",
-  vendido:     "",
-  apartado:    "bg-green-100 hover:bg-green-200 text-green-800 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800 cursor-pointer",
-  seleccionado:"bg-blue-500 text-white dark:bg-blue-600 cursor-pointer ring-2 ring-blue-400",
+  disponible:  "bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-800 cursor-pointer hover:shadow-md hover:z-10",
+  vendido:     "bg-slate-50 text-slate-300 border-transparent opacity-30 cursor-not-allowed",
+  apartado:    "bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-800 cursor-pointer hover:shadow-md hover:z-10",
+  seleccionado:"bg-brand-red border-brand-red text-white cursor-pointer shadow-lg shadow-rose-200 z-20 scale-110",
 };
 
 export default function NumberGrid({
@@ -52,8 +52,6 @@ export default function NumberGrid({
   const toShow = visibles ?? numbers;
 
   // Calculate dynamic page size based on total tickets to avoid too many pages
-  // e.g. for 60,000 tickets, 1000 per page = 60 pages (too many). 
-  // Let's aim for roughly 10-15 pages max.
   const dynamicPageSize = useMemo(() => {
     if (visibles) return toShow.length;
     const total = numFin - numInicio + 1;
@@ -80,61 +78,84 @@ export default function NumberGrid({
   return (
     <div>
       {/* Legend */}
-      <div className="flex flex-wrap gap-4 mb-4 text-xs font-medium">
-        <span className="flex items-center gap-1.5">
-          <span className="w-4 h-4 rounded bg-green-200 dark:bg-green-900 inline-block" /> Disponible
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-4 h-4 rounded bg-blue-500 inline-block" /> Seleccionado
-        </span>
+      <div className="flex flex-wrap gap-6 mb-8 p-6 bg-slate-50 border border-slate-100 rounded-3xl">
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded-lg border border-slate-200 bg-white" />
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-tight">Disponible</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-5 h-5 rounded-lg bg-brand-red shadow-sm" />
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-tight">Seleccionado</span>
+        </div>
+        <div className="flex items-center gap-2 opacity-50">
+          <span className="w-5 h-5 rounded-lg bg-slate-200 border border-transparent" />
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-tight">Vendido</span>
+        </div>
       </div>
 
-      {/* Grid */}
-      <div className="number-grid">
-        {pageNumbers.map((n) => {
-          const status = getStatus(n);
-          return (
-            <button
-              key={n}
-              onClick={() => {
-                if (status !== "vendido") onToggle(n);
-              }}
-              className={`rounded text-xs font-bold py-2 px-1 transition-all ${STATUS_CLASSES[status]}`}
-              title={`Número ${n} — ${status}`}
-            >
-              {n}
-            </button>
-          );
-        })}
+      {/* Grid wrapper */}
+      <div className="relative">
+        {/* Grid */}
+        <div className="number-grid gap-2 sm:gap-3">
+          {pageNumbers.map((n) => {
+            const status = getStatus(n);
+            return (
+              <button
+                key={n}
+                onClick={() => {
+                  if (status !== "vendido") onToggle(n);
+                }}
+                className={`w-full aspect-square rounded-xl text-xs font-extrabold flex items-center justify-center transition-all border ${STATUS_CLASSES[status]}`}
+                title={`Número ${n} — ${status}`}
+              >
+                {n}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Empty state when searching */}
+        {toShow.length === 0 && (
+          <div className="py-20 text-center">
+            <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-100">
+              <svg className="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <p className="text-slate-400 font-medium">No se encontraron números disponibles.</p>
+          </div>
+        )}
       </div>
 
       {/* Pagination controls */}
       {usePagination && totalPages > 1 && (
-        <div className="flex flex-col sm:flex-row items-center justify-between mt-6 gap-4 border-t border-gray-800 pt-6">
-          <p className="text-xs text-gray-500 font-medium">
-            Mostrando <span className="text-white">{(page - 1) * dynamicPageSize + 1}–{Math.min(page * dynamicPageSize, toShow.length)}</span> de <span className="text-white">{toShow.length}</span> números
+        <div className="flex flex-col sm:flex-row items-center justify-between mt-12 gap-6 border-t border-slate-100 pt-8">
+          <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest leading-none">
+            Mostrando <span className="text-slate-800">{(page - 1) * dynamicPageSize + 1}–{Math.min(page * dynamicPageSize, toShow.length)}</span> de <span className="text-slate-800">{toShow.length}</span> números
           </p>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => {
                 setPage((p) => Math.max(1, p - 1));
-                window.scrollTo({ top: document.querySelector('.number-grid')?.parentElement?.offsetTop ? (document.querySelector('.number-grid')?.parentElement as HTMLElement).offsetTop - 100 : 0, behavior: 'smooth' });
+                const el = document.querySelector('.number-grid');
+                if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 120, behavior: 'smooth' });
               }}
               disabled={page === 1}
-              className="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm border border-gray-800 disabled:opacity-30 hover:bg-gray-800 transition-colors"
+              className="px-6 py-3 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl border-2 border-slate-100 text-slate-400 disabled:opacity-30 hover:bg-slate-50 hover:text-slate-800 hover:border-slate-200 transition-all"
             >
               Anterior
             </button>
             
-            <div className="relative group">
+            <div className="relative">
               <select 
                 value={page} 
                 onChange={(e) => {
                   setPage(Number(e.target.value));
-                  window.scrollTo({ top: document.querySelector('.number-grid')?.parentElement?.offsetTop ? (document.querySelector('.number-grid')?.parentElement as HTMLElement).offsetTop - 100 : 0, behavior: 'smooth' });
+                  const el = document.querySelector('.number-grid');
+                  if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 120, behavior: 'smooth' });
                 }}
-                className="appearance-none bg-brand-dark border border-gray-800 text-white text-xs font-bold py-2 px-8 rounded-sm focus:outline-none focus:border-brand-red cursor-pointer pr-10"
+                className="appearance-none bg-white border-2 border-slate-100 text-slate-800 text-[10px] font-black uppercase tracking-widest py-3 pl-6 pr-12 rounded-2xl focus:outline-none focus:border-brand-red/30 cursor-pointer shadow-sm"
               >
                 {Array.from({ length: totalPages }, (_, i) => (
                   <option key={i + 1} value={i + 1}>
@@ -142,18 +163,19 @@ export default function NumberGrid({
                   </option>
                 ))}
               </select>
-              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-gray-500">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
               </div>
             </div>
 
             <button
               onClick={() => {
                 setPage((p) => Math.min(totalPages, p + 1));
-                window.scrollTo({ top: document.querySelector('.number-grid')?.parentElement?.offsetTop ? (document.querySelector('.number-grid')?.parentElement as HTMLElement).offsetTop - 100 : 0, behavior: 'smooth' });
+                const el = document.querySelector('.number-grid');
+                if (el) window.scrollTo({ top: (el as HTMLElement).offsetTop - 120, behavior: 'smooth' });
               }}
               disabled={page === totalPages}
-              className="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm border border-gray-800 disabled:opacity-30 hover:bg-gray-800 transition-colors"
+              className="px-6 py-3 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl border-2 border-slate-100 text-slate-400 disabled:opacity-30 hover:bg-slate-50 hover:text-slate-800 hover:border-slate-200 transition-all"
             >
               Siguiente
             </button>

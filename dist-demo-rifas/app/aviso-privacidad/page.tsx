@@ -7,102 +7,95 @@ export const metadata: Metadata = {
 
 export default function AvisoPrivacidadPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold uppercase tracking-widest mb-2">Aviso de Privacidad</h1>
+    <div className="max-w-4xl mx-auto px-4 py-16">
+      <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-800 mb-2">Aviso de Privacidad</h1>
       <span className="accent-bar" />
-      <p className="text-gray-500 mb-10 text-sm mt-4">
-        Ultima actualizacion: {new Date().toLocaleDateString("es-MX", { year: "numeric", month: "long", day: "numeric" })}
+      <p className="text-slate-500 mb-12 text-sm mt-6 font-light">
+        Última actualización: {new Date().toLocaleDateString("es-MX", { year: "numeric", month: "long", day: "numeric" })}
       </p>
 
-      <div className="max-w-none space-y-8 text-sm leading-relaxed text-gray-300">
+      <div className="max-w-none space-y-12 text-base leading-relaxed text-slate-600 font-light">
 
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Identidad y domicilio del responsable</h2>
+        <section className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+          <h2 className="text-xl font-extrabold mb-4 text-slate-800 uppercase tracking-tight">Identidad y domicilio del responsable</h2>
           <p>
-            <strong className="text-white">Sorteos Pro</strong> (en adelante &ldquo;el Responsable&rdquo;) es responsable del tratamiento de los datos
-            personales que nos proporcione, de conformidad con la <em>Ley Federal de Proteccion de Datos Personales
-            en Posesion de los Particulares</em> (LFPDPPP) y su Reglamento.
+            <strong className="text-slate-900 font-bold">Sorteos Pro</strong> (en adelante &ldquo;el Responsable&rdquo;) es responsable del tratamiento de los datos
+            personales que nos proporcione, de conformidad con la <em>Ley Federal de Protección de Datos Personales
+            en Posesión de los Particulares</em> (LFPDPPP) y su Reglamento.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Datos personales recabados</h2>
-          <p>Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, recabamos los siguientes datos personales:</p>
-          <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-400">
-            <li>Nombre y apellidos</li>
-            <li>Numero de telefono celular</li>
-            <li>Estado de residencia (dentro de la Republica Mexicana)</li>
+        <section className="bg-slate-50 border border-slate-100 rounded-3xl p-8">
+          <h2 className="text-xl font-extrabold mb-4 text-slate-800 uppercase tracking-tight">Datos personales recabados</h2>
+          <p className="mb-4">Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, recabamos los siguientes datos personales:</p>
+          <ul className="space-y-3 font-medium text-slate-700">
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-brand-red rounded-full" />
+              Nombre y apellidos
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-brand-red rounded-full" />
+              Número de teléfono celular
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-brand-red rounded-full" />
+              Estado de residencia (dentro de la República Mexicana)
+            </li>
           </ul>
-          <p className="mt-3">No recabamos datos personales sensibles.</p>
+          <p className="mt-6 text-slate-400 italic text-sm">No recabamos datos personales sensibles.</p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Finalidades del tratamiento</h2>
-          <p><strong className="text-white">Finalidades primarias (necesarias para la relacion juridica):</strong></p>
-          <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-400">
-            <li>Registrar la adquisicion de boletos para rifas y sorteos.</li>
-            <li>Enviar confirmacion de apartado y folio por WhatsApp.</li>
-            <li>Identificar al titular del boleto en caso de resultar ganador.</li>
-            <li>Atender consultas sobre el estado de su boleto.</li>
-          </ul>
-          <p className="mt-3"><strong className="text-white">Finalidades secundarias (puede oponerse):</strong></p>
-          <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-400">
-            <li>Envio de informacion sobre nuevas rifas y promociones.</li>
-          </ul>
-          <p className="mt-3">
-            Si no desea que sus datos sean tratados para las finalidades secundarias, puede comunicarlo a traves del
-            correo indicado en la seccion de contacto.
-          </p>
+        <section className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+          <h2 className="text-xl font-extrabold mb-4 text-slate-800 uppercase tracking-tight">Finalidades del tratamiento</h2>
+          <div className="space-y-6">
+            <div>
+              <p className="font-bold text-slate-900 mb-2">Finalidades primarias:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Registrar la adquisición de boletos para rifas y sorteos.</li>
+                <li>Enviar confirmación de apartado y folio por WhatsApp.</li>
+                <li>Identificar al titular del boleto en caso de resultar ganador.</li>
+                <li>Atender consultas sobre el estado de su boleto.</li>
+              </ul>
+            </div>
+            <div className="pt-4 border-t border-slate-50">
+              <p className="font-bold text-slate-900 mb-2">Finalidades secundarias:</p>
+              <ul className="list-disc pl-6">
+                <li>Envío de información sobre nuevas rifas y promociones.</li>
+              </ul>
+              <p className="mt-4 text-sm text-slate-400">
+                Si no desea que sus datos sean tratados para las finalidades secundarias, puede comunicarlo a través del
+                botón de soporte.
+              </p>
+            </div>
+          </div>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Transferencias de datos</h2>
-          <p>
-            Sus datos personales <strong className="text-white">no son transferidos</strong> a terceros sin su consentimiento, salvo en los
-            casos previstos en el articulo 37 de la LFPDPPP (autoridades competentes que asi lo requieran).
+        <section className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+          <h2 className="text-xl font-extrabold mb-4 text-slate-800 uppercase tracking-tight">Derechos ARCO</h2>
+          <p className="mb-6">
+            Usted tiene derecho a <strong className="text-slate-900 font-bold">Acceder</strong>, <strong className="text-slate-900 font-bold">Rectificar</strong>, <strong className="text-slate-900 font-bold">Cancelar</strong> u
+            <strong className="text-slate-900 font-bold"> Oponerse</strong> al tratamiento de sus datos personales. Para ejercerlos, envíe su solicitud indicando:
           </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Derechos ARCO</h2>
-          <p>
-            Usted tiene derecho a <strong className="text-white">Acceder</strong>, <strong className="text-white">Rectificar</strong>, <strong className="text-white">Cancelar</strong> u
-            <strong className="text-white"> Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO). Para ejercerlos, puede
-            enviar su solicitud a traves de WhatsApp o al correo de contacto indicando:
-          </p>
-          <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-400">
-            <li>Nombre completo y folio de boleto (si aplica).</li>
-            <li>Descripcion clara del derecho que desea ejercer.</li>
-            <li>Copia de identificacion oficial.</li>
-          </ul>
-          <p className="mt-3">
-            Responderemos su solicitud en un plazo maximo de <strong className="text-white">20 dias habiles</strong>.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Cookies y tecnologias de rastreo</h2>
-          <p>
-            Este sitio utiliza cookies de sesion estrictamente necesarias para el funcionamiento del panel de
-            administracion. No utilizamos cookies de rastreo publicitario ni herramientas de analisis de terceros
-            que recopilen datos personales.
+          <div className="bg-slate-50 rounded-2xl p-6 mb-6 font-medium text-slate-700">
+            <ul className="space-y-2">
+              <li>• Nombre completo y folio de boleto.</li>
+              <li>• Descripción clara del derecho que desea ejercer.</li>
+              <li>• Copia de identificación oficial digitalizada.</li>
+            </ul>
+          </div>
+          <p className="text-sm">
+            Responderemos su solicitud en un plazo máximo de <strong className="text-slate-900 font-bold">20 días hábiles</strong>.
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Cambios al aviso de privacidad</h2>
-          <p>
-            Nos reservamos el derecho de modificar el presente aviso de privacidad en cualquier momento. Los cambios
-            seran publicados en esta misma pagina, indicando la fecha de ultima actualizacion.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold mb-3 text-white uppercase tracking-wider">Contacto</h2>
-          <p>
-            Para cualquier duda o solicitud relacionada con sus datos personales, puede contactarnos a traves del
-            boton de WhatsApp disponible en el sitio.
-          </p>
+        <section className="bg-slate-900 text-white rounded-3xl p-10 text-center relative overflow-hidden shadow-xl">
+          <div className="absolute inset-0 bg-brand-red/5 mix-blend-overlay opacity-20" />
+          <div className="relative z-10">
+            <h2 className="text-2xl font-extrabold mb-4 uppercase tracking-tight">Contacto Directo</h2>
+            <p className="text-slate-400 mb-0 font-light italic">
+              Para cualquier duda relacionada con sus datos personales, contáctanos vía WhatsApp.
+            </p>
+          </div>
         </section>
 
       </div>

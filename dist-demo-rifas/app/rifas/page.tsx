@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getRifas, Rifa } from "@/lib/firestore";
 import CountdownTimer from "@/components/CountdownTimer";
+import { Ticket, Trophy, Calendar, ArrowRight, Timer } from "lucide-react";
 
 export const revalidate = 60;
 
@@ -15,70 +16,76 @@ export default async function RifasPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold uppercase tracking-widest mb-2">Rifas Disponibles</h1>
-      <span className="accent-bar" />
-      <p className="text-gray-400 mb-8 mt-4">Selecciona una rifa para ver los detalles y apartar tus boletos.</p>
+    <div className="max-w-7xl mx-auto px-6 py-24 selection:bg-slate-900 selection:text-white animate-in fade-in duration-1000">
+      {/* Header Section */}
+      <div className="flex flex-col items-center text-center mb-20">
+        <div className="w-16 h-1 bg-slate-900 rounded-full mb-8" />
+        <h1 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-4">Sorteos Activos</h1>
+        <p className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] max-w-xl leading-relaxed">
+          Inicie su participación en nuestras campañas de alta fidelidad con premios certificados.
+        </p>
+      </div>
 
       {rifas.length === 0 ? (
-        <div className="text-center py-24">
-          <p className="text-6xl mb-4">🎟️</p>
-          <p className="text-xl font-semibold text-gray-400">No hay rifas activas en este momento.</p>
-          <p className="text-gray-500 mt-2">¡Vuelve pronto!</p>
+        <div className="text-center py-32 bg-slate-50 rounded-[4rem] border border-slate-100 shadow-inner">
+          <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-slate-300 mx-auto mb-8 shadow-sm">
+             <Ticket size={40} strokeWidth={1.5} />
+          </div>
+          <h2 className="text-xl font-black text-slate-900 uppercase tracking-tighter mb-2">Sin Sorteos Vigentes</h2>
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Próximas campañas en proceso de certificación.</p>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {rifas.map((rifa) => {
+            const principalPrize = rifa.premios?.find(p => p.es_principal);
             return (
               <Link
                 key={rifa.id}
                 href={`/rifas/${rifa.id}`}
-                className="group bg-brand-dark/80 border border-gray-800 rounded-sm overflow-hidden border-t-2 border-t-brand-red hover:border-brand-red hover:glow-red transition-all"
+                className="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 border border-slate-100 flex flex-col"
               >
                 {rifa.imagen_url ? (
-                  <div className="relative w-full h-52">
-                    <Image src={rifa.imagen_url} alt={rifa.nombre} fill className="object-cover" />
+                  <div className="relative w-full h-72 overflow-hidden">
+                    <Image src={rifa.imagen_url} alt={rifa.nombre} fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {principalPrize && (
+                      <div className="absolute top-6 left-6 z-10">
+                        <div className="bg-white/95 backdrop-blur-md text-slate-900 text-[9px] font-black px-4 py-2 rounded-xl uppercase tracking-widest shadow-xl flex items-center gap-2 border border-white/20">
+                          <Trophy size={14} className="text-indigo-600" strokeWidth={2.5} />
+                          <span>{principalPrize.nombre}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ) : (
-                  <div className="w-full h-52 bg-gradient-to-br from-brand-red/30 to-brand-black flex items-center justify-center">
-                    <span className="text-6xl">🎟️</span>
+                  <div className="w-full h-72 bg-slate-50 flex items-center justify-center text-slate-200">
+                    <Ticket size={64} strokeWidth={1.5} />
                   </div>
                 )}
 
-                {/* Prize Badge Overlay */}
-                {rifa.premios && rifa.premios.find(p => p.es_principal) && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <div className="bg-yellow-500 text-yellow-950 text-[10px] font-black px-3 py-1.5 rounded-sm uppercase tracking-tighter shadow-xl flex items-center gap-1.5">
-                      <span>🏆</span>
-                      <span>{rifa.premios.find(p => p.es_principal)?.nombre}</span>
+                <div className="p-10 flex-1 flex flex-col">
+                  <div className="mb-8 p-6 bg-slate-50 rounded-[1.5rem] border border-slate-100">
+                    <div className="flex items-center gap-3 text-slate-400 mb-3">
+                       <Timer size={14} strokeWidth={2.5} />
+                       <span className="text-[9px] font-black uppercase tracking-widest">Cierre de Campaña</span>
                     </div>
+                    <CountdownTimer targetDate={rifa.fecha_sorteo} />
                   </div>
-                )}
-                <div className="p-6">
-                  {rifa.ganador ? (
-                    <div className="mb-4 bg-yellow-900/30 border border-yellow-700 rounded hover:border-yellow-500 transition-colors p-3">
-                      <p className="text-xs text-yellow-500 font-bold uppercase tracking-wider flex items-center gap-1 mb-1">🏆 ¡Tenemos un Ganador!</p>
-                      <p className="font-bold text-white text-lg">#{rifa.ganador.numero} - {rifa.ganador.nombre} {rifa.ganador.apellidos.charAt(0)}.</p>
-                    </div>
-                  ) : (
-                    <div className="mb-4">
-                      <CountdownTimer targetDate={rifa.fecha_sorteo} />
-                    </div>
-                  )}
-                  <h2 className="font-bold text-xl mb-1 text-white group-hover:text-brand-red transition-colors">{rifa.nombre}</h2>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-2">{rifa.descripcion}</p>
 
-                  <div className="flex items-center justify-between">
+                  <h2 className="font-black text-2xl mb-4 text-slate-900 tracking-tighter uppercase leading-none group-hover:text-indigo-600 transition-colors uppercase">{rifa.nombre}</h2>
+                  <p className="text-slate-400 text-xs font-bold uppercase leading-relaxed tracking-wider mb-8 line-clamp-2">{rifa.descripcion}</p>
+
+                  <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
                     <div>
-                      <p className="text-xs text-gray-500">Precio por boleto</p>
-                      <p className="text-2xl font-bold text-brand-red">
+                      <p className="text-[9px] uppercase font-black text-slate-400 tracking-[0.2em] mb-2 leading-none">Inversión Boleto</p>
+                      <p className="text-3xl font-black text-slate-900 tracking-tighter leading-none">
                         ${rifa.precio_boleto.toLocaleString("es-MX")}
-                        <span className="text-sm font-normal text-gray-500 ml-1">MXN</span>
                       </p>
                     </div>
-                    <span className="bg-brand-red/20 text-brand-red text-xs font-bold px-3 py-1.5 rounded-sm">
-                      Sorteo: {new Date(rifa.fecha_sorteo).toLocaleDateString("es-MX")}
-                    </span>
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 shadow-sm">
+                       <ArrowRight size={20} />
+                    </div>
                   </div>
                 </div>
               </Link>

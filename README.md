@@ -20,11 +20,11 @@ Luego visita: http://localhost:8080
 
 - **Header fijo** con navegación y menú móvil.
 - **Hero** con título, CTAs y estadísticas que se animan al hacer scroll.
-- **Características** con tarjetas que aparecen al scroll y **ruleta de sorteo** (botón "INICIAR SORTEO").
-- **5 pasos** para crear un sorteo (formularios de ejemplo, compartir, pagos, **mini ruleta** en el paso 5).
+- **Características** con tarjetas que aparecen al scroll.
+- **5 pasos** para crear un sorteo (formularios de ejemplo, compartir, pagos).
 - **Calculadora de precios**: presets, +/- , slider y tabla que se resalta según la cantidad elegida.
 - **FAQ** con búsqueda en tiempo real, filtros por categoría y acordeón con animación.
-- **Contacto**: tarjetas clicables (email, teléfono, WhatsApp) y formulario con validación y mensaje de envío.
+- **Contacto**: Enlace directo a WhatsApp para atención personalizada.
 - **Footer** con enlaces y redes.
 
 ## Estructura
@@ -43,4 +43,4 @@ rifaspro-landing/
 ## Personalización
 
 - Colores y tipografía: variables CSS en `:root` en `css/styles.css`.
-- Textos, emails y teléfonos: edita `index.html` y, si quieres, `js/main.js` para el envío real del formulario (backend).
+- Textos y números: edita `index.html` y los enlaces de WhatsApp.

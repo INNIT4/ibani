@@ -35,46 +35,57 @@ function KpiCard({
   trend?: { pct: number; up: boolean } | null;
 }) {
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-5">
-      <div className={`w-8 h-1 rounded-full ${color} mb-3`} />
-      <p className="text-2xl font-black mb-0.5">{value}</p>
-      <p className="text-xs text-slate-500">{label}</p>
+    <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 shadow-sm group hover:shadow-xl hover:shadow-slate-100/50 transition-all">
+      <div className={`w-10 h-10 rounded-2xl ${color.replace('bg-', 'bg-')}/10 flex items-center justify-center mb-6`}>
+        <div className={`w-2 h-2 rounded-full ${color}`} />
+      </div>
+      <p className="text-3xl font-black text-slate-900 tracking-tight mb-1">{value}</p>
+      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{label}</p>
       {trend ? (
-        <p className={`text-xs font-semibold mt-1 ${trend.up ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
-          {trend.up ? "↑" : "↓"} {trend.pct.toFixed(1)}% vs período anterior
+        <p className={`text-[10px] font-black uppercase tracking-widest mt-4 flex items-center gap-1 ${trend.up ? "text-green-600" : "text-brand-red"}`}>
+          <span className="text-lg">{trend.up ? "↑" : "↓"}</span>
+          <span>{trend.pct.toFixed(1)}% vs periodo anterior</span>
         </p>
       ) : sub ? (
-        <p className="text-xs text-slate-400 mt-1">{sub}</p>
+        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-4 opacity-60">{sub}</p>
       ) : null}
     </div>
   );
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-base font-bold text-slate-700 dark:text-slate-300 mb-4">{children}</h2>;
+  return (
+    <div className="flex items-center gap-3 mb-8">
+      <div className="w-1.5 h-1.5 rounded-full bg-brand-red" />
+      <h2 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{children}</h2>
+    </div>
+  );
 }
 
-function HBar({ label, value, max, formatted, color = "bg-red-500" }: {
+function HBar({ label, value, max, formatted, color = "bg-brand-red" }: {
   label: string; value: number; max: number; formatted: string; color?: string;
 }) {
   return (
-    <div className="flex items-center gap-3">
-      <p className="w-32 text-xs text-slate-600 dark:text-slate-400 truncate flex-shrink-0">{label}</p>
-      <div className="flex-1 h-5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-        <div className={`h-full ${color} rounded-full transition-all duration-700`} style={{ width: barW(value, max) }} />
+    <div className="flex items-center gap-4 group">
+      <p className="w-36 text-[10px] font-black text-slate-500 uppercase tracking-widest truncate flex-shrink-0 group-hover:text-slate-900 transition-colors uppercase">{label}</p>
+      <div className="flex-1 h-2.5 bg-slate-50 border border-slate-100 rounded-full overflow-hidden shadow-inner">
+        <div 
+          className={`h-full ${color} rounded-full transition-all duration-1000 ease-out shadow-sm`} 
+          style={{ width: barW(value, max) }} 
+        />
       </div>
-      <p className="w-20 text-xs font-bold text-right flex-shrink-0">{formatted}</p>
+      <p className="w-24 text-[10px] font-black text-slate-900 text-right flex-shrink-0 tracking-widest">{formatted}</p>
     </div>
   );
 }
 
 function StatusBadge({ status }: { status: string }) {
   const cfg =
-    status === "pagado"    ? { cls: "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300",    label: "Pagado" } :
-    status === "cancelado" ? { cls: "bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400",    label: "Cancelado" } :
-                             { cls: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300", label: "Pendiente" };
+    status === "pagado"    ? { cls: "bg-green-50 text-green-600 border-green-100", label: "PAGADO" } :
+    status === "cancelado" ? { cls: "bg-slate-50 text-slate-400 border-slate-100", label: "CANCELADO" } :
+                             { cls: "bg-amber-50 text-amber-600 border-amber-100", label: "PENDIENTE" };
   return (
-    <span className={`text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap ${cfg.cls}`}>
+    <span className={`text-[9px] font-black px-2.5 py-1 rounded-lg border uppercase tracking-widest whitespace-nowrap ${cfg.cls}`}>
       {cfg.label}
     </span>
   );
@@ -432,7 +443,7 @@ export default function MetricasPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="animate-spin w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full" />
+        <div className="animate-spin w-10 h-10 border-4 border-brand-red border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -443,50 +454,65 @@ export default function MetricasPage() {
     <div className="space-y-8">
 
       {/* ── Header ── */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
+          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">Métricas y Analítica</h1>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black">Métricas</h1>
-            <span className="flex items-center gap-1.5 text-xs font-semibold text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2.5 py-1 rounded-full">
+            <span className="flex items-center gap-1.5 text-[9px] font-black text-green-600 bg-green-50 px-2.5 py-1 rounded-lg border border-green-100 uppercase tracking-widest">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              En vivo
+              Sincronizado
             </span>
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+              {isGlobal
+                ? `${boletos.length} boletos · ${rifas.length} rifas · ${clientesUnicosAll} clientes`
+                : `${activeBoletos.length} boletos · ${clientesUnicosAll} clientes · ${selectedRifa?.nombre}`}
+            </p>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-            {isGlobal
-              ? `${boletos.length} boletos · ${rifas.length} rifas · ${clientesUnicosAll} clientes únicos`
-              : `${activeBoletos.length} boletos · ${clientesUnicosAll} clientes · ${selectedRifa?.nombre}`}
-          </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 items-center">
+        <div className="flex flex-wrap gap-4 items-center">
           {/* Período */}
-          <div className="flex gap-1">
+          <div className="flex bg-slate-50 border border-slate-100 rounded-2xl p-1">
             {([7, 14, 30, 0] as const).map((p) => (
-              <button key={p} onClick={() => setPeriod(p)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${period === p ? "bg-red-600 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600"}`}>
+              <button 
+                key={p} 
+                onClick={() => setPeriod(p)}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                  period === p 
+                    ? "bg-white text-slate-900 shadow-sm border border-slate-100" 
+                    : "text-slate-400 hover:text-slate-600"
+                }`}
+              >
                 {p === 0 ? "Todo" : `${p}d`}
               </button>
             ))}
           </div>
 
           {/* Selector de rifa */}
-          <div className="flex gap-1 border-l border-slate-200 dark:border-slate-700 pl-2 items-center">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setSelectedRifaId(null)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${isGlobal ? "bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800" : "bg-slate-100 dark:bg-slate-700 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600"}`}
+              className={`px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
+                isGlobal 
+                  ? "bg-slate-900 border-slate-900 text-white shadow-lg" 
+                  : "bg-white border-slate-100 text-slate-400 hover:bg-slate-50"
+              }`}
             >
-              Global
+              Vista Global
             </button>
             {rifas.length > 0 && (
               <select
                 value={selectedRifaId ?? ""}
                 onChange={(e) => setSelectedRifaId(e.target.value || null)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer border-0 outline-none ${!isGlobal ? "bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800" : "bg-slate-100 dark:bg-slate-700 text-slate-500"}`}
+                className={`px-5 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border cursor-pointer outline-none ${
+                  !isGlobal 
+                    ? "bg-slate-900 border-slate-900 text-white shadow-lg" 
+                    : "bg-white border-slate-100 text-slate-400 hover:bg-slate-50"
+                }`}
               >
-                <option value="">Ver por rifa...</option>
+                <option value="">Seleccionar Rifa...</option>
                 {rifas.map((r) => (
-                  <option key={r.id} value={r.id}>{r.nombre}</option>
+                  <option key={r.id} value={r.id} className="text-slate-900 bg-white">{r.nombre}</option>
                 ))}
               </select>
             )}
@@ -496,66 +522,87 @@ export default function MetricasPage() {
 
       {/* ── Card info de la rifa seleccionada ── */}
       {selectedRifa && (
-        <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-4 flex flex-wrap gap-6 items-center">
-          <div>
-            <p className="text-lg font-black">{selectedRifa.nombre}</p>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Números {selectedRifa.num_inicio}–{selectedRifa.num_fin} · ${selectedRifa.precio_boleto}/número
-              {selectedRifa.fecha_sorteo && ` · Sorteo: ${new Date(selectedRifa.fecha_sorteo).toLocaleDateString("es-MX")}`}
-            </p>
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 shadow-sm flex flex-wrap gap-8 items-center animate-in fade-in zoom-in duration-300">
+          <div className="flex-1 min-w-[300px]">
+            <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-2">{selectedRifa.nombre}</h3>
+            <div className="flex flex-wrap items-center gap-4">
+              <span className={`text-[9px] font-black px-2.5 py-1 rounded-lg border uppercase tracking-widest ${selectedRifa.activa ? "bg-green-50 text-green-600 border-green-100" : "bg-slate-50 text-slate-400 border-slate-100"}`}>
+                {selectedRifa.activa ? "Campaña Activa" : "Campaña Finalizada"}
+              </span>
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                Rango: {selectedRifa.num_inicio}–{selectedRifa.num_fin} · {currency(selectedRifa.precio_boleto)} / boleto
+              </p>
+            </div>
           </div>
-          <span className={`text-xs font-bold px-3 py-1 rounded-full ${selectedRifa.activa ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-slate-200 text-slate-600 dark:bg-slate-700 dark:text-slate-400"}`}>
-            {selectedRifa.activa ? "Activa" : "Finalizada"}
-          </span>
-          {selectedRifa.ganador && (
-            <span className="text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30 px-3 py-1 rounded-full">
-              Ganador: {selectedRifa.ganador.nombre} {selectedRifa.ganador.apellidos} — #{selectedRifa.ganador.numero}
-            </span>
-          )}
-          <button onClick={() => setSelectedRifaId(null)} className="ml-auto text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline">
-            Ver global
-          </button>
+          <div className="flex items-center gap-4">
+            {selectedRifa.ganador && (
+              <div className="bg-amber-50 border border-amber-100 px-6 py-4 rounded-[1.5rem] flex items-center gap-4">
+                <div className="w-10 h-10 rounded-2xl bg-amber-500 flex items-center justify-center text-white">🏆</div>
+                <div>
+                  <p className="text-[10px] font-black text-amber-600 uppercase tracking-[0.2em] mb-1">Ganador Oficial</p>
+                  <p className="text-sm font-black text-slate-900">{selectedRifa.ganador.nombre} {selectedRifa.ganador.apellidos} — #{selectedRifa.ganador.numero}</p>
+                </div>
+              </div>
+            )}
+            <button 
+              onClick={() => setSelectedRifaId(null)} 
+              className="text-[10px] font-black text-brand-red uppercase tracking-widest hover:underline px-4 py-2"
+            >
+              Restablecer Filtros
+            </button>
+          </div>
         </div>
       )}
 
       {/* ── Alertas (siempre globales) ── */}
       {hasAlerts && (
-        <div className="space-y-2">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Alertas operativas</p>
-          <div className="space-y-2">
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 px-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse" />
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Alertas de Operación</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {riesgoVencer.length > 0 && (
-              <div className="flex items-start gap-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl px-4 py-3">
-                <span className="text-base flex-shrink-0">&#128308;</span>
+              <div className="bg-rose-50 border border-rose-100 p-6 rounded-[2rem] flex flex-col justify-between group">
                 <div>
-                  <p className="text-sm font-bold text-red-700 dark:text-red-400">{riesgoVencer.length} boleto{riesgoVencer.length !== 1 ? "s" : ""} en riesgo de vencer</p>
-                  <p className="text-xs text-red-600 dark:text-red-500 mt-0.5">Pendientes hace más de 20h · Valor: {currency(Math.round(riesgoVencerValor))}</p>
+                  <div className="w-10 h-10 rounded-2xl bg-rose-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-rose-200">⚠️</div>
+                  <h4 className="text-sm font-black text-rose-900 uppercase tracking-tight">{riesgoVencer.length} Boletos por Vencer</h4>
+                  <p className="text-[10px] font-bold text-rose-600/70 uppercase tracking-widest mt-1">
+                    Exceden 20h de espera · {currency(Math.round(riesgoVencerValor))}
+                  </p>
                 </div>
               </div>
             )}
             {rifasOcupacionBaja.length > 0 && (
-              <div className="flex items-start gap-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl px-4 py-3">
-                <span className="text-base flex-shrink-0">&#128993;</span>
+              <div className="bg-amber-50 border border-amber-100 p-6 rounded-[2rem] flex flex-col justify-between">
                 <div>
-                  <p className="text-sm font-bold text-yellow-700 dark:text-yellow-400">{rifasOcupacionBaja.length} rifa{rifasOcupacionBaja.length !== 1 ? "s" : ""} con ocupación &lt; 15% y sorteo en &lt; 14 días</p>
-                  <p className="text-xs text-yellow-600 dark:text-yellow-500 mt-0.5">{rifasOcupacionBaja.map((r) => r.nombre).join(", ")}</p>
+                  <div className="w-10 h-10 rounded-2xl bg-amber-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-amber-200">📉</div>
+                  <h4 className="text-sm font-black text-amber-900 uppercase tracking-tight">Ocupación Crítica</h4>
+                  <p className="text-[10px] font-bold text-amber-600/70 uppercase tracking-widest mt-1">
+                    &lt; 15% en {rifasOcupacionBaja.length} campañas activas
+                  </p>
                 </div>
               </div>
             )}
             {codesEnRiesgo.length > 0 && (
-              <div className="flex items-start gap-3 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl px-4 py-3">
-                <span className="text-base flex-shrink-0">&#128992;</span>
+              <div className="bg-orange-50 border border-orange-100 p-6 rounded-[2rem] flex flex-col justify-between">
                 <div>
-                  <p className="text-sm font-bold text-orange-700 dark:text-orange-400">{codesEnRiesgo.length} código{codesEnRiesgo.length !== 1 ? "s" : ""} a punto de agotarse</p>
-                  <p className="text-xs text-orange-600 dark:text-orange-500 mt-0.5">{codesEnRiesgo.map((c) => `${c.codigo} (${c.usos}/${c.max_usos})`).join(", ")}</p>
+                  <div className="w-10 h-10 rounded-2xl bg-orange-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-orange-200">🏷️</div>
+                  <h4 className="text-sm font-black text-orange-900 uppercase tracking-tight">Cupones Agotados</h4>
+                  <p className="text-[10px] font-bold text-orange-600/70 uppercase tracking-widest mt-1">
+                    {codesEnRiesgo.length} códigos requieren atención
+                  </p>
                 </div>
               </div>
             )}
             {rifasSinGanador.length > 0 && (
-              <div className="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl px-4 py-3">
-                <span className="text-base flex-shrink-0">&#128309;</span>
+              <div className="bg-blue-50 border border-blue-100 p-6 rounded-[2rem] flex flex-col justify-between">
                 <div>
-                  <p className="text-sm font-bold text-blue-700 dark:text-blue-400">{rifasSinGanador.length} rifa{rifasSinGanador.length !== 1 ? "s" : ""} finalizada{rifasSinGanador.length !== 1 ? "s" : ""} sin ganador registrado</p>
-                  <p className="text-xs text-blue-600 dark:text-blue-500 mt-0.5">{rifasSinGanador.map((r) => r.nombre).join(", ")}</p>
+                  <div className="w-10 h-10 rounded-2xl bg-blue-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-blue-200">🔍</div>
+                  <h4 className="text-sm font-black text-blue-900 uppercase tracking-tight">Pendiente Ganador</h4>
+                  <p className="text-[10px] font-bold text-blue-600/70 uppercase tracking-widest mt-1">
+                    {rifasSinGanador.length} rifas cerradas sin asignar
+                  </p>
                 </div>
               </div>
             )}
@@ -564,105 +611,122 @@ export default function MetricasPage() {
       )}
 
       {/* ── KPIs ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         <KpiCard label="Ingresos confirmados"  value={currency(ingresoTotal)}              color="bg-green-500"  trend={trendIngresos} />
-        <KpiCard label="Ingresos pendientes"   value={currency(ingresoPendiente)}           color="bg-amber-400" />
-        <KpiCard label="Boleto promedio"        value={currency(Math.round(ticketPromedio))} color="bg-blue-500" />
-        <KpiCard label="Tasa de conversión"    value={`${conversionAll.toFixed(1)}%`}       color="bg-purple-500" trend={trendConversion} sub={`${pagadosAll.length} de ${activeBoletos.length}`} />
-        <KpiCard label="Clientes únicos"       value={clientesUnicosAll}                    color="bg-red-500"   trend={trendClientes} />
-        <KpiCard label="Descuentos otorgados"  value={currency(Math.round(descuentoTotal))} color="bg-slate-400" />
-        <KpiCard label="Precio por número"     value={precioPorNumero > 0 ? currency(Math.round(precioPorNumero)) : "—"} color="bg-teal-500" sub="ingreso ÷ números vendidos" />
-        <KpiCard label="Números por compra"    value={numPromedioCompra > 0 ? numPromedioCompra.toFixed(1) : "—"}        color="bg-indigo-500" sub="promedio por boleto pagado" />
+        <KpiCard label="Escala de ingresos"   value={currency(ingresoPendiente)}           color="bg-amber-400" sub="Proyectado en espera" />
+        <KpiCard label="Ticket Promedio"        value={currency(Math.round(ticketPromedio))} color="bg-blue-500" />
+        <KpiCard label="Tasa de Cierre"    value={`${conversionAll.toFixed(1)}%`}       color="bg-purple-500" trend={trendConversion} sub={`${pagadosAll.length} de ${activeBoletos.length} boletos`} />
+        <KpiCard label="Audiencia Única"       value={clientesUnicosAll}                    color="bg-brand-red"   trend={trendClientes} />
+        <KpiCard label="Impacto Descuentos"  value={currency(Math.round(descuentoTotal))} color="bg-slate-400" />
+        <KpiCard label="Costo por Folio"     value={precioPorNumero > 0 ? currency(Math.round(precioPorNumero)) : "—"} color="bg-teal-500" sub="Ingreso ÷ números" />
+        <KpiCard label="Ratio de Selección"    value={numPromedioCompra > 0 ? numPromedioCompra.toFixed(1) : "—"}        color="bg-indigo-500" sub="Números por compra" />
       </div>
 
       {/* ── Tendencia boletos ── */}
       {period > 0 && trendPagados !== null && (
-        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl px-5 py-3 border border-slate-100 dark:border-slate-700 flex flex-wrap gap-6 items-center">
-          <div className="flex items-center gap-2">
-            <span className={`text-sm font-bold ${trendPagados.up ? "text-green-600 dark:text-green-400" : "text-red-500"}`}>
-              {trendPagados.up ? "↑" : "↓"} {trendPagados.pct.toFixed(1)}%
-            </span>
-            <span className="text-xs text-slate-500">boletos pagados vs período anterior</span>
+        <div className="bg-white rounded-[2rem] border border-slate-100 p-6 flex flex-wrap gap-8 items-center shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl ${trendPagados.up ? "bg-green-50 text-green-600" : "bg-rose-50 text-brand-red"}`}>
+              {trendPagados.up ? "↑" : "↓"}
+            </div>
+            <div>
+              <p className="text-lg font-black text-slate-900 tracking-tight">{trendPagados.pct.toFixed(1)}% de variación</p>
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Volumen de boletos vs periodo anterior</p>
+            </div>
           </div>
-          <p className="text-xs text-slate-400">{pagadosPeriod.length} pagados este período · {pagadosPrev.length} en el anterior</p>
-          <p className="text-xs text-slate-400 ml-auto">{periodLabel}</p>
+          <div className="h-10 w-px bg-slate-100 hidden md:block" />
+          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-relaxed">
+            {pagadosPeriod.length} pagos actuales<br/>
+            {pagadosPrev.length} pagos previos
+          </p>
+          <div className="ml-auto">
+            <span className="text-[9px] font-black text-slate-300 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 uppercase tracking-widest">
+              Filtro: {periodLabel}
+            </span>
+          </div>
         </div>
       )}
 
       {/* ── Estado de boletos + Números ── */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
           <SectionTitle>Estado de boletos</SectionTitle>
-          <div className="space-y-3">
+          <div className="space-y-8">
             {[
-              { label: "Pagados",               count: pagadosAll.length,    color: "bg-green-500", textColor: "text-green-700 dark:text-green-400" },
-              { label: "Apartados (pendiente)", count: pendientesAll.length, color: "bg-amber-400", textColor: "text-amber-700 dark:text-amber-400" },
-              { label: "Cancelados",            count: canceladosAll.length, color: "bg-slate-400", textColor: "text-slate-500" },
-              { label: "Regalos",               count: regalosAll.length,    color: "bg-red-400",   textColor: "text-red-600 dark:text-red-400" },
+              { label: "Pagados",               count: pagadosAll.length,    color: "bg-green-500", textColor: "text-green-600" },
+              { label: "Apartados (pendiente)", count: pendientesAll.length, color: "bg-amber-400", textColor: "text-amber-600" },
+              { label: "Cancelados",            count: canceladosAll.length, color: "bg-slate-300", textColor: "text-slate-400" },
+              { label: "Regalos",               count: regalosAll.length,    color: "bg-brand-red",   textColor: "text-brand-red" },
             ].map((s) => (
               <div key={s.label}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span className="text-slate-600 dark:text-slate-400">{s.label}</span>
-                  <span className={`font-black ${s.textColor}`}>{s.count} <span className="font-normal text-slate-400">({pct(s.count, activeBoletos.length)}%)</span></span>
+                <div className="flex justify-between text-[11px] font-black uppercase tracking-widest mb-3">
+                  <span className="text-slate-400">{s.label}</span>
+                  <span className={s.textColor}>{s.count} <span className="text-slate-300 font-bold ml-1">({pct(s.count, activeBoletos.length)}%)</span></span>
                 </div>
-                <div className="h-3 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                  <div className={`h-full ${s.color} rounded-full transition-all duration-700`} style={{ width: barW(s.count, activeBoletos.length) }} />
+                <div className="h-2 bg-slate-50 border border-slate-100 rounded-full overflow-hidden shadow-inner">
+                  <div className={`h-full ${s.color} rounded-full transition-all duration-1000 ease-out`} style={{ width: barW(s.count, activeBoletos.length) }} />
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>{isGlobal ? "Números globales" : `Números — ${selectedRifa?.nombre}`}</SectionTitle>
-          <div className="h-6 rounded-full overflow-hidden flex bg-slate-100 dark:bg-slate-700 mb-4">
-            <div className="h-full bg-green-500 transition-all duration-700" style={{ width: barW(numDisplay.vendidos, numDisplay.total) }} title="Vendidos" />
-            <div className="h-full bg-amber-400 transition-all duration-700" style={{ width: barW(numDisplay.apartados, numDisplay.total) }} title="Apartados" />
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>{isGlobal ? "Inventario Global" : `Inventario — ${selectedRifa?.nombre}`}</SectionTitle>
+          <div className="h-4 bg-slate-50 border border-slate-100 rounded-full overflow-hidden flex shadow-inner mb-8">
+            <div className="h-full bg-green-500 transition-all duration-1000 ease-out" style={{ width: barW(numDisplay.vendidos, numDisplay.total) }} title="Vendidos" />
+            <div className="h-full bg-amber-400 transition-all duration-1000 ease-out shadow-lg shadow-amber-200/50" style={{ width: barW(numDisplay.apartados, numDisplay.total) }} title="Apartados" />
           </div>
-          <div className="grid grid-cols-3 gap-3 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { label: "Vendidos",    value: numDisplay.vendidos,    color: "text-green-600 dark:text-green-400", dot: "bg-green-500" },
-              { label: "Apartados",   value: numDisplay.apartados,   color: "text-amber-600 dark:text-amber-400", dot: "bg-amber-400" },
-              { label: "Disponibles", value: numDisplay.disponibles, color: "text-slate-600 dark:text-slate-300", dot: "bg-slate-300" },
+              { label: "VENDIDOS",    value: numDisplay.vendidos,    color: "text-green-600", bg: "bg-green-50/50" },
+              { label: "APARTADOS",   value: numDisplay.apartados,   color: "text-amber-600", bg: "bg-amber-50/50" },
+              { label: "DISPONIBLES", value: numDisplay.disponibles, color: "text-slate-400", bg: "bg-slate-50/50" },
             ].map((s) => (
-              <div key={s.label} className="bg-slate-50 dark:bg-slate-700/50 rounded-xl py-3">
-                <p className={`text-2xl font-black ${s.color}`}>{s.value}</p>
-                <div className="flex items-center justify-center gap-1 mt-1">
-                  <span className={`w-2 h-2 rounded-full inline-block ${s.dot}`} />
-                  <p className="text-xs text-slate-500">{s.label}</p>
-                </div>
-                <p className="text-xs text-slate-400">{pct(s.value, numDisplay.total)}%</p>
+              <div key={s.label} className={`${s.bg} rounded-3xl p-6 text-center border border-transparent hover:border-slate-100 transition-all`}>
+                <p className={`text-2xl font-black ${s.color} mb-1`}>{s.value}</p>
+                <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{s.label}</p>
+                <p className="text-[10px] font-bold text-slate-300 mt-2">{pct(s.value, numDisplay.total)}%</p>
               </div>
             ))}
           </div>
-          <p className="text-xs text-slate-400 text-center mt-3">
-            {numDisplay.total} números totales{isGlobal ? ` en ${rifas.length} rifa${rifas.length !== 1 ? "s" : ""}` : ""}
-          </p>
+          <div className="mt-8 pt-8 border-t border-slate-50 text-center">
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+              Capacidad Total: <span className="text-slate-900">{numDisplay.total} números</span>
+            </p>
+          </div>
         </div>
       </div>
 
       {/* ── Ingresos por día ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <div className="flex items-center justify-between mb-4">
-          <SectionTitle>Ingresos por día</SectionTitle>
-          <p className="text-xs text-slate-400">{periodLabel}</p>
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+        <div className="flex items-center justify-between mb-12">
+          <SectionTitle>Actividad Diaria</SectionTitle>
+          <span className="text-[9px] font-black text-slate-300 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 uppercase tracking-widest">
+            {periodLabel}
+          </span>
         </div>
-        <div className="flex items-end gap-1 h-36">
+        <div className="flex items-end gap-1.5 h-48 lg:h-64 mb-6">
           {timeSeries.map((d) => (
-            <div key={d.date} className="flex-1 flex flex-col items-center group relative">
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-xs font-bold px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+            <div key={d.date} className="flex-1 flex flex-col items-center group relative h-full justify-end">
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-black px-3 py-2 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-20 shadow-xl translate-y-2 group-hover:translate-y-0">
                 {currency(d.ingresos)}
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45" />
               </div>
-              <div className="w-full rounded-t-lg bg-red-500 dark:bg-red-600 transition-all duration-700"
-                style={{ height: `${maxIngresos > 0 ? Math.max((d.ingresos / maxIngresos) * 100, d.ingresos > 0 ? 4 : 0) : 0}%` }} />
+              <div 
+                className="w-full rounded-2xl bg-slate-50 border border-slate-100 hover:bg-brand-red hover:border-brand-red transition-all duration-500 shadow-sm relative overflow-hidden group/bar"
+                style={{ height: `${maxIngresos > 0 ? Math.max((d.ingresos / maxIngresos) * 100, d.ingresos > 0 ? 5 : 0) : 0}%` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover/bar:opacity-100 transition-opacity" />
+              </div>
             </div>
           ))}
         </div>
-        <div className="flex gap-1 mt-1">
+        <div className="flex gap-1.5 pt-4 border-t border-slate-50">
           {timeSeries.map((d, i) => (
             <div key={d.date} className="flex-1 text-center">
               {(i === 0 || i === Math.floor(timeSeries.length / 2) || i === timeSeries.length - 1) && (
-                <p className="text-[10px] text-slate-400">{d.label}</p>
+                <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest">{d.label}</p>
               )}
             </div>
           ))}
@@ -670,218 +734,211 @@ export default function MetricasPage() {
       </div>
 
       {/* ── Velocidad de ventas ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <SectionTitle>Velocidad de ventas y proyección</SectionTitle>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-xl font-black text-red-600 dark:text-red-400">{velocidadBoletos.toFixed(1)}</p>
-            <p className="text-xs text-slate-500 mt-1">boletos / día</p>
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+        <SectionTitle>Velocidad y Proyecciones</SectionTitle>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-center group hover:bg-white transition-all">
+            <p className="text-3xl font-black text-slate-900 tracking-tight group-hover:text-brand-red transition-colors">{velocidadBoletos.toFixed(1)}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-2">Boleto / Día</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-xl font-black text-green-600 dark:text-green-400">{currency(Math.round(velocidadIngresos))}</p>
-            <p className="text-xs text-slate-500 mt-1">ingresos / día</p>
+          <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-center group hover:bg-white transition-all">
+            <p className="text-3xl font-black text-slate-900 tracking-tight group-hover:text-green-600 transition-colors">{currency(Math.round(velocidadIngresos))}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-2">Ingresos / Día</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-xl font-black text-blue-600 dark:text-blue-400">{currency(Math.round(proyeccionMensual))}</p>
-            <p className="text-xs text-slate-500 mt-1">proyección mensual</p>
+          <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-center group hover:bg-white transition-all">
+            <p className="text-3xl font-black text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">{currency(Math.round(proyeccionMensual))}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-2">Proyección 30D</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-xl font-black text-indigo-600 dark:text-indigo-400">
+          <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-8 text-center group hover:bg-white transition-all">
+            <p className="text-3xl font-black text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
               {currency(proyeccionRifas.reduce((s, r) => s + r.ingresoProyectado, 0))}
             </p>
-            <p className="text-xs text-slate-500 mt-1">potencial disponible</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-2">Potencial Bruto</p>
           </div>
         </div>
         {proyeccionRifas.length > 0 && (
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">
-              {isGlobal ? "Por rifa activa" : selectedRifa?.nombre} · {periodLabel}
-            </p>
-            {proyeccionRifas.map((r) => (
-              <div key={r.nombre} className="flex items-center gap-3 py-1.5 border-b border-slate-50 dark:border-slate-700/50 last:border-0 text-sm">
-                {isGlobal && <span className="flex-1 font-semibold truncate">{r.nombre}</span>}
-                <span className="text-xs text-slate-400">{r.disponibles} disponibles</span>
-                <span className="text-xs text-blue-600 dark:text-blue-400 font-bold">{currency(r.ingresoProyectado)}</span>
-                <span className="text-xs text-slate-500 w-32 text-right flex-shrink-0">
-                  {r.dias !== null ? `~${r.dias} día${r.dias !== 1 ? "s" : ""} para agotar` : "sin datos de ritmo"}
-                </span>
-              </div>
-            ))}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 px-1 mb-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
+              <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest leading-none">Desglose por Campaña</p>
+            </div>
+            <div className="overflow-hidden border border-slate-50 rounded-[2rem]">
+              <table className="w-full border-collapse">
+                <tbody>
+                  {proyeccionRifas.map((r) => (
+                    <tr key={r.nombre} className="border-b border-slate-50 hover:bg-slate-50 transition-colors last:border-0">
+                      <td className="px-8 py-6">
+                        <p className="text-sm font-black text-slate-900">{r.nombre}</p>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{r.disponibles} boletos libres</p>
+                      </td>
+                      <td className="px-8 py-6 text-right">
+                        <p className="text-sm font-black text-slate-900">{currency(r.ingresoProyectado)}</p>
+                        <p className={`text-[9px] font-black uppercase tracking-widest mt-1 ${r.dias !== null ? "text-blue-600" : "text-slate-300"}`}>
+                          {r.dias !== null ? `Agotado en ~${r.dias} días` : "Ritmo indefinido"}
+                        </p>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>
 
       {/* ── Calidad de revenue ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <SectionTitle>Calidad de revenue</SectionTitle>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-green-600 dark:text-green-400">
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+        <SectionTitle>Salud del Revenue</SectionTitle>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-green-600 mb-1">
               {pagadosAll.length > 0 ? `${((pagadosSinDesc.length / pagadosAll.length) * 100).toFixed(1)}%` : "—"}
             </p>
-            <p className="text-xs text-slate-500 mt-1">ventas a precio lleno</p>
-            <p className="text-xs text-slate-400">{pagadosSinDesc.length} boletos</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Precio Full</p>
+            <p className="text-[10px] font-bold text-slate-300 mt-2">{pagadosSinDesc.length} boletos</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-amber-600 dark:text-amber-400">
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-amber-600 mb-1">
               {pagadosAll.length > 0 ? `${((pagadosConDesc.length / pagadosAll.length) * 100).toFixed(1)}%` : "—"}
             </p>
-            <p className="text-xs text-slate-500 mt-1">ventas con descuento</p>
-            <p className="text-xs text-slate-400">{pagadosConDesc.length} boletos</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Con Descuento</p>
+            <p className="text-[10px] font-bold text-slate-300 mt-2">{pagadosConDesc.length} boletos</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-red-600 dark:text-red-400">{currency(Math.round(revenuePerdido))}</p>
-            <p className="text-xs text-slate-500 mt-1">revenue perdido</p>
-            <p className="text-xs text-slate-400">{canceladosAll.length} cancelado{canceladosAll.length !== 1 ? "s" : ""}</p>
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-brand-red mb-1">{currency(Math.round(revenuePerdido))}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Revenue Perdido</p>
+            <p className="text-[10px] font-bold text-slate-300 mt-2">{canceladosAll.length} folios</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <div className="flex justify-center gap-3 mb-1">
-              <div>
-                <p className="text-lg font-black text-purple-600 dark:text-purple-400">{conversionConDesc.toFixed(0)}%</p>
-                <p className="text-xs text-slate-400">con dto.</p>
-              </div>
-              <div className="text-slate-300 self-center text-xs">vs</div>
-              <div>
-                <p className="text-lg font-black text-slate-600 dark:text-slate-300">{conversionSinDesc.toFixed(0)}%</p>
-                <p className="text-xs text-slate-400">sin dto.</p>
-              </div>
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <div className="flex justify-center items-end gap-2 mb-1">
+              <p className="text-xl font-black text-indigo-600">{conversionConDesc.toFixed(0)}%</p>
+              <span className="text-[8px] font-black text-slate-300 mb-1">VS</span>
+              <p className="text-xl font-black text-slate-400">{conversionSinDesc.toFixed(0)}%</p>
             </div>
-            <p className="text-xs text-slate-500">conversión por canal</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Ratio Org vs Dto</p>
+            <p className="text-[10px] font-bold text-slate-300 mt-2">Conversión por canal</p>
           </div>
         </div>
       </div>
 
       {/* ── Pareto + Distribución de tamaño ── */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Concentración de revenue</SectionTitle>
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Concentración (Pareto)</SectionTitle>
           {ingresoTotal === 0
-            ? <p className="text-sm text-slate-400">Sin datos aún.</p>
+            ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin datos suficientes</p>
             : (
-              <div className="space-y-4">
+              <div className="space-y-8">
                 <div className="text-center">
-                  <p className="text-4xl font-black text-red-600 dark:text-red-400">{paretoDatos.top20pct.toFixed(0)}%</p>
-                  <p className="text-sm text-slate-500 mt-1">
-                    del revenue viene del top {paretoDatos.top20count} cliente{paretoDatos.top20count !== 1 ? "s" : ""}
-                    <span className="text-slate-400"> (20%)</span>
+                  <p className="text-5xl font-black text-slate-900 tracking-tighter mb-2">{paretoDatos.top20pct.toFixed(0)}%</p>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-relaxed">
+                    del revenue total de las campañas<br/>
+                    <span className="text-slate-900">proviene de solo {paretoDatos.top20count} clientes</span>
                   </p>
                 </div>
-                <div className="h-4 rounded-full overflow-hidden flex bg-slate-100 dark:bg-slate-700">
-                  <div className="h-full bg-red-500 rounded-full transition-all duration-700" style={{ width: `${Math.min(paretoDatos.top20pct, 100)}%` }} />
+                <div className="h-2 bg-slate-50 border border-slate-100 rounded-full overflow-hidden shadow-inner flex">
+                  <div className="h-full bg-brand-red rounded-full transition-all duration-1000 ease-out" style={{ width: `${Math.min(paretoDatos.top20pct, 100)}%` }} />
                 </div>
-                <div className="flex justify-between text-xs text-slate-400">
-                  <span>Top 20% de clientes</span>
-                  <span>Resto</span>
-                </div>
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-700">
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    Los <strong>5 mejores clientes</strong> generan el{" "}
-                    <strong className="text-red-600 dark:text-red-400">{paretoDatos.top5pct.toFixed(0)}%</strong> del revenue
-                  </p>
+                <div className="flex justify-between text-[9px] font-black text-slate-300 uppercase tracking-widest">
+                  <span>Top 20% Contribución</span>
+                  <span>Resto de la Base</span>
                 </div>
               </div>
             )}
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Distribución de tamaño de compra</SectionTitle>
-          <div className="space-y-3">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Volumen por Transacción</SectionTitle>
+          <div className="space-y-6">
             {distribucionTamano.map((bk) => (
-              <HBar key={bk.label} label={bk.label} value={bk.count} max={Math.max(...distribucionTamano.map((x) => x.count), 1)} formatted={`${bk.count} boleto${bk.count !== 1 ? "s" : ""}`} color="bg-indigo-500" />
+              <HBar key={bk.label} label={bk.label} value={bk.count} max={Math.max(...distribucionTamano.map((x) => x.count), 1)} formatted={`${bk.count} boletos`} color="bg-indigo-500" />
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-3">{pagadosAll.length} boleto{pagadosAll.length !== 1 ? "s" : ""} pagado{pagadosAll.length !== 1 ? "s" : ""}</p>
         </div>
       </div>
 
       {/* ── Comparación entre rifas (solo en global) ── */}
       {isGlobal && (
-        <>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-              <SectionTitle>Ingresos por rifa</SectionTitle>
+        <div className="space-y-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+              <SectionTitle>Revenue por Campaña</SectionTitle>
               {revenueByRifa.length === 0
-                ? <p className="text-sm text-slate-400">Sin datos aún.</p>
-                : revenueByRifa.map((r) => (
-                  <div key={r.name} className="mb-3 last:mb-0">
-                    <HBar label={r.name} value={r.total} max={revenueByRifa[0].total} formatted={currency(r.total)} color="bg-red-500" />
+                ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin datos</p>
+                : (
+                  <div className="space-y-6">
+                    {revenueByRifa.map((r) => (
+                      <HBar key={r.name} label={r.name} value={r.total} max={revenueByRifa[0].total} formatted={currency(r.total)} color="bg-brand-red" />
+                    ))}
                   </div>
-                ))}
+                )}
             </div>
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-              <SectionTitle>Boletos vendidos por rifa</SectionTitle>
+            <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+              <SectionTitle>Boleto por Campaña</SectionTitle>
               {boletosByRifa.length === 0
-                ? <p className="text-sm text-slate-400">Sin datos aún.</p>
-                : boletosByRifa.map((r) => (
-                  <div key={r.name} className="mb-3 last:mb-0">
-                    <HBar label={r.name} value={r.count} max={boletosByRifa[0].count} formatted={`${r.count} boleto${r.count !== 1 ? "s" : ""}`} color="bg-blue-500" />
+                ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin datos</p>
+                : (
+                  <div className="space-y-6">
+                    {boletosByRifa.map((r) => (
+                      <HBar key={r.name} label={r.name} value={r.count} max={boletosByRifa[0].count} formatted={`${r.count} bolls`} color="bg-blue-500" />
+                    ))}
                   </div>
-                ))}
+                )}
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-            <SectionTitle>Detalle por rifa</SectionTitle>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm min-w-[960px]">
+          <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm overflow-hidden">
+            <SectionTitle>Ranking de Desempeño</SectionTitle>
+            <div className="overflow-x-auto -mx-8 lg:-mx-12 px-8 lg:px-12">
+              <table className="w-full text-left border-collapse min-w-[1200px]">
                 <thead>
-                  <tr className="border-b border-slate-100 dark:border-slate-700">
-                    {["Rifa", "Estado", "Total", "Vendidos", "Aptos.", "Dispon.", "Ingresos", "Rev/núm", "Conversión", "Ticket prom.", "Pend. riesgo", "Ocup."].map((h) => (
-                      <th key={h} className="text-left py-2 px-2 text-xs font-semibold text-slate-400 whitespace-nowrap">{h}</th>
-                    ))}
+                  <tr className="border-b border-slate-100">
+                    <th className="py-6 px-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">Rifa</th>
+                    <th className="py-6 px-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">Estado</th>
+                    <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest">Meta</th>
+                    <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest text-green-600">Reales</th>
+                    <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest text-brand-red">Venta</th>
+                    <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest text-indigo-600">Conv.</th>
+                    <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest">Ocupación</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-50 dark:divide-slate-700/50">
+                <tbody className="divide-y divide-slate-50">
                   {rifas.map((r) => {
                     const total       = r.num_fin - r.num_inicio + 1;
                     const vend        = r.num_vendidos ?? 0;
                     const apart       = r.num_apartados ?? 0;
-                    const disp        = total - vend - apart;
                     const rifaBoletos = boletos.filter((b) => b.rifa_id === r.id);
                     const rifaPagados = rifaBoletos.filter((b) => b.status === "pagado");
-                    const rifaPend    = rifaBoletos.filter((b) => b.status === "pendiente");
                     const ing         = rifaPagados.reduce((s, b) => s + b.precio_total, 0);
-                    const revNum      = vend > 0 ? ing / vend : 0;
                     const conv        = rifaBoletos.length > 0 ? (rifaPagados.length / rifaBoletos.length) * 100 : 0;
-                    const ticket      = rifaPagados.length > 0 ? ing / rifaPagados.length : 0;
-                    const threshold   = new Date(Date.now() - 20 * 60 * 60 * 1000);
-                    const pendRiesgo  = rifaPend.filter((b) => { const d = b.created_at?.toDate?.(); return d && d < threshold; }).length;
                     const ocup        = total > 0 ? ((vend + apart) / total) * 100 : 0;
                     return (
-                      <tr key={r.id}
-                        className="hover:bg-slate-50 dark:hover:bg-slate-700/30 cursor-pointer"
-                        onClick={() => setSelectedRifaId(r.id!)}
-                        title="Ver métricas de esta rifa"
-                      >
-                        <td className="py-2.5 px-2 font-semibold text-red-600 dark:text-red-400 hover:underline">{r.nombre}</td>
-                        <td className="py-2.5 px-2">
-                          <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${r.activa ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300" : "bg-slate-100 text-slate-500 dark:bg-slate-700"}`}>
-                            {r.activa ? "Activa" : "Finalizada"}
-                          </span>
+                      <tr key={r.id} className="hover:bg-slate-50 transition-colors group">
+                        <td className="py-6 px-4">
+                          <button 
+                            onClick={() => setSelectedRifaId(r.id!)}
+                            className="text-sm font-black text-slate-900 hover:text-brand-red transition-colors text-left"
+                          >
+                            {r.nombre}
+                          </button>
                         </td>
-                        <td className="py-2.5 px-2 text-center">{total}</td>
-                        <td className="py-2.5 px-2 text-center font-bold text-green-600 dark:text-green-400">{vend}</td>
-                        <td className="py-2.5 px-2 text-center font-bold text-amber-600 dark:text-amber-400">{apart}</td>
-                        <td className="py-2.5 px-2 text-center text-slate-500">{disp}</td>
-                        <td className="py-2.5 px-2 font-black text-red-600 dark:text-red-400">{currency(ing)}</td>
-                        <td className="py-2.5 px-2 text-slate-500">{revNum > 0 ? currency(Math.round(revNum)) : "—"}</td>
-                        <td className="py-2.5 px-2">
-                          <span className={`text-xs font-bold ${conv >= 50 ? "text-green-600 dark:text-green-400" : conv >= 25 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400"}`}>
+                        <td className="py-6 px-4">
+                          <StatusBadge status={r.activa ? "pagado" : "cancelado"} />
+                        </td>
+                        <td className="py-6 px-4 text-center font-bold text-slate-400">{total}</td>
+                        <td className="py-6 px-4 text-center font-black text-green-600">{vend}</td>
+                        <td className="py-6 px-4 text-center font-black text-brand-red">{currency(ing)}</td>
+                        <td className="py-6 px-4 text-center">
+                          <span className={`text-[11px] font-black ${conv >= 50 ? "text-green-600" : conv >= 25 ? "text-amber-500" : "text-brand-red"}`}>
                             {conv.toFixed(0)}%
                           </span>
                         </td>
-                        <td className="py-2.5 px-2 text-slate-500">{ticket > 0 ? currency(Math.round(ticket)) : "—"}</td>
-                        <td className="py-2.5 px-2">
-                          {pendRiesgo > 0
-                            ? <span className="text-xs font-bold text-red-600 dark:text-red-400">{pendRiesgo} &#9888;</span>
-                            : <span className="text-xs text-slate-400">—</span>}
-                        </td>
-                        <td className="py-2.5 px-2">
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-12 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                              <div className="h-full bg-red-500 rounded-full" style={{ width: `${ocup}%` }} />
+                        <td className="py-6 px-4">
+                          <div className="flex items-center gap-3 justify-center min-w-[120px]">
+                            <div className="flex-1 h-1.5 bg-slate-50 rounded-full overflow-hidden border border-slate-100">
+                              <div className="h-full bg-slate-900 group-hover:bg-brand-red transition-all duration-500" style={{ width: `${ocup}%` }} />
                             </div>
-                            <span className="text-xs font-semibold">{ocup.toFixed(0)}%</span>
+                            <span className="text-[10px] font-black text-slate-900 w-8">{ocup.toFixed(0)}%</span>
                           </div>
                         </td>
                       </tr>
@@ -890,52 +947,49 @@ export default function MetricasPage() {
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-400 mt-3">Haz clic en una fila para ver las métricas de esa rifa.</p>
           </div>
-        </>
+        </div>
       )}
 
       {/* ── Top clientes + Estado ── */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Top 10 clientes</SectionTitle>
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Elite de Compradores (Top 10)</SectionTitle>
           {topClientes.length === 0
-            ? <p className="text-sm text-slate-400">Sin datos aún.</p>
+            ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin registros</p>
             : (
-              <div className="space-y-2.5">
+              <div className="space-y-6">
                 {topClientes.map((c, i) => (
-                  <div key={c.celular || c.nombre} className="flex items-center gap-3">
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0 ${i < 3 ? "bg-red-600 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-500"}`}>
+                  <div key={c.celular || c.nombre} className="flex items-center gap-4 group">
+                    <span className={`w-8 h-8 rounded-xl flex items-center justify-center text-[10px] font-black flex-shrink-0 transition-colors ${i < 3 ? "bg-slate-900 text-white" : "bg-slate-50 text-slate-400 group-hover:bg-slate-100"}`}>
                       {i + 1}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold truncate">{c.nombre || "—"}</p>
-                      <p className="text-xs text-slate-400">{c.celular} · {c.boletos} número{c.boletos !== 1 ? "s" : ""}</p>
+                      <p className="text-sm font-black text-slate-900 truncate">{c.nombre || "Sin Nombre"}</p>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">{c.celular} · {c.boletos} números</p>
                     </div>
-                    <p className="font-black text-sm text-red-600 dark:text-red-400 flex-shrink-0">{currency(c.total)}</p>
+                    <p className="font-black text-sm text-slate-900 flex-shrink-0">{currency(c.total)}</p>
                   </div>
                 ))}
               </div>
             )}
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Distribución por estado</SectionTitle>
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Distribución Regional</SectionTitle>
           {byEstado.length === 0
-            ? <p className="text-sm text-slate-400">Sin datos aún.</p>
+            ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin datos geográficos</p>
             : (
-              <div className="space-y-2">
+              <div className="space-y-6">
                 {byEstado.map((e) => (
-                  <div key={e.estado} className="flex items-center gap-2">
-                    <p className="w-24 text-xs text-slate-600 dark:text-slate-400 truncate flex-shrink-0">{e.estado}</p>
-                    <div className="flex-1 h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-500 rounded-full transition-all duration-700" style={{ width: barW(e.count, byEstado[0].count) }} />
+                  <div key={e.estado}>
+                    <div className="flex justify-between items-end mb-2">
+                       <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest truncate max-w-[150px]">{e.estado || "Desconocido"}</p>
+                       <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{currency(Math.round(e.revenue))} <span className="text-slate-300 ml-1">({e.count})</span></p>
                     </div>
-                    <span className="text-xs text-slate-500 w-8 text-right flex-shrink-0">{e.count}</span>
-                    <span className="text-xs text-green-600 dark:text-green-400 w-20 text-right flex-shrink-0">{currency(Math.round(e.revenue))}</span>
-                    <span className="text-xs text-slate-400 hidden lg:block w-20 text-right flex-shrink-0" title="Revenue por cliente">
-                      {e.revenue > 0 ? `${currency(Math.round(e.rpc))}/cli` : "—"}
-                    </span>
+                    <div className="h-1.5 bg-slate-50 border border-slate-100 rounded-full overflow-hidden flex">
+                      <div className="h-full bg-slate-900 opacity-20" style={{ width: barW(e.count, byEstado[0].count) }} />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -944,39 +998,27 @@ export default function MetricasPage() {
       </div>
 
       {/* ── Horas pico + Días de semana ── */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Horas pico</SectionTitle>
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Peak Performance (Horas)</SectionTitle>
           {horasPico.length === 0
-            ? <p className="text-sm text-slate-400">Sin datos en el período.</p>
+            ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin actividad</p>
             : (
-              <div className="space-y-2">
+              <div className="space-y-6">
                 {horasPico.map((h) => (
-                  <HBar key={h.h} label={`${String(h.h).padStart(2, "0")}:00`} value={h.count} max={horasPico[0].count} formatted={`${h.count} boleto${h.count !== 1 ? "s" : ""}`} color="bg-teal-500" />
+                  <HBar key={h.h} label={`${String(h.h).padStart(2, "0")}:00`} value={h.count} max={horasPico[0].count} formatted={`${h.count} bolls`} color="bg-teal-500" />
                 ))}
               </div>
             )}
-          <p className="text-xs text-slate-400 mt-3">Hora local · {periodLabel}</p>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-          <SectionTitle>Actividad por día de semana</SectionTitle>
-          <div className="space-y-2">
+        <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+          <SectionTitle>Distribución Semanal</SectionTitle>
+          <div className="space-y-6">
             {diasSemana.map((d) => (
-              <div key={d.dia} className="flex items-center gap-3">
-                <p className="w-8 text-xs text-slate-600 dark:text-slate-400 flex-shrink-0">{d.dia}</p>
-                <div className="flex-1 h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-violet-500 rounded-full transition-all duration-700"
-                    style={{ width: barW(d.count, Math.max(...diasSemana.map((x) => x.count), 1)) }} />
-                </div>
-                <span className="text-xs font-bold w-14 text-right flex-shrink-0">{d.count} bol.</span>
-                {d.revenue > 0 && (
-                  <span className="text-xs text-green-600 dark:text-green-400 w-20 text-right flex-shrink-0">{currency(Math.round(d.revenue))}</span>
-                )}
-              </div>
+              <HBar key={d.dia} label={d.dia} value={d.count} max={Math.max(...diasSemana.map((x) => x.count), 1)} formatted={`${d.count} bolls`} color="bg-violet-500" />
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-3">{periodLabel}</p>
         </div>
       </div>
 
@@ -1014,98 +1056,120 @@ export default function MetricasPage() {
       </div>
 
       {/* ── Retención de clientes ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <SectionTitle>Retención de clientes</SectionTitle>
-        <div className="grid grid-cols-3 gap-4 mb-5">
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-indigo-600 dark:text-indigo-400">{clientesRecurrentes.recurrentes.length}</p>
-            <p className="text-xs text-slate-500 mt-1">clientes recurrentes</p>
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+        <SectionTitle>Lealtad y Retención</SectionTitle>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-indigo-600 mb-1">{clientesRecurrentes.recurrentes.length}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Recurrentes</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-slate-600 dark:text-slate-300">{clientesRecurrentes.totalClientes - clientesRecurrentes.recurrentes.length}</p>
-            <p className="text-xs text-slate-500 mt-1">clientes nuevos</p>
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-slate-400 mb-1">{clientesRecurrentes.totalClientes - clientesRecurrentes.recurrentes.length}</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Nuevos</p>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-            <p className="text-2xl font-black text-green-600 dark:text-green-400">
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+            <p className="text-3xl font-black text-green-600 mb-1">
               {clientesRecurrentes.totalClientes > 0 ? `${((clientesRecurrentes.recurrentes.length / clientesRecurrentes.totalClientes) * 100).toFixed(1)}%` : "0%"}
             </p>
-            <p className="text-xs text-slate-500 mt-1">tasa de retención</p>
+            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Tasa de Retención</p>
           </div>
         </div>
+        
         {clientesRecurrentes.recurrentes.length > 0 && (
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Top clientes recurrentes</p>
-            {clientesRecurrentes.recurrentes.slice(0, 8).map((c) => (
-              <div key={c.nombre} className="flex items-center gap-3 py-1.5 border-b border-slate-50 dark:border-slate-700/50 last:border-0">
-                <span className="flex-1 text-sm font-semibold truncate">{c.nombre || "—"}</span>
-                <span className="text-xs text-slate-400">{c.rifas} rifa{c.rifas !== 1 ? "s" : ""}</span>
-                <span className="text-sm font-black text-red-600 dark:text-red-400">{currency(c.total)}</span>
-              </div>
-            ))}
+          <div className="space-y-4">
+             <div className="flex items-center gap-3 px-1 mb-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
+              <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Seguidores Fieles</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {clientesRecurrentes.recurrentes.slice(0, 8).map((c) => (
+                  <div key={c.nombre} className="bg-slate-50/50 border border-slate-100 rounded-[1.5rem] p-4 flex flex-col justify-center">
+                    <p className="text-xs font-black text-slate-900 truncate mb-1">{c.nombre || "—"}</p>
+                    <p className="text-[9px] font-black text-indigo-600 uppercase tracking-widest">
+                       {c.rifas} Campañas
+                    </p>
+                  </div>
+               ))}
+            </div>
           </div>
         )}
       </div>
 
       {/* ── Códigos de descuento ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <SectionTitle>Códigos de descuento usados</SectionTitle>
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm">
+        <SectionTitle>Eficiencia de Promociones</SectionTitle>
         {discountUsage.length === 0
-          ? <p className="text-sm text-slate-400">Ningún código aplicado aún.</p>
+          ? <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Sin cupones aplicados</p>
           : (
-            <div className="space-y-3">
-              {discountUsage.map((d) => (
-                <div key={d.codigo} className="flex items-center gap-3">
-                  <span className="font-mono font-black text-sm bg-slate-100 dark:bg-slate-700 px-2.5 py-1 rounded-lg">{d.codigo}</span>
-                  <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-amber-400 rounded-full" style={{ width: barW(d.usos, discountUsage[0].usos) }} />
-                  </div>
-                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 flex-shrink-0">{d.usos} uso{d.usos !== 1 ? "s" : ""}</span>
-                  <span className="text-xs text-green-600 dark:text-green-400 flex-shrink-0">-{currency(Math.round(d.ahorro))}</span>
-                </div>
-              ))}
-              <p className="text-xs text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-700">
-                Total descontado: <strong>{currency(Math.round(discountUsage.reduce((s, d) => s + d.ahorro, 0)))}</strong>
-              </p>
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                 {discountUsage.slice(0, 3).map((d) => (
+                    <div key={d.codigo} className="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-center">
+                       <p className="font-black text-slate-900 mb-1">{d.codigo}</p>
+                       <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{d.usos} USOS</p>
+                       <p className="text-[11px] font-black text-green-600 mt-2">-{currency(Math.round(d.ahorro))}</p>
+                    </div>
+                 ))}
+              </div>
+              <div className="space-y-6">
+                {discountUsage.map((d) => (
+                  <HBar key={d.codigo} label={d.codigo} value={d.usos} max={discountUsage[0].usos} formatted={`${d.usos} usos`} color="bg-amber-400" />
+                ))}
+              </div>
+              <div className="pt-8 border-t border-slate-50 flex justify-between items-center">
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Inversión en Marketing (Dtos)</p>
+                <p className="text-xl font-black text-slate-900">{currency(Math.round(discountUsage.reduce((s, d) => s + d.ahorro, 0)))}</p>
+              </div>
             </div>
           )}
-        {isGlobal && (
-          <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-700">
-            <p className="text-xs font-semibold text-slate-500 mb-2">Códigos registrados</p>
-            <div className="space-y-1.5">
-              {codes.map((c) => (
-                <div key={c.id} className="flex items-center justify-between text-xs">
-                  <span className="font-mono font-bold">{c.codigo}</span>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <span>{c.porcentaje}% dto.</span>
-                    <span>{c.usos}/{c.max_usos} usos</span>
-                    <span className={`w-2 h-2 rounded-full ${c.activo ? "bg-green-500" : "bg-slate-300"}`} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
 
       {/* ── Actividad reciente ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow border border-slate-100 dark:border-slate-700 p-6">
-        <SectionTitle>Actividad reciente</SectionTitle>
-        <div className="space-y-1">
-          {recentBoletos.map((b) => {
-            const rifaNombre = rifaMap.get(b.rifa_id)?.nombre ?? "—";
-            const fecha = b.created_at?.toDate?.()?.toLocaleString("es-MX", { dateStyle: "short", timeStyle: "short" }) ?? "—";
-            return (
-              <div key={b.id} className="flex items-center gap-2 py-2 border-b border-slate-50 dark:border-slate-700/50 last:border-0">
-                <span className="font-mono font-bold text-xs text-red-600 dark:text-red-400 w-24 flex-shrink-0">{b.folio}</span>
-                <span className="text-sm flex-1 min-w-0 truncate">{b.nombre} {b.apellidos}</span>
-                <span className="text-xs text-slate-400 hidden sm:block flex-shrink-0 w-6 text-center" title="Números comprados">{b.numeros.length}</span>
-                {isGlobal && <span className="text-xs text-slate-400 hidden md:block flex-shrink-0 truncate max-w-[100px]">{rifaNombre}</span>}
-                <span className="text-xs font-bold flex-shrink-0">{currency(b.precio_total)}</span>
-                <StatusBadge status={b.status} />
-                <span className="text-xs text-slate-400 hidden lg:block whitespace-nowrap flex-shrink-0">{fecha}</span>
-              </div>
-            );
-          })}
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 lg:p-12 shadow-sm overflow-hidden">
+        <SectionTitle>Timeline de Operaciones</SectionTitle>
+        <div className="overflow-x-auto -mx-8 lg:-mx-12 px-8 lg:px-12">
+          <table className="w-full text-left border-collapse min-w-[1000px]">
+            <thead>
+              <tr className="border-b border-slate-100">
+                <th className="py-6 px-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">Folio</th>
+                <th className="py-6 px-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">Cliente</th>
+                <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest">Refs</th>
+                <th className="py-6 px-4 text-[10px] font-black text-slate-300 uppercase tracking-widest">Campaña</th>
+                <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest">Monto</th>
+                <th className="py-6 px-4 text-center text-[10px] font-black text-slate-300 uppercase tracking-widest">Status</th>
+                <th className="py-6 px-4 text-right text-[10px] font-black text-slate-300 uppercase tracking-widest">Fecha</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-50">
+              {recentBoletos.map((b) => {
+                const rifaNombre = rifaMap.get(b.rifa_id)?.nombre ?? "—";
+                const fecha = b.created_at?.toDate?.()?.toLocaleString("es-MX", { dateStyle: "short", timeStyle: "short" }) ?? "—";
+                return (
+                  <tr key={b.id} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-6 px-4 font-mono font-black text-xs text-brand-red">{b.folio}</td>
+                    <td className="py-6 px-4 pr-10">
+                      <p className="text-sm font-black text-slate-900 truncate max-w-[200px]">{b.nombre} {b.apellidos}</p>
+                    </td>
+                    <td className="py-6 px-4 text-center">
+                      <span className="text-[10px] font-black text-slate-400 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">{b.numeros.length}</span>
+                    </td>
+                    <td className="py-6 px-4">
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest truncate max-w-[150px]">{rifaNombre}</p>
+                    </td>
+                    <td className="py-6 px-4 text-center font-black text-slate-900">{currency(b.precio_total)}</td>
+                    <td className="py-6 px-4">
+                      <div className="flex justify-center">
+                        <StatusBadge status={b.status} />
+                      </div>
+                    </td>
+                    <td className="py-6 px-4 text-right">
+                       <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">{fecha}</p>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
 

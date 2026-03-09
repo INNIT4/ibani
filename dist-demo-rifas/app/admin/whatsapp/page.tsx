@@ -6,11 +6,11 @@ import {
   MessageSquare, 
   Plus, 
   Trash2, 
-  CheckCircle2, 
-  AlertCircle,
-  HelpCircle,
+  Phone,
+  Settings,
+  ShieldCheck,
   RefreshCw,
-  Phone
+  HelpCircle
 } from "lucide-react";
 
 export default function AdminWhatsAppPage() {
@@ -65,9 +65,12 @@ export default function AdminWhatsAppPage() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 gap-4">
-        <div className="animate-spin w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full" />
-        <p className="text-slate-500 font-medium animate-pulse">Cargando configuración...</p>
+      <div className="flex flex-col items-center justify-center py-32 gap-6">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-slate-100 rounded-full" />
+          <div className="absolute inset-0 w-16 h-16 border-4 border-rose-600 border-t-transparent rounded-full animate-spin" />
+        </div>
+        <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 animate-pulse">Sincronizando WhatsApp</p>
       </div>
     );
   }
@@ -75,154 +78,171 @@ export default function AdminWhatsAppPage() {
   const indiceVivo = numeros.length ? indiceActual % numeros.length : 0;
 
   return (
-    <div className="max-w-2xl space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div>
-        <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-green-50 dark:bg-green-950/30 rounded-xl text-green-600 dark:text-green-400">
-            <MessageSquare size={24} />
+    <div className="max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="mb-12">
+        <div className="flex items-center gap-4 mb-3">
+          <div className="w-14 h-14 bg-rose-50 rounded-[1.5rem] flex items-center justify-center text-rose-600 shadow-sm border border-rose-100/50">
+            <MessageSquare size={28} />
           </div>
-          <h1 className="text-3xl font-extrabold tracking-tight">WhatsApp</h1>
+          <div>
+            <h1 className="text-3xl font-black text-slate-900 leading-none mb-2">Canales de WhatsApp</h1>
+            <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Rotación automática de agentes de venta</p>
+          </div>
         </div>
-        <p className="text-slate-500 dark:text-slate-400">
-          Gestiona la rotación de números para atención a clientes. El sistema usa un método de &quot;round-robin&quot; automático.
-        </p>
       </div>
 
-      <div className="grid gap-6">
-        {/* Lista de números */}
-        <section className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
-          <div className="p-6 border-b border-slate-50 dark:border-slate-800 flex items-center justify-between">
-            <h2 className="font-bold flex items-center gap-2">
-              <Phone size={18} className="text-slate-400" />
-              Números en Rotación
-            </h2>
-            <span className="text-xs font-bold px-2.5 py-1 bg-slate-50 dark:bg-slate-800 rounded-full text-slate-500">
-              {numeros.length} total
-            </span>
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="lg:col-span-12 space-y-10">
+          
+          {/* Main Config */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Lista */}
+            <section className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col h-full">
+              <div className="px-8 py-8 border-b border-slate-50 flex items-center justify-between bg-slate-50/30">
+                <div>
+                  <h2 className="font-black text-slate-900 text-base leading-none mb-1">Agentes Activos</h2>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total: {numeros.length}</p>
+                </div>
+                <div className="p-2 bg-white rounded-xl border border-slate-100 text-slate-300">
+                  <RefreshCw size={16} />
+                </div>
+              </div>
 
-          <div className="divide-y divide-slate-50 dark:divide-slate-800">
-            {numeros.length > 0 ? (
-              numeros.map((n, i) => (
-                <div key={n} className={`group flex items-center gap-4 px-6 py-4 transition-colors ${i === indiceVivo ? 'bg-red-50/30 dark:bg-red-950/10' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}>
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${i === indiceVivo ? 'bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 scale-110 shadow-sm shadow-red-100 dark:shadow-none' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}`}>
-                    <Phone size={18} />
+              <div className="flex-1 divide-y divide-slate-50">
+                {numeros.length > 0 ? (
+                  numeros.map((n, i) => (
+                    <div key={n} className={`group flex items-center gap-4 px-8 py-6 transition-colors ${i === indiceVivo ? 'bg-green-50/20' : 'hover:bg-slate-50/50'}`}>
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all border ${i === indiceVivo ? 'bg-white border-green-200 text-green-500 shadow-sm' : 'bg-slate-50 border-slate-100 text-slate-300'}`}>
+                        <Phone size={20} />
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <p className="font-mono text-lg font-black text-slate-900 leading-none mb-1">{n}</p>
+                        {i === indiceVivo && (
+                          <div className="flex items-center gap-1.5">
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            <span className="text-[10px] font-black text-green-600 uppercase tracking-widest">En Turno</span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all">
+                        {i !== indiceVivo && (
+                          <button
+                            onClick={() => setActivo(i)}
+                            disabled={saving}
+                            className="px-4 py-2 text-[9px] font-black tracking-widest uppercase text-slate-400 hover:text-slate-900 transition-all bg-white border border-slate-100 rounded-xl"
+                          >
+                            Activar
+                          </button>
+                        )}
+                        <button
+                          onClick={() => eliminar(i)}
+                          disabled={saving}
+                          className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all"
+                          title="Eliminar"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-16 text-center">
+                    <div className="w-16 h-16 bg-slate-50 border border-slate-100 text-slate-200 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                      <Phone size={24} />
+                    </div>
+                    <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.3em]">No hay números</p>
+                  </div>
+                )}
+              </div>
+            </section>
+
+            {/* Acciones & Soporte */}
+            <div className="space-y-10 flex flex-col">
+              {/* Agregar */}
+              <section className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 p-10 flex flex-col flex-1">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center text-rose-600 border border-rose-100/50">
+                    <Plus size={24} strokeWidth={3} />
+                  </div>
+                  <h2 className="font-black text-slate-900 text-base leading-none">Añadir Número</h2>
+                </div>
+                
+                <div className="space-y-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3 ml-1">Nuevo Agente (10 dígitos)</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-slate-300">
+                        <Phone size={20} />
+                      </div>
+                      <input
+                        value={nuevo}
+                        onChange={(e) => setNuevo(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && agregar()}
+                        placeholder="55 1234 5678"
+                        maxLength={10}
+                        className="w-full pl-14 pr-6 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] font-mono text-xl text-slate-900 placeholder:text-slate-200 focus:ring-4 focus:ring-rose-500/5 focus:border-rose-300 focus:bg-white transition-all outline-none"
+                      />
+                    </div>
                   </div>
                   
-                  <div className="flex-1">
-                    <span className="font-mono text-lg tracking-tight font-medium">{n}</span>
-                    {i === indiceVivo && (
-                      <div className="flex items-center gap-1.5 mt-0.5">
-                        <CheckCircle2 size={12} className="text-green-500" />
-                        <span className="text-[10px] font-bold text-green-600 uppercase tracking-wider">Activo para el siguiente click</span>
-                      </div>
-                    )}
-                  </div>
+                  <button
+                    onClick={agregar}
+                    disabled={saving || !nuevo}
+                    className="w-full py-5 bg-rose-600 hover:bg-rose-700 disabled:opacity-50 text-white font-black text-xs uppercase tracking-[0.2em] rounded-[1.5rem] transition-all shadow-xl shadow-rose-100"
+                  >
+                    {saving ? "Guardando..." : "Confirmar Agente"}
+                  </button>
+                </div>
+              </section>
 
-                  <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              {/* Soporte */}
+              <section className="bg-slate-900 rounded-[2.5rem] shadow-xl p-10 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                  <ShieldCheck size={120} />
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white/50 backdrop-blur-sm">
+                      <HelpCircle size={24} />
+                    </div>
+                    <div>
+                      <h2 className="font-black text-white text-base leading-none mb-1">Soporte Técnico</h2>
+                      <p className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Número de Ayuda Global</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-white/50 font-medium mb-8 leading-relaxed max-w-[240px]">
+                    Este número se utiliza para tickets de soporte y consultas técnicas.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      value={ayudaNumero}
+                      onChange={(e) => setAyudaNumero(e.target.value.replace(/\D/g, ""))}
+                      placeholder="Ayuda técnica"
+                      maxLength={10}
+                      className="flex-1 px-6 py-4 bg-white/10 border border-white/10 rounded-2xl font-mono text-lg text-white placeholder:text-white/20 focus:ring-4 focus:ring-white/5 outline-none transition-all"
+                    />
                     <button
-                      onClick={() => setActivo(i)}
-                      disabled={saving || i === indiceVivo}
-                      className="px-3 py-1.5 text-xs font-bold text-slate-600 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 transition-colors bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 disabled:hidden"
-                    >
-                      Activar
-                    </button>
-                    <button
-                      onClick={() => eliminar(i)}
+                      onClick={() => save(numeros, indiceActual, ayudaNumero)}
                       disabled={saving}
-                      className="p-2 text-slate-400 hover:text-red-600 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-all"
-                      title="Eliminar"
+                      className="px-8 py-4 bg-white text-slate-900 hover:bg-slate-50 disabled:opacity-50 font-black text-[10px] uppercase tracking-widest rounded-2xl transition-all shadow-lg"
                     >
-                      <Trash2 size={18} />
+                      Actualizar
                     </button>
                   </div>
                 </div>
-              ))
-            ) : (
-              <div className="p-10 text-center space-y-3">
-                <div className="w-16 h-16 bg-amber-50 dark:bg-amber-950/30 text-amber-500 rounded-3xl flex items-center justify-center mx-auto">
-                  <AlertCircle size={32} />
-                </div>
-                <p className="text-slate-500 dark:text-slate-400 text-sm max-w-[240px] mx-auto">
-                  No hay números configurados. El botón de WhatsApp no aparecerá en el sitio.
-                </p>
-              </div>
-            )}
+              </section>
+            </div>
           </div>
-        </section>
 
-        {/* Agregar número */}
-        <section className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-blue-50 dark:bg-blue-950/30 rounded-xl text-blue-600 dark:text-blue-400">
-              <Plus size={20} />
-            </div>
-            <h2 className="font-bold">Agregar Nuevo Número</h2>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-                <Phone size={16} />
-              </div>
-              <input
-                value={nuevo}
-                onChange={(e) => setNuevo(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && agregar()}
-                placeholder="Ej. 5512345678"
-                maxLength={10}
-                className="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-mono focus:ring-2 focus:ring-red-500 outline-none transition-all"
-              />
-            </div>
-            <button
-              onClick={agregar}
-              disabled={saving}
-              className="px-8 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-bold rounded-2xl transition-all shadow-lg shadow-red-100 dark:shadow-none flex items-center justify-center gap-2"
-            >
-              <Plus size={18} />
-              {saving ? "Guardando..." : "Agregar"}
-            </button>
-          </div>
-          <p className="mt-4 text-xs text-slate-400 flex items-center gap-1.5 ml-2">
-            <RefreshCw size={12} />
-            Solo ingresa los 10 dígitos sin espacios ni guiones.
-          </p>
-        </section>
-
-        {/* Número de Ayuda */}
-        <section className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 p-8">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-indigo-50 dark:bg-indigo-950/30 rounded-xl text-indigo-600 dark:text-indigo-400">
-              <HelpCircle size={20} />
-            </div>
-            <h2 className="font-bold">Número de Soporte Técnico</h2>
-          </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
-            Este número se usa globalmente para el botón de &quot;Ayuda&quot; y consultas técnicas.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
-                <Phone size={16} />
-              </div>
-              <input
-                value={ayudaNumero}
-                onChange={(e) => setAyudaNumero(e.target.value.replace(/\D/g, ""))}
-                placeholder="Ej. 5512345678"
-                maxLength={10}
-                className="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl font-mono focus:ring-2 focus:ring-red-500 outline-none transition-all"
-              />
-            </div>
-            <button
-              onClick={() => save(numeros, indiceActual, ayudaNumero)}
-              disabled={saving}
-              className="px-10 py-3 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 disabled:opacity-50 text-white font-bold rounded-2xl transition-all shadow-lg shadow-slate-200 dark:shadow-none"
-            >
-              {saving ? "..." : "Guardar Cambios"}
-            </button>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
   );

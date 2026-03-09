@@ -18,18 +18,18 @@ export default function Logo({ size = "md", showText = true, lightText = false }
 
   return (
     <div className="flex items-center gap-3">
-      {/* Circular logo */}
-      <div className={`${s.circle} rounded-full overflow-hidden shadow-lg ring-2 ring-red-400/30 flex-shrink-0 relative`}>
-        <Image src="/images/3.jpeg" alt="Sorteos Pro" fill className="object-cover" sizes="120px" priority />
+      {/* High-fidelity symbol */}
+      <div className={`${s.circle} rounded-[1.25rem] bg-slate-900 flex items-center justify-center text-white shadow-xl shadow-slate-200/50 flex-shrink-0 relative group-hover:scale-110 transition-transform duration-500`}>
+         <div className="font-black italic">S</div>
       </div>
 
       {showText && (
-        <div className="flex items-baseline gap-1 leading-none">
-          <span className={`${s.text} font-black tracking-tight ${lightText ? "text-slate-100" : "text-slate-700 dark:text-slate-200"}`}>
-            Sorteos
+        <div className="flex items-baseline gap-1.5 leading-none">
+          <span className={`${s.text} font-black tracking-tighter ${lightText ? "text-white" : "text-slate-900"}`}>
+            SORTEOS
           </span>
-          <span className={`${s.text} font-black tracking-tight ${lightText ? "text-red-500" : "text-red-600 dark:text-red-400"}`}>
-            Pro
+          <span className={`${s.text} font-black tracking-tighter ${lightText ? "text-indigo-500" : "text-indigo-600"}`}>
+            PRO
           </span>
         </div>
       )}

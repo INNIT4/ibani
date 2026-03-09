@@ -10,12 +10,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "brand-red": "#CC0000",
-        "brand-black": "#111111",
-        "brand-dark": "#0A0A0A",
+        "brand-red": "#E11D48", // Rose-600
+        "brand-gray": "#F8FAFC", // Slate-50
+        "brand-text": "#0F172A", // Slate-900
+        "brand-muted": "#64748B", // Slate-500
       },
       fontFamily: {
-        racing: ["var(--font-racing)", "sans-serif"],
+        modern: ["var(--font-modern)", "sans-serif"],
       },
     },
   },

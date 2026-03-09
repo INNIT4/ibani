@@ -7,5 +7,5 @@ export function generateFolio(): string {
   for (let i = 0; i < 6; i++) {
     result += chars[bytes[i] % chars.length];
   }
-  return `JNS-${result}`;
+  return `SP-${result}`;
 }

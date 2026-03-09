@@ -20,10 +20,10 @@ export default function Navbar() {
   if (pathname.startsWith("/admin")) return null;
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-black/95 backdrop-blur-sm border-b border-gray-800">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/">
-          <Logo size="sm" showText={true} lightText={true} />
+          <Logo size="sm" showText={true} lightText={false} />
         </Link>
 
         {/* Desktop links */}
@@ -32,10 +32,10 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className={`text-sm font-medium uppercase tracking-wider transition-colors hover:text-red-500 ${
+              className={`text-sm font-black uppercase tracking-[0.2em] transition-all hover:text-indigo-600 ${
                 pathname === l.href
-                  ? "text-red-500"
-                  : "text-gray-200"
+                  ? "text-indigo-600"
+                  : "text-slate-400"
               }`}
             >
               {l.label}
@@ -43,15 +43,15 @@ export default function Navbar() {
           ))}
           <Link
             href="/rifas"
-            className="px-4 py-2 bg-brand-red hover:bg-red-700 text-white text-sm font-bold uppercase tracking-wider transition-colors skew-x-[-3deg]"
+            className="px-8 h-10 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 text-[10px] font-black uppercase tracking-[0.2em] transition-all rounded-xl shadow-xl shadow-slate-100 flex items-center"
           >
-            <span className="inline-block skew-x-[3deg]">Comprar Boletos</span>
+            <span>Participar</span>
           </Link>
         </div>
 
         {/* Hamburger */}
         <button
-          className="md:hidden p-2 rounded-sm hover:bg-gray-800 text-gray-400"
+          className="md:hidden p-2 rounded-lg hover:bg-slate-100 text-slate-600"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
         >
@@ -61,14 +61,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-800 bg-brand-black">
+        <div className="md:hidden border-t border-slate-100 bg-white shadow-xl">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className={`block px-4 py-3 text-sm font-medium uppercase tracking-wider transition-colors hover:text-red-500 hover:bg-brand-dark ${
-                pathname === l.href ? "text-red-500" : "text-gray-200"
+              className={`block px-4 py-4 text-sm font-semibold uppercase tracking-wider transition-colors hover:text-brand-red hover:bg-slate-50 ${
+                pathname === l.href ? "text-brand-red" : "text-slate-600"
               }`}
             >
               {l.label}

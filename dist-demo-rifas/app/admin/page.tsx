@@ -17,7 +17,12 @@ import {
   CreditCard,
   ChevronRight,
   TrendingUp,
-  Box
+  Box,
+  LayoutDashboard,
+  ShieldCheck,
+  Smartphone,
+  CheckCircle2,
+  Timer
 } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -31,17 +36,6 @@ export default function AdminDashboard() {
   const [horasInput, setHorasInput] = useState("24");
 
   useEffect(() => {
-    // Demo Mode: Disabling live Firestore snapshots
-    /*
-    const unsub = onSnapshot(doc(db, "settings", "config"), (snap) => {
-      const s = snap.exists()
-        ? { ...DEFAULT_SETTINGS, ...(snap.data() as Partial<AppSettings>) }
-        : DEFAULT_SETTINGS;
-      setSettings(s);
-      setHorasInput(String(s.cancelacion_horas));i
-    });
-    return () => unsub();
-    */
     setSettings(DEFAULT_SETTINGS);
     setHorasInput(String(DEFAULT_SETTINGS.cancelacion_horas));
   }, []);
@@ -70,177 +64,236 @@ export default function AdminDashboard() {
   }
 
   const quickLinks = [
-    { href: "/admin/rifas", title: "Gestionar Rifas", desc: "Crear, editar y desactivar rifas.", icon: Ticket, color: "text-blue-600", bg: "bg-blue-50 dark:bg-blue-900/20" },
-    { href: "/admin/boletos", title: "Gestionar Boletos", desc: "Verificar pagos y marcar boletos.", icon: Box, color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-900/20" },
-    { href: "/admin/clientes", title: "Base de Clientes", desc: "Ver y exportar datos de clientes.", icon: Users, color: "text-purple-600", bg: "bg-purple-50 dark:bg-purple-900/20" },
-    { href: "/admin/codigos", title: "Códigos de Descuento", desc: "CRUD de códigos y sus usos.", icon: Tag, color: "text-orange-600", bg: "bg-orange-50 dark:bg-orange-900/20" },
-    { href: "/admin/whatsapp", title: "Rotación WhatsApp", desc: "Configurar números y rotación.", icon: MessageSquare, color: "text-green-600", bg: "bg-green-50 dark:bg-green-900/20" },
-    { href: "/admin/tarjetas", title: "Datos Bancarios", desc: "Editar cuentas bancarias.", icon: CreditCard, color: "text-indigo-600", bg: "bg-indigo-50 dark:bg-indigo-900/20" },
+    { href: "/admin/rifas", title: "Configurar Rifas", desc: "Arquitectura de campañas", icon: Ticket, tint: "indigo" },
+    { href: "/admin/boletos", title: "Mesa de Boletos", desc: "Control de participaciones", icon: Box, tint: "rose" },
+    { href: "/admin/clientes", title: "Directorio", desc: "Inteligencia de usuarios", icon: Users, tint: "amber" },
+    { href: "/admin/codigos", title: "Promociones", desc: "Incentivos y cupones", icon: Tag, tint: "emerald" },
+    { href: "/admin/whatsapp", title: "Comunicaciones", desc: "Estrategia de contacto", icon: MessageSquare, tint: "sky" },
+    { href: "/admin/tarjetas", title: "Pasarelas", desc: "Configuración de recaudo", icon: CreditCard, tint: "slate" },
   ];
 
   return (
-    <div className="space-y-10 animate-in fade-in duration-500">
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="max-w-[1400px] animate-in fade-in duration-1000">
+      {/* Header Section */}
+      <header className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Dashboard</h1>
-          <p className="text-slate-500 dark:text-slate-400 mt-1">Bienvenido al panel de control de Pagina Pro.</p>
+          <div className="flex items-center gap-3 mb-4">
+             <div className="w-10 h-10 rounded-2xl bg-white border border-indigo-100 flex items-center justify-center text-indigo-600 shadow-xl shadow-indigo-50">
+                <LayoutDashboard size={20} />
+             </div>
+             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">Panel Central de Comando</span>
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter leading-none">
+            Visión General
+          </h1>
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-4 max-w-lg">
+            Monitoreo en tiempo real de operaciones, infraestructura y desempeño comercial de la plataforma profesional.
+          </p>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Sistema Activo</span>
+        
+        <div className="flex items-center gap-6">
+          <div className="bg-white px-6 py-4 rounded-[1.5rem] shadow-sm border border-slate-100 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-500">
+              <ShieldCheck size={20} strokeWidth={2.5} />
+            </div>
+            <div>
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Estado Servidor</p>
+              <p className="text-xs font-black text-slate-900 uppercase tracking-widest leading-none mt-0.5">Operativo 100%</p>
+            </div>
+          </div>
+          
+          <div className="bg-white px-6 py-4 rounded-[1.5rem] shadow-sm border border-slate-100 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-500">
+              <Timer size={20} strokeWidth={2.5} />
+            </div>
+            <div>
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Zona Horaria</p>
+              <p className="text-xs font-black text-slate-900 uppercase tracking-widest leading-none mt-0.5">GMT-6 • CDMX</p>
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* Stats Overview (Static placeholders for now) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Stats Cluster */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
         {[
-          { label: "Ventas Hoy", value: "---", icon: TrendingUp, delta: "+0%", color: "text-blue-600" },
-          { label: "Rifas Activas", value: "---", icon: Rocket, delta: "Live", color: "text-red-600" },
-          { label: "Clientes", value: "---", icon: Users, delta: "Total", color: "text-indigo-600" },
-          { label: "Conversión", value: "0%", icon: Zap, delta: "Avg", color: "text-yellow-600" },
+          { label: "Volumen Comercial", value: "$0.00", icon: TrendingUp, delta: "+0%", accent: "indigo" },
+          { label: "Campañas Activas", value: "0", icon: Rocket, delta: "Online", accent: "rose" },
+          { label: "Usuarios Únicos", value: "0", icon: Users, delta: "Base", accent: "amber" },
+          { label: "Tasa de Rebote", value: "0.0%", icon: Zap, delta: "Avg", accent: "emerald" },
         ].map((stat, i) => (
-          <div key={i} className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4">
-            <div className="flex items-center justify-between">
-              <div className={`p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 ${stat.color}`}>
-                <stat.icon size={20} />
+          <div key={i} className="group relative bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 flex flex-col gap-6 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 overflow-hidden">
+            <div className="flex items-center justify-between z-10">
+              <div className={`w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500`}>
+                <stat.icon size={24} strokeWidth={2.5} />
               </div>
-              <span className="text-[10px] font-bold px-2 py-1 bg-slate-50 dark:bg-slate-800 rounded-full text-slate-500">
+              <span className="text-[9px] font-black px-3 py-1.5 bg-slate-50 rounded-full text-slate-400 uppercase tracking-widest group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors">
                 {stat.delta}
               </span>
             </div>
-            <div>
-              <p className="text-sm font-medium text-slate-500">{stat.label}</p>
-              <p className="text-2xl font-bold text-slate-900 dark:text-white">{stat.value}</p>
+            <div className="z-10">
+              <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] mb-1 leading-none">{stat.label}</p>
+              <p className="text-3xl font-black text-slate-900 tracking-tighter leading-none">{stat.value}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        {/* Settings panel */}
-        <section className="lg:col-span-2 space-y-6">
-          <div className="bg-white dark:bg-slate-900 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-800 p-8 overflow-hidden relative">
-            <div className="absolute top-0 right-0 p-8 opacity-5">
-              <Settings2 size={120} />
-            </div>
-
-            <div className="flex items-center gap-3 mb-8">
-              <div className="p-2 bg-red-50 dark:bg-red-950/30 rounded-lg text-red-600 dark:text-red-400">
-                <Settings2 size={20} />
+      <div className="grid lg:grid-cols-12 gap-12">
+        {/* Operations Console */}
+        <section className="lg:col-span-8 space-y-8">
+          <div className="bg-white rounded-[3.5rem] shadow-2xl shadow-slate-200/30 border border-slate-100 p-12 lg:p-14 overflow-hidden relative">
+            <div className="flex items-center justify-between mb-16">
+              <div className="flex items-center gap-5">
+                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 shadow-sm">
+                  <Settings2 size={24} strokeWidth={2.5} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">Consola de Operación</h2>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Parámetros Críticos del Sistema</p>
+                </div>
               </div>
-              <h2 className="text-xl font-bold">Configuración General</h2>
+              <div className="hidden sm:block">
+                 <div className="w-1 bg-slate-100 h-10 rounded-full" />
+              </div>
             </div>
 
-            <div className="space-y-8">
-              {/* Apartados toggle */}
-              <div className="flex items-center justify-between group">
-                <div className="flex gap-4">
-                  <div className={`p-3 rounded-2xl h-fit transition-colors ${settings.mostrar_apartados ? 'bg-green-50 dark:bg-green-950/30 text-green-600' : 'bg-slate-50 dark:bg-slate-800 text-slate-400'}`}>
-                    {settings.mostrar_apartados ? <Eye size={24} /> : <EyeOff size={24} />}
+            <div className="grid gap-12">
+              {/* Apartados Module */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 group">
+                <div className="flex gap-6 max-w-lg">
+                  <div className={`w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-700 shadow-xl shadow-indigo-50 border ${settings.mostrar_apartados ? 'bg-white border-indigo-200 text-indigo-600' : 'bg-slate-50 border-slate-100 text-slate-200'}`}>
+                    {settings.mostrar_apartados ? <Eye size={32} strokeWidth={2.5} /> : <EyeOff size={32} strokeWidth={2.5} />}
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white">Grid Pública</h3>
-                    <p className="text-sm text-slate-400 max-w-xs">
+                    <h3 className="text-lg font-black text-slate-900 tracking-tight mb-2 uppercase">Visibilidad del Inventario</h3>
+                    <p className="text-xs font-bold text-slate-400 uppercase leading-relaxed tracking-wider">
                       {settings.mostrar_apartados
-                        ? "Los compradores pueden ver los números apartados en amarillo."
-                        : "Los apartados se muestran como disponibles para los compradores."}
+                        ? "Transparencia total: Los usuarios pueden ver el estado actual de cada boleto en tiempo real."
+                        : "Modo simplificado: Se ocultan los apartados para incentivar la selección inmediata."}
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={toggleApartados}
                   disabled={togglingApartados}
-                  className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none disabled:opacity-50 ${settings.mostrar_apartados ? "bg-green-500" : "bg-slate-200 dark:bg-slate-700"
-                    }`}
+                  className={`relative w-24 h-12 flex-shrink-0 rounded-2xl p-1.5 transition-all duration-700 outline-none ${settings.mostrar_apartados ? "bg-indigo-50 border border-indigo-100" : "bg-slate-100"}`}
                 >
-                  <span
-                    className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${settings.mostrar_apartados ? "translate-x-6" : "translate-x-0"
-                      }`}
-                  />
+                  <div className={`h-full aspect-square transition-all duration-700 transform rounded-xl shadow-xl ${settings.mostrar_apartados ? "translate-x-12 bg-indigo-600" : "translate-x-0 bg-white"}`} />
                 </button>
               </div>
 
-              <div className="h-px bg-slate-50 dark:bg-slate-800" />
+              <div className="h-px bg-slate-50 w-full" />
 
-              {/* Cancelación automática */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-between group">
-                  <div className="flex gap-4">
-                    <div className={`p-3 rounded-2xl h-fit transition-colors ${settings.cancelacion_activa ? 'bg-red-50 dark:bg-red-950/30 text-red-600' : 'bg-slate-50 dark:bg-slate-800 text-slate-400'}`}>
-                      <Clock size={24} />
+              {/* Automation Module */}
+              <div className="space-y-10">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+                  <div className="flex gap-6 max-w-lg">
+                    <div className={`w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-700 shadow-inner ${settings.cancelacion_activa ? 'bg-rose-600 text-white shadow-rose-200' : 'bg-slate-100 text-slate-300'}`}>
+                      <Smartphone size={32} strokeWidth={2.5} />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-900 dark:text-white">Cancelación Automática</h3>
-                      <p className="text-sm text-slate-400 max-w-xs">
-                        Libera los boletos apartados que no han reportado pago tras el tiempo límite.
+                      <h3 className="text-lg font-black text-slate-900 tracking-tight mb-2 uppercase">Protocolo de Limpieza</h3>
+                      <p className="text-xs font-bold text-slate-400 uppercase leading-relaxed tracking-wider">
+                        Ejecución automática de reciclaje de inventario para folios con pago no reportado.
                       </p>
                     </div>
                   </div>
                   <button
                     onClick={toggleCancelacion}
-                    className={`relative inline-flex h-8 w-14 flex-shrink-0 rounded-full border-4 border-transparent transition-colors duration-200 focus:outline-none ${settings.cancelacion_activa ? "bg-red-500" : "bg-slate-200 dark:bg-slate-700"
-                      }`}
+                    className={`relative w-24 h-12 flex-shrink-0 rounded-2xl p-1.5 transition-all duration-700 outline-none ${settings.cancelacion_activa ? "bg-rose-600 ring-4 ring-rose-50" : "bg-slate-200"}`}
                   >
-                    <span
-                      className={`inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out ${settings.cancelacion_activa ? "translate-x-6" : "translate-x-0"
-                        }`}
-                    />
+                    <div className={`h-full aspect-square bg-white rounded-xl shadow-xl transition-all duration-700 transform ${settings.cancelacion_activa ? "translate-x-12 ring-2 ring-rose-500/20" : "translate-x-0"}`} />
                   </button>
                 </div>
 
                 {settings.cancelacion_activa && (
-                  <div className="ml-[60px] flex flex-wrap items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 animate-in slide-in-from-top-4 duration-300">
-                    <div className="flex flex-col gap-1">
-                      <label className="text-xs font-bold uppercase tracking-wider text-slate-500">Tiempo límite (Horas)</label>
-                      <input
-                        type="number"
-                        min={1}
-                        max={720}
-                        value={horasInput}
-                        onChange={(e) => setHorasInput(e.target.value)}
-                        className="w-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-lg font-bold focus:ring-2 focus:ring-red-500 outline-none transition-all"
-                      />
+                  <div className="sm:ml-26 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 animate-in slide-in-from-top-4 duration-500 flex flex-col sm:flex-row items-center justify-between gap-8">
+                    <div className="flex items-center gap-8">
+                       <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 shadow-sm">
+                          <Clock size={24} strokeWidth={2.5} />
+                       </div>
+                       <div>
+                          <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Ventana de Reporte (Horas)</p>
+                          <input
+                            type="number"
+                            min={1}
+                            max={720}
+                            value={horasInput}
+                            onChange={(e) => setHorasInput(e.target.value)}
+                            className="w-32 bg-white border border-slate-200 rounded-xl px-4 py-3 text-2xl font-black text-slate-900 focus:ring-4 focus:ring-rose-500/5 focus:border-rose-400 outline-none transition-all text-center tracking-tighter"
+                          />
+                       </div>
                     </div>
                     <button
                       onClick={saveCancelacion}
                       disabled={savingCancelacion}
-                      className="ml-auto px-8 py-3 bg-slate-900 dark:bg-red-600 hover:bg-slate-800 dark:hover:bg-red-700 disabled:opacity-50 text-white font-bold rounded-2xl transition-all shadow-lg shadow-slate-200 dark:shadow-none"
+                      className="group flex items-center gap-3 px-10 h-16 bg-white border border-indigo-100 hover:bg-slate-50 disabled:opacity-50 text-indigo-600 font-black rounded-2xl transition-all shadow-xl shadow-indigo-50 text-xs uppercase tracking-widest active:scale-95"
                     >
-                      {savingCancelacion ? "Guardando..." : "Guardar"}
+                      {savingCancelacion ? (
+                        <div className="w-5 h-5 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <CheckCircle2 size={16} strokeWidth={3} />
+                          <span>Guardar Consola</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 )}
               </div>
             </div>
+            
+            <div className="absolute top-0 right-0 p-14 opacity-[0.02] pointer-events-none">
+              <Settings2 size={240} />
+            </div>
           </div>
         </section>
 
-        {/* Quick links */}
-        <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg text-indigo-600 dark:text-indigo-400">
-              <Zap size={20} />
+        {/* Quick Access Cluster */}
+        <section className="lg:col-span-4 space-y-8">
+          <div className="flex items-center gap-4 mb-2">
+            <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600">
+              <Zap size={20} strokeWidth={2.5} />
             </div>
-            <h2 className="text-xl font-bold">Accesos Rápidos</h2>
+            <h2 className="text-xl font-black text-slate-900 tracking-tight uppercase">Accesos Directos</h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-4">
+          <div className="flex flex-col gap-4">
             {quickLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="group bg-white dark:bg-slate-900 rounded-[1.5rem] p-5 shadow-sm border border-slate-100 dark:border-slate-800 hover:border-red-500 dark:hover:border-red-500 transition-all duration-300 flex items-center gap-4"
+                className="group relative bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 hover:border-indigo-200 hover:shadow-2xl hover:shadow-indigo-100/50 transition-all duration-500 flex items-center gap-5 overflow-hidden active:scale-95"
               >
-                <div className={`p-3 rounded-2xl ${item.bg} ${item.color} group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon size={20} />
+                <div className={`p-4 rounded-2xl bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white group-hover:rotate-12 transition-all duration-500 flex-shrink-0 z-10`}>
+                  <item.icon size={22} strokeWidth={2.5} />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-slate-900 dark:text-white group-hover:text-red-600 transition-colors">{item.title}</h3>
-                  <p className="text-slate-400 text-xs">{item.desc}</p>
+                <div className="flex-1 z-10">
+                  <h3 className="font-black text-slate-900 text-sm uppercase tracking-tight group-hover:text-indigo-600 transition-colors mb-0.5">{item.title}</h3>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-70">{item.desc}</p>
                 </div>
-                <ChevronRight size={18} className="text-slate-300 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
+                <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-200 group-hover:border-indigo-100 group-hover:text-indigo-400 transition-all z-10">
+                   <ChevronRight size={18} strokeWidth={3} />
+                </div>
+                
+                {/* Visual Accent */}
+                <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-2 h-12 bg-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-l-full" />
               </Link>
             ))}
+          </div>
+          
+          <div className="bg-white border border-indigo-100 rounded-[2.5rem] p-10 text-slate-900 relative overflow-hidden group shadow-2xl shadow-indigo-100/50">
+             <div className="relative z-10">
+                <p className="text-[9px] font-black uppercase tracking-[0.4em] text-indigo-400 mb-3 leading-none">Canal Prioritario</p>
+                <h4 className="text-xl font-black mb-10 leading-none tracking-tight uppercase">Mesa de Ayuda</h4>
+                <button className="flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl active:scale-95">
+                   Iniciar Consulta
+                </button>
+             </div>
+             <div className="absolute -right-6 -bottom-6 opacity-[0.03] group-hover:scale-110 transition-transform duration-1000 rotate-12 text-indigo-600">
+                <ShieldCheck size={180} strokeWidth={1} />
+             </div>
           </div>
         </section>
       </div>

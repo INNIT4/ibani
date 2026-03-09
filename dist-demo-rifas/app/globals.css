@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 body {
-  @apply bg-brand-black text-white transition-colors;
+  @apply bg-white text-slate-900 transition-colors duration-300;
 }
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
-  15%       { transform: scale(1.15); }
+  15%       { transform: scale(1.05); }
   30%       { transform: scale(1); }
-  45%       { transform: scale(1.1); }
+  45%       { transform: scale(1.03); }
   60%       { transform: scale(1); }
 }
 
@@ -21,62 +21,56 @@ body {
   .number-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
-    gap: 4px;
+    gap: 8px;
   }
   .animate-heartbeat {
-    animation: heartbeat 1.4s ease-in-out infinite;
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-sm rounded-2xl;
   }
 }
 
-/* Racing / eSports decorative utilities */
+/* Modern Minimalist decorative utilities */
 
 .clip-diagonal-bottom {
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: none; /* Removed for minimalist look */
 }
 
 .clip-diagonal-top {
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  clip-path: none; /* Removed for minimalist look */
 }
 
 .racing-stripes {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 40px,
-    rgba(255, 255, 255, 0.015) 40px,
-    rgba(255, 255, 255, 0.015) 80px
-  );
+  background-image: none;
 }
 
 .glow-red {
-  box-shadow: 0 0 20px rgba(204, 0, 0, 0.4), 0 0 40px rgba(204, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.1), 0 4px 6px -4px rgba(225, 29, 72, 0.05);
 }
 
 .accent-bar {
   display: block;
-  width: 80px;
+  width: 40px;
   height: 4px;
-  background: #CC0000;
-  transform: skewX(-20deg);
-  margin-top: 12px;
+  background: #E11D48;
+  border-radius: 2px;
+  margin-top: 8px;
 }
 
 .accent-bar-center {
   display: block;
-  width: 80px;
+  width: 40px;
   height: 4px;
-  background: #CC0000;
-  transform: skewX(-20deg);
+  background: #E11D48;
+  border-radius: 2px;
   margin: 12px auto 0;
 }
 
 .step-number {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 50%;
 }
 
 .racing-chevrons::before {
-  content: "// // //";
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  opacity: 0.3;
+  content: "";
 }

@@ -5,6 +5,20 @@ import {
   getDiscountCodes, createDiscountCode, updateDiscountCode,
   deleteDiscountCode, getRifas, DiscountCode, Rifa,
 } from "@/lib/firestore";
+import { 
+  Plus, 
+  Ticket, 
+  Target, 
+  BarChart3, 
+  Copy, 
+  Check, 
+  Edit3, 
+  RotateCcw, 
+  Trash2,
+  X,
+  Zap,
+  Tag
+} from "lucide-react";
 
 const EMPTY: Omit<DiscountCode, "id"> = {
   codigo: "", porcentaje: 10, activo: true, usos: 0, max_usos: 100, rifa_ids: [],
@@ -87,50 +101,69 @@ export default function AdminCodigosPage() {
   const agotados = codes.filter((c) => c.usos >= c.max_usos).length;
 
   return (
-    <div>
+    <div className="max-w-7xl animate-in fade-in duration-700">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-black">Códigos de Descuento</h1>
+      <div className="flex items-center justify-between mb-12">
+        <div>
+          <h1 className="text-3xl font-black text-slate-900 leading-none mb-2">Estrategias de Descuento</h1>
+          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">Gestión de cupones y promociones exclusivas</p>
+        </div>
         <button
           onClick={startNew}
-          className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-sm transition-colors"
+          className="flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-[1.5rem] text-[10px] uppercase tracking-[0.2em] transition-all shadow-xl shadow-indigo-100"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          Nuevo código
+          <Plus size={18} strokeWidth={3} />
+          Crear Cupón
         </button>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700">
-          <p className="text-xs text-slate-500 font-medium uppercase tracking-wide mb-1">Total</p>
-          <p className="text-2xl font-black text-slate-900 dark:text-slate-100">{codes.length}</p>
-          <p className="text-xs text-slate-400 mt-0.5">códigos creados</p>
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm flex items-center gap-6">
+          <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-400">
+            <Ticket size={28} />
+          </div>
+          <div>
+            <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Estrategias</p>
+            <p className="text-3xl font-black text-slate-900 leading-none">{codes.length}</p>
+          </div>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700">
-          <p className="text-xs text-slate-500 font-medium uppercase tracking-wide mb-1">Activos</p>
-          <p className="text-2xl font-black text-green-600">{totalActivos}</p>
-          <p className="text-xs text-slate-400 mt-0.5">{agotados > 0 ? `${agotados} agotado${agotados > 1 ? "s" : ""}` : "sin agotados"}</p>
+        <div className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm flex items-center gap-6">
+          <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-500">
+            <Zap size={28} />
+          </div>
+          <div>
+            <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Activos Ahora</p>
+            <div className="flex items-baseline gap-2">
+              <p className="text-3xl font-black text-green-600 leading-none">{totalActivos}</p>
+              {agotados > 0 && <span className="text-[10px] font-black text-rose-500 uppercase">({agotados} agotados)</span>}
+            </div>
+          </div>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700">
-          <p className="text-xs text-slate-500 font-medium uppercase tracking-wide mb-1">Usos totales</p>
-          <p className="text-2xl font-black text-blue-600">{totalUsos}</p>
-          <p className="text-xs text-slate-400 mt-0.5">veces aplicado</p>
+        <div className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm flex items-center gap-6">
+          <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500">
+            <BarChart3 size={28} />
+          </div>
+          <div>
+            <p className="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em] mb-1">Usos Totales</p>
+            <p className="text-3xl font-black text-indigo-600 leading-none">{totalUsos}</p>
+          </div>
         </div>
       </div>
 
-      {/* Cards grid */}
+      {/* Content */}
       {codes.length === 0 ? (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-12 text-center">
-          <p className="text-slate-400 mb-3">Sin códigos de descuento</p>
-          <button onClick={startNew} className="text-sm text-red-600 font-bold hover:underline">
-            Crear el primero
+        <div className="bg-white rounded-[3rem] border border-dashed border-slate-200 p-24 text-center">
+          <div className="w-20 h-20 bg-slate-50 rounded-3xl flex items-center justify-center mx-auto mb-6">
+            <Tag size={32} className="text-slate-200" />
+          </div>
+          <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] mb-4">Módulo Vacío</p>
+          <button onClick={startNew} className="text-xs text-indigo-600 font-black uppercase tracking-widest hover:underline decoration-2 underline-offset-4">
+            Empezar primera campaña
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {codes.map((c) => {
             const pct = c.max_usos > 0 ? Math.min((c.usos / c.max_usos) * 100, 100) : 0;
             const agotado = c.usos >= c.max_usos;
@@ -139,112 +172,94 @@ export default function AdminCodigosPage() {
             return (
               <div
                 key={c.id}
-                className={`bg-white dark:bg-slate-800 rounded-2xl border p-5 flex flex-col gap-3 transition-all ${
-                  agotado
-                    ? "border-slate-200 dark:border-slate-700 opacity-60"
-                    : c.activo
-                    ? "border-green-200 dark:border-green-800"
-                    : "border-slate-200 dark:border-slate-700"
+                className={`group bg-white rounded-[2.5rem] border p-8 flex flex-col gap-8 transition-all hover:shadow-2xl hover:shadow-slate-100 relative overflow-hidden ${
+                  c.activo && !agotado
+                    ? "border-slate-100 hover:border-indigo-200"
+                    : "border-slate-50 opacity-60 bg-slate-50/10"
                 }`}
               >
-                {/* Top row */}
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex justify-between items-start">
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono font-black text-lg text-slate-900 dark:text-slate-100 tracking-widest">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="font-mono font-black text-2xl text-slate-900 tracking-wider">
                         {c.codigo}
                       </span>
                       <button
                         onClick={() => copyCode(c.codigo)}
-                        title="Copiar código"
-                        className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                        className={`p-2 rounded-xl transition-all ${isCopied ? 'bg-green-500 text-white shadow-lg shadow-green-100' : 'bg-slate-50 text-slate-300 hover:text-indigo-600 hover:bg-indigo-50'}`}
                       >
-                        {isCopied ? (
-                          <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        ) : (
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                          </svg>
-                        )}
+                        {isCopied ? <Check size={14} strokeWidth={3} /> : <Copy size={14} strokeWidth={2.5} />}
                       </button>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-                      {c.porcentaje}% de descuento
-                    </p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-black text-indigo-600 leading-none">{c.porcentaje}%</span>
+                      <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Off</span>
+                    </div>
                   </div>
-                  {/* Status badge */}
+                  
                   <button
                     onClick={() => toggleActivo(c)}
-                    className={`flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full transition-colors ${
-                      agotado
-                        ? "bg-slate-100 text-slate-500 dark:bg-slate-700 cursor-default"
-                        : c.activo
-                        ? "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 hover:bg-green-200"
-                        : "bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400 hover:bg-slate-200"
-                    }`}
                     disabled={agotado}
+                    className={`text-[9px] font-black uppercase tracking-[0.15em] px-4 py-2 rounded-full border transition-all ${
+                      agotado
+                        ? "bg-rose-50 text-rose-600 border-rose-100"
+                        : c.activo
+                        ? "bg-green-50 text-green-600 border-green-100 hover:bg-green-100"
+                        : "bg-slate-50 text-slate-400 border-slate-100 hover:bg-slate-100"
+                    }`}
                   >
-                    {agotado ? "Agotado" : c.activo ? "Activo" : "Inactivo"}
+                    {agotado ? "Agotado" : c.activo ? "Activo" : "Pausado"}
                   </button>
                 </div>
 
-                {/* Usage progress */}
-                <div>
-                  <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-                    <span>{c.usos} usos</span>
-                    <span>{c.max_usos} máximo</span>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center px-1">
+                    <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Capacidad de Usos</span>
+                    <span className="text-xs font-black text-slate-900">{c.usos} <span className="text-slate-300 text-[10px] font-bold">DE</span> {c.max_usos}</span>
                   </div>
-                  <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                  <div className="h-3 bg-slate-50 rounded-full overflow-hidden p-0.5 border border-slate-100 shadow-inner">
                     <div
-                      className={`h-full rounded-full transition-all ${
-                        pct >= 100 ? "bg-red-500" : pct >= 75 ? "bg-amber-500" : "bg-green-500"
+                      className={`h-full rounded-full transition-all duration-1000 ${
+                        pct >= 100 ? "bg-rose-500" : pct >= 80 ? "bg-amber-500" : "bg-indigo-500"
                       }`}
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <p className="text-xs text-slate-400 mt-1">{Math.round(pct)}% utilizado</p>
                 </div>
 
-                {/* Rifas */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex-1">
                   {!c.rifa_ids || c.rifa_ids.length === 0 ? (
-                    <span className="text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full font-medium">
-                      Todas las rifas
-                    </span>
-                  ) : c.rifa_ids.map((rid) => {
-                    const r = rifas.find((r) => r.id === rid);
-                    return (
-                      <span key={rid} className="text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full font-medium">
-                        {r?.nombre ?? rid}
-                      </span>
-                    );
-                  })}
+                    <div className="inline-flex items-center gap-2 bg-indigo-50/50 text-indigo-600 px-4 py-1.5 rounded-xl border border-indigo-100/50">
+                      <Target size={12} />
+                      <span className="text-[10px] font-black uppercase tracking-wider">Aplicación Global</span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                    {c.rifa_ids.map((rid) => {
+                      const r = rifas.find((r) => r.id === rid);
+                      return (
+                        <span key={rid} className="text-[9px] font-black uppercase tracking-wider bg-slate-50 text-slate-400 px-3 py-1 rounded-lg border border-slate-100">
+                          {r?.nombre ?? rid}
+                        </span>
+                      );
+                    })}
+                    </div>
+                  )}
                 </div>
 
-                {/* Actions */}
-                <div className="flex items-center gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-700">
-                  <button
-                    onClick={() => startEdit(c)}
-                    className="flex-1 text-xs py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-lg transition-colors"
-                  >
-                    Editar
-                  </button>
-                  {c.usos > 0 && (
-                    <button
-                      onClick={() => handleReset(c)}
-                      disabled={resetting === c.id}
-                      className="flex-1 text-xs py-1.5 bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/30 dark:hover:bg-amber-900/50 text-amber-700 dark:text-amber-300 font-semibold rounded-lg transition-colors disabled:opacity-50"
-                    >
-                      {resetting === c.id ? "..." : "Resetear"}
+                <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+                  <div className="flex gap-1">
+                    <button onClick={() => startEdit(c)} className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all" title="Editar">
+                      <Edit3 size={18} />
                     </button>
-                  )}
-                  <button
-                    onClick={() => handleDelete(c.id!)}
-                    className="flex-1 text-xs py-1.5 bg-red-50 hover:bg-red-100 dark:bg-red-900/30 dark:hover:bg-red-900/50 text-red-600 dark:text-red-400 font-semibold rounded-lg transition-colors"
-                  >
-                    Eliminar
+                    {c.usos > 0 && (
+                      <button onClick={() => handleReset(c)} disabled={resetting === c.id} className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-amber-600 hover:bg-amber-50 rounded-xl transition-all" title="Resetear Usos">
+                        <RotateCcw size={18} className={resetting === c.id ? 'animate-spin' : ''} />
+                      </button>
+                    )}
+                  </div>
+                  <button onClick={() => handleDelete(c.id!)} className="w-10 h-10 flex items-center justify-center text-slate-300 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all" title="Eliminar">
+                    <Trash2 size={18} />
                   </button>
                 </div>
               </div>
@@ -253,91 +268,105 @@ export default function AdminCodigosPage() {
         </div>
       )}
 
-      {/* Modal */}
+      {/* Modal Form */}
       {showForm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/40 backdrop-blur-md p-4 overflow-y-auto"
           onClick={() => setShowForm(false)}
         >
           <div
-            className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6"
+            className="bg-white rounded-[3rem] shadow-2xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 duration-300 my-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center mb-5">
-              <h2 className="font-black text-lg">{editId ? "Editar código" : "Nuevo código"}</h2>
-              <button onClick={() => setShowForm(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 transition-colors">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <div className="px-10 py-8 border-b border-slate-50 flex justify-between items-center">
+              <div>
+                <h2 className="text-2xl font-black text-slate-900 leading-none mb-1">{editId ? "Editar Estrategia" : "Nueva Estrategia"}</h2>
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Configuración de beneficios</p>
+              </div>
+              <button onClick={() => setShowForm(false)} className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-50 hover:bg-rose-50 text-slate-300 hover:text-rose-600 transition-all">
+                <X size={24} strokeWidth={3} />
               </button>
             </div>
 
-            <form onSubmit={handleSave} className="space-y-4">
-              {/* Código */}
-              <div>
-                <label className="block text-sm font-semibold mb-1.5">Código</label>
-                <div className="flex gap-2">
-                  <input
-                    value={form.codigo}
-                    onChange={(e) => setForm({ ...form, codigo: e.target.value.toUpperCase().replace(/\s/g, "") })}
-                    required
-                    placeholder="VERANO25"
-                    className="flex-1 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 px-3 py-2.5 text-sm uppercase font-mono font-bold tracking-widest focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
+            <form onSubmit={handleSave} className="p-10 space-y-10">
+              <div className="space-y-4">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Código Promocional</label>
+                <div className="flex gap-3">
+                  <div className="relative flex-1">
+                    <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-slate-300">
+                      <Tag size={20} />
+                    </div>
+                    <input
+                      value={form.codigo}
+                      onChange={(e) => setForm({ ...form, codigo: e.target.value.toUpperCase().replace(/\s/g, "") })}
+                      required
+                      placeholder="VERANO25"
+                      className="w-full pl-14 pr-6 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] font-mono text-xl font-black tracking-widest text-slate-900 placeholder:text-slate-200 focus:outline-none focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-400 focus:bg-white transition-all"
+                    />
+                  </div>
                   <button
                     type="button"
                     onClick={() => setForm({ ...form, codigo: generateCode() })}
-                    className="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-semibold transition-colors whitespace-nowrap"
+                    className="px-6 bg-white border border-slate-100 hover:bg-slate-50 text-slate-400 hover:text-slate-900 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-sm flex-shrink-0"
                   >
-                    Generar
+                    Auto
                   </button>
                 </div>
               </div>
 
-              {/* Porcentaje */}
-              <div>
-                <label className="block text-sm font-semibold mb-1.5">
-                  Descuento: <span className="text-red-600 font-black">{form.porcentaje}%</span>
-                </label>
+              <div className="bg-slate-50/50 rounded-[2rem] p-8 border border-slate-100">
+                <div className="flex justify-between items-end mb-6">
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Poder de Descuento</label>
+                  <span className="text-3xl font-black text-indigo-600">{form.porcentaje}<span className="text-sm ml-1">% OFF</span></span>
+                </div>
                 <input
                   type="range" min={1} max={100} value={form.porcentaje}
                   onChange={(e) => setForm({ ...form, porcentaje: Number(e.target.value) })}
-                  className="w-full accent-red-600"
+                  className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer accent-indigo-600"
                 />
-                <div className="flex justify-between text-xs text-slate-400 mt-1">
-                  <span>1%</span><span>50%</span><span>100%</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Tope de Usos</label>
+                  <input
+                    type="number" min={1} value={form.max_usos}
+                    onChange={(e) => setForm({ ...form, max_usos: Number(e.target.value) })}
+                    required
+                    className="w-full px-6 py-5 bg-slate-50 border border-slate-100 rounded-[1.5rem] font-black text-slate-900 focus:outline-none focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-400 focus:bg-white transition-all"
+                  />
+                </div>
+                <div className="flex flex-col justify-end">
+                  <div className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-[1.5rem] h-[64px]">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Activo</span>
+                    <button
+                      type="button"
+                      onClick={() => setForm({ ...form, activo: !form.activo })}
+                      className={`relative w-12 h-6 rounded-full transition-all duration-300 ${form.activo ? "bg-green-500 shadow-lg shadow-green-100" : "bg-slate-200"}`}
+                    >
+                      <span className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-300 ${form.activo ? "translate-x-7" : "translate-x-1"}`} />
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* Usos máximos */}
-              <div>
-                <label className="block text-sm font-semibold mb-1.5">Usos máximos</label>
-                <input
-                  type="number" min={1} value={form.max_usos}
-                  onChange={(e) => setForm({ ...form, max_usos: Number(e.target.value) })}
-                  required
-                  className="w-full rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
-                />
-              </div>
-
-              {/* Rifas */}
               {rifas.length > 0 && (
-                <div>
-                  <label className="block text-sm font-semibold mb-1.5">Válido para</label>
-                  <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
-                    <label className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer">
+                <div className="space-y-4">
+                  <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Restricciones de Campaña</label>
+                  <div className="grid grid-cols-1 gap-3 max-h-48 overflow-y-auto pr-3 custom-scrollbar">
+                    <label className={`flex items-center gap-4 p-4 rounded-2xl border transition-all cursor-pointer ${!form.rifa_ids || form.rifa_ids.length === 0 ? "bg-indigo-50 border-indigo-200 ring-4 ring-indigo-500/5" : "bg-white border-slate-100"}`}>
                       <input
                         type="checkbox"
                         checked={!form.rifa_ids || form.rifa_ids.length === 0}
                         onChange={() => setForm({ ...form, rifa_ids: [] })}
-                        className="accent-red-600"
+                        className="w-5 h-5 accent-indigo-600 rounded-lg"
                       />
-                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Todas las rifas</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">Válido en cualquier rifa</span>
                     </label>
                     {rifas.map((r) => {
                       const selected = (form.rifa_ids ?? []).includes(r.id!);
                       return (
-                        <label key={r.id} className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer">
+                        <label key={r.id} className={`flex items-center gap-4 p-4 rounded-2xl border transition-all cursor-pointer ${selected ? "bg-white border-indigo-200 ring-4 ring-indigo-500/5" : "bg-white border-slate-100"}`}>
                           <input
                             type="checkbox"
                             checked={selected}
@@ -350,9 +379,9 @@ export default function AdminCodigosPage() {
                                   : [...current, r.id!],
                               });
                             }}
-                            className="accent-red-600"
+                            className="w-5 h-5 accent-indigo-600 rounded-lg"
                           />
-                          <span className="text-sm">{r.nombre}</span>
+                          <span className="text-xs font-bold text-slate-500">{r.nombre}</span>
                         </label>
                       );
                     })}
@@ -360,33 +389,12 @@ export default function AdminCodigosPage() {
                 </div>
               )}
 
-              {/* Activo toggle */}
-              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl">
-                <span className="text-sm font-semibold">Activo al crear</span>
-                <button
-                  type="button"
-                  onClick={() => setForm({ ...form, activo: !form.activo })}
-                  className={`relative w-11 h-6 rounded-full transition-colors ${form.activo ? "bg-green-500" : "bg-slate-300 dark:bg-slate-600"}`}
-                >
-                  <span className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${form.activo ? "translate-x-6" : "translate-x-1"}`} />
-                </button>
-              </div>
-
-              {/* Preview */}
-              {form.codigo && (
-                <div className="bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 rounded-xl p-3 text-center">
-                  <p className="text-xs text-red-400 mb-1">Vista previa</p>
-                  <p className="font-mono font-black text-red-700 dark:text-red-300 tracking-widest">{form.codigo}</p>
-                  <p className="text-xs text-red-500 mt-1">{form.porcentaje}% off · hasta {form.max_usos} usos</p>
-                </div>
-              )}
-
               <button
                 type="submit"
                 disabled={saving}
-                className="w-full py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-bold rounded-xl text-sm transition-colors"
+                className="w-full py-5 bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white font-black rounded-[1.5rem] text-[10px] uppercase tracking-[0.3em] transition-all shadow-2xl shadow-slate-200 mt-4 h-[64px]"
               >
-                {saving ? "Guardando..." : editId ? "Guardar cambios" : "Crear código"}
+                {saving ? "Procesando Datos..." : editId ? "Actualizar Beneficio" : "Lanzar Estrategia"}
               </button>
             </form>
           </div>
