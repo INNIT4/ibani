@@ -6,27 +6,27 @@
 
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  /* Fondo */
-  --bg:         #080808;
-  --bg-2:       #0F0F0F;
-  --bg-3:       #161616;
-  --bg-4:       #1F1F1F;
+  /* Fondo — crema cálido */
+  --bg:         #FAF8F1;
+  --bg-2:       #F3F1E8;
+  --bg-3:       #EDEAE0;
+  --bg-4:       #E5E2D6;
 
   /* Texto */
-  --ink:        #F0EDE6;
-  --ink-2:      #A09B92;
-  --ink-3:      #525048;
+  --ink:        #1A1714;
+  --ink-2:      #5C5852;
+  --ink-3:      #9C9890;
 
-  /* Acento terracota (más brillante para fondo oscuro) */
-  --accent:     #E07048;
-  --accent-2:   #F09060;
-  --accent-bg:  rgba(224, 112, 72, 0.08);
-  --accent-bg2: rgba(224, 112, 72, 0.14);
+  /* Acento terracota */
+  --accent:     #C85A28;
+  --accent-2:   #E07848;
+  --accent-bg:  rgba(200, 90, 40, 0.08);
+  --accent-bg2: rgba(200, 90, 40, 0.14);
 
   /* Bordes */
-  --border:     rgba(255, 255, 255, 0.06);
-  --border-2:   rgba(255, 255, 255, 0.12);
-  --border-3:   rgba(255, 255, 255, 0.20);
+  --border:     rgba(0, 0, 0, 0.08);
+  --border-2:   rgba(0, 0, 0, 0.14);
+  --border-3:   rgba(0, 0, 0, 0.22);
 
   /* Tipografía */
   --font-display: 'Fraunces', Georgia, serif;
