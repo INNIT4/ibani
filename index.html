@@ -48,6 +48,10 @@
           { "@type": "City", "name": "Ciudad Obregón" },
           { "@type": "State", "name": "Sonora" }
         ],
+        "founder": {
+          "@type": "Person",
+          "name": "Jose Daniel Ibarra Nieblas"
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de diseño web",
@@ -459,14 +463,59 @@
     </section>
 
     <!-- ══════════════════════════════════════════════════════════ -->
-    <!-- 04. PROCESO — 4 step cards                                -->
+    <!-- 04. TESTIMONIOS                                           -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="section section--sm" id="testimonios" style="background:var(--bg-2);border-top:1px solid var(--border)">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
+            <span class="label">04 — Clientes</span>
+          </div>
+          <h2 class="section-head__title">
+            Lo que dicen<br><em>nuestros clientes</em>
+          </h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
+
+          <blockquote class="scale-reveal reveal--d1" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-6)">
+            <p style="font-size:var(--text-base);color:var(--ink-2);line-height:1.75;font-style:italic;max-width:none;">"Desde que lanzamos la página web, recibimos consultas de clientes nuevos cada semana. El diseño quedó exactamente como lo imaginábamos y el proceso fue muy rápido."</p>
+            <footer style="display:flex;flex-direction:column;gap:2px">
+              <strong style="font-size:var(--text-sm);color:var(--ink)">Alejandra Ferraris</strong>
+              <span style="font-size:var(--text-xs);color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase">Jardín Ferraris · Hermosillo</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="scale-reveal reveal--d2" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-6)">
+            <p style="font-size:var(--text-base);color:var(--ink-2);line-height:1.75;font-style:italic;max-width:none;">"Jose Daniel entiende perfectamente lo que un salón de eventos necesita. El sitio refleja la elegancia de Casa Arias y nuestros clientes siempre preguntan quién lo diseñó."</p>
+            <footer style="display:flex;flex-direction:column;gap:2px">
+              <strong style="font-size:var(--text-sm);color:var(--ink)">Carlos Arias</strong>
+              <span style="font-size:var(--text-xs);color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase">Casa Arias · Hermosillo</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="scale-reveal reveal--d3" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-6)">
+            <p style="font-size:var(--text-base);color:var(--ink-2);line-height:1.75;font-style:italic;max-width:none;">"Entregaron en 3 días tal como prometieron. El precio es justo y sin letra chica. Nuestra agenda de eventos mejoró notablemente desde que tenemos presencia en internet."</p>
+            <footer style="display:flex;flex-direction:column;gap:2px">
+              <strong style="font-size:var(--text-sm);color:var(--ink)">Ramón Flores</strong>
+              <span style="font-size:var(--text-xs);color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase">Floresta Jardín · Ciudad Obregón</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 05. PROCESO — 4 step cards                                -->
     <!-- ══════════════════════════════════════════════════════════ -->
     <section class="process section" id="proceso">
       <div class="container">
 
         <div class="section-head reveal">
           <div class="section-head__eyebrow">
-            <span class="label">04 — Proceso</span>
+            <span class="label">05 — Proceso</span>
           </div>
           <h2 class="section-head__title">
             Cómo<br><em>trabajamos</em>
@@ -508,7 +557,7 @@
 
         <div class="section-head reveal">
           <div class="section-head__eyebrow">
-            <span class="label">05 — Precios</span>
+            <span class="label">06 — Precios</span>
           </div>
           <h2 class="section-head__title">
             Inversión<br><em>transparente</em>
@@ -588,7 +637,7 @@
 
         <div class="section-head reveal">
           <div class="section-head__eyebrow">
-            <span class="label">06 — FAQ</span>
+            <span class="label">07 — FAQ</span>
           </div>
           <h2 class="section-head__title">
             Preguntas<br><em>frecuentes</em>
@@ -679,7 +728,7 @@
     <section class="contact section--lg" id="contacto">
       <div class="container contact__inner">
 
-        <span class="label reveal">07 — Contacto</span>
+        <span class="label reveal">08 — Contacto</span>
 
         <h2 class="contact__title">
           <span class="wr"><span class="ww" style="--i:0">¿Listo</span></span>
@@ -723,7 +772,10 @@
             Diseño y desarrollo web profesional para negocios en crecimiento.<br>
             Hermosillo, Sonora, México.
           </p>
-          <address class="footer__tagline" style="font-style:normal;margin-top:.75rem">
+          <p class="footer__tagline" style="margin-top:.75rem;color:rgba(255,255,255,.3);font-size:var(--text-xs);letter-spacing:.06em">
+            Fundador · Jose Daniel Ibarra Nieblas
+          </p>
+          <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
             <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">hola@ibanidigital.com</a><br>
             <a href="https://wa.me/526625044016" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">+52 662 504 4016</a>
           </address>
