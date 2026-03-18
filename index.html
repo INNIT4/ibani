@@ -3,888 +3,711 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IBANI - Organiza sorteos y rifas profesionales online</title>
-  <meta name="description" content="IBANI - La plataforma premium para organizar sorteos y rifas profesionales online. Segura, transparente y fácil de configurar. Crea tu propia página de rifas hoy mismo.">
+  <title>IBANI Digital — Diseño y Desarrollo Web Profesional</title>
+  <meta name="description" content="IBANI Digital: diseñamos y desarrollamos páginas web profesionales para negocios, salones de eventos, tiendas online y más. Entrega en 3 días. Sonora, México.">
   <link rel="canonical" href="https://www.ibanidigital.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="IBANI Digital — Diseño y Desarrollo Web">
+  <meta property="og:description" content="Páginas web profesionales para negocios en crecimiento. Landing pages, tiendas online, plataformas especiales. Entrega en 3 días.">
+  <meta property="og:url"         content="https://www.ibanidigital.com/">
+  <meta property="og:image"       content="https://www.ibanidigital.com/images/og-image.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="preload" as="image" href="images/demo-preview.webp">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+
+  <!-- Inline critical: faq body, page-load visibility -->
+  <style>
+    .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s cubic-bezier(0.16,1,0.3,1); overflow: hidden; }
+    .faq-body.open { grid-template-rows: 1fr; }
+    .faq-body__inner { overflow: hidden; padding-bottom: 0; }
+    .faq-body.open .faq-body__inner { padding-bottom: 1.5rem; }
+
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+               padding: 1.5rem 0; font-family: var(--font-display); font-size: clamp(1.1rem,2vw,1.4rem);
+               font-weight: 600; color: var(--ink); cursor: pointer; background: none; border: none;
+               text-align: left; transition: color .2s; }
+    .faq-btn:hover { color: var(--terracotta); }
+    .faq-btn__icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border);
+                     display: flex; align-items: center; justify-content: center; font-size: .8rem;
+                     transition: transform .3s cubic-bezier(0.16,1,0.3,1), background .2s, border-color .2s; }
+    .faq-btn[aria-expanded="true"] .faq-btn__icon { transform: rotate(45deg); background: var(--terracotta); border-color: var(--terracotta); color: white; }
+    .faq-body__inner p { color: var(--ink-muted); line-height: 1.75; max-width: 72ch; }
+
+    .nav__mobile { display: none; flex-direction: column; padding: 2rem; background: var(--cream);
+                   border-top: 1px solid var(--border); position: absolute; top: 68px; left: 0; right: 0;
+                   gap: 1.5rem; z-index: 99; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--ink);
+                     transition: color .2s; }
+    .nav__mobile a:hover { color: var(--terracotta); }
+  </style>
 </head>
+
 <body>
-  <!-- Header -->
+
+  <!-- ── HEADER ──────────────────────────────────────────────── -->
   <header class="header" id="header">
-    <div class="header__container">
-      <a href="#/inicio" class="logo nav-link">
-        <span class="logo__top">IBANI</span>
-        <span class="logo__bottom">DIGITAL</span>
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a href="#inicio" class="logo" aria-label="IBANI Digital — inicio">
+        <span class="logo__name">IBANI</span>
+        <span class="logo__sub">Digital</span>
       </a>
-      <nav class="nav" aria-label="Principal">
+
+      <!-- Desktop Nav -->
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="#servicios"  class="nav__link" data-section="servicios">Servicios</a></li>
+          <li><a href="#portafolio" class="nav__link" data-section="portafolio">Portafolio</a></li>
+          <li><a href="#proceso"    class="nav__link" data-section="proceso">Proceso</a></li>
+          <li><a href="#precios"    class="nav__link" data-section="precios">Precios</a></li>
+          <li><a href="#faq"        class="nav__link" data-section="faq">FAQ</a></li>
+        </ul>
+
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
+           target="_blank" rel="noopener" class="btn btn--primary">
+          Cotizar →
+        </a>
+
+        <!-- Mobile toggle -->
         <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
-        <ul class="nav__list">
-          <li><a href="#/inicio" class="nav__link active" data-route="inicio">Inicio</a></li>
-          <li><a href="#/caracteristicas" class="nav__link" data-route="caracteristicas">Características</a></li>
-          <li><a href="#/precios" class="nav__link" data-route="precios">Precios</a></li>
-          <li><a href="#/faq" class="nav__link" data-route="faq">FAQ</a></li>
-          <li><a href="#/contacto" class="nav__link" data-route="contacto">Contacto</a></li>
-        </ul>
       </nav>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="nav__mobile" aria-label="Menú móvil">
+      <a href="#servicios">Servicios</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#precios">Precios</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" style="color: var(--terracotta);">Contactar →</a>
     </div>
   </header>
 
-  <main id="app">
-    <!-- Página: Inicio -->
-    <div class="page" id="page-inicio" data-route="inicio">
-    <section class="hero reveal reveal--up" id="inicio">
-      <div class="hero__floaters">
-        <div class="floater floater--1">🎟️</div>
-        <div class="floater floater--2">💰</div>
-        <div class="floater floater--3">🏆</div>
-      </div>
-      <div class="hero__container">
-        <div class="hero__badge">La plataforma de rifas más premium</div>
-        <h1 class="hero__title">
-          Tu página de sorteos lista en menos de 3 días
-        </h1>
-        <p class="hero__subtitle">
-          Te entregamos la infraestructura premium para tus rifas. Olvida lo técnico: nosotros configuramos todo para que tú solo te encargues de vender.
-        </p>
-        
-        <div class="hero__preview reveal reveal--up" style="margin-bottom: 4rem;">
-          <div class="browser-mockup">
-            <div class="browser-header">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <div class="browser-address">ibanidemo.vercel.app/rifa-auto-deportivo</div>
-            </div>
-            <a href="https://ibanidemo.vercel.app/" target="_blank">
-              <img src="images/demo-preview.webp" alt="Vista previa de tu sitio de rifas" class="hero__image" width="640" height="640" fetchpriority="high" style="cursor: pointer; transition: transform 0.3s ease;">
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 01. HERO                                               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="hero section" id="inicio" aria-label="Presentación">
+      <div class="container hero__inner">
+
+        <!-- Left: main copy -->
+        <div class="hero__main">
+          <div class="hero__eyebrow hero-reveal">
+            <span class="hero__dot" aria-hidden="true"></span>
+            <span class="hero__eyebrow-text">Diseño y Desarrollo Web · Sonora, México</span>
+          </div>
+
+          <h1 class="hero__title hero-reveal">
+            Páginas web<br>
+            que trabajan<br>
+            <em>por tu negocio.</em>
+          </h1>
+
+          <p class="hero__subtitle hero-reveal">
+            En IBANI Digital construimos sitios profesionales para negocios locales, salones de eventos,
+            tiendas online y más. Entrega en <strong>3 días hábiles</strong>, sin complicaciones.
+          </p>
+
+          <div class="hero__cta hero-reveal">
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
+               target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Cotizar por WhatsApp
+            </a>
+
+            <a href="#portafolio" class="link-arrow hero-reveal">
+              Ver proyectos →
             </a>
           </div>
-          
-          <div class="demo-links" style="margin-top: 2rem; display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;">
-            <a href="https://ibanidemo.vercel.app/" target="_blank" style="font-weight: 800; color: #4f46e5; display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
-              <span style="font-size: 1.2rem;">👤</span> Ver como Usuario
-            </a>
-            <a href="https://ibanidemo.vercel.app/admin" target="_blank" style="font-weight: 800; color: #4f46e5; display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
-              <span style="font-size: 1.2rem;">🛡️</span> Ver como Admin
-            </a>
+        </div>
+
+        <!-- Right: stats -->
+        <aside class="hero__stats hero-reveal" aria-label="Estadísticas">
+          <div class="stat-block">
+            <span class="stat-block__value" data-count="6" data-suffix="+">6+</span>
+            <span class="stat-block__label">Proyectos entregados</span>
           </div>
-        </div>
-        <div class="hero__cta">
-          <a href="#/precios" class="nav-link btn btn--primary btn--lg" style="background: #fff; color: #000; border: 2px solid #000; min-width: 300px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">Quiero mi propia página de rifas</a>
-        </div>
+          <div class="stat-block">
+            <span class="stat-block__value">3</span>
+            <span class="stat-block__label">Días de entrega</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__value">100%</span>
+            <span class="stat-block__label">Clientes satisfechos</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- Logo Ticker Section -->
-    <section class="logo-ticker">
-      <div class="container">
-        <p class="ticker-label">Utilizado por los mejores organizadores y marcas</p>
-        <div class="ticker-wrapper">
-          <div class="ticker-track">
-            <span class="ticker-item">SORTEOS PRO</span>
-            <span class="ticker-item">RIFAS MX</span>
-            <span class="ticker-item">GANA YA</span>
-            <span class="ticker-item">LOTERÍA DIGITAL</span>
-            <span class="ticker-item">PREMIOS PRO</span>
-            <span class="ticker-item">IBANI PARTNERS</span>
-            <!-- Duplicate for infinite effect -->
-            <span class="ticker-item">SORTEOS PRO</span>
-            <span class="ticker-item">RIFAS MX</span>
-            <span class="ticker-item">GANA YA</span>
-            <span class="ticker-item">LOTERÍA DIGITAL</span>
-            <span class="ticker-item">PREMIOS PRO</span>
-            <span class="ticker-item">IBANI PARTNERS</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Acerca del Producto y Ventajas Competitivas -->
-    <section class="about-product reveal reveal--up">
-      <div class="container" style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 1.5rem;">Crea tu rifa en minutos con soporte total</h2>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7;">
-          IBANI es el aliado estratégico para tus sorteos. Nosotros montamos tu sitio personalizado, configuramos tus premios y te damos el control total. 
-          <strong>Tú decides cómo cobrar:</strong> ya sea por transferencia, depósito o efectivo, nosotros te damos la plataforma para validarlo todo con transparencia.
-        </p>
-      </div>
-    </section>
-
-    <!-- 2. Características -->
-    <section class="features" id="caracteristicas">
-      <div class="container">
-        <h2 class="section-title">Todo lo que necesitas para organizar sorteos exitosos</h2>
-        <p class="section-subtitle">Funcionalidades pensadas para que tu sorteo sea un éxito</p>
-        <div class="features__grid">
-          <article class="feature-card reveal reveal--left" data-aos>
-            <div class="feature-card__icon">🖱️</div>
-            <h3>Grid Interactivo</h3>
-            <p>Búsqueda rápida y selección de múltiples números en segundos.</p>
-          </article>
-          <article class="feature-card reveal reveal--up" data-aos>
-            <div class="feature-card__icon">📱</div>
-            <h3>WhatsApp Directo</h3>
-            <p>Validación de pagos inmediata a través de un solo botón.</p>
-          </article>
-
-          <article class="feature-card reveal reveal--left" data-aos>
-            <div class="feature-card__icon">⚡</div>
-            <h3>Sincronización Real</h3>
-            <p>Los boletos se apartan al instante para evitar duplicados.</p>
-          </article>
-          <article class="feature-card reveal reveal--up" data-aos>
-            <div class="feature-card__icon">📊</div>
-            <h3>Doble Admin</h3>
-            <p>Perfiles diferenciados para dueños y empleados con permisos específicos.</p>
-          </article>
-          <article class="feature-card reveal reveal--right" data-aos>
-            <div class="feature-card__icon">🔒</div>
-            <h3>Infraestructura Pro</h3>
-            <p>Velocidad de carga inmediata en móviles y redes sociales.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Nueva Sección: ¿QUÉ INCLUYE LA PÁGINA? -->
-    <section class="included-section" style="padding: 8rem 0; background: var(--color-bg-subtle);">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 5rem;">
-          <h2 class="section-title">¿Qué incluye tu página?</h2>
-          <p class="section-subtitle">Te entregamos una plataforma lista para vender, sin configuraciones complicadas por tu parte.</p>
-        </div>
-        
-        <div class="bento-grid">
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">🌐</div>
-            <h3 class="feature-modern-title">Infraestructura</h3>
-            <p class="ticker-label">Dominio propio (.com / .mx), Hosting de alta velocidad y certificado SSL de seguridad incluidos.</p>
-          </div>
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">🛡️</div>
-            <h3 class="feature-modern-title">Doble Admin</h3>
-            <p class="ticker-label">Panel para el dueño (control total) y perfiles para empleados (gestión operativa) con permisos seguros.</p>
-          </div>
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">💬</div>
-            <h3 class="feature-modern-title">WhatsApp Directo</h3>
-            <p class="ticker-label">Botón de contacto directo y sistema de envío de comprobantes de pago automatizado a tu chat.</p>
-          </div>
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">🔍</div>
-            <h3 class="feature-modern-title">Buscador Pro</h3>
-            <p class="ticker-label">Buscador por número y botones de selección rápida (10, 20 o 50 boletos) para mayor conversión.</p>
-          </div>
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">📊</div>
-            <h3 class="feature-modern-title">Base de Datos</h3>
-            <p class="ticker-label">Registro completo de todos tus clientes y compradores con opción de descarga a Excel para tus sorteos.</p>
-          </div>
-          <div class="feature-modern-card">
-            <div class="feature-modern-icon">⚙️</div>
-            <h3 class="feature-modern-title">Soporte Total</h3>
-            <p class="ticker-label">Configuramos tus premios, precios y banners. Además, te damos soporte técnico durante toda tu rifa.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Cómo Funciona -->
-    <section class="steps" id="como-funciona">
-      <div class="container">
-        <h2 class="section-title">¿Cómo crear mi sorteo con IBANI?</h2>
-        <div class="steps__flow steps__flow--3">
-          <div class="step-card" data-step="1">
-            <div class="step-card__content">
-              <span class="step-card__num">1</span>
-              <h3>Contáctanos</h3>
-              <p>Escríbenos por WhatsApp para decirnos qué rifa quieres hacer.</p>
-            </div>
-          </div>
-          <div class="step-arrow" aria-hidden="true">→</div>
-          <div class="step-card" data-step="2">
-            <div class="step-card__content">
-              <span class="step-card__num">2</span>
-              <h3>Configura a tu gusto</h3>
-              <p>Tú defines los premios, precios y fechas desde tu panel.</p>
-            </div>
-          </div>
-          <div class="step-arrow" aria-hidden="true">→</div>
-          <div class="step-card" data-step="3">
-            <div class="step-card__content">
-              <span class="step-card__num">3</span>
-              <h3>Vende y Gana</h3>
-              <p>Te damos tu enlace listo para difundir y recibir pagos.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Prueba Social -->
-    <section class="testimonials" id="testimonios">
-      <div class="container">
-        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-        <div class="testimonials__grid">
-          <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
-            <p>"Excelente plataforma. Logramos vender 10,000 números en tiempo récord con transparencia."</p>
-            <div class="testimonial-card__author">
-              <img src="https://i.pravatar.cc/150?img=11" alt="Perfil Carlos" width="56" height="56" loading="lazy">
-              <div>
-                <strong>Carlos Ruiz</strong>
-                <span>Organizador Independiente</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
-            <p>"La interacción y los pagos nos facilitó recaudar los fondos para nuestra ONG fácil."</p>
-            <div class="testimonial-card__author">
-              <img src="https://i.pravatar.cc/150?img=5" alt="Perfil María" width="56" height="56" loading="lazy">
-              <div>
-                <strong>María José</strong>
-                <span>Directora de ONG</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-card__stars">★★★★★</div>
-            <p>"La transparencia total del sistema da demasiada confianza a mis seguidores. Recomendado."</p>
-            <div class="testimonial-card__author">
-              <img src="https://i.pravatar.cc/150?img=8" alt="Perfil Luis" width="56" height="56" loading="lazy">
-              <div>
-                <strong>Luis Alberto</strong>
-                <span>Creador de Contenido</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    </div>
-
-    <!-- Página: Para Quiénes -->
-    <div class="page" id="page-para-quien" data-route="para-quien">
-      <section class="pricing">
-        <div class="container">
-          <h2 class="section-title">¿Para quién es IBANI?</h2>
-          <p class="section-subtitle">Potenciamos la recaudación de fondos para todos</p>
-          <div class="bento-grid" style="margin-top: 3rem;">
-            <div class="feature-modern-card reveal reveal--left" data-aos>
-              <div class="feature-modern-icon">🏢</div>
-              <h3 class="feature-modern-title">Fundaciones y ONGs</h3>
-              <p class="ticker-label">Transparencia y efectividad para causas benéficas.</p>
-            </div>
-            <div class="feature-modern-card reveal reveal--right" data-aos>
-              <div class="feature-modern-icon">🎥</div>
-              <h3 class="feature-modern-title">Creadores de Contenido</h3>
-              <p class="ticker-label">Monetiza a tu audiencia con sorteos justos en vivo.</p>
-            </div>
-            <div class="feature-modern-card reveal reveal--left" data-aos>
-              <div class="feature-modern-icon">🎓</div>
-              <h3 class="feature-modern-title">Escuelas y Comunidades</h3>
-              <p class="ticker-label">Gestiona viajes y graduaciones de forma digital.</p>
-            </div>
-            <div class="feature-modern-card reveal reveal--right" data-aos>
-              <div class="feature-modern-icon">👤</div>
-              <h3 class="feature-modern-title">Organizadores Independientes</h3>
-              <p class="ticker-label">Inicia tu negocio de sorteos de manera profesional.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <div class="container" style="padding-bottom: 8rem;">
-        <div class="pricing-card pricing-card--featured" style="text-align: center; padding: 4rem;">
-          <h2 class="section-title" style="margin-bottom: 1rem;">¿Listo para empezar?</h2>
-          <p class="section-subtitle" style="margin-bottom: 2rem;">Únete a los organizadores que ya confían en IBANI.</p>
-          <a href="#/contacto" class="nav-link btn btn--primary btn--lg">Crear mi Sorteo Now</a>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TICKER                                                 -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="ticker-section" aria-hidden="true">
+      <div class="ticker-wrapper">
+        <div class="ticker-track">
+          <span class="ticker-item">Jardín Ferraris</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Casa Arias</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Floresta Jardín</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">La Antigua Grecia</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Jardín Lantana</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">IBANI Rifas</span>
+          <span class="ticker-sep">·</span>
+          <!-- duplicate for infinite loop -->
+          <span class="ticker-item">Jardín Ferraris</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Casa Arias</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Floresta Jardín</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">La Antigua Grecia</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Jardín Lantana</span>
+          <span class="ticker-sep">·</span>
+          <span class="ticker-item">IBANI Rifas</span>
+          <span class="ticker-sep">·</span>
         </div>
       </div>
     </div>
 
-    <!-- Página: Seguridad -->
-    <div class="page" id="page-seguridad" data-route="seguridad">
-      <section class="pricing">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Seguridad Garantizada</h2>
-            <p class="section-subtitle">Tu tranquilidad es nuestra prioridad absoluta</p>
-          </div>
-          <div class="bento-grid">
-            <div class="feature-modern-card">
-              <div class="feature-modern-icon" style="color: #22c55e;">🔒</div>
-              <h3 class="feature-modern-title">Protección de Pagos</h3>
-              <p class="ticker-label">Transacciones cifradas mediante pasarelas oficiales.</p>
-            </div>
-            <div class="feature-modern-card">
-              <div class="feature-modern-icon" style="color: #3b82f6;">⚖️</div>
-              <h3 class="feature-modern-title">Total Transparencia</h3>
-              <p class="ticker-label">Algoritmos verificables para resultados 100% confiables.</p>
-            </div>
-            <div class="feature-modern-card">
-              <div class="feature-modern-icon" style="color: #f59e0b;">🛡️</div>
-              <h3 class="feature-modern-title">Infraestructura Robusta</h3>
-              <p class="ticker-label">Servidores de alta disponibilidad con 99.9% de uptime.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="tech-stack reveal reveal--up">
-        <div class="container" style="text-align: center; padding: 5rem 0;">
-          <h2 class="section-title" style="margin-bottom: 2rem;">Tecnología de última generación</h2>
-          <div class="tech-grid" style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; opacity: 0.5;">
-            <span style="font-weight: 800; font-size: 1.25rem;">FIREBASE</span>
-            <span style="font-weight: 800; font-size: 1.25rem;">NEXT.JS</span>
-            <span style="font-weight: 800; font-size: 1.25rem;">VERCEL</span>
-            <span style="font-weight: 800; font-size: 1.25rem;">STRIPE</span>
-          </div>
-        </div>
-      </section>
-      <section style="padding: 5rem 0; background: var(--color-bg-subtle);">
-        <div class="container" style="text-align: center;">
-          <h2 class="section-title" style="margin-bottom: 1.5rem;">Usamos las mejores tecnologías</h2>
-          <p class="section-subtitle">Infraestructura confiable para que tu sorteo funcione siempre</p>
-          <div class="features__grid" style="margin-top: 3rem;">
-            <div class="feature-card">
-              <div class="feature-card__icon">🌐</div>
-              <h3>SSL 256-bit</h3>
-              <p>Cifrado de nivel bancario en todas las comunicaciones.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-card__icon">☁️</div>
-              <h3>99.9% Uptime</h3>
-              <p>Servidores redundantes para disponibilidad continua.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-card__icon">🕵️</div>
-              <h3>Anti-Fraude</h3>
-              <p>Sistemas de detección para proteger cada transacción.</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-card__icon">🔐</div>
-              <h3>Datos Privados</h3>
-              <p>Tu información y la de tus clientes nunca se comparte.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Página: Precios -->
-    <!-- Página: Precios -->
-    <div class="page" id="page-precios" data-route="precios">
-      
-      <!-- 1. Planes de Precios -->
-
-
-
-    <section class="pricing" id="precios">
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 02. SERVICIOS                                          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="services section" id="servicios" aria-label="Servicios">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Elige tu plan de crecimiento</h2>
-          <p class="section-subtitle">Precios simples y transparentes adaptados a tu ritmo de trabajo.</p>
+
+        <div class="section-header reveal">
+          <div class="section-header__label">
+            <span class="label">02 — Servicios</span>
+          </div>
+          <h2 class="section-header__title">
+            Lo que<br><em>hacemos</em>
+          </h2>
+          <p class="section-header__sub">
+            Desde una landing page hasta una plataforma completa — construimos exactamente lo que tu negocio necesita.
+          </p>
         </div>
 
-        <div class="pricing-cards">
-          <!-- Plan por Rifa -->
-          <div class="pricing-card reveal reveal--left">
-            <div class="pricing-card__header">
-              <span class="plan-name">Pro <span class="badge">Básico</span></span>
-              <div class="plan-price">
-                <span class="currency">$</span>9,000 <span class="period">/ rifa</span>
-              </div>
-            </div>
-            <div class="pricing-card__body">
-              <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20Plan%20Pro%20B%C3%A1sico%20%289%2C000%20por%20rifa%29.%20%C2%BFPueden%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" class="btn btn--outline btn--block">Empezar ahora</a>
-              <ul class="plan-features">
-                <li><i class="check">✓</i> 1 Sorteo completo</li>
-                <li><i class="check">✓</i> Boletos ilimitados</li>
-                <li><i class="check">✓</i> Dashboard de administración</li>
-                <li><i class="check">✓</i> Pagos vía WhatsApp/Transferencia</li>
-                <li><i class="check">✓</i> Hosting y dominio incluidos (1 año)</li>
-                <li><i class="check">✓</i> Sin límite de tiempo de venta</li>
-              </ul>
-            </div>
-          </div>
+        <div class="services__grid">
 
-          <!-- Plan Mensual (destacado) -->
-          <div class="pricing-card pricing-card--featured reveal reveal--up">
-            <div class="pricing-card__header">
-              <span class="plan-name">Team <span class="badge badge--blue">Recomendado</span></span>
-              <div class="plan-price">
-                <span class="currency">$</span>6,000 <span class="period">/ mes</span>
-              </div>
-            </div>
-            <div class="pricing-card__body">
-              <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20Plan%20Team%20Recomendado%20%286%2C000%20al%20mes%29.%20%C2%BFPueden%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank" class="btn btn--primary btn--block">Empezar ahora</a>
-              <ul class="plan-features">
-                <li><i class="check">✓</i> Sorteos mensuales ilimitados</li>
-                <li><i class="check">✓</i> Todo lo del plan Pro</li>
-                <li><i class="check">✓</i> Soporte prioritario 24/7</li>
-                <li><i class="check">✓</i> Multi-admin access</li>
-                <li><i class="check">✓</i> Estadísticas avanzadas de marketing</li>
-                <li><i class="check">✓</i> Renovación flexible</li>
-              </ul>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- 2. Información Importante -->
-    <section class="info-important">
-      <div class="container">
-        <div class="info-important__wrapper">
-          
-          <div class="price-faq-grid">
-            
-            <!-- Política de Costos de Infraestructura -->
-            <div class="info-card">
-              <h3 class="info-card__title">
-                <span class="info-card__icon">🌐</span> COSTOS DE INFRAESTRUCTURA
-              </h3>
-              <p class="info-card__description">
-                Para iniciar tu proyecto, el <strong>primer pago</strong> corresponde a la gestión del <strong>Dominio</strong> (aprox. $250 MXN anuales) y el <strong>Hosting Pro</strong> ($20 USD/mes). 
-                <strong class="text-focus">Una vez cubierta esta infraestructura, procedemos con la configuración completa de tu sistema.</strong> 
-                Al finalizar la configuración, se te notificará que la plataforma está lista; en ese momento, <strong class="text-accent">el plan seleccionado deberá ser liquidado para proceder con la entrega formal y activación de tu página profesional.</strong>
+          <article class="service-card reveal reveal--delay-1">
+            <span class="service-card__num">01</span>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Landing Pages</h3>
+              <p class="service-card__desc">
+                Páginas de aterrizaje orientadas a conversión para campañas, productos o servicios.
+                Diseño limpio, carga rápida y un solo objetivo: que el visitante actúe.
               </p>
+              <div class="service-card__tags">
+                <span class="tag">Conversión</span>
+                <span class="tag">SEO básico</span>
+                <span class="tag">Entrega en 3 días</span>
+              </div>
             </div>
+            <span class="service-card__icon" aria-hidden="true">🎯</span>
+          </article>
 
-            <!-- Política de Soporte y Cambios -->
-            <div class="info-card">
-              <h3 class="info-card__title">
-                <span class="info-card__icon">🛠️</span> ¿SOPORTE O CAMBIOS EN MI PÁGINA?
-              </h3>
-              <p class="info-card__description">
-                Nuestro equipo está disponible para soporte técnico. Es importante aclarar que <strong class="text-focus">no existen cambios sencillos sin costo</strong>. 
-                Cualquier modificación es considerada una <strong class="text-accent">personalización</strong> y tendrá un costo de un solo pago. 
-                Tu plan contratado seguirá siendo el mismo, a menos que los cambios solicitados sean extremadamente profundos.
+          <article class="service-card reveal reveal--delay-2">
+            <span class="service-card__num">02</span>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Tiendas Online</h3>
+              <p class="service-card__desc">
+                Catálogos y tiendas con carrito de compras, integración de pagos y panel de administración.
+                Tu negocio vendiendo 24/7 sin que tengas que estar presente.
               </p>
+              <div class="service-card__tags">
+                <span class="tag">E-commerce</span>
+                <span class="tag">Pagos en línea</span>
+                <span class="tag">Panel admin</span>
+              </div>
             </div>
+            <span class="service-card__icon" aria-hidden="true">🛍️</span>
+          </article>
 
-          </div>
+          <article class="service-card reveal reveal--delay-3">
+            <span class="service-card__num">03</span>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Plataformas de Rifas y Sorteos</h3>
+              <p class="service-card__desc">
+                Sistema completo para organizar rifas online: selección de boletos, validación de pagos vía WhatsApp,
+                panel de administración dual y transparencia total para tus participantes.
+              </p>
+              <div class="service-card__tags">
+                <span class="tag">Boletos en tiempo real</span>
+                <span class="tag">Doble admin</span>
+                <span class="tag">WhatsApp integrado</span>
+              </div>
+            </div>
+            <span class="service-card__icon" aria-hidden="true">🎟️</span>
+          </article>
+
+          <article class="service-card reveal reveal--delay-4">
+            <span class="service-card__num">04</span>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Sitios Corporativos</h3>
+              <p class="service-card__desc">
+                Páginas institucionales para empresas, salones de eventos y negocios locales.
+                Galerías, formularios de contacto, disponibilidad de fechas y todo lo que tu marca necesita en línea.
+              </p>
+              <div class="service-card__tags">
+                <span class="tag">Galerías</span>
+                <span class="tag">Contacto</span>
+                <span class="tag">SEO local</span>
+              </div>
+            </div>
+            <span class="service-card__icon" aria-hidden="true">🏛️</span>
+          </article>
+
         </div>
       </div>
     </section>
 
-        <!-- CTA WhatsApp -->
-        <div style="max-width: 860px; margin: 3rem auto 0; text-align: center; padding: 2rem; background: var(--color-bg-subtle); border-radius: 16px; border: 1px solid var(--color-border);">
-          <p style="margin: 0 0 1.25rem; font-size: 1.05rem; color: var(--color-text-muted);">¿Tienes dudas o quieres comenzar? Escríbenos directamente.</p>
-          <a
-            href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20cotizar%20el%20servicio%20de%20IBANI%20para%20mi%20sorteo.%20%C2%BFPueden%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
-            target="_blank"
-            rel="noopener"
-            class="btn btn--primary btn--lg"
-            style="background: #22c55e; border-color: #22c55e; display: inline-flex; align-items: center; gap: 0.75rem; border-radius: 999px; box-shadow: 0 4px 20px rgba(34,197,94,0.3);"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            Consultar por WhatsApp
-          </a>
-        </div>
-
-      </div>
-    </section>
-    </div>
-
-    <!-- Página: Características -->
-    <div class="page" id="page-caracteristicas" data-route="caracteristicas">
-      
-      <!-- 1. Funcionalidades Principales -->
-      <section class="features-detail" style="padding: 5rem 0; background: var(--color-bg);">
-        <div class="container">
-          <h2 class="section-title">Funcionalidades Principales</h2>
-          <p class="section-subtitle" style="font-size: 1.1rem;">Conoce los 6 pilares operativos de nuestra plataforma</p>
-          
-          <div class="bento-grid">
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">🖱️</div>
-              <h3 class="feature-modern-title">Grid de Números Dinámico</h3>
-              <ul class="feature-modern-list">
-                <li>Buscador de números específicos.</li>
-                <li>Botones de selección rápida (10, 20 o 50 boletos).</li>
-                <li>Visualización clara de boletos libres, apartados y pagados.</li>
-              </ul>
-            </article>
-            
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">✅</div>
-              <h3 class="feature-modern-title">Verificación Inmediata</h3>
-              <ul class="feature-modern-list">
-                <li>Lista pública de participantes confirmados para mayor confianza.</li>
-                <li>Resultados históricos guardados en la plataforma.</li>
-              </ul>
-            </article>
-            
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">📊</div>
-              <h3 class="feature-modern-title">Doble Panel Administrativo</h3>
-              <ul class="feature-modern-list">
-                <li><strong>Dueños:</strong> Control total de finanzas y configuración.</li>
-                <li><strong>Empleados:</strong> Gestión de ventas y validación de pagos.</li>
-                <li>Exportación de bases de datos para sorteos.</li>
-              </ul>
-            </article>
-            
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">⚡</div>
-              <h3 class="feature-modern-title">Velocidad y Crecimiento</h3>
-              <ul class="feature-modern-list">
-                <li>Infraestructura basada en Next.js y Firebase.</li>
-                <li>Carga ultrarrápida perfecta para tráfico desde Instagram/FB.</li>
-                <li>Capacidad para miles de números sin retardos.</li>
-              </ul>
-            </article>
-            
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">📱</div>
-              <h3 class="feature-modern-title">Validación por WhatsApp</h3>
-              <ul class="feature-modern-list">
-                <li>Botón de confirmación directa post-pago.</li>
-                <li>Envío automático de datos del comprador al organizador.</li>
-                <li>Gestión humana y cercana con tus participantes.</li>
-              </ul>
-            </article>
-            
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">🔒</div>
-              <h3 class="feature-modern-title">Seguridad de Datos</h3>
-              <ul class="feature-modern-list">
-                <li>Certificados SSL de 256 bits incluidos.</li>
-                <li>Base de datos cifrada y privada para cada organizador.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. Herramientas Adicionales -->
-      <section class="extra-tools" style="padding: 4rem 0; background: var(--color-bg-subtle);">
-        <div class="container">
-          <h2 class="section-title">Y mucho más...</h2>
-          <div class="features__grid" style="margin-top: 2.5rem;">
-            <article class="feature-card">
-              <div class="feature-card__icon" style="font-size: 2.5rem;">🔒</div>
-              <h3>Seguridad</h3>
-              <p>Certificados SSL y protección de datos.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-card__icon" style="font-size: 2.5rem;">📈</div>
-              <h3>Marketing</h3>
-              <p>Herramientas para cupones de descuento y referidos.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-card__icon" style="font-size: 2.5rem;">📉</div>
-              <h3>Análisis</h3>
-              <p>Reportes detallados de tráfico y conversiones.</p>
-            </article>
-            <article class="feature-card">
-              <div class="feature-card__icon" style="font-size: 2.5rem;">💬</div>
-              <h3>Soporte</h3>
-              <p>Chat de ayuda y documentación técnica.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      
-    </div>
-
-    
-    <!-- Página: Cómo Funciona -->
-    <div class="page" id="page-como-funciona" data-route="como-funciona">
-      
-      <!-- 1. Funcionalidades de Gestión y Seguridad -->
-      <section style="padding: 4rem 0; background: var(--color-bg);">
-        <div class="container">
-          <h2 class="section-title">Gestión y Seguridad</h2>
-          <p class="section-subtitle">Herramientas diseñadas para el control total del organizador</p>
-          
-          <div class="bento-grid">
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">🏪</div>
-              <h3 class="feature-modern-title">Venta de Boletos 24/7</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.6;">Permite la selección manual o aleatoria de números y envía confirmaciones por WhatsApp.</p>
-            </article>
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">🛡️</div>
-              <h3 class="feature-modern-title">Sorteos Transparentes</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.6;">Utiliza algoritmos verificables para asegurar la aleatoriedad y permite mostrar resultados públicos.</p>
-            </article>
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">💻</div>
-              <h3 class="feature-modern-title">Dashboard de Control</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.6;">Un panel para monitorear ventas, ingresos y estadísticas completas en tiempo real.</p>
-            </article>
-            <article class="feature-modern-card" data-aos>
-              <div class="feature-modern-icon">🖌️</div>
-              <h3 class="feature-modern-title">Personalización</h3>
-              <p style="color: var(--color-text-muted); line-height: 1.6;">Capacidad para ajustar colores, logos y banners según la identidad del usuario.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- 3. El Proceso en 5 Pasos -->
-      <section style="padding: 5rem 0; background: var(--color-bg);">
-        <div class="container">
-          <h2 class="section-title">El Proceso Paso a Paso</h2>
-          <p class="section-subtitle">Ruta crítica para ejecutar un sorteo exitoso</p>
-          
-          <div class="steps__flow" style="margin-top: 3rem;">
-            <div class="step-card" data-step="1">
-              <div class="step-card__content">
-                <span class="step-card__num">1</span>
-                <h3>Contáctanos</h3>
-                <p>Escríbenos por WhatsApp para iniciar tu proyecto.</p>
-              </div>
-            </div>
-            <div class="step-arrow" aria-hidden="true">→</div>
-            <div class="step-card" data-step="2">
-              <div class="step-card__content">
-                <span class="step-card__num">2</span>
-                <h3>Configura</h3>
-                <p>Gestiona premios y boletos tú mismo.</p>
-              </div>
-            </div>
-            <div class="step-arrow" aria-hidden="true">→</div>
-            <div class="step-card" data-step="3">
-              <div class="step-card__content">
-                <span class="step-card__num">3</span>
-                <h3>Lanzamiento</h3>
-                <p>Recibe tu enlace listo para vender.</p>
-              </div>
-            </div>
-            <div class="step-arrow" aria-hidden="true">→</div>
-            <div class="step-card" data-step="4">
-              <div class="step-card__content">
-                <span class="step-card__num">4</span>
-                <h3>Gestión</h3>
-                <p>Valida pagos y controla asistentes.</p>
-              </div>
-            </div>
-            <div class="step-arrow" aria-hidden="true">→</div>
-            <div class="step-card" data-step="5">
-              <div class="step-card__content">
-                <span class="step-card__num">5</span>
-                <h3>Sorteo</h3>
-                <p>Usa loterías oficiales para tus sorteos.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Experiencia del Comprador -->
-      <section style="padding: 4rem 2rem; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: white; margin: 2rem auto; border-radius: 20px; max-width: 1200px; text-align: center; box-shadow: var(--shadow-lg);">
-        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Experiencia del Comprador</h2>
-        <p style="font-size: 1.15rem; max-width: 800px; margin: 0 auto; opacity: 0.9; line-height: 1.8;">
-          Participar es fácil: acceden al sitio, eligen sus boletos, te envían el comprobante por WhatsApp y reciben su ticket digital confirmado por ti.
-        </p>
-      </section>
-
-    </div>
-
-    <!-- Página: FAQ -->
-
-    <div class="page" id="page-faq" data-route="faq">
-    <section class="faq-section" id="faq">
-      <div class="faq-section__hero">
-        <p class="faq-section__label">CENTRO DE AYUDA</p>
-        <h2 class="section-title">Preguntas <span class="text-gradient">Frecuentes</span></h2>
-        <p class="section-subtitle">Encuentra respuestas a las preguntas más comunes sobre IBANI</p>
-        <div class="faq-search">
-          <span class="faq-search__icon" aria-hidden="true">🔍</span>
-          <input type="search" id="faqSearch" placeholder="Buscar en las preguntas frecuentes..." aria-label="Buscar en FAQ">
-        </div>
-        <div class="faq-categories">
-          <button type="button" class="faq-cat active" data-category="general">General</button>
-          <button type="button" class="faq-cat" data-category="cuenta">Cuenta y Registro</button>
-          <button type="button" class="faq-cat" data-category="sorteos">Sorteos</button>
-          <button type="button" class="faq-cat" data-category="pagos">Pagos</button>
-          <button type="button" class="faq-cat" data-category="boletos">Boletos</button>
-          <button type="button" class="faq-cat" data-category="planes">Planes y Precios</button>
-        </div>
-      </div>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 03. PORTAFOLIO                                         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="portfolio section" id="portafolio" aria-label="Portafolio de proyectos">
       <div class="container">
-        <div class="faq-list" id="faqList">
-          <div class="faq-item" data-category="general">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
-              ¿Qué es IBANI?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a1" role="region" aria-labelledby="faq-q1">
-              <p>IBANI es una plataforma en línea para organizar sorteos y rifas de forma segura, transparente y fácil. Permite vender boletos, gestionar pagos y realizar el sorteo con total verificación.</p>
-            </div>
+
+        <div class="section-header reveal">
+          <div class="section-header__label">
+            <span class="label">03 — Portafolio</span>
           </div>
-          <div class="faq-item" data-category="general">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
-              ¿Para quién está diseñada la plataforma?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a2" role="region" aria-labelledby="faq-q2">
-              <p>Para organizadores de rifas, ONGs, emprendedores, comunidades y cualquier persona que quiera realizar sorteos legales con venta de números y sorteo verificado.</p>
+          <h2 class="section-header__title">
+            Proyectos<br><em>reales</em>
+          </h2>
+          <p class="section-header__sub">
+            Sitios web que ya están funcionando para negocios en Sonora y más allá.
+          </p>
+        </div>
+
+        <div class="portfolio__grid">
+
+          <!-- Card 1: Jardín Ferraris (featured) -->
+          <article class="portfolio-card reveal reveal--delay-1" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3a 50%, #1a3a2a 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
+              <h3 class="portfolio-card__name">Jardín Ferraris</h3>
+              <p class="portfolio-card__loc">Hermosillo, Sonora</p>
+              <a href="https://pagina-ferraris.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver sitio →
+              </a>
             </div>
-          </div>
-          <div class="faq-item" data-category="general">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
-              ¿Es legal organizar sorteos con IBANI?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a3" role="region" aria-labelledby="faq-q3">
-              <p>Sí. La plataforma está diseñada para sorteos y rifas que cumplan la normativa local. Te recomendamos revisar las leyes de tu país o región antes de organizar un sorteo.</p>
+          </article>
+
+          <!-- Card 2: Casa Arias -->
+          <article class="portfolio-card reveal reveal--delay-2" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #5c3020 0%, #8b4a30 50%, #5c3020 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Sitio Corporativo · Eventos Boutique</p>
+              <h3 class="portfolio-card__name">Casa Arias</h3>
+              <p class="portfolio-card__loc">Centro Histórico, Hermosillo</p>
+              <a href="https://pagina-casaarias.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver sitio →
+              </a>
             </div>
-          </div>
-          <div class="faq-item" data-category="general">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
-              ¿En qué países está disponible?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a4" role="region" aria-labelledby="faq-q4">
-              <p>IBANI está disponible en múltiples países de Latinoamérica y España. Los métodos de pago y monedas pueden variar según la región.</p>
+          </article>
+
+          <!-- Card 3: Floresta Jardín -->
+          <article class="portfolio-card reveal reveal--delay-3" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #2a4a2a 0%, #4a7a3a 50%, #2a4a2a 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
+              <h3 class="portfolio-card__name">Floresta Jardín</h3>
+              <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
+              <a href="https://pagina-floresta.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver sitio →
+              </a>
             </div>
-          </div>
-          <div class="faq-item" data-category="cuenta">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
-              ¿Cómo empiezo mi sorteo?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a5" role="region" aria-labelledby="faq-q5">
-              <p>Es muy simple: contáctanos por WhatsApp para activar tu infraestructura. Una vez lista, tú tendrás acceso total a un panel administrativo donde podrás configurar tus propios premios, precios de boletos, imágenes y fechas del sorteo con total autonomía.</p>
+          </article>
+
+          <!-- Card 4: La Antigua Grecia -->
+          <article class="portfolio-card reveal reveal--delay-4" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #3a3020 0%, #6b5830 50%, #3a3020 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
+              <h3 class="portfolio-card__name">La Antigua Grecia</h3>
+              <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
+              <a href="https://pagina-antiguagrecia.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver sitio →
+              </a>
             </div>
-          </div>
-          <div class="faq-item" data-category="pagos">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
-              ¿Qué métodos de pago aceptan?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a6" role="region" aria-labelledby="faq-q6">
-              <p>Tú tienes el control total. Puedes aceptar transferencias bancarias, depósitos en efectivo o pagos digitales. Nuestra plataforma te permite recibir los comprobantes y validarlos manualmente para asignar los boletos de forma segura.</p>
+          </article>
+
+          <!-- Card 5: Jardín Lantana -->
+          <article class="portfolio-card reveal reveal--delay-5" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #3a2a4a 0%, #6a4a7a 50%, #3a2a4a 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Sitio Corporativo · Jardín de Eventos</p>
+              <h3 class="portfolio-card__name">Jardín Lantana</h3>
+              <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
+              <a href="https://pagina-lantana.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver sitio →
+              </a>
             </div>
-          </div>
-          <div class="faq-item" data-category="planes">
-            <button type="button" class="faq-item__q" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">
-              ¿Hay cargos ocultos?
-              <span class="faq-item__icon"></span>
-            </button>
-            <div class="faq-item__a" id="faq-a7" role="region" aria-labelledby="faq-q7">
-              <p>No. El precio se pacta según el plan que elijas (por sorteo o mensual). No cobramos comisiones extras por tus ventas, todo el ingreso es para ti.</p>
+          </article>
+
+          <!-- Card 6: IBANI Rifas -->
+          <article class="portfolio-card reveal reveal--delay-6" role="article">
+            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #1a1a4a 0%, #2a2a8a 50%, #1a1a4a 100%);"></div>
+            <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__content">
+              <p class="portfolio-card__type">Plataforma Especial · Rifas y Sorteos</p>
+              <h3 class="portfolio-card__name">IBANI Rifas</h3>
+              <p class="portfolio-card__loc">Plataforma en línea — Latinoamérica</p>
+              <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+                Ver demo →
+              </a>
             </div>
-          </div>
+          </article>
+
         </div>
       </div>
     </section>
-    </div>
 
-    <!-- Página: Contacto -->
-    <div class="page" id="page-contacto" data-route="contacto">
-      <section class="contact-hero">
-        <div class="container">
-          <h2 class="section-title">¿Tienes dudas o quieres comenzar?</h2>
-          <p class="section-subtitle">Estamos listos para ayudarte a lanzar tu primer sorteo con éxito.</p>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 04. PROCESO                                            -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="process section" id="proceso" aria-label="Proceso de trabajo">
+      <div class="container">
 
-          <div class="contact-methods">
-            <!-- Botón WhatsApp Principal -->
-            <a
-              href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20IBANI%20para%20organizar%20mi%20sorteo.%20%C2%BFPuedes%20darme%20informaci%C3%B3n%3F"
-              target="_blank"
-              rel="noopener"
-              class="contact-whatsapp-btn"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-              </svg>
-              Chat de Ventas WhatsApp
+        <div class="section-header reveal">
+          <div class="section-header__label">
+            <span class="label">04 — Proceso</span>
+          </div>
+          <h2 class="section-header__title">
+            Cómo<br><em>trabajamos</em>
+          </h2>
+          <p class="section-header__sub">
+            Simple, rápido y sin sorpresas. Tu sitio listo en 4 pasos.
+          </p>
+        </div>
+
+        <div class="process__grid">
+
+          <div class="step-item reveal reveal--delay-1">
+            <span class="step-item__num">01</span>
+            <h3 class="step-item__title">Cotización gratuita</h3>
+            <p class="step-item__desc">Escríbenos por WhatsApp y cuéntanos tu proyecto. En menos de 30 minutos tienes una propuesta clara sin costos ocultos.</p>
+          </div>
+
+          <div class="step-item reveal reveal--delay-2">
+            <span class="step-item__num">02</span>
+            <h3 class="step-item__title">Diseño personalizado</h3>
+            <p class="step-item__desc">Creamos el diseño según tu identidad de marca, colores y estilo. Tú apruebas antes de que empecemos a construir.</p>
+          </div>
+
+          <div class="step-item reveal reveal--delay-3">
+            <span class="step-item__num">03</span>
+            <h3 class="step-item__title">Desarrollo y revisión</h3>
+            <p class="step-item__desc">Desarrollamos tu sitio con tecnología moderna. Puedes solicitar ajustes y revisaremos juntos cada detalle.</p>
+          </div>
+
+          <div class="step-item reveal reveal--delay-4">
+            <span class="step-item__num">04</span>
+            <h3 class="step-item__title">Entrega en 3 días</h3>
+            <p class="step-item__desc">Tu sitio publicado con dominio propio, hosting y SSL incluidos. Listo para recibir clientes desde el primer día.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 05. PRECIOS                                            -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="pricing section" id="precios" aria-label="Planes y precios">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-header__label">
+            <span class="label">05 — Precios</span>
+          </div>
+          <h2 class="section-header__title">
+            Inversión<br><em>transparente</em>
+          </h2>
+          <p class="section-header__sub">
+            Sin costos ocultos. El precio que acordamos es el que pagas.
+          </p>
+        </div>
+
+        <div class="pricing__grid">
+
+          <!-- Plan por proyecto -->
+          <div class="pricing-card reveal reveal--delay-1">
+            <div>
+              <span class="pricing-card__badge">Sitio web completo</span>
+              <p class="pricing-card__name" style="margin-top: .75rem;">Por Proyecto</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">9,000</span>
+              <span class="price-period">MXN / proyecto</span>
+            </div>
+            <hr class="pricing-card__divider">
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">Diseño personalizado</li>
+              <li class="pricing-card__feature">Dominio y hosting incluidos (1 año)</li>
+              <li class="pricing-card__feature">SSL y seguridad incluidos</li>
+              <li class="pricing-card__feature">Optimización para móviles</li>
+              <li class="pricing-card__feature">Entrega en 3 días hábiles</li>
+              <li class="pricing-card__feature">1 ronda de revisiones</li>
+            </ul>
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20por%20proyecto%20de%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+               target="_blank" rel="noopener" class="btn btn--outline">
+              Cotizar ahora
             </a>
-
-
-
-            <p style="font-size: 1rem; color: var(--color-text-muted); font-weight: 500;">⏱️ Tiempo estimado de respuesta: menos de 30 minutos.</p>
           </div>
-        </div>
-      </section>
-    </div>
 
-    <section class="cta-final">
+          <!-- Plan mensual (destacado) -->
+          <div class="pricing-card pricing-card--featured reveal reveal--delay-2">
+            <div>
+              <span class="pricing-card__badge">Más popular</span>
+              <p class="pricing-card__name" style="margin-top: .75rem; color: white;">Suscripción Mensual</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="price-currency" style="color:rgba(255,255,255,.5)">$</span>
+              <span class="price-amount" style="color:white;">6,000</span>
+              <span class="price-period" style="color:rgba(255,255,255,.4)">/mes</span>
+            </div>
+            <hr class="pricing-card__divider">
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature">Todo lo del plan por proyecto</li>
+              <li class="pricing-card__feature">Proyectos ilimitados al mes</li>
+              <li class="pricing-card__feature">Soporte prioritario 24/7</li>
+              <li class="pricing-card__feature">Actualizaciones y cambios incluidos</li>
+              <li class="pricing-card__feature">Estadísticas y analytics</li>
+              <li class="pricing-card__feature">Renovación flexible</li>
+            </ul>
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20mensual%20de%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+               target="_blank" rel="noopener" class="btn btn--primary">
+              Empezar ahora
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Note -->
+        <div class="pricing__note reveal">
+          <p class="pricing__note-title">🌐 Sobre infraestructura</p>
+          <p>El primer pago incluye la gestión del <strong>dominio</strong> (~$250 MXN anuales) y el <strong>hosting profesional</strong> ($20 USD/mes). Una vez cubierto, configuramos tu sitio completo y lo entregamos listo para recibir clientes. <strong>Sin sorpresas.</strong></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 06. FAQ                                                -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="section" id="faq" style="background: var(--white);" aria-label="Preguntas frecuentes">
       <div class="container">
-        <h2 class="text-gradient">¿Listo para organizar tu propio sorteo?</h2>
-        <p>Escríbenos por WhatsApp para montar tu infraestructura profesional hoy mismo.</p>
-        <div class="cta-final__buttons">
-          <a href="#/contacto" class="nav-link btn btn--primary btn--lg">Contactar Ahora</a>
-          <a href="https://ibanidemo.vercel.app/" target="_blank" class="btn btn--outline btn--lg">Ver Demo Real</a>
+
+        <div class="section-header reveal">
+          <div class="section-header__label">
+            <span class="label">06 — FAQ</span>
+          </div>
+          <h2 class="section-header__title">
+            Preguntas<br><em>frecuentes</em>
+          </h2>
+        </div>
+
+        <div style="max-width: 760px;">
+
+          <div class="faq-item reveal reveal--delay-1">
+            <button class="faq-btn" aria-expanded="false">
+              ¿En cuánto tiempo entregan mi página web?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>En <strong>3 días hábiles</strong> a partir de que apruebas el diseño inicial y realizas el primer pago. Para proyectos más complejos (tiendas grandes, plataformas personalizadas) el plazo puede extenderse — siempre lo comunicamos con anticipación.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-2">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Qué incluye el dominio y el hosting?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>Gestionamos el registro de tu dominio (.com / .mx) y contratamos el hosting profesional en servidores de alta velocidad. Todo queda a tu nombre. El primer año está incluido en el costo de infraestructura inicial (~$250 MXN dominio + $20 USD/mes hosting).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-3">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Puedo hacer cambios después de que entreguen el sitio?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>Sí. Cualquier cambio posterior a la entrega tiene un costo de personalización único. Si tienes el <strong>plan mensual</strong>, los cambios y actualizaciones están incluidos durante tu suscripción activa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-4">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Hacen páginas para cualquier tipo de negocio?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>Sí. Trabajamos con negocios de todos los giros: restaurantes, salones de eventos, coaches, tiendas físicas que quieren vender en línea, organizadores de rifas, ONGs, escuelas y más. Si tienes un negocio, tenemos la solución web para ti.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-5">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Hay comisión sobre mis ventas?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p><strong>No.</strong> IBANI Digital cobra únicamente el costo del plan contratado. Todo lo que generes con tu página es 100% tuyo. No tomamos ningún porcentaje de tus ventas ni de los pagos que recibas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal--delay-6">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Cómo me contacto para empezar?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>La forma más rápida es escribirnos por <strong>WhatsApp</strong>. Respondemos en menos de 30 minutos durante horario hábil. Solo cuéntanos qué tipo de página necesitas y te enviamos una propuesta sin compromiso.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- 07. CONTACTO / CTA FINAL                               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="contact section--lg" id="contacto" aria-label="Contacto">
+      <div class="container contact__inner">
+
+        <p class="label" style="color: rgba(255,255,255,0.4);">07 — Contacto</p>
+
+        <h2 class="contact__title reveal">
+          ¿Listo para tener<br>
+          tu web <em>profesional?</em>
+        </h2>
+
+        <p class="contact__sub reveal">
+          Escríbenos y en menos de 30 minutos tienes una cotización. Sin rodeadas, sin formularios eternos. Solo WhatsApp.
+        </p>
+
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20cotizarme%3F"
+           target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg reveal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+
+        <p class="contact__meta">⏱ Respuesta en menos de 30 min</p>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
   <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__brand">
-        <a href="#/inicio" class="logo nav-link">
-          <span class="logo__top">IBANI</span>
-          <span class="logo__bottom">DIGITAL</span>
-        </a>
-        <p>La plataforma más completa para organizar sorteos y rifas online. Segura, transparente y fácil de usar.</p>
-      </div>
-      <div class="footer__links">
-        <div>
-          <h3>Navegación</h3>
-          <a href="#/inicio" class="nav-link">Inicio</a>
-          <a href="#/caracteristicas" class="nav-link">Características</a>
-          <a href="#precios" class="nav-link">Precios</a>
-          <a href="#/faq" class="nav-link">FAQ</a>
-          <a href="#/contacto" class="nav-link">Contacto</a>
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <a href="#inicio" class="logo footer__logo" aria-label="IBANI Digital">
+            <span class="logo__name">IBANI</span>
+            <span class="logo__sub">Digital</span>
+          </a>
+          <p class="footer__tagline">
+            Diseño y desarrollo web profesional para negocios en crecimiento. Sonora, México.
+          </p>
         </div>
+
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="#servicios">Landing Pages</a></li>
+              <li><a href="#servicios">Tiendas Online</a></li>
+              <li><a href="#servicios">Plataformas de Rifas</a></li>
+              <li><a href="#servicios">Sitios Corporativos</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Empresa</p>
+            <ul class="footer__col-links">
+              <li><a href="#portafolio">Portafolio</a></li>
+              <li><a href="#proceso">Proceso</a></li>
+              <li><a href="#precios">Precios</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li>
+                <a href="https://wa.me/526625044016" target="_blank" rel="noopener">
+                  WhatsApp
+                </a>
+              </li>
+              <li><a href="#contacto">Cotizar proyecto</a></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="container">
-        <span>© 2026 IBANI. Todos los derechos reservados.</span>
-        <span>SSL Seguro · Certificado</span>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 IBANI Digital · Todos los derechos reservados.</span>
+        <span class="footer__ssl">🔒 SSL · Hosting Pro · Entrega en 3 días</span>
       </div>
     </div>
   </footer>
 
+  <script src="js/main.js" defer></script>
 
-  <script>
-    // Intersection Observer for Scroll Reveals
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    function initScrollReveals() {
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    // Re-init when route changes
-    window.addEventListener('hashchange', () => {
-      setTimeout(initScrollReveals, 100);
-    });
-
-    document.addEventListener('DOMContentLoaded', initScrollReveals);
-  </script>
 </body>
 </html>
