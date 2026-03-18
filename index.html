@@ -4,70 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IBANI Digital — Diseño y Desarrollo Web Profesional</title>
-  <meta name="description" content="IBANI Digital: diseñamos y desarrollamos páginas web profesionales para negocios, salones de eventos, tiendas online y más. Entrega en 3 días. Sonora, México.">
+  <meta name="description" content="IBANI Digital: páginas web profesionales para negocios, salones de eventos, tiendas online y más. Entrega en 3 días. Sonora, México.">
   <link rel="canonical" href="https://www.ibanidigital.com/">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="IBANI Digital — Diseño y Desarrollo Web">
-  <meta property="og:description" content="Páginas web profesionales para negocios en crecimiento. Landing pages, tiendas online, plataformas especiales. Entrega en 3 días.">
+  <meta property="og:description" content="Páginas web profesionales para negocios en crecimiento. Entrega en 3 días.">
   <meta property="og:url"         content="https://www.ibanidigital.com/">
-  <meta property="og:image"       content="https://www.ibanidigital.com/images/og-image.jpg">
-  <meta name="twitter:card"       content="summary_large_image">
 
-  <!-- Fonts -->
+  <!-- Fonts: Fraunces (display serif) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/sections.css">
-
-  <!-- Inline critical: faq body, page-load visibility -->
-  <style>
-    .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s cubic-bezier(0.16,1,0.3,1); overflow: hidden; }
-    .faq-body.open { grid-template-rows: 1fr; }
-    .faq-body__inner { overflow: hidden; padding-bottom: 0; }
-    .faq-body.open .faq-body__inner { padding-bottom: 1.5rem; }
-
-    .faq-item { border-top: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-               padding: 1.5rem 0; font-family: var(--font-display); font-size: clamp(1.1rem,2vw,1.4rem);
-               font-weight: 600; color: var(--ink); cursor: pointer; background: none; border: none;
-               text-align: left; transition: color .2s; }
-    .faq-btn:hover { color: var(--terracotta); }
-    .faq-btn__icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border);
-                     display: flex; align-items: center; justify-content: center; font-size: .8rem;
-                     transition: transform .3s cubic-bezier(0.16,1,0.3,1), background .2s, border-color .2s; }
-    .faq-btn[aria-expanded="true"] .faq-btn__icon { transform: rotate(45deg); background: var(--terracotta); border-color: var(--terracotta); color: white; }
-    .faq-body__inner p { color: var(--ink-muted); line-height: 1.75; max-width: 72ch; }
-
-    .nav__mobile { display: none; flex-direction: column; padding: 2rem; background: var(--cream);
-                   border-top: 1px solid var(--border); position: absolute; top: 68px; left: 0; right: 0;
-                   gap: 1.5rem; z-index: 99; }
-    .nav__mobile.open { display: flex; }
-    .nav__mobile a { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--ink);
-                     transition: color .2s; }
-    .nav__mobile a:hover { color: var(--terracotta); }
-  </style>
 </head>
 
 <body>
 
-  <!-- ── HEADER ──────────────────────────────────────────────── -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- HEADER                                                    -->
+  <!-- ══════════════════════════════════════════════════════════ -->
   <header class="header" id="header">
     <div class="container header__inner">
 
-      <!-- Logo -->
-      <a href="#inicio" class="logo" aria-label="IBANI Digital — inicio">
+      <a href="#inicio" class="logo" aria-label="IBANI Digital">
         <span class="logo__name">IBANI</span>
         <span class="logo__sub">Digital</span>
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="nav" aria-label="Navegación principal">
         <ul class="nav__list">
           <li><a href="#servicios"  class="nav__link" data-section="servicios">Servicios</a></li>
@@ -77,70 +46,77 @@
           <li><a href="#faq"        class="nav__link" data-section="faq">FAQ</a></li>
         </ul>
 
-        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
            target="_blank" rel="noopener" class="btn btn--primary">
           Cotizar →
         </a>
 
-        <!-- Mobile toggle -->
-        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </nav>
     </div>
 
     <!-- Mobile overlay -->
-    <div class="nav__mobile" aria-label="Menú móvil">
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
       <a href="#servicios">Servicios</a>
       <a href="#portafolio">Portafolio</a>
       <a href="#proceso">Proceso</a>
       <a href="#precios">Precios</a>
       <a href="#faq">FAQ</a>
-      <a href="#contacto" style="color: var(--terracotta);">Contactar →</a>
+      <a href="#contacto" style="color:var(--accent)">Contactar →</a>
     </div>
   </header>
 
   <main>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 01. HERO                                               -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="hero section" id="inicio" aria-label="Presentación">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 01. HERO — word-reveal al estilo moneda.com               -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="hero section" id="inicio">
       <div class="container hero__inner">
 
-        <!-- Left: main copy -->
         <div class="hero__main">
-          <div class="hero__eyebrow hero-reveal">
+
+          <!-- Eyebrow -->
+          <div class="hero__eyebrow fade-up" style="--delay:.05s">
             <span class="hero__dot" aria-hidden="true"></span>
-            <span class="hero__eyebrow-text">Diseño y Desarrollo Web · Sonora, México</span>
+            <span class="label label--accent">Diseño Web · Sonora, México</span>
           </div>
 
-          <h1 class="hero__title hero-reveal">
-            Páginas web<br>
-            que trabajan<br>
-            <em>por tu negocio.</em>
+          <!-- Title con word-reveal staggered -->
+          <h1 class="hero__title" aria-label="Páginas web que trabajan por tu negocio.">
+            <span class="wr"><span class="ww" style="--i:0">Páginas</span></span><!--
+            --><span class="wr"><span class="ww" style="--i:1">web</span></span>
+            <br>
+            <span class="wr"><span class="ww" style="--i:2">que</span></span><!--
+            --><span class="wr"><span class="ww" style="--i:3">trabajan</span></span>
+            <br>
+            <span class="wr"><span class="ww accent" style="--i:4"><em>por tu</em></span></span><!--
+            --><span class="wr"><span class="ww accent" style="--i:5"><em>negocio.</em></span></span>
           </h1>
 
-          <p class="hero__subtitle hero-reveal">
-            En IBANI Digital construimos sitios profesionales para negocios locales, salones de eventos,
-            tiendas online y más. Entrega en <strong>3 días hábiles</strong>, sin complicaciones.
+          <!-- Subtitle -->
+          <p class="hero__sub fade-up" style="--delay:.55s">
+            Construimos sitios profesionales para negocios locales, salones de eventos,
+            tiendas online y más. Entrega en <strong style="color:var(--ink);font-weight:600">3 días hábiles</strong>.
           </p>
 
-          <div class="hero__cta hero-reveal">
-            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
+          <!-- CTAs -->
+          <div class="hero__cta fade-up" style="--delay:.7s">
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
                target="_blank" rel="noopener" class="btn btn--primary btn--lg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
               Cotizar por WhatsApp
             </a>
-
-            <a href="#portafolio" class="link-arrow hero-reveal">
+            <a href="#portafolio" class="link-arrow fade-up" style="--delay:.8s">
               Ver proyectos →
             </a>
           </div>
         </div>
 
-        <!-- Right: stats -->
-        <aside class="hero__stats hero-reveal" aria-label="Estadísticas">
+        <!-- Stats column -->
+        <aside class="hero__stats fade-up" style="--delay:.9s" aria-label="Cifras">
           <div class="stat-block">
             <span class="stat-block__value" data-count="6" data-suffix="+">6+</span>
             <span class="stat-block__label">Proyectos entregados</span>
@@ -151,243 +127,224 @@
           </div>
           <div class="stat-block">
             <span class="stat-block__value">100%</span>
-            <span class="stat-block__label">Clientes satisfechos</span>
+            <span class="stat-block__label">Satisfacción</span>
           </div>
         </aside>
       </div>
 
-      <!-- Scroll hint -->
       <div class="hero__scroll" aria-hidden="true">
         <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- TICKER                                                 -->
-    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TICKER — proyectos desfilando                             -->
+    <!-- ══════════════════════════════════════════════════════════ -->
     <div class="ticker-section" aria-hidden="true">
       <div class="ticker-wrapper">
         <div class="ticker-track">
-          <span class="ticker-item">Jardín Ferraris</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Casa Arias</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Floresta Jardín</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">La Antigua Grecia</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Jardín Lantana</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">IBANI Rifas</span>
-          <span class="ticker-sep">·</span>
-          <!-- duplicate for infinite loop -->
-          <span class="ticker-item">Jardín Ferraris</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Casa Arias</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Floresta Jardín</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">La Antigua Grecia</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">Jardín Lantana</span>
-          <span class="ticker-sep">·</span>
-          <span class="ticker-item">IBANI Rifas</span>
-          <span class="ticker-sep">·</span>
+          <span class="ticker-item">Jardín Ferraris</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Casa Arias</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Floresta Jardín</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">La Antigua Grecia</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Jardín Lantana</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">IBANI Rifas</span><span class="ticker-sep">·</span>
+          <!-- duplicate -->
+          <span class="ticker-item">Jardín Ferraris</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Casa Arias</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Floresta Jardín</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">La Antigua Grecia</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">Jardín Lantana</span><span class="ticker-sep">·</span>
+          <span class="ticker-item">IBANI Rifas</span><span class="ticker-sep">·</span>
         </div>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 02. SERVICIOS                                          -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="services section" id="servicios" aria-label="Servicios">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 02. SERVICIOS — rows al estilo moneda.com                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="services section" id="servicios">
       <div class="container">
 
-        <div class="section-header reveal">
-          <div class="section-header__label">
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
             <span class="label">02 — Servicios</span>
           </div>
-          <h2 class="section-header__title">
+          <h2 class="section-head__title">
             Lo que<br><em>hacemos</em>
           </h2>
-          <p class="section-header__sub">
-            Desde una landing page hasta una plataforma completa — construimos exactamente lo que tu negocio necesita.
+          <p class="section-head__sub">
+            De una landing page a una plataforma completa. Construimos exactamente lo que tu negocio necesita.
           </p>
         </div>
 
-        <div class="services__grid">
+        <div class="services__list">
 
-          <article class="service-card reveal reveal--delay-1">
-            <span class="service-card__num">01</span>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Landing Pages</h3>
-              <p class="service-card__desc">
-                Páginas de aterrizaje orientadas a conversión para campañas, productos o servicios.
-                Diseño limpio, carga rápida y un solo objetivo: que el visitante actúe.
-              </p>
-              <div class="service-card__tags">
+          <article class="service-row reveal reveal--d1">
+            <span class="service-row__num">01</span>
+            <div class="service-row__body">
+              <h3 class="service-row__title">Landing Pages</h3>
+              <p class="service-row__desc">Páginas de aterrizaje orientadas a conversión. Diseño limpio, carga ultrarrápida y un solo objetivo: que el visitante actúe.</p>
+              <div class="service-row__tags">
                 <span class="tag">Conversión</span>
-                <span class="tag">SEO básico</span>
-                <span class="tag">Entrega en 3 días</span>
+                <span class="tag">SEO</span>
+                <span class="tag">3 días</span>
               </div>
             </div>
-            <span class="service-card__icon" aria-hidden="true">🎯</span>
+            <span class="service-row__icon" aria-hidden="true">🎯</span>
           </article>
 
-          <article class="service-card reveal reveal--delay-2">
-            <span class="service-card__num">02</span>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Tiendas Online</h3>
-              <p class="service-card__desc">
-                Catálogos y tiendas con carrito de compras, integración de pagos y panel de administración.
-                Tu negocio vendiendo 24/7 sin que tengas que estar presente.
-              </p>
-              <div class="service-card__tags">
+          <article class="service-row reveal reveal--d2">
+            <span class="service-row__num">02</span>
+            <div class="service-row__body">
+              <h3 class="service-row__title">Tiendas Online</h3>
+              <p class="service-row__desc">Catálogos y e-commerce con carrito de compras, pasarela de pagos y panel de administración. Tu negocio vendiendo 24/7.</p>
+              <div class="service-row__tags">
                 <span class="tag">E-commerce</span>
-                <span class="tag">Pagos en línea</span>
+                <span class="tag">Pagos</span>
                 <span class="tag">Panel admin</span>
               </div>
             </div>
-            <span class="service-card__icon" aria-hidden="true">🛍️</span>
+            <span class="service-row__icon" aria-hidden="true">🛍️</span>
           </article>
 
-          <article class="service-card reveal reveal--delay-3">
-            <span class="service-card__num">03</span>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Plataformas de Rifas y Sorteos</h3>
-              <p class="service-card__desc">
-                Sistema completo para organizar rifas online: selección de boletos, validación de pagos vía WhatsApp,
-                panel de administración dual y transparencia total para tus participantes.
-              </p>
-              <div class="service-card__tags">
-                <span class="tag">Boletos en tiempo real</span>
+          <article class="service-row reveal reveal--d3">
+            <span class="service-row__num">03</span>
+            <div class="service-row__body">
+              <h3 class="service-row__title">Plataformas de Rifas</h3>
+              <p class="service-row__desc">Sistema completo: selección de boletos en tiempo real, validación vía WhatsApp, panel dual para dueños y empleados, transparencia total.</p>
+              <div class="service-row__tags">
+                <span class="tag">Tiempo real</span>
                 <span class="tag">Doble admin</span>
-                <span class="tag">WhatsApp integrado</span>
+                <span class="tag">WhatsApp</span>
               </div>
             </div>
-            <span class="service-card__icon" aria-hidden="true">🎟️</span>
+            <span class="service-row__icon" aria-hidden="true">🎟️</span>
           </article>
 
-          <article class="service-card reveal reveal--delay-4">
-            <span class="service-card__num">04</span>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Sitios Corporativos</h3>
-              <p class="service-card__desc">
-                Páginas institucionales para empresas, salones de eventos y negocios locales.
-                Galerías, formularios de contacto, disponibilidad de fechas y todo lo que tu marca necesita en línea.
-              </p>
-              <div class="service-card__tags">
+          <article class="service-row reveal reveal--d4">
+            <span class="service-row__num">04</span>
+            <div class="service-row__body">
+              <h3 class="service-row__title">Sitios Corporativos</h3>
+              <p class="service-row__desc">Páginas institucionales para salones de eventos, empresas y negocios locales. Galerías, formularios de contacto, SEO local incluido.</p>
+              <div class="service-row__tags">
                 <span class="tag">Galerías</span>
-                <span class="tag">Contacto</span>
                 <span class="tag">SEO local</span>
+                <span class="tag">Contacto</span>
               </div>
             </div>
-            <span class="service-card__icon" aria-hidden="true">🏛️</span>
+            <span class="service-row__icon" aria-hidden="true">🏛️</span>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 03. PORTAFOLIO                                         -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="portfolio section" id="portafolio" aria-label="Portafolio de proyectos">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 03. PORTAFOLIO — cards dark-glass con scale reveal        -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="portfolio section" id="portafolio">
       <div class="container">
 
-        <div class="section-header reveal">
-          <div class="section-header__label">
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
             <span class="label">03 — Portafolio</span>
           </div>
-          <h2 class="section-header__title">
+          <h2 class="section-head__title">
             Proyectos<br><em>reales</em>
           </h2>
-          <p class="section-header__sub">
-            Sitios web que ya están funcionando para negocios en Sonora y más allá.
+          <p class="section-head__sub">
+            Sitios web que ya están generando resultados para negocios en Sonora.
           </p>
         </div>
 
         <div class="portfolio__grid">
 
-          <!-- Card 1: Jardín Ferraris (featured) -->
-          <article class="portfolio-card reveal reveal--delay-1" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3a 50%, #1a3a2a 100%);"></div>
+          <!-- Card 1: Jardín Ferraris — featured (2 cols) -->
+          <article class="portfolio-card scale-reveal reveal--d1">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#0f2318 0%,#1a3d28 40%,#0f2318 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,#22c55e,#16a34a)"></div>
             <div class="portfolio-card__content">
               <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
               <h3 class="portfolio-card__name">Jardín Ferraris</h3>
               <p class="portfolio-card__loc">Hermosillo, Sonora</p>
-              <a href="https://pagina-ferraris.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <a href="https://pagina-ferraris.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
           </article>
 
           <!-- Card 2: Casa Arias -->
-          <article class="portfolio-card reveal reveal--delay-2" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #5c3020 0%, #8b4a30 50%, #5c3020 100%);"></div>
+          <article class="portfolio-card scale-reveal reveal--d2">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#2a1208 0%,#5c2810 40%,#2a1208 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,var(--accent),var(--accent-2))"></div>
             <div class="portfolio-card__content">
-              <p class="portfolio-card__type">Sitio Corporativo · Eventos Boutique</p>
+              <p class="portfolio-card__type">Eventos Boutique · Centro Histórico</p>
               <h3 class="portfolio-card__name">Casa Arias</h3>
-              <p class="portfolio-card__loc">Centro Histórico, Hermosillo</p>
-              <a href="https://pagina-casaarias.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <p class="portfolio-card__loc">Hermosillo, Sonora</p>
+              <a href="https://pagina-casaarias.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
           </article>
 
           <!-- Card 3: Floresta Jardín -->
-          <article class="portfolio-card reveal reveal--delay-3" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #2a4a2a 0%, #4a7a3a 50%, #2a4a2a 100%);"></div>
+          <article class="portfolio-card scale-reveal reveal--d3">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#101e10 0%,#1e401e 40%,#101e10 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,#4ade80,#22c55e)"></div>
             <div class="portfolio-card__content">
-              <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
+              <p class="portfolio-card__type">Salón de Eventos</p>
               <h3 class="portfolio-card__name">Floresta Jardín</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
-              <a href="https://pagina-floresta.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <a href="https://pagina-floresta.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
           </article>
 
           <!-- Card 4: La Antigua Grecia -->
-          <article class="portfolio-card reveal reveal--delay-4" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #3a3020 0%, #6b5830 50%, #3a3020 100%);"></div>
+          <article class="portfolio-card scale-reveal reveal--d4">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#1a1406 0%,#3d2e0a 40%,#1a1406 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,#fbbf24,#f59e0b)"></div>
             <div class="portfolio-card__content">
-              <p class="portfolio-card__type">Sitio Corporativo · Salón de Eventos</p>
+              <p class="portfolio-card__type">Salón de Eventos</p>
               <h3 class="portfolio-card__name">La Antigua Grecia</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
-              <a href="https://pagina-antiguagrecia.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <a href="https://pagina-antiguagrecia.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
           </article>
 
           <!-- Card 5: Jardín Lantana -->
-          <article class="portfolio-card reveal reveal--delay-5" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #3a2a4a 0%, #6a4a7a 50%, #3a2a4a 100%);"></div>
+          <article class="portfolio-card scale-reveal reveal--d5">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#14061e 0%,#2e0e44 40%,#14061e 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,#c084fc,#a855f7)"></div>
             <div class="portfolio-card__content">
-              <p class="portfolio-card__type">Sitio Corporativo · Jardín de Eventos</p>
+              <p class="portfolio-card__type">Jardín de Eventos</p>
               <h3 class="portfolio-card__name">Jardín Lantana</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
-              <a href="https://pagina-lantana.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <a href="https://pagina-lantana.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
           </article>
 
           <!-- Card 6: IBANI Rifas -->
-          <article class="portfolio-card reveal reveal--delay-6" role="article">
-            <div class="portfolio-card__bg" style="background: linear-gradient(135deg, #1a1a4a 0%, #2a2a8a 50%, #1a1a4a 100%);"></div>
+          <article class="portfolio-card scale-reveal reveal--d6">
+            <div class="portfolio-card__bg" style="background:linear-gradient(135deg,#060a1e 0%,#0c1644 40%,#060a1e 100%)"></div>
             <div class="portfolio-card__overlay"></div>
+            <div class="portfolio-card__accent" style="background:linear-gradient(to right,#60a5fa,#3b82f6)"></div>
             <div class="portfolio-card__content">
-              <p class="portfolio-card__type">Plataforma Especial · Rifas y Sorteos</p>
+              <p class="portfolio-card__type">Plataforma Especial · Rifas Online</p>
               <h3 class="portfolio-card__name">IBANI Rifas</h3>
-              <p class="portfolio-card__loc">Plataforma en línea — Latinoamérica</p>
-              <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener" class="portfolio-card__link">
+              <p class="portfolio-card__loc">Plataforma · Latinoamérica</p>
+              <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
                 Ver demo →
               </a>
             </div>
@@ -397,121 +354,113 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 04. PROCESO                                            -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="process section" id="proceso" aria-label="Proceso de trabajo">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 04. PROCESO — 4 step cards                                -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="process section" id="proceso">
       <div class="container">
 
-        <div class="section-header reveal">
-          <div class="section-header__label">
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
             <span class="label">04 — Proceso</span>
           </div>
-          <h2 class="section-header__title">
+          <h2 class="section-head__title">
             Cómo<br><em>trabajamos</em>
           </h2>
-          <p class="section-header__sub">
-            Simple, rápido y sin sorpresas. Tu sitio listo en 4 pasos.
-          </p>
+          <p class="section-head__sub">4 pasos simples. Sin rodeadas ni sorpresas.</p>
         </div>
 
         <div class="process__grid">
-
-          <div class="step-item reveal reveal--delay-1">
-            <span class="step-item__num">01</span>
-            <h3 class="step-item__title">Cotización gratuita</h3>
-            <p class="step-item__desc">Escríbenos por WhatsApp y cuéntanos tu proyecto. En menos de 30 minutos tienes una propuesta clara sin costos ocultos.</p>
+          <div class="step-card scale-reveal reveal--d1">
+            <span class="step-card__num">01</span>
+            <h3 class="step-card__title">Cotización</h3>
+            <p class="step-card__desc">Escríbenos por WhatsApp. En menos de 30 minutos tienes una propuesta clara y sin costos ocultos.</p>
           </div>
-
-          <div class="step-item reveal reveal--delay-2">
-            <span class="step-item__num">02</span>
-            <h3 class="step-item__title">Diseño personalizado</h3>
-            <p class="step-item__desc">Creamos el diseño según tu identidad de marca, colores y estilo. Tú apruebas antes de que empecemos a construir.</p>
+          <div class="step-card scale-reveal reveal--d2">
+            <span class="step-card__num">02</span>
+            <h3 class="step-card__title">Diseño</h3>
+            <p class="step-card__desc">Creamos el diseño según tu identidad. Apruebas antes de que empecemos a construir.</p>
           </div>
-
-          <div class="step-item reveal reveal--delay-3">
-            <span class="step-item__num">03</span>
-            <h3 class="step-item__title">Desarrollo y revisión</h3>
-            <p class="step-item__desc">Desarrollamos tu sitio con tecnología moderna. Puedes solicitar ajustes y revisaremos juntos cada detalle.</p>
+          <div class="step-card scale-reveal reveal--d3">
+            <span class="step-card__num">03</span>
+            <h3 class="step-card__title">Desarrollo</h3>
+            <p class="step-card__desc">Desarrollamos tu sitio con tecnología moderna. Revisamos juntos cada detalle hasta que quede perfecto.</p>
           </div>
-
-          <div class="step-item reveal reveal--delay-4">
-            <span class="step-item__num">04</span>
-            <h3 class="step-item__title">Entrega en 3 días</h3>
-            <p class="step-item__desc">Tu sitio publicado con dominio propio, hosting y SSL incluidos. Listo para recibir clientes desde el primer día.</p>
+          <div class="step-card scale-reveal reveal--d4">
+            <span class="step-card__num">04</span>
+            <h3 class="step-card__title">Entrega</h3>
+            <p class="step-card__desc">Tu sitio en línea con dominio, hosting y SSL incluidos. Listo para recibir clientes desde el primer día.</p>
           </div>
-
         </div>
+
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 05. PRECIOS                                            -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="pricing section" id="precios" aria-label="Planes y precios">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 05. PRECIOS                                               -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="pricing section" id="precios">
       <div class="container">
 
-        <div class="section-header reveal">
-          <div class="section-header__label">
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
             <span class="label">05 — Precios</span>
           </div>
-          <h2 class="section-header__title">
+          <h2 class="section-head__title">
             Inversión<br><em>transparente</em>
           </h2>
-          <p class="section-header__sub">
-            Sin costos ocultos. El precio que acordamos es el que pagas.
-          </p>
+          <p class="section-head__sub">El precio que acordamos es el que pagas. Sin sorpresas.</p>
         </div>
 
         <div class="pricing__grid">
 
           <!-- Plan por proyecto -->
-          <div class="pricing-card reveal reveal--delay-1">
+          <div class="pricing-card scale-reveal reveal--d1">
             <div>
-              <span class="pricing-card__badge">Sitio web completo</span>
-              <p class="pricing-card__name" style="margin-top: .75rem;">Por Proyecto</p>
+              <span class="pc-badge">Por proyecto</span>
+              <p class="pc-name" style="margin-top:.75rem">Plan Pro</p>
             </div>
-            <div class="pricing-card__price">
-              <span class="price-currency">$</span>
-              <span class="price-amount">9,000</span>
-              <span class="price-period">MXN / proyecto</span>
+            <div class="pc-price">
+              <span class="pc-currency">$</span>
+              <span class="pc-amount">9,000</span>
+              <span class="pc-period">MXN / proyecto</span>
             </div>
-            <hr class="pricing-card__divider">
-            <ul class="pricing-card__features">
-              <li class="pricing-card__feature">Diseño personalizado</li>
-              <li class="pricing-card__feature">Dominio y hosting incluidos (1 año)</li>
-              <li class="pricing-card__feature">SSL y seguridad incluidos</li>
-              <li class="pricing-card__feature">Optimización para móviles</li>
-              <li class="pricing-card__feature">Entrega en 3 días hábiles</li>
-              <li class="pricing-card__feature">1 ronda de revisiones</li>
+            <hr class="pc-hr">
+            <ul class="pc-features">
+              <li class="pc-feature">Diseño personalizado</li>
+              <li class="pc-feature">Dominio y hosting (1 año)</li>
+              <li class="pc-feature">SSL incluido</li>
+              <li class="pc-feature">Optimizado para móviles</li>
+              <li class="pc-feature">Entrega en 3 días</li>
+              <li class="pc-feature">1 ronda de revisiones</li>
             </ul>
-            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20por%20proyecto%20de%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20por%20proyecto%20de%20IBANI%20Digital."
                target="_blank" rel="noopener" class="btn btn--outline">
               Cotizar ahora
             </a>
           </div>
 
-          <!-- Plan mensual (destacado) -->
-          <div class="pricing-card pricing-card--featured reveal reveal--delay-2">
+          <!-- Plan mensual (featured) -->
+          <div class="pricing-card pricing-card--featured scale-reveal reveal--d2">
             <div>
-              <span class="pricing-card__badge">Más popular</span>
-              <p class="pricing-card__name" style="margin-top: .75rem; color: white;">Suscripción Mensual</p>
+              <span class="pc-badge">Más popular</span>
+              <p class="pc-name" style="margin-top:.75rem">Plan Team</p>
             </div>
-            <div class="pricing-card__price">
-              <span class="price-currency" style="color:rgba(255,255,255,.5)">$</span>
-              <span class="price-amount" style="color:white;">6,000</span>
-              <span class="price-period" style="color:rgba(255,255,255,.4)">/mes</span>
+            <div class="pc-price">
+              <span class="pc-currency">$</span>
+              <span class="pc-amount">6,000</span>
+              <span class="pc-period">/mes</span>
             </div>
-            <hr class="pricing-card__divider">
-            <ul class="pricing-card__features">
-              <li class="pricing-card__feature">Todo lo del plan por proyecto</li>
-              <li class="pricing-card__feature">Proyectos ilimitados al mes</li>
-              <li class="pricing-card__feature">Soporte prioritario 24/7</li>
-              <li class="pricing-card__feature">Actualizaciones y cambios incluidos</li>
-              <li class="pricing-card__feature">Estadísticas y analytics</li>
-              <li class="pricing-card__feature">Renovación flexible</li>
+            <hr class="pc-hr">
+            <ul class="pc-features">
+              <li class="pc-feature">Todo lo del plan Pro</li>
+              <li class="pc-feature">Proyectos ilimitados</li>
+              <li class="pc-feature">Soporte prioritario 24/7</li>
+              <li class="pc-feature">Cambios incluidos</li>
+              <li class="pc-feature">Analytics y estadísticas</li>
+              <li class="pc-feature">Renovación flexible</li>
             </ul>
-            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20mensual%20de%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20darme%20m%C3%A1s%20informaci%C3%B3n%3F"
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20mensual%20de%20IBANI%20Digital."
                target="_blank" rel="noopener" class="btn btn--primary">
               Empezar ahora
             </a>
@@ -519,100 +468,99 @@
 
         </div>
 
-        <!-- Note -->
-        <div class="pricing__note reveal">
-          <p class="pricing__note-title">🌐 Sobre infraestructura</p>
-          <p>El primer pago incluye la gestión del <strong>dominio</strong> (~$250 MXN anuales) y el <strong>hosting profesional</strong> ($20 USD/mes). Una vez cubierto, configuramos tu sitio completo y lo entregamos listo para recibir clientes. <strong>Sin sorpresas.</strong></p>
+        <div class="pricing__note reveal" style="margin-top: 2rem;">
+          <p class="pricing__note-title">🌐 Infraestructura inicial</p>
+          <p>El primer pago incluye la gestión del <strong>dominio</strong> (~$250 MXN anuales) y el <strong>hosting profesional</strong> ($20 USD/mes). Una vez cubierto, montamos tu sitio completo. <strong>Sin sorpresas.</strong></p>
         </div>
 
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 06. FAQ                                                -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="section" id="faq" style="background: var(--white);" aria-label="Preguntas frecuentes">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 06. FAQ                                                   -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="faq-section section" id="faq">
       <div class="container">
 
-        <div class="section-header reveal">
-          <div class="section-header__label">
+        <div class="section-head reveal">
+          <div class="section-head__eyebrow">
             <span class="label">06 — FAQ</span>
           </div>
-          <h2 class="section-header__title">
+          <h2 class="section-head__title">
             Preguntas<br><em>frecuentes</em>
           </h2>
         </div>
 
-        <div style="max-width: 760px;">
+        <div style="max-width:780px">
 
-          <div class="faq-item reveal reveal--delay-1">
+          <div class="faq-item reveal reveal--d1">
             <button class="faq-btn" aria-expanded="false">
               ¿En cuánto tiempo entregan mi página web?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p>En <strong>3 días hábiles</strong> a partir de que apruebas el diseño inicial y realizas el primer pago. Para proyectos más complejos (tiendas grandes, plataformas personalizadas) el plazo puede extenderse — siempre lo comunicamos con anticipación.</p>
+                <p>En <strong>3 días hábiles</strong> a partir de que apruebas el diseño y realizas el pago. Para proyectos más complejos el plazo puede extenderse — siempre lo comunicamos con anticipación.</p>
               </div>
             </div>
           </div>
 
-          <div class="faq-item reveal reveal--delay-2">
+          <div class="faq-item reveal reveal--d2">
             <button class="faq-btn" aria-expanded="false">
               ¿Qué incluye el dominio y el hosting?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p>Gestionamos el registro de tu dominio (.com / .mx) y contratamos el hosting profesional en servidores de alta velocidad. Todo queda a tu nombre. El primer año está incluido en el costo de infraestructura inicial (~$250 MXN dominio + $20 USD/mes hosting).</p>
+                <p>Gestionamos el registro de tu dominio (.com / .mx) y hosting profesional en servidores rápidos. Todo queda a tu nombre. El primer año está incluido en el costo de infraestructura inicial.</p>
               </div>
             </div>
           </div>
 
-          <div class="faq-item reveal reveal--delay-3">
+          <div class="faq-item reveal reveal--d3">
             <button class="faq-btn" aria-expanded="false">
-              ¿Puedo hacer cambios después de que entreguen el sitio?
+              ¿Puedo hacer cambios después de la entrega?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p>Sí. Cualquier cambio posterior a la entrega tiene un costo de personalización único. Si tienes el <strong>plan mensual</strong>, los cambios y actualizaciones están incluidos durante tu suscripción activa.</p>
+                <p>Sí. Cambios posteriores tienen un costo de personalización. Si tienes el <strong>plan mensual</strong>, las actualizaciones y cambios están incluidos durante tu suscripción.</p>
               </div>
             </div>
           </div>
 
-          <div class="faq-item reveal reveal--delay-4">
+          <div class="faq-item reveal reveal--d4">
             <button class="faq-btn" aria-expanded="false">
               ¿Hacen páginas para cualquier tipo de negocio?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p>Sí. Trabajamos con negocios de todos los giros: restaurantes, salones de eventos, coaches, tiendas físicas que quieren vender en línea, organizadores de rifas, ONGs, escuelas y más. Si tienes un negocio, tenemos la solución web para ti.</p>
+                <p>Sí. Trabajamos con salones de eventos, restaurantes, tiendas, coaches, organizadores de rifas, ONGs, escuelas y más. Si tienes un negocio, tenemos la solución.</p>
               </div>
             </div>
           </div>
 
-          <div class="faq-item reveal reveal--delay-5">
+          <div class="faq-item reveal reveal--d5">
             <button class="faq-btn" aria-expanded="false">
-              ¿Hay comisión sobre mis ventas?
+              ¿Cobran comisión sobre mis ventas?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p><strong>No.</strong> IBANI Digital cobra únicamente el costo del plan contratado. Todo lo que generes con tu página es 100% tuyo. No tomamos ningún porcentaje de tus ventas ni de los pagos que recibas.</p>
+                <p><strong>No.</strong> Solo cobramos el plan contratado. Todo lo que generes con tu página es 100% tuyo. Sin comisiones, sin porcentajes ocultos.</p>
               </div>
             </div>
           </div>
 
-          <div class="faq-item reveal reveal--delay-6">
+          <div class="faq-item reveal reveal--d6">
             <button class="faq-btn" aria-expanded="false">
-              ¿Cómo me contacto para empezar?
+              ¿Cómo empiezo?
               <span class="faq-btn__icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-body">
               <div class="faq-body__inner">
-                <p>La forma más rápida es escribirnos por <strong>WhatsApp</strong>. Respondemos en menos de 30 minutos durante horario hábil. Solo cuéntanos qué tipo de página necesitas y te enviamos una propuesta sin compromiso.</p>
+                <p>Lo más rápido es escribirnos por <strong>WhatsApp</strong>. Respondemos en menos de 30 minutos. Cuéntanos qué tipo de página necesitas y te enviamos una propuesta sin compromiso.</p>
               </div>
             </div>
           </div>
@@ -621,25 +569,29 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- 07. CONTACTO / CTA FINAL                               -->
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <section class="contact section--lg" id="contacto" aria-label="Contacto">
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 07. CONTACTO / CTA FINAL                                  -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="contact section--lg" id="contacto">
       <div class="container contact__inner">
 
-        <p class="label" style="color: rgba(255,255,255,0.4);">07 — Contacto</p>
+        <span class="label reveal">07 — Contacto</span>
 
-        <h2 class="contact__title reveal">
-          ¿Listo para tener<br>
-          tu web <em>profesional?</em>
+        <h2 class="contact__title">
+          <span class="wr"><span class="ww" style="--i:0">¿Listo</span></span>
+          <span class="wr"><span class="ww" style="--i:1">para</span></span>
+          <span class="wr"><span class="ww" style="--i:2">tu</span></span>
+          <br>
+          <span class="wr"><span class="ww accent" style="--i:3"><em>web</em></span></span>
+          <span class="wr"><span class="ww accent" style="--i:4"><em>profesional?</em></span></span>
         </h2>
 
         <p class="contact__sub reveal">
-          Escríbenos y en menos de 30 minutos tienes una cotización. Sin rodeadas, sin formularios eternos. Solo WhatsApp.
+          Escríbenos y en menos de 30 minutos tienes tu cotización. Sin formularios eternos. Solo WhatsApp.
         </p>
 
         <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20cotizarme%3F"
-           target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg reveal">
+           target="_blank" rel="noopener" class="btn btn--wa btn--lg reveal">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           Escribir por WhatsApp
         </a>
@@ -651,18 +603,20 @@
 
   </main>
 
-  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                    -->
+  <!-- ══════════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
 
-        <div class="footer__brand">
-          <a href="#inicio" class="logo footer__logo" aria-label="IBANI Digital">
+        <div>
+          <a href="#inicio" class="logo" aria-label="IBANI Digital">
             <span class="logo__name">IBANI</span>
             <span class="logo__sub">Digital</span>
           </a>
           <p class="footer__tagline">
-            Diseño y desarrollo web profesional para negocios en crecimiento. Sonora, México.
+            Diseño y desarrollo web profesional para negocios en crecimiento.<br>Sonora, México.
           </p>
         </div>
 
@@ -688,11 +642,7 @@
           <div>
             <p class="footer__col-title">Contacto</p>
             <ul class="footer__col-links">
-              <li>
-                <a href="https://wa.me/526625044016" target="_blank" rel="noopener">
-                  WhatsApp
-                </a>
-              </li>
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener">WhatsApp</a></li>
               <li><a href="#contacto">Cotizar proyecto</a></li>
             </ul>
           </div>
@@ -701,8 +651,8 @@
       </div>
 
       <div class="footer__bottom">
-        <span class="footer__copyright">© 2026 IBANI Digital · Todos los derechos reservados.</span>
-        <span class="footer__ssl">🔒 SSL · Hosting Pro · Entrega en 3 días</span>
+        <span>© 2026 IBANI Digital · Todos los derechos reservados.</span>
+        <span>🔒 SSL · Hosting Pro · 3 días de entrega</span>
       </div>
     </div>
   </footer>

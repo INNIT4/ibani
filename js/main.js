@@ -1,32 +1,33 @@
 /* ============================================================
-   MAIN — Nav, Scroll Reveal, Active Nav, Counters, FAQ
-   IBANI Digital · 2026
+   MAIN — Nav, Scroll Reveal, Card Scale, Counters, FAQ
+   IBANI Digital · Dark Premium · 2026
+   Inspirado en: moneda.com
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ── Nav: scroll state ────────────────────────────────────── */
+  /* ── Header scroll state ──────────────────────────────────── */
   const header = document.getElementById('header');
   if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    const tick = () => header.classList.toggle('scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
   }
 
-  /* ── Nav: mobile toggle ───────────────────────────────────── */
+  /* ── Mobile nav ───────────────────────────────────────────── */
   const toggle    = document.querySelector('.nav__toggle');
   const mobileNav = document.querySelector('.nav__mobile');
 
   if (toggle && mobileNav) {
     toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      mobileNav.classList.toggle('open', !isOpen);
-      document.body.style.overflow = isOpen ? '' : 'hidden';
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileNav.classList.toggle('open', !open);
+      document.body.style.overflow = open ? '' : 'hidden';
     });
 
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
         toggle.setAttribute('aria-expanded', 'false');
         mobileNav.classList.remove('open');
         document.body.style.overflow = '';
@@ -34,18 +35,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ── Smooth scroll + close mobile nav on nav links ───────── */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function (e) {
+  /* ── Smooth scroll + close mobile on anchor click ────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top, behavior: 'smooth' });
-
       if (mobileNav) {
         toggle?.setAttribute('aria-expanded', 'false');
         mobileNav.classList.remove('open');
@@ -54,113 +53,106 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── Active Nav: highlight current section ────────────────── */
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav__link[data-section]');
+  /* ── Active nav (IntersectionObserver) ───────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__link[data-section]');
 
   if (sections.length && navLinks.length) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => {
-              link.classList.toggle('active', link.dataset.section === entry.target.id);
-            });
-          }
-        });
-      },
+    new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting)
+          navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+      }),
+      { rootMargin: '-40% 0px -55% 0px' }
+    ).observe.call(
+      new IntersectionObserver(
+        entries => entries.forEach(e => {
+          if (e.isIntersecting)
+            navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+        }),
+        { rootMargin: '-40% 0px -55% 0px' }
+      ),
+      ...sections
+    );
+
+    // Simpler loop approach:
+    const sObs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting)
+          navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+      }),
       { rootMargin: '-40% 0px -55% 0px' }
     );
-    sections.forEach(s => sectionObserver.observe(s));
+    sections.forEach(s => sObs.observe(s));
   }
 
-  /* ── Scroll Reveal ────────────────────────────────────────── */
+  /* ── Scroll Reveal (.reveal elements) ────────────────────── */
   const revealEls = document.querySelectorAll('.reveal');
-
   if (revealEls.length) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    const rObs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); rObs.unobserve(e.target); }
+      }),
+      { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
     );
-    revealEls.forEach(el => revealObserver.observe(el));
+    revealEls.forEach(el => rObs.observe(el));
   }
 
-  /* ── Hero: stagger entrance on load ──────────────────────── */
-  document.querySelectorAll('.hero-reveal').forEach((el, i) => {
-    el.style.opacity    = '0';
-    el.style.transform  = 'translateY(22px)';
-    el.style.transition = `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${80 + i * 100}ms,
-                            transform 0.8s cubic-bezier(0.16,1,0.3,1) ${80 + i * 100}ms`;
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        el.style.opacity   = '1';
-        el.style.transform = 'translateY(0)';
-      }, 60);
-    });
-  });
+  /* ── Card Scale Reveal (.scale-reveal) ── moneda.com style ─ */
+  const scaleEls = document.querySelectorAll('.scale-reveal');
+  if (scaleEls.length) {
+    const sObs2 = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); sObs2.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+    scaleEls.forEach(el => sObs2.observe(el));
+  }
 
-  /* ── Counter animation ────────────────────────────────────── */
+  /* ── Counter Animation ────────────────────────────────────── */
   const counters = document.querySelectorAll('[data-count]');
-
   if (counters.length) {
     const easeOut = t => 1 - Math.pow(1 - t, 3);
-
-    const animateCounter = (el) => {
-      const target   = parseInt(el.dataset.count, 10);
-      const suffix   = el.dataset.suffix || '';
-      const duration = 1400;
-      const start    = performance.now();
-
-      const tick = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        el.textContent = Math.round(easeOut(progress) * target) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-
-    const counterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      },
+    const cObs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        cObs.unobserve(e.target);
+        const target   = parseInt(e.target.dataset.count, 10);
+        const suffix   = e.target.dataset.suffix || '';
+        const dur      = 1400;
+        const start    = performance.now();
+        const tick = now => {
+          const p = Math.min((now - start) / dur, 1);
+          e.target.textContent = Math.round(easeOut(p) * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }),
       { threshold: 0.5 }
     );
-    counters.forEach(el => counterObserver.observe(el));
+    counters.forEach(el => cObs.observe(el));
   }
 
   /* ── FAQ Accordion ────────────────────────────────────────── */
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
+  document.querySelectorAll('.faq-item').forEach(item => {
     const btn  = item.querySelector('.faq-btn');
     const body = item.querySelector('.faq-body');
     if (!btn || !body) return;
 
     btn.addEventListener('click', () => {
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const open = btn.getAttribute('aria-expanded') === 'true';
 
-      faqItems.forEach(other => {
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(other => {
         if (other !== item) {
           other.querySelector('.faq-btn')?.setAttribute('aria-expanded', 'false');
-          other.querySelector('.faq-body')?.removeAttribute('style');
           other.querySelector('.faq-body')?.classList.remove('open');
         }
       });
 
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      body.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!open));
+      body.classList.toggle('open', !open);
     });
   });
 
