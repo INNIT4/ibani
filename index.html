@@ -52,6 +52,36 @@
           "@type": "Person",
           "name": "Jose Daniel Ibarra Nieblas"
         },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "3",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Alejandra Ferraris" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Desde que lanzamos la página web, recibimos consultas de clientes nuevos cada semana. El diseño quedó exactamente como lo imaginábamos y el proceso fue muy rápido.",
+            "name": "Excelente servicio"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Carlos Arias" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Jose Daniel entiende perfectamente lo que un salón de eventos necesita. El sitio refleja la elegancia de Casa Arias y nuestros clientes siempre preguntan quién lo diseñó.",
+            "name": "Diseño que representa nuestra marca"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ramón Flores" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Entregaron en 3 días tal como prometieron. El precio es justo y sin letra chica. Nuestra agenda de eventos mejoró notablemente desde que tenemos presencia en internet.",
+            "name": "Cumplieron todo lo prometido"
+          }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Servicios de diseño web",
@@ -124,7 +154,8 @@
   <!-- Fonts: Fraunces (display serif) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css">
@@ -193,7 +224,7 @@
           </div>
 
           <!-- Title con word-reveal staggered -->
-          <h1 class="hero__title" aria-label="Páginas web que trabajan por tu negocio.">
+          <h1 class="hero__title" aria-label="Diseño web en Hermosillo y Sonora — páginas web que trabajan por tu negocio.">
             <span class="wr"><span class="ww" style="--i:0">Páginas</span></span><!--
             --><span class="wr"><span class="ww" style="--i:1">web</span></span>
             <br>
