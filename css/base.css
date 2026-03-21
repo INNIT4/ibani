@@ -172,7 +172,9 @@ body::before {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  line-height: 1.1;
+  line-height: 1.18;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
   margin-right: 0.28em;
 }
 
