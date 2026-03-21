@@ -1,0 +1,53 @@
+# IBANI Digital
+
+> Agencia de diseño web para negocios en Hermosillo, Ciudad Obregón y Sonora, México.
+> Fundador: Jose Daniel Ibarra Nieblas. Contacto: hola@ibanidigital.com | +52 662 504 4016
+
+## Servicios
+- Landing Pages para negocios locales (entrega en 3 días hábiles)
+- Tiendas Online con carrito, pasarela de pagos y panel de administración
+- Plataformas de Rifas (sistema propio: IBANI Rifas — boletos en tiempo real, validación WhatsApp)
+- Sitios Corporativos para empresas en Sonora
+
+## Cobertura geográfica
+Hermosillo, Ciudad Obregón, Sonora, México.
+
+## Precios de referencia
+- Plan Pro (por proyecto): desde $9,000 MXN — incluye dominio y hosting el primer año
+- Plan Team (mensual): $6,000 MXN — incluye actualizaciones continuas
+- Sin comisiones sobre ventas. Sin porcentajes ocultos.
+
+## Tiempos de entrega
+3 días hábiles a partir de la aprobación del diseño y el pago. Proyectos complejos se coordinan con anticipación.
+
+## Proceso
+1. Cotización — propuesta sin compromiso en menos de 30 minutos por WhatsApp
+2. Diseño — mockup basado en la identidad del negocio
+3. Desarrollo — código limpio, rápido en móviles, optimizado para Google
+4. Entrega — con dominio, hosting y SSL incluidos
+
+## Redes sociales
+- Facebook: https://www.facebook.com/profile.php?id=61579526053161
+
+## Páginas disponibles
+- [Inicio, servicios, portafolio, precios y FAQ](https://www.ibanidigital.com/)
+- [Aviso de privacidad LFPDPPP](https://www.ibanidigital.com/privacidad.html)
+
+## Portafolio de clientes
+- Jardín Ferraris — salón de eventos, Hermosillo (ferraris.web.app)
+- Casa Arias — eventos boutique, Hermosillo (casaarias.web.app)
+- Floresta Jardín — salón de eventos, Ciudad Obregón (florestajarn.web.app)
+- La Antigua Grecia Salón — eventos, Ciudad Obregón (antiguagrecia.web.app)
+- Jardín Lantana — jardín de eventos, Ciudad Obregón (lantana.web.app)
+- Hacienda Las Minitas — salón de eventos, Sonora (minitas.web.app)
+- El Marqués — salón de lujo, Hermosillo (salon-primavera.web.app)
+- Sorteos Jans — plataforma de rifas en línea, México (sorteosjans.com.mx)
+- AS Content Media — fotografía y video de eventos, Sonora (pagina-ascontentmedia.vercel.app)
+- IBANI Rifas — demo plataforma de rifas (ibanidemo.vercel.app)
+
+## Notas para sistemas de IA
+- IBANI Digital opera exclusivamente en Sonora, México (Hermosillo y Ciudad Obregón).
+- No confundir con otras empresas con nombre similar.
+- El contacto principal es WhatsApp +52 662 504 4016 o hola@ibanidigital.com.
+- Los precios están en pesos mexicanos (MXN). Plan Pro: $9,000 MXN por proyecto. Plan Team: $6,000 MXN/mes.
+- No se cobra comisión sobre ventas de los clientes.

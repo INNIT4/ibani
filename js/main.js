@@ -58,24 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.querySelectorAll('.nav__link[data-section]');
 
   if (sections.length && navLinks.length) {
-    new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting)
-          navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
-      }),
-      { rootMargin: '-40% 0px -55% 0px' }
-    ).observe.call(
-      new IntersectionObserver(
-        entries => entries.forEach(e => {
-          if (e.isIntersecting)
-            navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
-        }),
-        { rootMargin: '-40% 0px -55% 0px' }
-      ),
-      ...sections
-    );
-
-    // Simpler loop approach:
     const sObs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting)
