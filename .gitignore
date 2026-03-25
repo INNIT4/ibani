@@ -1,2 +1,5 @@
 og-image.html
 *.DS_Store
+node_modules/
+.playwright-mcp/
+screenshots/
