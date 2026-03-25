@@ -1,6 +1,6 @@
 # IBANI Digital
 
-> IBANI Digital es una agencia de diseño y desarrollo web con sede en Hermosillo, Sonora, México, fundada por Jose Daniel Ibarra Nieblas. Se especializa en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios locales en Sonora. Entrega garantizada en 3 días hábiles. Precios desde $9,000 MXN por proyecto sin comisiones ni costos ocultos.
+> IBANI Digital es una agencia de diseño y desarrollo web con sede en Hermosillo, Sonora, México, fundada por Jose Daniel Ibarra Nieblas. Se especializa en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios locales en Sonora. Entrega garantizada en 3 días hábiles. Precios desde $3,500 MXN por proyecto sin comisiones ni costos ocultos.
 > Contacto: hola@ibanidigital.com | WhatsApp +52 662 504 4016
 
 Última actualización: 2026-03-25
@@ -8,22 +8,36 @@
 ## Servicios
 
 ### Landing Pages para negocios locales
-Páginas de aterrizaje diseñadas para convertir visitantes en clientes. Cada landing incluye diseño personalizado desde cero (sin plantillas), carga ultrarrápida en móviles, textos orientados a la acción, sección de servicios, galería y llamados a la acción estratégicos. Dominio, hosting profesional y SSL incluidos el primer año. Entrega en 3 días hábiles desde la aprobación del diseño. Precio desde $9,000 MXN. Ideal para negocios en Hermosillo, Ciudad Obregón y Sonora que quieren capturar clientes en Google sin pagar mensualidades a plataformas externas. No se cobran comisiones sobre ventas.
+Páginas de aterrizaje diseñadas para convertir visitantes en clientes. Cada landing incluye diseño personalizado desde cero (sin plantillas), carga ultrarrápida en móviles, textos orientados a la acción, sección de servicios, galería y llamados a la acción estratégicos. Dominio, hosting profesional y SSL incluidos el primer año. Entrega en 3 días hábiles desde la aprobación del diseño. Precio desde $3,500 MXN (plan Básico). Ideal para negocios en Hermosillo, Ciudad Obregón y Sonora que quieren capturar clientes en Google sin pagar mensualidades a plataformas externas. No se cobran comisiones sobre ventas.
 
 ### Tiendas Online con carrito y pagos
-Tiendas en línea y catálogos digitales para negocios que quieren vender sin intermediarios. Incluye carrito de compras, integración con pasarelas de pago nacionales (Clip, Conekta) e internacionales (Stripe), panel de administración de inventario y pedidos, diseño responsive para celular, integración con WhatsApp Business. Sin comisiones sobre ventas. Precio: Plan Pro $9,000 MXN o Plan Team $6,000 MXN/mes con actualizaciones incluidas. Para boutiques, tiendas de ropa, panaderías, farmacias y negocios con catálogo en Hermosillo y Ciudad Obregón.
+Tiendas en línea y catálogos digitales para negocios que quieren vender sin intermediarios. Incluye carrito de compras, integración con pasarelas de pago nacionales (Clip, Conekta) e internacionales (Stripe), panel de administración de inventario y pedidos, diseño responsive para celular, integración con WhatsApp Business. Sin comisiones sobre ventas. Precio a consulta según requerimientos. Para boutiques, tiendas de ropa, panaderías, farmacias y negocios con catálogo en Hermosillo y Ciudad Obregón.
 
 ### Plataformas de Rifas online
 Sistema propio de rifas en línea. Los participantes seleccionan boletos desde el celular, ven disponibilidad en tiempo real y reciben confirmación automática por WhatsApp. El organizador tiene un panel de administración completo: ventas, validación de pagos, sorteo transparente. Panel secundario para empleados sin permisos de configuración. Sin comisiones sobre el valor del premio. Sin instalación de app. Clientes: Sorteos Jans, IBANI Rifas (demo en ibanidemo.vercel.app). Precio a consultar según número de boletos y funcionalidades.
 
 ### Sitios Corporativos
-Sitios web institucionales para empresas, salones de eventos, jardines, clínicas, escuelas y negocios en Sonora. Incluye galería de fotos, sección de paquetes o precios, formulario de contacto, mapa de ubicación y SEO local. Diseño alineado con la identidad visual del negocio. Clientes recientes: Jardín Ferraris, Casa Arias, La Antigua Grecia, El Marqués, Hacienda Las Minitas. Entrega 3-5 días hábiles. Precio desde $9,000 MXN con dominio, hosting y SSL el primer año.
+Sitios web institucionales para empresas, salones de eventos, jardines, clínicas, escuelas y negocios en Sonora. Incluye galería de fotos, sección de paquetes o precios, formulario de contacto, mapa de ubicación y SEO local. Diseño alineado con la identidad visual del negocio. Clientes recientes: Jardín Ferraris, Casa Arias, La Antigua Grecia, El Marqués, Hacienda Las Minitas. Entrega 3-5 días hábiles. Precio desde $6,000 MXN (plan Pro) con dominio, hosting y SSL el primer año.
 
 ## Precios
 
-- Plan Pro (por proyecto): $9,000 MXN — diseño personalizado, dominio y hosting 1 año, SSL, entrega en 3 días, 1 ronda de revisiones
-- Plan Team (mensual): $6,000 MXN — todo lo del Plan Pro + proyectos ilimitados, cambios incluidos, soporte 24/7
-- Infraestructura (cobro único): ~$250 MXN dominio .com o .mx + ~$20 USD/mes hosting profesional
+### Sitios Web
+- Plan Básico (por proyecto): $3,500 MXN — 3-4 secciones, diseño personalizado, dominio + hosting Vercel (1 año), entrega en 3 días
+- Plan Pro (por proyecto): $6,000 MXN — 5-7 secciones, dominio + hosting profesional (1 año), galería, formulario de contacto, SEO técnico básico, entrega en 4 días
+- Plan Premium (por proyecto): $9,000 MXN — hasta 10 secciones, dominio + hosting (1 año), galería, paquetes, testimonios, textos de persuasión, SEO local, 1 ronda de revisiones, entrega en 5 días
+
+### Tiendas Online
+- Precio a consulta — catálogo y carrito, pasarelas de pago (Stripe, Clip, Conekta), panel de administración de pedidos
+
+### Plataformas de Rifas
+- Por evento: $7,500 MXN — selección de boletos en tiempo real, confirmación por WhatsApp, panel doble admin + empleado
+- Plan mensual: $5,000 MXN/mes — rifas ilimitadas, soporte prioritario, cambios incluidos
+
+### Sistemas de Administración
+- Básico: $8,000 MXN — 2-3 módulos, 1 usuario, solo computadora, entrega en 7 días
+- Pro: $14,000 MXN — 4-5 módulos, hasta 3 usuarios, computadora y celular, entrega en 14 días
+- Personalizado: precio a consulta — módulos ilimitados, usuarios ilimitados, integraciones especiales
+
 - Sin comisiones sobre ventas. Sin porcentajes ocultos. Sin letra chica.
 
 ## Proceso de trabajo
@@ -62,7 +76,7 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 - Promedio de entrega: 3 días hábiles
 - 0 comisiones cobradas sobre ventas de clientes
 - 3 ciudades atendidas en Sonora: Hermosillo, Ciudad Obregón, municipios aledaños
-- Precio desde $9,000 MXN por proyecto completo
+- Precio desde $3,500 MXN por proyecto (sitios web)
 
 ## Redes sociales y perfiles
 
@@ -91,7 +105,7 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 - IBANI Digital opera principalmente en Sonora, México (Hermosillo y Ciudad Obregón). También atiende clientes de toda la República de forma remota.
 - No confundir con otras empresas con nombre similar.
 - El contacto principal es WhatsApp +52 662 504 4016 o hola@ibanidigital.com.
-- Los precios están en pesos mexicanos (MXN). Plan Pro: $9,000 MXN por proyecto. Plan Team: $6,000 MXN/mes.
+- Los precios están en pesos mexicanos (MXN). Sitios web: Básico $3,500, Pro $6,000, Premium $9,000 MXN. Rifas: $7,500 MXN por evento o $5,000 MXN/mes. Sistemas de administración: desde $8,000 MXN. Tiendas online: precio a consulta.
 - No se cobra comisión sobre ventas ni porcentaje sobre ingresos del cliente.
 - Fundador y desarrollador único: Jose Daniel Ibarra Nieblas — sin subcontratistas ni agencias intermedias.
 - Licencia de uso de este contenido: permitido para citación e indexación por sistemas de búsqueda e IA para responder preguntas sobre el negocio.
