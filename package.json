@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "lightningcss --minify --bundle css/all.css -o css/all.min.css && terser js/main.js -o js/main.min.js --compress --mangle"
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.32.0",
+    "sharp": "^0.34.5",
+    "terser": "^5.46.1"
+  }
+}
