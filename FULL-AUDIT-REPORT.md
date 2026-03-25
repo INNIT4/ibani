@@ -1,369 +1,321 @@
-# Auditoría SEO Completa — ibanidigital.com
-**Fecha:** 2026-03-21
-**Auditado por:** Claude Code SEO Agent
-**URL analizada:** https://www.ibanidigital.com/
+# Auditoria SEO Completa — ibanidigital.com
+**Fecha:** 25 de marzo de 2026
+**Herramienta:** Claude Code SEO Audit (6 subagentes paralelos)
+**Paginas analizadas:** index.html, obregon.html, privacidad.html
 
 ---
 
-## Resumen Ejecutivo
+## SEO Health Score Global: 72 / 100
 
-| Métrica | Valor |
-|---------|-------|
-| **SEO Health Score** | **72 / 100** |
-| Tipo de negocio detectado | Agencia de servicios web — Local Business (Sonora, México) |
-| Páginas crawleadas | 2 (index + privacidad.html) |
-| Problemas críticos | 2 |
-| Problemas de alta prioridad | 6 |
-| Problemas de prioridad media | 8 |
-| Problemas de baja prioridad | 5 |
-
-### Desglose de puntuación
-
-| Categoría | Peso | Puntuación | Ponderado |
-|-----------|------|-----------|-----------|
-| Technical SEO | 25% | 72/100 | 18.0 |
-| Content Quality (E-E-A-T) | 25% | 74/100 | 18.5 |
-| On-Page SEO | 20% | 70/100 | 14.0 |
-| Schema / Structured Data | 10% | 82/100 | 8.2 |
-| Performance (CWV estimado) | 10% | 68/100 | 6.8 |
-| Images | 5% | 35/100 | 1.75 |
-| AI Search Readiness (GEO) | 5% | 88/100 | 4.4 |
-| **TOTAL** | | | **72/100** |
-
-### Top 5 problemas críticos/altos
-
-1. **favicon.svg devuelve 404** — error de consola en cada visita
-2. **Sitemap incompleto** — falta /privacidad.html
-3. **Sólo 3 reseñas en AggregateRating** — Google requiere 5+ para mostrar estrellas en SERPs
-4. **Portfolio links a dominios externos (vercel.app)** — dilución de autoridad, 0 subpáginas propias indexables
-5. **H1 sin keyword geográfica en texto visible** — el texto visible no incluye "Hermosillo" ni "Sonora"
-
-### Top 5 quick wins
-
-1. Corregir el favicon.svg (2 min)
-2. Agregar /privacidad.html al sitemap.xml (2 min)
-3. Agregar meta description a privacidad.html (5 min)
-4. Agregar HSTS header en vercel.json (5 min)
-5. Recortar meta description a <160 caracteres (5 min)
+| Categoria | Peso | Puntos | Ponderado |
+|---|---|---|---|
+| Technical SEO | 25% | 79/100 | 19.75 |
+| Content Quality & E-E-A-T | 25% | 61/100 | 15.25 |
+| On-Page SEO | 20% | 78/100 | 15.60 |
+| Schema / Structured Data | 10% | 72/100 | 7.20 |
+| Performance (CWV) | 10% | 70/100 | 7.00 |
+| Images | 5% | 82/100 | 4.10 |
+| AI Search Readiness (GEO) | 5% | 72/100 | 3.60 |
+| **TOTAL** | | | **72.5 / 100** |
 
 ---
 
-## 1. Technical SEO
+## Tipo de negocio detectado
 
-### 1.1 Crawlabilidad e Indexabilidad
-
-| Check | Estado | Detalle |
-|-------|--------|---------|
-| robots.txt accesible | ✅ OK | Permite todos los bots |
-| meta robots | ✅ OK | `index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1` |
-| Canonical tag | ✅ OK | `https://www.ibanidigital.com/` (con www) |
-| Sitemap.xml accesible | ✅ OK | Referenciado en robots.txt |
-| Sitemap URLs completas | ❌ FALLA | Solo incluye `/` — falta `/privacidad.html` |
-| www vs non-www | ⚠️ VERIFICAR | Canonical apunta a www; verificar que non-www redirige a www |
-| AI bots permitidos | ✅ EXCELENTE | GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot explícitamente permitidos |
-
-### 1.2 URLs y estructura
-
-- Solo 2 páginas indexables: `/` y `/privacidad.html`
-- Todas las "subpáginas" del portafolio son dominios externos (`vercel.app`) — no indexables bajo ibanidigital.com
-- URL estructura: limpia, sin parámetros ni fragmentos en sitemap
-
-### 1.3 Seguridad y Headers HTTP
-
-| Header | Estado | Valor actual |
-|--------|--------|-------------|
-| X-Content-Type-Options | ✅ OK | `nosniff` |
-| X-Frame-Options | ✅ OK | `SAMEORIGIN` |
-| Referrer-Policy | ✅ OK | `strict-origin-when-cross-origin` |
-| Permissions-Policy | ✅ OK | geolocation, microphone, camera desactivados |
-| **Strict-Transport-Security (HSTS)** | ❌ FALTA | No configurado en vercel.json |
-| **Content-Security-Policy** | ❌ FALTA | No configurado |
-| HTTPS | ✅ OK | Vercel provee SSL automático |
-
-### 1.4 Recursos
-
-| Recurso | Estado | Detalle |
-|---------|--------|---------|
-| favicon.svg | ❌ 404 | Archivo no existe en el servidor |
-| favicon.ico | ⚠️ No verificado | Declarado como fallback en HTML |
-| apple-touch-icon.png | ⚠️ No verificado | Declarado en HTML |
-| og:image (.jpg) | ✅ OK | Existe, ~47KB (formato JPEG) |
-| CSS files | ⚠️ 3 archivos | base.css + components.css + sections.css = 3 HTTP requests |
-
-### 1.5 Mobile
-
-- ✅ `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
-- ✅ Menú hamburguesa con `aria-expanded` para móvil
-- ✅ Responsive design verificado en código
-- ✅ Smooth scroll con offset de 72px para header fijo
+Agencia de diseno web local — ProfessionalService / LocalBusiness con area de servicio en Hermosillo y Ciudad Obregon, Sonora, Mexico. Mercado objetivo: negocios locales (salones de eventos, tiendas, plataformas de sorteos). Precio medio: $9,000 MXN por proyecto.
 
 ---
 
-## 2. Content Quality & E-E-A-T
+## Top 5 Problemas Criticos
 
-### 2.1 Experience (Experiencia)
-
-| Signal | Estado | Detalle |
-|--------|--------|---------|
-| Portfolio real | ✅ BUENO | 6 proyectos con nombre, ciudad y descripción |
-| Clientes nombrados | ✅ BUENO | Alejandra Ferraris, Carlos Arias, Ramón Flores |
-| Casos de uso específicos | ✅ BUENO | Salones de eventos, e-commerce, rifas |
-| Número de proyectos | ⚠️ BAJO | "6+" — poco para construir autoridad fuerte |
-| Imágenes de proyectos reales | ❌ FALTA | Portafolio usa gradientes CSS, sin capturas de pantalla |
-
-### 2.2 Expertise (Pericia)
-
-| Signal | Estado | Detalle |
-|--------|--------|---------|
-| Fundador identificado | ✅ OK | Jose Daniel Ibarra Nieblas, Hermosillo, Sonora |
-| Contenido técnico | ✅ OK | Descripción detallada de proceso y tecnologías |
-| Precios transparentes | ✅ EXCELENTE | $9,000 MXN / $6,000 MXN mensual, sin letra chica |
-| FAQ detallado | ✅ BUENO | 6 preguntas con respuestas extensas |
-| Blog / contenido educativo | ❌ FALTA | Sin ningún artículo, guía ni recurso |
-
-### 2.3 Authoritativeness (Autoridad)
-
-| Signal | Estado | Detalle |
-|--------|--------|---------|
-| Google Business Profile | ✅ OK | `sameAs` apunta a GBP |
-| Facebook | ✅ OK | Perfil enlazado en schema |
-| Backlinks generados | ❌ CERO | Portfolio en vercel.app no enlaza de regreso a ibanidigital.com |
-| Twitter/X | ❌ FALTA | No enlazado en sameAs |
-| LinkedIn | ❌ FALTA | No mencionado |
-
-### 2.4 Trustworthiness (Confianza)
-
-| Signal | Estado | Detalle |
-|--------|--------|---------|
-| Aviso de privacidad LFPDPPP | ✅ OK | /privacidad.html existe y tiene contenido válido |
-| Datos de contacto en schema | ✅ OK | Teléfono + email en ProfessionalService |
-| SSL / HTTPS | ✅ OK | Vercel automático |
-| Meta description privacidad.html | ❌ FALTA | Página sin meta description |
-
-### 2.5 Readability
-
-- ✅ Lenguaje claro y directo, dirigido a negocios locales
-- ✅ Párrafos cortos, bullets en pricing, pasos numerados en proceso
-- ✅ Uso de `<strong>` para resaltar datos clave
-- ⚠️ Todo el contenido en una sola página — sin estructura de contenido para long-tail keywords
+1. **Coordenadas incorrectas en `sameAs` de schema** — las coords 29.3955, -111.7386 no corresponden a Hermosillo; los LLMs absorben este dato erroneo como hecho.
+2. **CSS bloqueante (`all.css` en `<head>` sin async)** — bloquea el render; penaliza directamente el LCP.
+3. **Ausencia de Content-Security-Policy** — unico header de seguridad faltante; exposicion a XSS.
+4. **Doble preload conflictivo de Google Fonts** — lineas 325-326 hacen dos requests a Fraunces con rangos de peso diferentes, causando FOUT extendido.
+5. **Logo en schema apunta a `og-image.jpg`** (1200x630) en lugar del logo real — puede impedir el Knowledge Panel correcto.
 
 ---
 
-## 3. On-Page SEO
+## Top 5 Quick Wins
 
-### 3.1 Title Tags
+1. Corregir URL de `sameAs` Google Maps en index.html — 5 min, impacto en GEO y Entity Graph.
+2. Eliminar linea 325 del `<head>` (preload conflictivo de Fraunces) — 1 min, mejora LCP.
+3. Anadir CSP en vercel.json — 15 min, critico de seguridad.
+4. Eliminar bloque HowTo del segundo JSON-LD en index.html — deprecado desde sept. 2023, markup muerto.
+5. Expandir llms.txt con testimonios y estadisticas — 30 min, mejora citabilidad en AI search.
 
-| Página | Title | Longitud | Estado |
-|--------|-------|---------|--------|
-| Homepage | "IBANI Digital — Diseño Web para Negocios en Sonora" | 54 chars | ✅ OK |
-| Privacidad | "Aviso de Privacidad — IBANI Digital" | 36 chars | ✅ OK |
+---
 
-### 3.2 Meta Descriptions
+## 1. Technical SEO — 79/100
 
-| Página | Description | Longitud | Estado |
-|--------|-------------|---------|--------|
-| Homepage | "Páginas web profesionales en Hermosillo y Sonora: landing pages, tiendas online, plataformas de rifas y sitios corporativos. Entrega en 3 días hábiles. Cotiza hoy." | **164 chars** | ⚠️ LARGO (>160) |
-| Privacidad | (sin meta description) | — | ❌ FALTA |
+### 1.1 Rastreabilidad
 
-### 3.3 Heading Structure
+APROBADO.
 
+- robots.txt bien configurado: Allow: / para todos los bots incluidos GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot.
+- Directiva Sitemap apunta correctamente a https://www.ibanidigital.com/sitemap.xml
+- llms.txt declarado en robots.txt (convencion emergente — inofensiva y util para AI crawlers).
+
+### 1.2 Indexabilidad
+
+| Pagina | robots meta | canonical | Estado |
+|---|---|---|---|
+| index.html | index, follow, max-snippet:-1, max-image-preview:large | https://www.ibanidigital.com/ | OK |
+| obregon.html | index, follow, max-snippet:-1... | https://www.ibanidigital.com/obregon.html | OK |
+| privacidad.html | noindex, follow | https://www.ibanidigital.com/privacidad.html | OK |
+
+Problema medio: La meta description de index.html no incluye "Hermosillo" en los primeros ~120 caracteres — la keyword de mayor volumen no aparece en el snippet mobile de SERP.
+
+### 1.3 Seguridad — Headers HTTP
+
+| Header | Estado |
+|---|---|
+| X-Content-Type-Options: nosniff | OK |
+| X-Frame-Options: SAMEORIGIN | OK |
+| Referrer-Policy: strict-origin-when-cross-origin | OK |
+| Permissions-Policy | OK |
+| Strict-Transport-Security (2 anos, preload) | OK |
+| Content-Security-Policy | AUSENTE — CRITICO |
+
+CSP minimo recomendado para anadir en vercel.json:
 ```
-H1: "Páginas web que trabajan por tu negocio"  ← sin geo en texto visible
-  H2: "Detrás de IBANI Digital"
-  H2: "Lo que hacemos"                          ← sin keyword SEO
-    H3: Landing Pages
-    H3: Tiendas Online
-    H3: Plataformas de Rifas
-    H3: Sitios Corporativos
-  H2: "Proyectos reales"                        ← sin keyword SEO
-    H3: Jardín Ferraris, Casa Arias, Floresta, Antigua Grecia, Lantana, IBANI Rifas
-  H2: "Lo que dicen nuestros clientes"
-  H2: "Cómo trabajamos"
-  H2: "Inversión transparente"
-  H2: "Preguntas frecuentes"
-  H2: "¿Listo para tu web profesional?"
+default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://plausible.io; frame-ancestors 'none';
 ```
 
-**Problemas:**
-- H1 visible no menciona Hermosillo/Sonora en texto plano (solo en `aria-label`)
-- H2s genéricos: "Lo que hacemos" vs "Servicios de Diseño Web en Sonora"
+### 1.4 Movil
 
-### 3.4 Open Graph & Twitter Cards
+APROBADO. Viewport, theme-color, apple-touch-icon, breakpoints (1024/768/480px), targets tactiles >=44px, dvh en hero. Sin problemas detectados.
 
-| Tag | Estado | Detalle |
-|-----|--------|---------|
-| og:type | ✅ | website |
-| og:title | ✅ | Match con title tag |
-| og:description | ✅ | 130 chars — óptimo para WhatsApp/redes |
-| og:url | ✅ | https://www.ibanidigital.com/ |
-| og:image | ✅ | /og-image.jpg — existe |
-| og:locale | ✅ | es_MX |
-| twitter:card | ✅ | summary_large_image |
+### 1.5 Renderizado JavaScript
 
-### 3.5 Keyword Coverage
+APROBADO. El sitio es HTML/CSS/JS estatico puro (SSR). Todo el contenido semantico, headings, schema y meta tags estan en el HTML inicial. Googlebot indexa sin ejecutar JS.
 
-| Keyword objetivo | En title | En H1 | En H2 | En meta desc |
-|----------------|---------|-------|-------|------------|
-| "diseño web" | ✅ | ❌ | ❌ | ✅ |
-| "Hermosillo" | ❌ | ❌ aria-label | ❌ | ✅ |
-| "Sonora" | ✅ | ❌ | ❌ | ✅ |
-| "diseño web Hermosillo" | ❌ | ❌ | ❌ | ❌ |
-| "landing page" | ❌ | ❌ | ❌ | ✅ |
-| "3 días" | ❌ | ❌ | ❌ | ✅ |
+### 1.6 IndexNow
 
-**Keyword faltante de alta intención:** "diseño web Hermosillo" — debería estar en H1 o H2.
+NO IMPLEMENTADO. Bing (~5-8% del trafico en Mexico) no recibe notificaciones de cambios post-deploy. Implementacion trivial: generar clave UUID en bing.com/indexnow, crear [clave].txt en raiz, notificar via GET post-deploy.
+
+### 1.7 Sitemap
+
+APROBADO con mejoras menores.
+- Formato XML valido, 2 URLs, cobertura 100% de paginas indexables.
+- privacidad.html correctamente excluida (noindex).
+- Mejoras: eliminar changefreq y priority (ignorados por Google desde 2023); corregir lastmod de "/" a 2026-03-21.
 
 ---
 
-## 4. Schema / Structured Data
+## 2. Content Quality & E-E-A-T — 61/100
 
-### 4.1 Implementación actual
+### 2.1 Puntuacion E-E-A-T
 
-```
-@graph
-  ├── WebSite (#website) — dateModified, inLanguage: es-MX
-  ├── Person (#founder) — Jose Daniel Ibarra Nieblas
-  ├── ProfessionalService (#business)
-  │   ├── aggregateRating (5★, reviewCount: 3)
-  │   ├── review[] — 3 reseñas completas con autor y fecha
-  │   ├── areaServed — Hermosillo, Ciudad Obregón, Sonora
-  │   ├── sameAs — GBP + Facebook
-  │   └── hasOfferCatalog — 4 servicios
-  └── FAQPage (#faq)
-      └── mainEntity[] — 6 Q&A completos
-```
+| Factor | Peso | Puntuacion | Ponderado |
+|---|---|---|---|
+| Experience | 20% | 80/100 | 16.0 |
+| Expertise | 25% | 64/100 | 16.0 |
+| Authoritativeness | 25% | 44/100 | 11.0 |
+| Trustworthiness | 30% | 70/100 | 21.0 |
+| Total | | | 64/100 |
 
-### 4.2 Validación
+### 2.2 Experiencia — 80/100 (Fortaleza)
 
-| Check | Estado | Detalle |
-|-------|--------|---------|
-| JSON-LD válido | ✅ OK | Sintaxis correcta, sin errores de parseo |
-| @graph con @id cross-references | ✅ OK | Entidades enlazadas entre sí |
-| ProfessionalService type | ✅ OK | Apropiado para agencia de servicios |
-| aggregateRating | ⚠️ RIESGO | Solo 3 reseñas — Google normalmente requiere 5+ |
-| FAQPage | ✅ BUENO | 6 preguntas elegibles para FAQ rich results |
-| Founder Person entity | ✅ OK | Fortalece E-E-A-T |
-| dateModified en WebSite | ✅ OK | 2026-03-21 (al día) |
+Senales positivas:
+- Portfolio con 10 proyectos reales: nombres de clientes, ubicaciones especificas, URLs verificables.
+- Voz en primera persona: "Cada proyecto lo trabajo directamente yo — sin subcontratistas."
+- Referencias a herramientas del mercado mexicano: Stripe, Clip, Conekta.
+- Mencion de "region del Yaqui" — detalle geografico de experiencia real.
 
-### 4.3 Schemas faltantes o mejorables
+Senales faltantes:
+- Sin foto del fundador en la pagina.
+- Testimonios sin foto ni enlace a resena original.
+- Sin metricas de resultados para proyectos del portfolio.
 
-| Schema | Prioridad | Beneficio potencial |
-|--------|-----------|-------------------|
-| `OpeningHoursSpecification` | Media | Horario de atención en Knowledge Panel |
-| `Service` con `offers` y precios | Media | Rich results de precio |
-| `itemReviewed` en cada Review | Baja | Enlaza reviews de vuelta al servicio |
-| `VideoObject` | Baja | Si se agrega video testimonial |
+### 2.3 Expertise — 64/100
 
----
+Senales positivas:
+- Descripciones tecnicas especificas: pasarelas de pago, panel dual admin/empleados, contador regresivo.
+- FAQ tecnico con respuestas detalladas y precios exactos.
 
-## 5. Performance (Core Web Vitals — Estimado)
+Senales faltantes:
+- Sin formacion ni trayectoria del fundador visible en HTML.
+- Seccion "Nosotros" insuficiente (2 parrafos cortos).
+- Sin blog ni contenido educativo.
 
-> Sin Lighthouse en tiempo real. Estimaciones basadas en análisis de código.
+### 2.4 Authoritativeness — 44/100 (Brecha critica)
 
-### 5.1 LCP — Estimado: NECESITA MEJORA
+Senales positivas: 3 resenas reales en schema que coinciden con testimonios on-page. GBP activo.
 
-- H1 usa word-reveal con animación JS — el paint final del texto se retrasa
-- No hay `<link rel="preload">` para fuentes o imagen hero
-- Fuentes cargadas con `media="print"` onload ✅ (no render-blocking)
-- Font fallback con métricas ajustadas para prevenir FOIT/FOUT ✅
+Senales faltantes:
+- Cero menciones de prensa o directorios externos.
+- Sin YouTube, LinkedIn, Reddit, Wikipedia.
+- Solo 3 reviews en aggregateRating.
 
-### 5.2 CLS — Estimado: BUENO
+### 2.5 Trustworthiness — 70/100
 
-- Font fallback con `ascent-override`, `size-adjust` en base.css ✅
-- Sin imágenes sin dimensiones explícitas en HTML
-- Layout CSS Grid/Flexbox estable
+Senales positivas: email profesional, precio publico transparente, privacidad.html conforme a LFPDPPP, nombre completo del fundador en schema.
 
-### 5.3 INP — Estimado: BUENO
+Senales faltantes: testimonios sin fecha visible, sin politica de reembolso formalizada.
 
-- JavaScript mínimo: scroll reveals, FAQ accordion, mobile nav, counters
-- Sin frameworks pesados
-- Scroll listener con `{ passive: true }` ✅
+### 2.6 Conteo de palabras
 
-### 5.4 Oportunidades
+| Pagina | Palabras visibles | Evaluacion |
+|---|---|---|
+| index.html | ~2,155 | Adecuado |
+| obregon.html | ~715 | Borderline — necesita 400-500 mas |
+| privacidad.html | ~420 | Adecuado |
 
-| Oportunidad | Impacto | Dificultad |
-|-------------|---------|-----------|
-| Combinar 3 CSS en 1 | Reduce 2 HTTP requests | Baja |
-| `<link rel="preload">` para Fraunces | Mejora LCP | Baja |
-| Eliminar/reducir animación JS del H1 | Mejora LCP significativamente | Media |
+### 2.7 Contenido duplicado interno
+
+PROBLEMA MEDIO: Las descripciones de los 3 proyectos de Ciudad Obregon (Floresta, Antigua Grecia, Lantana) son textualmente identicas entre index.html y obregon.html.
+
+### 2.8 AI Citation Readiness — 52/100
+
+Fortalezas: FAQ con 6 Q&A autocontenidas, datos numericos especificos (precios MXN, tiempos, comisiones).
+
+Brechas: sin estadisticas con fuente atribuida, obregon.html no menciona "IBANI Digital" en los primeros 60 palabras, testimonios ausentes de llms.txt.
 
 ---
 
-## 6. Images
+## 3. On-Page SEO — 78/100
 
-| Check | Estado | Detalle |
-|-------|--------|---------|
-| alt text en `<img>` | N/A | No hay `<img>` tags — todo es CSS |
-| og:image existe | ✅ OK | 47KB JPEG |
-| og:image dimensiones | ⚠️ VERIFICAR | Deberían ser 1200×630px |
-| favicon.svg | ❌ 404 | Archivo no encontrado en servidor |
-| favicon.ico fallback | ⚠️ Sin confirmar | Declarado en HTML |
-| Portfolio con screenshots reales | ❌ FALTA | Solo gradientes CSS |
-| Indexable en Google Images | ❌ CERO | Sin `<img>` tags en contenido |
+### index.html
 
-**El área de imágenes es la más débil del sitio (35/100).** El portafolio depende exclusivamente de gradientes CSS — no hay fotografías de los proyectos que se puedan indexar ni que generen confianza visual.
+| Elemento | Valor | Estado |
+|---|---|---|
+| Title | "IBANI Digital — Diseno Web para Negocios en Sonora" (55 chars) | OK |
+| Meta description | 148 chars, CTA "Cotiza hoy" | "Hermosillo" no en primeros 120 chars |
+| H1 | "Paginas web que trabajan por tu negocio." (via aria-label) | OK |
+| Alt text | "[Negocio] — [tipo] en [ciudad], Sonora" | Excelente |
+| Twitter card | summary_large_image | OK |
 
----
+### obregon.html
 
-## 7. AI Search Readiness (GEO)
-
-### 7.1 Accesibilidad para crawlers de IA
-
-| Bot | Estado | Configuración |
-|-----|--------|--------------|
-| GPTBot (ChatGPT) | ✅ PERMITIDO | Explícito en robots.txt |
-| OAI-SearchBot | ✅ PERMITIDO | Explícito en robots.txt |
-| ClaudeBot | ✅ PERMITIDO | Explícito en robots.txt |
-| PerplexityBot | ✅ PERMITIDO | Explícito en robots.txt |
-
-### 7.2 llms.txt
-
-- ✅ Existe en `/llms.txt` — excelente adopción temprana
-- ✅ Contiene: nombre, servicios, precios, proceso, cobertura geográfica, contacto
-- ✅ Formato correcto (Markdown estructurado)
-- ⚠️ No referenciado en robots.txt (agregar `Llms-txt: https://www.ibanidigital.com/llms.txt`)
-- ⚠️ Sin sección de instrucciones para LLMs (ej: "Esta empresa no opera en X")
-
-### 7.3 Citabilidad de pasajes
-
-| Tipo de contenido | Score | Detalle |
-|-------------------|-------|---------|
-| Datos factuales (precios, plazos) | ✅ ALTO | "$9,000 MXN", "3 días hábiles" — muy citable |
-| Entidad identificable | ✅ ALTO | Nombre + empresa + ubicación + contacto |
-| FAQ schema | ✅ ALTO | 6 preguntas directamente consumibles por AI |
-| Especificidad geográfica | ✅ ALTO | Hermosillo, Ciudad Obregón, Sonora |
-| Contenido educativo citeable | ❌ BAJO | Sin artículos, guías ni recursos |
-| Menciones externas | ⚠️ DESCONOCIDO | Sin backlinks verificados |
+| Elemento | Estado |
+|---|---|
+| Breadcrumb HTML con schema BreadcrumbList | OK |
+| Twitter Card | AUSENTE |
+| "IBANI Digital" en primeros 60 palabras | FALTA |
 
 ---
 
-## 8. Hallazgos adicionales
+## 4. Schema / Structured Data — 72/100
 
-### 8.1 Portfolio en dominios externos
-- 5 proyectos en `pagina-X.vercel.app`, 1 demo en `ibanidemo.vercel.app`
-- Ninguno enlaza de regreso a ibanidigital.com → cero link equity recibido
-- Oportunidad: agregar footer con "Desarrollado por IBANI Digital — ibanidigital.com" en cada sitio de cliente
+### index.html — Bloque 1 (@graph)
 
-### 8.2 Google Business Profile
-- Configurado como negocio de área de servicio (sin dirección pública) ✅
-- `sameAs` en schema apunta a URL de GBP ✅
+| Schema | Estado | Problema |
+|---|---|---|
+| WebSite | OK | Sin SearchAction |
+| Person (fundador) | OK con advertencias | Sin url, sameAs, ni image |
+| ProfessionalService | OK con errores | logo apunta a og-image.jpg; sameAs con coords erroneas |
+| AggregateRating (3 resenas 5 estrellas) | OK | Datos coinciden con HTML |
+| FAQPage (6 Q&A) | OK | Sin rich results para comerciales desde ago. 2023 |
 
-### 8.3 Sitemap — lastmod
-- `lastmod: 2026-03-18` en sitemap — reciente ✅
-- `changefreq: monthly` — correcto para un sitio estático que actualiza mensualmente
+### index.html — Bloque 2
+
+| Schema | Estado | Problema |
+|---|---|---|
+| ItemList (10 portfolio) | OK | Sin image en CreativeWork |
+| HowTo | DEPRECADO | Eliminado de Google rich results sept. 2023 — eliminar |
+| OfferCatalog | OK | 2 Offers sin price |
+
+### obregon.html
+
+| Schema | Estado | Problema |
+|---|---|---|
+| WebPage | OK | |
+| ProfessionalService | OK | Sin logo, sin aggregateRating, sin openingHoursSpecification |
+| BreadcrumbList | OK | |
 
 ---
 
-## Resumen de puntuaciones por área
+## 5. Performance / Core Web Vitals — 70/100
 
-```
-Technical SEO        ████████████████████░░░░░░░░░  72/100
-Content / E-E-A-T    █████████████████████░░░░░░░░  74/100
-On-Page SEO          ████████████████████░░░░░░░░░  70/100
-Schema               ████████████████████████░░░░░  82/100
-Performance (est.)   ███████████████████░░░░░░░░░░  68/100
-Images               ██████████░░░░░░░░░░░░░░░░░░░  35/100
-AI Search (GEO)      ████████████████████████████░  88/100
+### LCP — RIESGO ALTO
 
-OVERALL              ████████████████████░░░░░░░░░  72/100
-```
+- Elemento LCP probable: H1 del hero (text-LCP).
+- Problema 1: css/all.css bloqueante en head — el navegador no puede pintar nada hasta descargar el CSS.
+- Problema 2: Doble request a Google Fonts para Fraunces con rangos distintos (300..700 en preload vs 200..900 en async).
+- Mitigacion ya implementada: Fallback font con size-adjust: 97% y ascent-override: 94%.
+
+### CLS — BIEN MITIGADO
+
+- Imagenes con width/height explicitos, aspect-ratio CSS en cards, animaciones compositor-only, fuente fallback con metricas ajustadas.
+
+### INP — BAJO RIESGO
+
+- defer en main.js, passive: true en scroll listener, IntersectionObserver para reveals, requestAnimationFrame en contador.
+
+### Recursos
+
+| Problema | Impacto |
+|---|---|
+| CSS sin minificar (~18-22 KB) | Medio |
+| JS sin minificar (~5-6 KB) | Bajo |
+| SVG WhatsApp inline duplicado (~1.2 KB) | Bajo |
+| Sin AVIF (solo WebP + JPG) | Bajo-Medio |
+| Sin GA, GTM ni Facebook Pixel | Excelente |
+
+---
+
+## 6. Images — 82/100
+
+- picture con source WebP + fallback JPG en 10 tarjetas de portfolio
+- loading="lazy" en todas las imagenes de portfolio
+- Alt text descriptivo en todos los img
+- width y height explicitos en todos los img
+- Sin AVIF (oportunidad de 20-40% menos peso sobre WebP)
+- Image Sitemap extension ausente
+
+---
+
+## 7. AI Search Readiness (GEO) — 72/100
+
+### Accesibilidad tecnica para IA — 90/100 (Fortaleza)
+
+- HTML estatico SSR: contenido completo sin necesitar JS
+- GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot explicitamente permitidos
+- llms.txt presente y bien estructurado
+- Schema JSON-LD con 5 tipos diferentes
+- Alt text descriptivo en todas las imagenes
+
+### Senales de autoridad para IA — 65/100 (Brecha)
+
+| Senal | Estado | Correlacion con citacion IA |
+|---|---|---|
+| YouTube | Ausente | ~0.737 (la mas alta) |
+| Reddit | No verificable | Alto |
+| Wikipedia | Ausente | Alto |
+| LinkedIn (fundador) | Ausente en sameAs | Medio-alto |
+| Google Business Profile | Presente | Medio |
+| Facebook | Presente | Bajo |
+
+### Problemas en llms.txt
+
+- Seccion Optional mal utilizada (contiene FAQ y portfolio — deberia ser Pages).
+- Sin testimonios.
+- Sin seccion de estadisticas propias con fecha.
+
+### Puntuaciones por plataforma IA
+
+| Plataforma | Score estimado |
+|---|---|
+| Google AI Overviews | 68/100 |
+| ChatGPT (web search) | 61/100 |
+| Perplexity | 74/100 |
+| Bing Copilot | 65/100 |
+
+---
+
+## Apendice — Archivos clave
+
+| Archivo | Ruta |
+|---|---|
+| Homepage | index.html |
+| Pagina local Obregon | obregon.html |
+| Aviso de privacidad | privacidad.html |
+| Design tokens | css/base.css |
+| Componentes | css/components.css |
+| Secciones | css/sections.css |
+| JavaScript | js/main.js |
+| Sitemap | sitemap.xml |
+| Robots | robots.txt |
+| AI context | llms.txt |
+| Headers HTTP | vercel.json |
