@@ -51,6 +51,9 @@
         "@id": "https://www.ibanidigital.com/#founder",
         "name": "Jose Daniel Ibarra Nieblas",
         "jobTitle": "Fundador y desarrollador web",
+        "image": "https://www.ibanidigital.com/foto-fundado.jpg",
+        "url": "https://www.ibanidigital.com/",
+        "knowsAbout": ["Diseño web", "SEO local", "E-commerce", "Desarrollo frontend", "Plataformas de rifas"],
         "worksFor": { "@id": "https://www.ibanidigital.com/#business" }
       },
       {
@@ -476,26 +479,36 @@
     <!-- ══════════════════════════════════════════════════════════ -->
     <section class="section section--sm" id="nosotros" style="background:var(--bg);border-top:1px solid var(--border)">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:center">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-16);align-items:center">
 
-          <div class="reveal">
-            <div class="section-head__eyebrow" style="margin-bottom:var(--space-4)">
-              <span class="label">02 — Nosotros</span>
-            </div>
-            <h2 class="section-head__title" style="font-size:clamp(2rem,4vw,3.2rem)">
-              Detrás de<br><em>IBANI Digital</em>
-            </h2>
+          <!-- Foto del fundador -->
+          <div class="reveal" style="flex-shrink:0">
+            <figure style="margin:0;position:relative">
+              <img src="/foto-fundado.jpg"
+                   alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital"
+                   width="399" height="399" loading="lazy"
+                   style="width:clamp(200px,25vw,320px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
+              <figcaption style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase">
+                Jose Daniel Ibarra Nieblas
+              </figcaption>
+            </figure>
           </div>
 
+          <!-- Bio -->
           <div class="reveal" style="display:flex;flex-direction:column;gap:var(--space-6)">
+            <div>
+              <div class="section-head__eyebrow" style="margin-bottom:var(--space-4)">
+                <span class="label">02 — Nosotros</span>
+              </div>
+              <h2 class="section-head__title" style="font-size:clamp(2rem,4vw,3.2rem)">
+                Detrás de<br><em>IBANI Digital</em>
+              </h2>
+            </div>
             <p style="font-size:var(--text-lg);color:var(--ink-2);line-height:1.75;max-width:none">
-              <strong style="color:var(--ink)">IBANI Digital</strong> es una agencia de diseño y desarrollo web con sede en Hermosillo, Sonora, México, fundada por <strong style="color:var(--ink)">Jose Daniel Ibarra Nieblas</strong>. La agencia se especializa en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios locales en Sonora, con entrega garantizada en 3 días hábiles y precios desde $3,500 MXN por proyecto. A diferencia de agencias grandes o plataformas como Wix o plantillas genéricas, cada sitio se construye desde cero sin subcontratistas ni intermediarios.
+              Soy <strong style="color:var(--ink)">Jose Daniel Ibarra Nieblas</strong>, fundador y desarrollador de <strong style="color:var(--ink)">IBANI Digital</strong>. Llevo más de 3 años construyendo sitios web para negocios en Sonora — desde salones de eventos en Hermosillo hasta plataformas de rifas en línea para clientes de toda la República.
             </p>
             <p style="font-size:var(--text-base);color:var(--ink-2);line-height:1.75;max-width:none">
-              Cada proyecto lo trabajo directamente yo — sin subcontratistas, sin agencias intermedias.
-              Eso me permite entregar en 3 días, mantener precios justos y garantizar que el sitio
-              represente fielmente a tu negocio. Especializado en salones de eventos, tiendas online
-              y plataformas a medida como sistemas de rifas en tiempo real.
+              Cada proyecto lo trabajo directamente yo — sin subcontratistas, sin agencias intermedias. Eso me permite entregar en 3 días hábiles, mantener precios justos y garantizar que el sitio represente fielmente a tu negocio. Me especializo en diseño desde cero, SEO local y plataformas a medida como sistemas de rifas en tiempo real.
             </p>
             <a href="https://wa.me/526625044016?text=Hola%20Jose%20Daniel%2C%20me%20interesa%20platicar%20sobre%20mi%20proyecto."
                target="_blank" rel="noopener noreferrer" class="link-arrow" style="margin-top:var(--space-2)">
