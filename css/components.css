@@ -21,6 +21,12 @@
   border-color: var(--border);
 }
 
+.header.scrolled .logo__name { color: var(--bg); }
+.header.scrolled .nav__link { color: rgba(250, 248, 241, 0.6); }
+.header.scrolled .nav__link:hover,
+.header.scrolled .nav__link.active { color: var(--bg); }
+.header.scrolled .nav__toggle span { background: var(--bg); }
+
 .header__inner {
   display: flex;
   align-items: center;

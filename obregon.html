@@ -194,8 +194,13 @@
       gap: var(--space-12);
       align-items: start;
     }
+    .regional__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
     @media (max-width: 768px) {
       .obr-grid { grid-template-columns: 1fr; }
+      .regional__grid { grid-template-columns: 1fr; }
     }
     .obr-card {
       background: var(--bg-2);
@@ -440,7 +445,7 @@
     <!-- CONTEXTO REGIONAL -->
     <section class="obr-section" style="background:var(--bg)">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-16);align-items:start">
+        <div class="regional__grid" style="gap:var(--space-16);align-items:start">
 
           <div class="reveal">
             <div class="section-head__eyebrow" style="margin-bottom:var(--space-4)">
