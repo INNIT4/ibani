@@ -435,6 +435,24 @@
   background: var(--border-2);
 }
 
+/* ── NOSOTROS ───────────────────────────────────────────────── */
+.about__inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/* ── CASO DE ESTUDIO ────────────────────────────────────────── */
+.study__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── TESTIMONIOS ────────────────────────────────────────────── */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .hero__inner {
@@ -496,6 +514,10 @@
   .footer__bottom { flex-direction: column; text-align: center; }
 
   .hero__cta { flex-direction: column; align-items: flex-start; }
+
+  .about__inner       { grid-template-columns: 1fr; }
+  .study__grid        { grid-template-columns: 1fr; }
+  .testimonials__grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
