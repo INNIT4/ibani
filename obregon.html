@@ -19,6 +19,12 @@
   <meta property="og:image:type"   content="image/jpeg">
   <meta property="og:locale"       content="es_MX">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Diseño Web en Ciudad Obregón — IBANI Digital">
+  <meta name="twitter:description" content="Páginas web profesionales en Ciudad Obregón, Sonora. Landing pages, tiendas online y sitios corporativos. Entrega en 3 días hábiles.">
+  <meta name="twitter:image"       content="https://www.ibanidigital.com/og-image.jpg">
+
   <!-- Theme color -->
   <meta name="theme-color" content="#1A1714">
 
@@ -51,6 +57,7 @@
         "serviceType": "Diseño y desarrollo web",
         "priceRange": "$$",
         "image": "https://www.ibanidigital.com/og-image.jpg",
+        "logo": { "@id": "https://www.ibanidigital.com/#logo" },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Ciudad Obregón",
@@ -70,7 +77,20 @@
         "sameAs": [
           "https://share.google/gb9YStsSpvg3PZxQJ",
           "https://www.facebook.com/profile.php?id=61579526053161"
-        ]
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5,
+          "reviewCount": 3,
+          "bestRating": 5,
+          "worstRating": 1
+        },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }]
       },
       {
         "@type": "BreadcrumbList",
@@ -122,6 +142,13 @@
     .obr-hero__sub {
       font-size: var(--text-lg);
       color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: var(--space-6);
+    }
+    .obr-hero__intro {
+      font-size: var(--text-base);
+      color: var(--ink-3);
       line-height: 1.7;
       max-width: 600px;
       margin-bottom: var(--space-8);
@@ -253,6 +280,13 @@
           Páginas web profesionales para negocios en Ciudad Obregón y toda la región del Yaqui.
           Landing pages, tiendas online, rifas y sitios corporativos.
           Entrega en <strong>3 días hábiles</strong> desde $9,000 MXN.
+        </p>
+
+        <p class="obr-hero__intro">
+          IBANI Digital es una agencia de diseño web con presencia activa en Ciudad Obregón.
+          Hemos entregado sitios para Floresta Jardín, La Antigua Grecia y Jardín Lantana —
+          negocios locales que hoy reciben clientes desde Google.
+          Precio desde $9,000 MXN, entrega en 3 días hábiles, sin comisiones.
         </p>
 
         <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;align-items:center">
