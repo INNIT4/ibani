@@ -14,6 +14,9 @@
   <meta property="og:description" content="Páginas web profesionales en Hermosillo y Sonora. Landing pages, tiendas online, rifas y sitios corporativos. Entrega en 3 días.">
   <meta property="og:url"         content="https://www.ibanidigital.com/">
   <meta property="og:image"       content="https://www.ibanidigital.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type"  content="image/jpeg">
   <meta property="og:locale"      content="es_MX">
 
   <!-- Twitter / X Card -->
@@ -22,9 +25,11 @@
   <meta name="twitter:description" content="Páginas web profesionales en Hermosillo y Sonora. Landing pages, tiendas online, rifas y sitios corporativos. Entrega en 3 días.">
   <meta name="twitter:image"       content="https://www.ibanidigital.com/og-image.jpg">
 
+  <!-- Theme color (Chrome mobile) -->
+  <meta name="theme-color" content="#1A1714">
+
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Schema: WebSite + LocalBusiness + FAQPage -->
@@ -58,11 +63,24 @@
         "description": "Agencia de diseño y desarrollo web especializada en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios en Sonora, México.",
         "serviceType": "Diseño y desarrollo web",
         "priceRange": "$$",
+        "image": "https://www.ibanidigital.com/og-image.jpg",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.ibanidigital.com/og-image.jpg",
+          "width": 1200,
+          "height": 630
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Hermosillo",
           "addressRegion": "Sonora",
+          "postalCode": "83000",
           "addressCountry": "MX"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.0729,
+          "longitude": -110.9559
         },
         "areaServed": [
           { "@type": "City", "name": "Hermosillo" },
@@ -184,16 +202,135 @@
   }
   </script>
 
+  <!-- Schema: ItemList portafolio + HowTo proceso + Service con precios -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": "https://www.ibanidigital.com/#portfolio",
+        "name": "Portafolio de proyectos web — IBANI Digital",
+        "description": "Sitios web diseñados y desarrollados por IBANI Digital para negocios en Sonora, México.",
+        "numberOfItems": 10,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "CreativeWork", "name": "Jardín Ferraris", "description": "Sitio institucional con galería de instalaciones, sección de paquetes, formulario de cotización y SEO local para Hermosillo.", "url": "https://ferraris.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "Jardín Ferraris", "addressLocality": "Hermosillo", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "CreativeWork", "name": "Casa Arias", "description": "Diseño elegante para eventos boutique: paleta dorada, tipografía serif, galería de bodas y CTA a WhatsApp.", "url": "https://casaarias.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "Casa Arias", "addressLocality": "Hermosillo", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "CreativeWork", "name": "Floresta Jardín", "description": "Landing page orientada a conversión con galería de espacios al aire libre, disponibilidad de fechas y enlace directo para apartar evento.", "url": "https://florestajarn.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "Floresta Jardín", "addressLocality": "Ciudad Obregón", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "CreativeWork", "name": "La Antigua Grecia Salón", "description": "Sitio con estética mediterránea, sección de servicios, galería de eventos pasados y formulario de contacto.", "url": "https://antiguagrecia.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "La Antigua Grecia Salón", "addressLocality": "Ciudad Obregón", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "CreativeWork", "name": "Jardín Lantana", "description": "Galería visual de jardín nocturno, paquetes por tipo de evento y botón de reserva con WhatsApp Business.", "url": "https://lantana.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "Jardín Lantana", "addressLocality": "Ciudad Obregón", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "CreativeWork", "name": "IBANI Rifas", "description": "Sistema completo de rifas: selección de boletos en tiempo real, validación por WhatsApp, panel dual administradores/empleados.", "url": "https://ibanidemo.vercel.app", "creator": { "@id": "https://www.ibanidigital.com/#business" } } },
+          { "@type": "ListItem", "position": 7, "item": { "@type": "CreativeWork", "name": "Hacienda Las Minitas", "description": "Sitio de hacienda con galería, sección de paquetes para bodas y eventos sociales, CTA a WhatsApp.", "url": "https://minitas.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "Hacienda Las Minitas", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 8, "item": { "@type": "CreativeWork", "name": "El Marqués", "description": "Sitio de lujo con galería de eventos, sección de paquetes y CTA a WhatsApp para bodas y celebraciones.", "url": "https://salon-primavera.web.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "LocalBusiness", "name": "El Marqués", "addressLocality": "Hermosillo", "addressRegion": "Sonora" } } },
+          { "@type": "ListItem", "position": 9, "item": { "@type": "CreativeWork", "name": "Sorteos Jans", "description": "Plataforma completa de rifas en línea: boletos interactivos, pagos por transferencia, consulta de folio y panel de administración.", "url": "https://sorteosjans.com.mx", "creator": { "@id": "https://www.ibanidigital.com/#business" } } },
+          { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWork", "name": "AS Content Media", "description": "Landing de fotografía y video de eventos: portafolio por categorías, paquetes, testimonios y reserva por WhatsApp.", "url": "https://pagina-ascontentmedia.vercel.app", "creator": { "@id": "https://www.ibanidigital.com/#business" }, "about": { "@type": "Organization", "name": "AS Content Media", "addressRegion": "Sonora" } } }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.ibanidigital.com/#proceso",
+        "name": "Cómo obtener tu página web con IBANI Digital",
+        "description": "Proceso de 4 pasos para conseguir tu sitio web profesional en Hermosillo o Ciudad Obregón, Sonora.",
+        "totalTime": "PT3D",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Cotización sin compromiso", "text": "Escríbenos por WhatsApp al +52 662 504 4016. En menos de 30 minutos recibes una propuesta con precio fijo, sin costos ocultos ni letra chica. No cobramos por cotizar." },
+          { "@type": "HowToStep", "position": 2, "name": "Diseño personalizado", "text": "Elaboramos una propuesta visual basada en los colores, logo y tono de tu negocio. Haces los cambios que quieras sin costo extra hasta que el diseño te represente al 100%." },
+          { "@type": "HowToStep", "position": 3, "name": "Desarrollo web profesional", "text": "Construimos tu sitio con código limpio y tecnología moderna: rápido en móviles, optimizado para Google y fácil de mantener." },
+          { "@type": "HowToStep", "position": 4, "name": "Entrega con dominio y SSL incluidos", "text": "Publicamos tu sitio con dominio, hosting profesional y certificado SSL incluidos. Tu negocio en línea en 3 días hábiles." }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": "https://www.ibanidigital.com/#servicios",
+        "name": "Servicios de diseño web — IBANI Digital",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Landing Page profesional",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landing Page",
+              "description": "Página de aterrizaje orientada a conversión. Diseño limpio, carga ultrarrápida y un solo objetivo: que el visitante actúe. Incluye dominio, hosting y SSL el primer año.",
+              "provider": { "@id": "https://www.ibanidigital.com/#business" }
+            },
+            "price": "9000",
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tienda Online con carrito y pagos",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tienda Online",
+              "description": "E-commerce con carrito de compras, pasarela de pagos (Stripe, Clip) y panel de administración. Tu negocio vendiendo 24/7.",
+              "provider": { "@id": "https://www.ibanidigital.com/#business" }
+            },
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plataforma de Rifas online",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plataforma de Rifas",
+              "description": "Sistema completo: selección de boletos en tiempo real, validación vía WhatsApp, panel dual para dueños y empleados, transparencia total.",
+              "provider": { "@id": "https://www.ibanidigital.com/#business" }
+            },
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Sitio Corporativo para empresas",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sitio Corporativo",
+              "description": "Páginas institucionales para salones de eventos, empresas y negocios locales en Sonora. Galerías, formularios de contacto y SEO local incluido.",
+              "provider": { "@id": "https://www.ibanidigital.com/#business" }
+            },
+            "price": "9000",
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plan mensual con actualizaciones incluidas",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plan Team Mensual",
+              "description": "Suscripción mensual con proyectos ilimitados, actualizaciones y cambios incluidos, soporte prioritario y analytics. Ideal para negocios con contenido dinámico.",
+              "provider": { "@id": "https://www.ibanidigital.com/#business" }
+            },
+            "price": "6000",
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- DNS prefetch para CTA principal -->
+  <link rel="dns-prefetch" href="https://wa.me">
+
   <!-- Fonts: Fraunces (display serif) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
+  <!-- Analytics sin cookies (Plausible) -->
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+
   <!-- Styles -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/all.css">
 </head>
 
 <body>
@@ -219,7 +356,7 @@
         </ul>
 
         <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
-           target="_blank" rel="noopener" class="btn btn--primary">
+           target="_blank" rel="noopener noreferrer" class="btn btn--primary">
           Cotizar →
         </a>
 
@@ -277,7 +414,7 @@
           <!-- CTAs -->
           <div class="hero__cta fade-up" style="--delay:.7s">
             <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web.%20%C2%BFPodr%C3%ADan%20darme%20informaci%C3%B3n%3F"
-               target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+               target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
               Cotizar por WhatsApp
             </a>
@@ -358,9 +495,7 @@
 
           <div class="reveal" style="display:flex;flex-direction:column;gap:var(--space-6)">
             <p style="font-size:var(--text-lg);color:var(--ink-2);line-height:1.75;max-width:none">
-              Soy <strong style="color:var(--ink)">Jose Daniel Ibarra Nieblas</strong>, desarrollador web
-              con base en Hermosillo, Sonora. Fundé IBANI Digital para resolver un problema que vi repetido
-              en negocios locales: pagar caro por sitios lentos, genéricos y que nadie actualiza.
+              <strong style="color:var(--ink)">IBANI Digital</strong> es una agencia de diseño y desarrollo web con sede en Hermosillo, Sonora, México, fundada por <strong style="color:var(--ink)">Jose Daniel Ibarra Nieblas</strong>. La agencia se especializa en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios locales en Sonora, con entrega garantizada en 3 días hábiles y precios desde $9,000 MXN por proyecto. A diferencia de agencias grandes o plataformas como Wix o plantillas genéricas, cada sitio se construye desde cero sin subcontratistas ni intermediarios.
             </p>
             <p style="font-size:var(--text-base);color:var(--ink-2);line-height:1.75;max-width:none">
               Cada proyecto lo trabajo directamente yo — sin subcontratistas, sin agencias intermedias.
@@ -369,7 +504,7 @@
               y plataformas a medida como sistemas de rifas en tiempo real.
             </p>
             <a href="https://wa.me/526625044016?text=Hola%20Jose%20Daniel%2C%20me%20interesa%20platicar%20sobre%20mi%20proyecto."
-               target="_blank" rel="noopener" class="link-arrow" style="margin-top:var(--space-2)">
+               target="_blank" rel="noopener noreferrer" class="link-arrow" style="margin-top:var(--space-2)">
               Platicar conmigo →
             </a>
           </div>
@@ -402,7 +537,7 @@
             <span class="service-row__num">01</span>
             <div class="service-row__body">
               <h3 class="service-row__title">Landing Pages</h3>
-              <p class="service-row__desc">Páginas de aterrizaje orientadas a conversión. Diseño limpio, carga ultrarrápida y un solo objetivo: que el visitante actúe.</p>
+              <p class="service-row__desc">Una landing page es la herramienta más efectiva para convertir visitantes en clientes. Diseñamos páginas de aterrizaje con un único objetivo claro: que el visitante actúe — ya sea llamar, escribir por WhatsApp o agendar una cita. Cada landing incluye diseño personalizado desde cero (sin plantillas), carga ultrarrápida en móviles, textos de persuasión, sección de servicios, galería de fotos y llamados a la acción estratégicos. Incluye dominio, hosting profesional y SSL el primer año. Entrega en 3 días hábiles desde la aprobación del diseño. Precio desde $9,000 MXN. Ideal para negocios en Hermosillo, Ciudad Obregón y Sonora que quieren capturar clientes en Google sin pagar mensualidades a plataformas externas.</p>
               <div class="service-row__tags">
                 <span class="tag">Conversión</span>
                 <span class="tag">SEO</span>
@@ -416,7 +551,7 @@
             <span class="service-row__num">02</span>
             <div class="service-row__body">
               <h3 class="service-row__title">Tiendas Online</h3>
-              <p class="service-row__desc">Catálogos y e-commerce con carrito de compras, pasarela de pagos y panel de administración. Tu negocio vendiendo 24/7.</p>
+              <p class="service-row__desc">Construimos tiendas en línea y catálogos digitales completos para negocios en Sonora que quieren vender sin depender de intermediarios. Cada tienda incluye carrito de compras, integración con pasarelas de pago nacionales (Clip, Conekta) e internacionales (Stripe), panel de administración de inventario y pedidos, y diseño responsive optimizado para celular. Sin comisiones sobre tus ventas — todo lo que generes es 100% tuyo. Integración con WhatsApp Business para confirmaciones automáticas. Analíticas básicas incluidas. Precio a partir del Plan Pro ($9,000 MXN) o Plan Team mensual ($6,000 MXN con actualizaciones incluidas). Perfecta para boutiques, tiendas de ropa, panaderías, farmacias y negocios con catálogo de productos en Hermosillo o Ciudad Obregón.</p>
               <div class="service-row__tags">
                 <span class="tag">E-commerce</span>
                 <span class="tag">Pagos</span>
@@ -430,7 +565,7 @@
             <span class="service-row__num">03</span>
             <div class="service-row__body">
               <h3 class="service-row__title">Plataformas de Rifas</h3>
-              <p class="service-row__desc">Sistema completo: selección de boletos en tiempo real, validación vía WhatsApp, panel dual para dueños y empleados, transparencia total.</p>
+              <p class="service-row__desc">Sistema propio de rifas en línea desarrollado para organizadores de sorteos en México. Los participantes seleccionan su boleto directamente desde el celular, ven en tiempo real cuáles están disponibles y reciben confirmación automática por WhatsApp. El organizador tiene un panel de administración completo para ver ventas, validar pagos y generar el sorteo con transparencia total. Los empleados tienen acceso a un panel secundario sin permisos de configuración. Sin plataformas externas, sin comisiones sobre el valor del premio. Funciona desde cualquier dispositivo sin instalar aplicación. Clientes actuales: Sorteos Jans, IBANI Rifas (demo abierta). Precio a consultar según número de boletos y funcionalidades. Contáctanos por WhatsApp para una demo en vivo del sistema.</p>
               <div class="service-row__tags">
                 <span class="tag">Tiempo real</span>
                 <span class="tag">Doble admin</span>
@@ -444,7 +579,7 @@
             <span class="service-row__num">04</span>
             <div class="service-row__body">
               <h3 class="service-row__title">Sitios Corporativos</h3>
-              <p class="service-row__desc">Páginas institucionales para salones de eventos, empresas y negocios locales. Galerías, formularios de contacto, SEO local incluido.</p>
+              <p class="service-row__desc">Sitios web institucionales para empresas, salones de eventos, jardines, clínicas, escuelas y negocios establecidos en Sonora que necesitan presencia digital profesional. Cada sitio corporativo incluye: galería de fotos de instalaciones o servicios, sección de paquetes o precios, formulario de contacto o cotización, mapa de ubicación, optimización SEO local para aparecer en búsquedas de Hermosillo y Ciudad Obregón, y diseño alineado con la identidad visual del negocio. Clientes recientes: Jardín Ferraris, Casa Arias, La Antigua Grecia, El Marqués y Hacienda Las Minitas. Entrega en 3-5 días hábiles según la complejidad. Precio desde $9,000 MXN proyecto completo con dominio, hosting y SSL el primer año incluidos. Sin sorpresas ni costos ocultos.</p>
               <div class="service-row__tags">
                 <span class="tag">Galerías</span>
                 <span class="tag">SEO local</span>
@@ -480,7 +615,10 @@
 
           <!-- Card 1: Jardín Ferraris — featured (2 cols) -->
           <article class="portfolio-card scale-reveal reveal--d1">
-            <img class="portfolio-card__bg" src="img/portfolio/ferraris.jpg" alt="Sitio web de Jardín Ferraris — salón de eventos en Hermosillo, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/ferraris-400.webp 400w, img/portfolio/ferraris-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/ferraris-800.jpg" srcset="img/portfolio/ferraris-400.jpg 400w, img/portfolio/ferraris-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Jardín Ferraris — salón de eventos en Hermosillo, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#22c55e,#16a34a)"></div>
             <div class="portfolio-card__content">
@@ -488,7 +626,7 @@
               <h3 class="portfolio-card__name">Jardín Ferraris</h3>
               <p class="portfolio-card__loc">Hermosillo, Sonora</p>
               <p class="portfolio-card__desc">Sitio institucional con galería de instalaciones, sección de paquetes, formulario de cotización y optimización SEO local para búsquedas en Hermosillo.</p>
-              <a href="https://ferraris.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://ferraris.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -496,7 +634,10 @@
 
           <!-- Card 2: Casa Arias -->
           <article class="portfolio-card scale-reveal reveal--d2">
-            <img class="portfolio-card__bg" src="img/portfolio/casaarias.jpg" alt="Sitio web de Casa Arias — eventos boutique en el centro histórico de Hermosillo" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/casaarias-400.webp 400w, img/portfolio/casaarias-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/casaarias-800.jpg" srcset="img/portfolio/casaarias-400.jpg 400w, img/portfolio/casaarias-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Casa Arias — eventos boutique en el centro histórico de Hermosillo" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,var(--accent),var(--accent-2))"></div>
             <div class="portfolio-card__content">
@@ -504,7 +645,7 @@
               <h3 class="portfolio-card__name">Casa Arias</h3>
               <p class="portfolio-card__loc">Hermosillo, Sonora</p>
               <p class="portfolio-card__desc">Diseño elegante que refleja la identidad del salón: paleta dorada, tipografía serif, galería de bodas y eventos, y CTA directo a WhatsApp.</p>
-              <a href="https://casaarias.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://casaarias.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -512,7 +653,10 @@
 
           <!-- Card 3: Floresta Jardín -->
           <article class="portfolio-card scale-reveal reveal--d3">
-            <img class="portfolio-card__bg" src="img/portfolio/floresta.jpg" alt="Sitio web de Floresta Jardín — salón de eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/floresta-400.webp 400w, img/portfolio/floresta-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/floresta-800.jpg" srcset="img/portfolio/floresta-400.jpg 400w, img/portfolio/floresta-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Floresta Jardín — salón de eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#4ade80,#22c55e)"></div>
             <div class="portfolio-card__content">
@@ -520,7 +664,7 @@
               <h3 class="portfolio-card__name">Floresta Jardín</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
               <p class="portfolio-card__desc">Landing page orientada a conversión con galería de espacios al aire libre, disponibilidad de fechas y enlace directo para apartar evento.</p>
-              <a href="https://florestajarn.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://florestajarn.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -528,7 +672,10 @@
 
           <!-- Card 4: La Antigua Grecia -->
           <article class="portfolio-card scale-reveal reveal--d4">
-            <img class="portfolio-card__bg" src="img/portfolio/antiguagrecia.jpg" alt="Sitio web de La Antigua Grecia Salón — eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/antiguagrecia-400.webp 400w, img/portfolio/antiguagrecia-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/antiguagrecia-800.jpg" srcset="img/portfolio/antiguagrecia-400.jpg 400w, img/portfolio/antiguagrecia-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de La Antigua Grecia Salón — eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#fbbf24,#f59e0b)"></div>
             <div class="portfolio-card__content">
@@ -536,7 +683,7 @@
               <h3 class="portfolio-card__name">La Antigua Grecia</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
               <p class="portfolio-card__desc">Sitio con estética clásica mediterránea, sección de servicios, galería de eventos pasados y formulario de contacto para cotizaciones.</p>
-              <a href="https://antiguagrecia.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://antiguagrecia.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -544,7 +691,10 @@
 
           <!-- Card 5: Jardín Lantana -->
           <article class="portfolio-card scale-reveal reveal--d5">
-            <img class="portfolio-card__bg" src="img/portfolio/lantana.jpg" alt="Sitio web de Jardín Lantana — jardín de eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/lantana-400.webp 400w, img/portfolio/lantana-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/lantana-800.jpg" srcset="img/portfolio/lantana-400.jpg 400w, img/portfolio/lantana-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Jardín Lantana — jardín de eventos en Ciudad Obregón, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#c084fc,#a855f7)"></div>
             <div class="portfolio-card__content">
@@ -552,7 +702,7 @@
               <h3 class="portfolio-card__name">Jardín Lantana</h3>
               <p class="portfolio-card__loc">Ciudad Obregón, Sonora</p>
               <p class="portfolio-card__desc">Página con galería visual de jardín nocturno, paquetes por tipo de evento y botón de reserva integrado con WhatsApp Business.</p>
-              <a href="https://lantana.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://lantana.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -560,7 +710,10 @@
 
           <!-- Card 6: IBANI Rifas -->
           <article class="portfolio-card scale-reveal reveal--d6">
-            <img class="portfolio-card__bg" src="img/portfolio/ibanidemo.jpg" alt="Demo de IBANI Rifas — plataforma de sorteos online en tiempo real" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/ibanidemo-400.webp 400w, img/portfolio/ibanidemo-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/ibanidemo-800.jpg" srcset="img/portfolio/ibanidemo-400.jpg 400w, img/portfolio/ibanidemo-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Demo de IBANI Rifas — plataforma de sorteos online en tiempo real" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#60a5fa,#3b82f6)"></div>
             <div class="portfolio-card__content">
@@ -568,7 +721,7 @@
               <h3 class="portfolio-card__name">IBANI Rifas</h3>
               <p class="portfolio-card__loc">Plataforma · Latinoamérica</p>
               <p class="portfolio-card__desc">Sistema completo de rifas: selección de boletos en tiempo real, validación por WhatsApp, panel dual para administradores y empleados, y contador regresivo.</p>
-              <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver demo →
               </a>
             </div>
@@ -576,7 +729,10 @@
 
           <!-- Card 7: Hacienda Las Minitas -->
           <article class="portfolio-card scale-reveal reveal--d1">
-            <img class="portfolio-card__bg" src="img/portfolio/minitas.jpg" alt="Sitio web de Hacienda Las Minitas — salón de eventos en Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/minitas-400.webp 400w, img/portfolio/minitas-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/minitas-800.jpg" srcset="img/portfolio/minitas-400.jpg 400w, img/portfolio/minitas-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Hacienda Las Minitas — salón de eventos en Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#fb923c,#ea580c)"></div>
             <div class="portfolio-card__content">
@@ -584,7 +740,7 @@
               <h3 class="portfolio-card__name">Hacienda Las Minitas</h3>
               <p class="portfolio-card__loc">Sonora</p>
               <p class="portfolio-card__desc">Sitio de hacienda con galería de espacios, sección de paquetes para bodas y eventos sociales, y CTA a WhatsApp para cotización.</p>
-              <a href="https://minitas.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://minitas.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -592,7 +748,10 @@
 
           <!-- Card 8: El Marqués -->
           <article class="portfolio-card scale-reveal reveal--d2">
-            <img class="portfolio-card__bg" src="img/portfolio/primavera.jpg" alt="Sitio web de El Marqués — salón de eventos en Hermosillo, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/primavera-400.webp 400w, img/portfolio/primavera-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/primavera-800.jpg" srcset="img/portfolio/primavera-400.jpg 400w, img/portfolio/primavera-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de El Marqués — salón de eventos en Hermosillo, Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#f43f5e,#e11d48)"></div>
             <div class="portfolio-card__content">
@@ -600,7 +759,7 @@
               <h3 class="portfolio-card__name">El Marqués</h3>
               <p class="portfolio-card__loc">Hermosillo, Sonora</p>
               <p class="portfolio-card__desc">Sitio de lujo con galería de eventos, sección de paquetes, testimonios y CTA integrado a WhatsApp para bodas y celebraciones.</p>
-              <a href="https://salon-primavera.web.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://salon-primavera.web.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -608,7 +767,10 @@
 
           <!-- Card 9: Sorteos Jans -->
           <article class="portfolio-card scale-reveal reveal--d3">
-            <img class="portfolio-card__bg" src="img/portfolio/sorteosjans.jpg" alt="Sitio web de Sorteos Jans — plataforma de rifas en línea en México" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/sorteosjans-400.webp 400w, img/portfolio/sorteosjans-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/sorteosjans-800.jpg" srcset="img/portfolio/sorteosjans-400.jpg 400w, img/portfolio/sorteosjans-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de Sorteos Jans — plataforma de rifas en línea en México" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#dc2626,#b91c1c)"></div>
             <div class="portfolio-card__content">
@@ -616,7 +778,7 @@
               <h3 class="portfolio-card__name">Sorteos Jans</h3>
               <p class="portfolio-card__loc">México</p>
               <p class="portfolio-card__desc">Plataforma completa de rifas en línea: boletos interactivos, pagos por transferencia, consulta de folio y panel de administración.</p>
-              <a href="https://sorteosjans.com.mx" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://sorteosjans.com.mx" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -624,7 +786,10 @@
 
           <!-- Card 10: AS Content Media -->
           <article class="portfolio-card scale-reveal reveal--d4">
-            <img class="portfolio-card__bg" src="img/portfolio/ascontentmedia.jpg" alt="Sitio web de AS Content Media — fotógrafa de eventos en Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+            <picture>
+            <source srcset="img/portfolio/ascontentmedia-400.webp 400w, img/portfolio/ascontentmedia-800.webp 800w" type="image/webp" sizes="(max-width:640px) 100vw, 50vw">
+            <img class="portfolio-card__bg" src="img/portfolio/ascontentmedia-800.jpg" srcset="img/portfolio/ascontentmedia-400.jpg 400w, img/portfolio/ascontentmedia-800.jpg 800w" sizes="(max-width:640px) 100vw, 50vw" alt="Sitio web de AS Content Media — fotógrafa de eventos en Sonora" width="800" height="600" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+          </picture>
             <div class="portfolio-card__overlay"></div>
             <div class="portfolio-card__accent" style="background:linear-gradient(to right,#d4a96a,#b8863c)"></div>
             <div class="portfolio-card__content">
@@ -632,7 +797,7 @@
               <h3 class="portfolio-card__name">AS Content Media</h3>
               <p class="portfolio-card__loc">Sonora, México</p>
               <p class="portfolio-card__desc">Landing de fotografía y video de eventos: portafolio por categorías, paquetes, testimonios y reserva directa por WhatsApp.</p>
-              <a href="https://pagina-ascontentmedia.vercel.app" target="_blank" rel="noopener" class="portfolio-card__cta">
+              <a href="https://pagina-ascontentmedia.vercel.app" target="_blank" rel="noopener noreferrer" class="portfolio-card__cta">
                 Ver sitio →
               </a>
             </div>
@@ -768,7 +933,7 @@
               <li class="pc-feature">1 ronda de revisiones</li>
             </ul>
             <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20por%20proyecto%20de%20IBANI%20Digital."
-               target="_blank" rel="noopener" class="btn btn--outline">
+               target="_blank" rel="noopener noreferrer" class="btn btn--outline">
               Cotizar ahora
             </a>
           </div>
@@ -794,7 +959,7 @@
               <li class="pc-feature">Renovación flexible</li>
             </ul>
             <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20plan%20mensual%20de%20IBANI%20Digital."
-               target="_blank" rel="noopener" class="btn btn--primary">
+               target="_blank" rel="noopener noreferrer" class="btn btn--primary">
               Empezar ahora
             </a>
           </div>
@@ -924,7 +1089,7 @@
         </p>
 
         <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital.%20%C2%BFPodr%C3%ADan%20cotizarme%3F"
-           target="_blank" rel="noopener" class="btn btn--wa btn--lg reveal">
+           target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg reveal">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           Escribir por WhatsApp
         </a>
@@ -957,8 +1122,7 @@
           </p>
           <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
             <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">hola@ibanidigital.com</a><br>
-            <a href="mailto:ibanidigital@hotmail.com" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">ibanidigital@hotmail.com</a><br>
-            <a href="https://wa.me/526625044016" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">+52 662 504 4016</a>
+            <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">+52 662 504 4016</a>
           </address>
         </div>
 
@@ -984,8 +1148,8 @@
           <div>
             <p class="footer__col-title">Contacto</p>
             <ul class="footer__col-links">
-              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener">WhatsApp</a></li>
-              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
               <li><a href="#contacto">Cotizar proyecto</a></li>
             </ul>
           </div>

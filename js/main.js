@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const start    = performance.now();
         const tick = now => {
           const p = Math.min((now - start) / dur, 1);
-          e.target.textContent = Math.round(easeOut(p) * target) + suffix;
+          const val = Math.round(easeOut(p) * target);
+          if (val > 0 || p >= 1) e.target.textContent = val + suffix;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
