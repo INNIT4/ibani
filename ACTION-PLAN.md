@@ -1,251 +1,331 @@
 # Plan de Accion SEO — ibanidigital.com
-**Score actual: 72/100** | **Objetivo a 90 dias: 85/100**
+**Score actual: 73/100** | **Objetivo a 90 dias: 85/100**
 **Fecha:** 25 de marzo de 2026
 
 ---
 
-## CRITICO — Hacer hoy (menos de 30 min cada uno)
+## CRITICO — Hacer hoy (menos de 30 min en total)
 
-### C-1 - Corregir coordenadas del sameAs en index.html
-**Archivo:** index.html — ProfessionalService.sameAs
-**Problema:** URL de Google Maps con coordenadas 29.3955, -111.7386 que NO corresponden a Hermosillo. Dato erroneo absorbido por LLMs como hecho.
-**Fix:** Reemplazar por la URL corta del GBP: https://share.google/gb9YStsSpvg3PZxQJ (la misma que ya usa obregon.html).
-
-### C-2 - Eliminar linea 325 del head en index.html
-**Archivo:** index.html linea 325
-**Problema:** `<link rel="preload" as="style">` para Fraunces con rango 300..700 genera un segundo request a Google Fonts distinto al de la carga async (linea 326 usa 200..900). Causa FOUT extendido y penaliza LCP.
-**Fix:** Eliminar completamente la linea 325. La carga async de la linea 326 es suficiente.
-
-### C-3 - Anadir Content-Security-Policy en vercel.json
-**Archivo:** vercel.json
-**Problema:** Unico header de seguridad faltante. Sin CSP, cualquier XSS puede ejecutar scripts arbitrarios.
-**Fix:** Anadir en el array de headers:
-```json
-{
-  "key": "Content-Security-Policy",
-  "value": "default-src 'self'; script-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://plausible.io; frame-ancestors 'none';"
-}
-```
-
-### C-4 - Eliminar bloque HowTo del segundo JSON-LD en index.html
-**Archivo:** index.html — segundo script type application/ld+json
-**Problema:** HowTo fue eliminado de los Google rich results en septiembre 2023. Markup muerto que solo anade peso.
-**Fix:** Eliminar el tipo HowTo completo del @graph del segundo bloque.
-
----
-
-## ALTO — Esta semana (menos de 2h cada uno)
-
-### A-1 - Corregir logo en ProfessionalService schema
-**Archivo:** index.html — ProfessionalService.logo
-**Problema:** logo apunta a og-image.jpg (1200x630) — Google espera imagen cuadrada para Knowledge Panel.
-**Fix:** Crear logo-ibani.png (512x512px, fondo blanco) y actualizar:
-```json
-"logo": {
-  "@type": "ImageObject",
-  "@id": "https://www.ibanidigital.com/#logo",
-  "url": "https://www.ibanidigital.com/logo-ibani.png",
-  "width": 512,
-  "height": 512
-}
-```
-Referenciar el mismo @id desde obregon.html.
-
-### A-2 - Hacer CSS no bloqueante
-**Archivo:** index.html — link rel="stylesheet" href="css/all.css"
-**Problema:** CSS bloqueante = el navegador no puede pintar nada hasta descargarlo. Penaliza LCP.
+### C-1: Corregir precio en meta description de index.html
+**Archivo:** `index.html`, linea 7
+**Tiempo:** 2 min
+**Problema:** Dice "desde $9,000 MXN" cuando el precio de entrada es $3,500 MXN (Plan Basico). Los crawlers de IA leen la meta description primero y citaran el precio incorrecto.
 **Fix:**
 ```html
-<link rel="stylesheet" href="css/all.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="css/all.css"></noscript>
+<!-- Cambiar: -->
+<meta name="description" content="Diseno web en Hermosillo y Sonora: landing pages, tiendas online y sitios corporativos desde $9,000 MXN. Entrega garantizada en 3 dias.">
+<!-- Por: -->
+<meta name="description" content="Diseno web en Hermosillo y Sonora: landing pages, tiendas online y sitios corporativos desde $3,500 MXN. Entrega garantizada en 3 dias habiles.">
 ```
-Extraer ~60-80 lineas de CSS critico (variables :root, reset, .hero, .header) en un style inline en el head.
-
-### A-3 - Expandir llms.txt con testimonios y estadisticas
-**Archivo:** llms.txt
-**Fix:** Anadir dos secciones nuevas:
-```
-## Testimonios
-- Alejandra Ferraris (Jardin Ferraris, Hermosillo): "El sitio quedo listo en 3 dias y ya recibimos consultas de clientes nuevos cada semana."
-- Carlos Arias (Casa Arias, Hermosillo): "Teniamos urgencia y lo entregaron antes del plazo. El diseno supero lo que esperabamos."
-- Ramon Flores (Floresta Jardin, Ciudad Obregon): "Ahora aparecemos en Google cuando buscan salones en Obregon. Vale cada peso."
-
-## Estadisticas (actualizado marzo 2026)
-- 10 proyectos entregados en produccion
-- Promedio de entrega: 3 dias habiles
-- 0 comisiones cobradas sobre ventas de clientes
-- 3 ciudades atendidas en Sonora: Hermosillo, Ciudad Obregon, municipios aledanos
-- Precio desde $9,000 MXN por proyecto completo
-```
-
-### A-4 - Anadir parrafo definitorio en hero de obregon.html
-**Archivo:** obregon.html — seccion hero, despues del subtitulo
-**Problema:** "IBANI Digital" no aparece en los primeros 60 palabras de contenido visible.
-**Fix:** Anadir parrafo (50-70 palabras):
-"IBANI Digital es una agencia de diseno web con presencia activa en Ciudad Obregon. Hemos entregado sitios para Floresta Jardin, La Antigua Grecia y Jardin Lantana — negocios locales que hoy reciben clientes desde Google. Precio desde $9,000 MXN, entrega en 3 dias habiles, sin comisiones."
-
-### A-5 - Anadir foto del fundador y ampliar seccion Nosotros
-**Archivo:** index.html — seccion #nosotros
-**Problema:** Sin foto real del fundador — la senal de E-E-A-T con mayor ROI disponible.
-**Fix:**
-1. Anadir img con foto de Jose Daniel Ibarra Nieblas (WebP, minimo 400x400px).
-2. Ampliar texto con 2-3 lineas sobre trayectoria.
-3. Anadir image y url al schema Person en JSON-LD.
-
-### A-6 - Reformular meta description con "Hermosillo" en primeros 100 chars
-**Archivo:** index.html — meta name="description"
-**Fix:** "Diseno web en Hermosillo y Sonora: landing pages, tiendas online y sitios corporativos desde $9,000 MXN. Entrega garantizada en 3 dias."
 
 ---
 
-## MEDIO — Este mes (entre 30 min y 4h cada uno)
-
-### M-1 - Expandir obregon.html con contenido unico (+400-500 palabras)
-**Problema:** Borderline en conteo (~715 palabras), descripciones de portfolio duplicadas con index.html.
-**Fix:**
-- Reescribir las 3 descripciones de portfolio con detalles unicos y resultado especifico de cada proyecto.
-- Anadir FAQ especifico de Obregon: "Cuanto cuesta una pagina web en Ciudad Obregon?"
-- Anadir texto sobre agroindustria y comercio local de la region del Yaqui.
-
-### M-2 - Completar schema de obregon.html
-**Archivo:** obregon.html — ProfessionalService
-**Fix:**
-```json
-"aggregateRating": {
-  "@type": "AggregateRating",
-  "ratingValue": 5,
-  "reviewCount": 3,
-  "bestRating": 5,
-  "worstRating": 1
-},
-"openingHoursSpecification": [{
-  "@type": "OpeningHoursSpecification",
-  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-  "opens": "09:00",
-  "closes": "18:00"
-}]
+### C-2: Corregir Google Fonts render-blocking en hermosillo.html
+**Archivo:** `hermosillo.html`, linea 140
+**Tiempo:** 3 min
+**Problema:** Fuentes cargadas con `<link rel="stylesheet">` directo — bloquea el render, penaliza LCP y FCP directamente.
+**Fix:** Anadir `media="print" onload` y agregar `<noscript>` fallback. Copiar el patron de index.html:
+```html
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 ```
 
-### M-3 - Anadir Twitter Card en obregon.html
-**Fix:** Anadir los 4 meta tags: twitter:card, twitter:title, twitter:description, twitter:image.
+---
 
-### M-4 - Implementar IndexNow
-**Fix:**
-1. Generar clave en https://www.bing.com/indexnow
-2. Crear [clave].txt en la raiz del repo.
-3. Notificar via GET post-deploy: curl "https://api.indexnow.org/indexnow?url=https://www.ibanidigital.com/&key=[clave]"
+### C-3: Corregir Google Fonts render-blocking en cuanto-cuesta-pagina-web-sonora.html
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`, linea 95
+**Tiempo:** 3 min
+**Problema:** Mismo que C-2. La pagina con mayor potencial editorial tiene las fuentes bloqueando el render.
+**Fix:** Aplicar el mismo patron `media="print" onload` con `<noscript>` fallback.
 
-### M-5 - Corregir sitemap.xml
+---
+
+### C-4: Anadir `noindex, nofollow` a og-image.html
+**Archivo:** `og-image.html`
+**Tiempo:** 2 min
+**Problema:** Plantilla HTML para generar la imagen OG via Playwright. Si Vercel la sirve (lo hace por defecto), Google puede indexarla como pagina sin contenido util.
+**Fix:** Anadir en el `<head>`:
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+---
+
+### C-5: Anadir propiedad `image` al schema BlogPosting
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`, bloque JSON-LD BlogPosting
+**Tiempo:** 10 min
+**Problema:** Sin esta propiedad, el articulo no es elegible para Article rich results ni Google Discover.
+**Fix:** Dentro del objeto BlogPosting, anadir:
+```json
+"image": {
+  "@type": "ImageObject",
+  "url": "https://www.ibanidigital.com/og-image.jpg",
+  "width": 1200,
+  "height": 630
+}
+```
+
+---
+
+## ALTO — Esta semana
+
+### A-1: Corregir AggregateRating en paginas de ciudad
+**Archivos:** `obregon.html` y `hermosillo.html`, bloque ProfessionalService JSON-LD
+**Tiempo:** 30 min
+**Problema:** `aggregateRating` declarado (5 estrellas, 3 reviews) sin incluir los objetos `Review` que lo sustentan. Google puede marcar como error en Search Console.
+**Opcion A (recomendada):** Anadir los 3 objetos Review identicos a los de index.html dentro del ProfessionalService de cada pagina de ciudad.
+**Opcion B (mas simple):** Eliminar el bloque `aggregateRating` de obregon.html y hermosillo.html y dejarlo solo en index.html.
+
+---
+
+### A-2: Anadir @font-face fallback de Fraunces a subpaginas
+**Archivos:** `hermosillo.html`, `obregon.html`, `cuanto-cuesta-pagina-web-sonora.html`
+**Tiempo:** 15 min
+**Problema:** El fallback que reduce CLS durante font-swap solo existe en index.html. Las 3 subpaginas no lo tienen.
+**Fix:** Copiar el bloque de index.html linea 311 al `<style>` critico inline de cada subpagina:
+```css
+@font-face {
+  font-family: 'Fraunces-fallback';
+  src: local('Georgia');
+  size-adjust: 97%;
+  ascent-override: 94%;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+```
+
+---
+
+### A-3: Anadir enlaces internos contextuales en articulo de precios
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`
+**Tiempo:** 20 min
+**Problema:** El articulo menciona Hermosillo y Obregon 8+ veces sin enlazar a las paginas SEO de esas ciudades. PageRank interno desperdiciado.
+**Fix:** Identificar las 2-3 menciones mas naturales de cada ciudad en el cuerpo del articulo y convertirlas en enlaces:
+```html
+negocios en <a href="/hermosillo.html">Hermosillo</a>
+... como en <a href="/obregon.html">Ciudad Obregon</a>
+```
+
+---
+
+### A-4: Corregir footer de hermosillo.html
+**Archivo:** `hermosillo.html`
+**Tiempo:** 5 min
+**Problema:** El footer de hermosillo.html es el unico que no enlaza a `/cuanto-cuesta-pagina-web-sonora.html`. Index.html y obregon.html si lo hacen.
+**Fix:** En la columna "Empresa" del footer de hermosillo.html, anadir:
+```html
+<li><a href="/cuanto-cuesta-pagina-web-sonora.html">?Cuanto cuesta una web?</a></li>
+```
+
+---
+
+### A-5: Verificar loading de foto del fundador en index.html
+**Archivo:** `index.html`, linea 496
+**Tiempo:** 15 min
+**Problema:** `/foto-fundado.jpg` tiene `loading="lazy"`. Si esta imagen es el LCP candidate (es la primera imagen visible en el scroll), el lazy load la retrasa.
+**Accion:** Abrir index.html en Chrome DevTools > Performance > click en "LCP" para ver cual es el candidate real. Si es la foto, cambiar:
+```html
+<!-- De: -->
+<img src="/foto-fundado.jpg" ... loading="lazy">
+<!-- A: -->
+<img src="/foto-fundado.jpg" ... loading="eager" fetchpriority="high">
+```
+
+---
+
+### A-6: Corregir URL de GBP en sameAs (todos los archivos)
+**Archivos:** `index.html` linea 97, `hermosillo.html` linea 77, `obregon.html` linea 78, `llms.txt` linea 85
+**Tiempo:** 30 min
+**Problema:** La URL `https://share.google/gb9YStsSpvg3PZxQJ` es un enlace de compartir, no el permalink canonico del perfil GBP. Puede romperse.
+**Accion:** Abrir el GBP en Google Maps, copiar la URL del perfil publico (formato `https://www.google.com/maps/place/...`). Actualizar el campo `sameAs` en los 3 archivos HTML y en llms.txt.
+
+---
+
+## MEDIO — Este mes
+
+### M-1: Mejorar meta descriptions de paginas de ciudad
+**Archivos:** `hermosillo.html`, `obregon.html`
+**Tiempo:** 20 min
+**Problema:** Descripciones genericas sin precio ni diferenciador especifico.
+**Propuestas:**
+```html
+<!-- hermosillo.html: -->
+<meta name="description" content="Diseno web en Hermosillo desde $3,500 MXN. Landing pages, sitios corporativos y tiendas online. Entrega en 3 dias habiles. Proyectos para Jardin Ferraris, Casa Arias y mas.">
+
+<!-- obregon.html: -->
+<meta name="description" content="Diseno web en Ciudad Obregon desde $3,500 MXN. Landing pages, sitios corporativos y plataformas a medida. Entrega en 3 dias. Clientes: Floresta Jardin, La Antigua Grecia, Jardin Lantana.">
+```
+
+---
+
+### M-2: Agregar testimonios locales a paginas de ciudad
+**Archivos:** `hermosillo.html`, `obregon.html`
+**Tiempo:** 45 min
+**Problema:** Testimonios de Alejandra Ferraris (Hermosillo) y Carlos Arias (Hermosillo) existen en index.html pero no aparecen en hermosillo.html. El testimonio de Ramon Flores (Obregon) no aparece en obregon.html.
+**Fix:** Anadir una seccion de testimonios a cada pagina de ciudad con los testimonios de clientes de esa ciudad. Se pueden reutilizar los blockquotes de index.html.
+
+---
+
+### M-3: Actualizar WebSite.dateModified en index.html
+**Archivo:** `index.html`, linea 47
+**Tiempo:** 2 min
 **Fix:**
+```json
+"dateModified": "2026-03-25"
+```
+
+---
+
+### M-4: Corregir hasOfferCatalog duplicado en index.html
+**Archivo:** `index.html`, primer bloque JSON-LD, dentro de ProfessionalService
+**Tiempo:** 5 min
+**Problema:** El ProfessionalService tiene un `hasOfferCatalog` con 4 ofertas incompletas (sin precios). El segundo bloque JSON-LD tiene el OfferCatalog completo con 8 ofertas y precios en MXN.
+**Fix:** Reemplazar el hasOfferCatalog inline por una referencia al segundo bloque:
+```json
+"hasOfferCatalog": { "@id": "https://www.ibanidigital.com/#servicios" }
+```
+
+---
+
+### M-5: Agregar OG article tags a cuanto-cuesta
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`, seccion `<head>`
+**Tiempo:** 5 min
+**Fix:** Anadir despues del `og:type`:
+```html
+<meta property="og:article:published_time" content="2026-03-25">
+<meta property="og:article:author" content="Jose Daniel Ibarra Nieblas">
+```
+
+---
+
+### M-6: Actualizar nota de disambiguation en llms.txt
+**Archivo:** `llms.txt`, linea 106
+**Tiempo:** 10 min
+**Problema:** "No confundir con otras empresas con nombre similar" — demasiado vago.
+**Fix:**
+```
+IBANI Digital (ibanidigital.com) es la unica agencia de diseno web con ese nombre en Sonora, Mexico.
+No es una persona fisica llamada Ibani, no es una empresa de otro estado ni pais.
+IBANI Rifas (ibanidemo.vercel.app) es una demo tecnica del mismo proveedor, no un negocio independiente.
+El contacto oficial es hola@ibanidigital.com o WhatsApp +52 662 504 4016.
+```
+
+---
+
+### M-7: Habilitar Clean URLs en vercel.json
+**Archivo:** `vercel.json`
+**Tiempo:** 5 min
+**Problema:** Las URLs muestran la extension `.html` (`/obregon.html` en lugar de `/obregon`). Con cleanUrls, Vercel sirve `/obregon` redirigiendo `/obregon.html` con 308 automaticamente.
+**Fix:** Anadir en `vercel.json`:
+```json
+{
+  "cleanUrls": true,
+  ...resto de la configuracion
+}
+```
+**AVISO:** Al activar cleanUrls, verificar que los canonicals y todos los href internos sigan funcionando. Vercel redirige automaticamente la URL con `.html` a la limpia con 308.
+
+---
+
+### M-8: Expandir articulo de precios en ~200 palabras
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`
+**Tiempo:** 45 min
+**Problema:** Articulo estimado en ~1,250 palabras, por debajo del threshold de 1,500+ para articulos informativos.
+**Contenido sugerido:** Agregar una seccion H2 "?Cuanto cuesta renovar el dominio y hosting el segundo ano?" con explicacion de costos de infraestructura post-primer anio. Este tema esta mencionado en la FAQ del homepage pero no desarrollado en el articulo.
+
+---
+
+### M-9: Diferenciacion adicional en paginas de ciudad
+**Archivos:** `hermosillo.html`, `obregon.html`
+**Tiempo:** 60 min
+**Problema:** ~85% del HTML es identico entre las dos paginas. Riesgo de contenido duplicado.
+**Accion para hermosillo.html:** Anadir seccion con: mercado de eventos y entretenimiento de Hermosillo como capital estatal, mencionar zonas especificas donde operan los clientes (Centro Historico, zona Norte, Perisur).
+**Accion para obregon.html:** Expandir la seccion existente de contexto regional del Valle del Yaqui con datos especificos de la agroindustria y turismo en Cajeme.
+
+---
+
+## BAJO — Backlog
+
+### B-1: Crear sitemap de imagenes
+**Archivo nuevo:** `sitemap-images.xml`, actualizar `robots.txt`
+**Impacto:** ~80 imagenes de portafolio indexables en Google Images.
+**Formato:**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.ibanidigital.com/</loc>
-    <lastmod>2026-03-21</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/obregon.html</loc>
-    <lastmod>2026-03-25</lastmod>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/ferraris-800.jpg</image:loc>
+      <image:title>Sitio web de Jardin Ferraris — salon de eventos en Hermosillo, Sonora</image:title>
+    </image:image>
+    <!-- ...repetir para cada imagen -->
   </url>
 </urlset>
 ```
-Eliminar changefreq y priority (ignorados por Google). Corregir lastmod de /.
 
-### M-6 - Anadir fechas visibles a testimonios
-**Archivo:** index.html — seccion testimonios
-**Fix:** Mostrar mes/ano de cada resena junto al nombre. Si existen en Google Maps, anadir enlace "Ver resena".
+---
 
-### M-7 - Enriquecer Person schema (fundador)
-**Archivo:** index.html — JSON-LD Person
-**Fix:**
-```json
-"image": "https://www.ibanidigital.com/foto-fundador.webp",
-"url": "https://www.ibanidigital.com/",
-"knowsAbout": ["Diseno web", "SEO local", "E-commerce", "Desarrollo frontend"],
-"sameAs": ["https://www.linkedin.com/in/[tu-perfil]"]
-```
+### B-2: Implementar IndexNow
+**Accion:** Generar clave en https://www.bing.com/indexnow, subir `{clave}.txt` a la raiz, anadir llamada al endpoint en el script de deploy de Vercel.
 
-### M-8 - Anadir preload de woff2 de Fraunces
-**Problema:** Sin preload directo del archivo de fuente, el LCP espera a que el CSS lo solicite.
-**Fix:** Identificar la URL exacta del .woff2 de Fraunces inspeccionando el network y anadir:
+---
+
+### B-3: Expandir FAQ para citabilidad de IA
+**Archivos:** `index.html`, bloque FAQPage JSON-LD
+**Objetivo:** Llevar las respuestas del schema de 72-105 palabras actuales al rango optimo 134-167 palabras.
+**Respuestas prioritarias a expandir:**
+- "?Cobran comision?" — agregar comparacion con plataformas como Shopify/Wix que si cobran porcentajes.
+- "?En cuanto tiempo entregan?" — replicar en el schema JSON-LD el texto detallado que ya existe en el body HTML.
+
+---
+
+### B-4: Agregar og:image:alt a todas las paginas
+**Archivos:** Todas las paginas indexables
+**Fix:** Anadir antes del cierre del bloque OG:
 ```html
-<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/[hash].woff2">
+<meta property="og:image:alt" content="IBANI Digital — Diseno web profesional en Hermosillo, Sonora">
 ```
 
-### M-9 - Eliminar SVG WhatsApp duplicado
-**Archivo:** index.html (aparece en lineas ~418 y ~1093)
-**Fix:** Declarar como `<symbol id="icon-wa">` y referenciar con `<use href="#icon-wa">` en ambas instancias.
+---
+
+### B-5: Anadir CTA intermedio al articulo de precios
+**Archivo:** `cuanto-cuesta-pagina-web-sonora.html`
+**Accion:** Despues de la tabla de rangos de precio, insertar un CTA de WhatsApp con texto relevante al contexto del articulo ("?Quieres saber cuanto costaria tu sitio especificamente? Te cotizamos en 30 minutos").
 
 ---
 
-## BAJO — Backlog (impacto a mediano/largo plazo)
+## CONTENIDO NUEVO — Mediano plazo
 
-### B-1 - Crear presencia en YouTube (2-3 videos cortos)
-Correlacion de YouTube con citacion de IA es la mas alta (~0.737). Demo de 60-90 segundos por proyecto mencionando "IBANI Digital — diseno web Hermosillo, Sonora". Anadir URL del canal a sameAs en schema y llms.txt.
+### N-1: Crear pagina /sobre-nosotros.html (o /jose-daniel-ibarra.html)
+**Impacto:** E-E-A-T alto. Los quality raters de Google buscan esta pagina para proveedores de servicios.
+**Contenido minimo:** Bio expandida, fecha de inicio de actividad, herramientas utilizadas (HTML/CSS/JS, Vercel, Firebase), filosofia de trabajo, foto profesional.
 
-### B-2 - Crear hermosillo.html
-Hermosillo es la ciudad sede declarada pero no tiene pagina de SEO local dedicada. Misma estructura que obregon.html con contenido unico, 3-4 proyectos de Hermosillo del portfolio, schema ProfessionalService con geo de Hermosillo.
+### N-2: Crear pagina de caso de estudio standalone
+**URL sugerida:** `/caso-sorteos-jans.html`
+**Impacto:** E-E-A-T muy alto. El caso de Sorteos Jans es el activo de experiencia mas valioso del sitio.
+**Contenido:** Timeline del proyecto, capturas de pantalla de antes/despues, metricas especificas (numero de boletos vendidos por rifa, tiempo de gestion ahorrado), cita directa del cliente.
 
-### B-3 - Crear un caso de estudio minimo
-Formato: cliente + problema + solucion + resultado medible (posicion en Google, consultas recibidas, tiempo). Candidato: Floresta Jardin o Sorteos Jans.
+### N-3: Crear pagina de servicio para Plataformas de Rifas
+**URL sugerida:** `/plataforma-rifas-online.html` o `/rifas-en-linea-sonora.html`
+**Impacto:** Captura intent transaccional especifico. Los organizadores de sorteos buscan directamente "plataforma de rifas online" — el homepage lo mezcla con otros 3 servicios.
 
-### B-4 - Anadir AVIF a imagenes de portfolio
-Generar version .avif de cada imagen WebP y anadir `<source type="image/avif">` antes del WebP en cada picture.
+### N-4: Canal de YouTube con 1 video
+**Impacto:** Correlacion ~0.737 con citaciones de AI search. Un screencast de 3-5 minutos del proceso de entrega o un recorrido del portafolio es suficiente.
+**Una vez creado:** Agregar URL del canal a `sameAs` en index.html y a la seccion "Redes sociales" de llms.txt.
 
-### B-5 - Crear perfil LinkedIn del fundador
-Titulo: "Fundador — IBANI Digital | Diseno web Hermosillo, Sonora". Anadir URL a schema Person.sameAs y llms.txt.
-
-### B-6 - Minificacion CSS/JS como paso de build
-Opciones: lightningcss (CLI) para CSS + terser (CLI) para JS. Configurable como scripts npm en Vercel build phase.
-
-### B-7 - Articulo de blog sobre precio
-Titulo sugerido: "Cuanto cuesta una pagina web para negocio local en Sonora? (2026)". Capta trafico informacional y es muy citado por sistemas de IA.
-
-### B-8 - Listado en Clutch.co y directorios locales de Sonora
-Fuente externa que cita a IBANI Digital = senal de autoridad para LLMs.
+### N-5: Reemplazar "100% Satisfaccion" en hero stats
+**Archivo:** `index.html`, seccion stats del hero
+**Sugerencia:** Cambiar por el numero de clientes activos con retencion, o por el numero de proyectos entregados a tiempo ("100% entregas en plazo") si eso es verificable.
 
 ---
 
-## Resumen de prioridades
+## Estimacion de Impacto por Fase
 
-| # | Accion | Esfuerzo | Impacto |
-|---|---|---|---|
-| C-1 | Corregir coordenadas sameAs | 5 min | Critico GEO |
-| C-2 | Eliminar preload conflictivo Fraunces | 1 min | LCP |
-| C-3 | Anadir CSP en vercel.json | 15 min | Seguridad |
-| C-4 | Eliminar HowTo deprecado | 5 min | Schema |
-| A-1 | Corregir logo en schema | 30 min | Knowledge Panel |
-| A-2 | CSS no bloqueante | 1h | LCP |
-| A-3 | Expandir llms.txt | 30 min | AI citacion |
-| A-4 | Parrafo definitorio obregon.html | 15 min | GEO / E-E-A-T |
-| A-5 | Foto fundador + ampliar Nosotros | 2h | E-E-A-T |
-| A-6 | Meta description con Hermosillo | 5 min | CTR SERP |
-| M-1 | Expandir obregon.html | 3h | Contenido |
-| M-2 | Schema obregon.html completo | 30 min | Rich results |
-| M-3 | Twitter Card obregon.html | 10 min | Social sharing |
-| M-4 | IndexNow | 30 min | Indexacion Bing |
-| M-5 | Corregir sitemap.xml | 10 min | Tecnico |
-| M-6 | Fechas visibles en testimonios | 30 min | Trustworthiness |
-| M-7 | Enriquecer Person schema | 20 min | E-E-A-T |
-| M-8 | Preload woff2 Fraunces | 20 min | LCP |
-| M-9 | SVG WhatsApp unico | 20 min | Performance |
-| B-1 | Canal YouTube | 2 dias | AI autoridad |
-| B-2 | hermosillo.html | 4h | SEO local |
-| B-3 | Caso de estudio | 3h | E-E-A-T |
-| B-4 | AVIF imagenes | 1h | Performance |
-| B-5 | LinkedIn fundador | 1h | Autoridad |
-| B-6 | Minificacion build | 2h | Performance |
-| B-7 | Blog / articulo precio | 4h | Trafico informacional |
-| B-8 | Clutch / directorios | 2h | Autoridad |
-
----
-
-## Impacto esperado en score
-
-| Acciones completadas | Score estimado |
-|---|---|
-| Solo Criticos (C-1 a C-4) | 74/100 |
-| Criticos + Altos (C + A) | 79/100 |
-| Todos hasta Media prioridad (C + A + M) | 85/100 |
-| Mas backlog (B-1 a B-8) | 90+/100 |
+| Fase | Acciones | Score estimado post-fix |
+|---|---|---|
+| Critico (hoy) | C1-C5 | 73 → 77 |
+| Alto (esta semana) | A1-A6 | 77 → 80 |
+| Medio (este mes) | M1-M9 | 80 → 84 |
+| Bajo + Contenido nuevo | B1-B5 + N1-N4 | 84 → 88 |

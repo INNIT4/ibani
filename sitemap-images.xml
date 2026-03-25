@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.ibanidigital.com/</loc>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/ferraris-800.jpg</image:loc>
+      <image:title>Sitio web de Jardín Ferraris — salón de eventos en Hermosillo, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/casaarias-800.jpg</image:loc>
+      <image:title>Sitio web de Casa Arias — eventos boutique en el centro histórico de Hermosillo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/floresta-800.jpg</image:loc>
+      <image:title>Sitio web de Floresta Jardín — salón de eventos en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/antiguagrecia-800.jpg</image:loc>
+      <image:title>Sitio web de La Antigua Grecia Salón — salón de eventos en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/lantana-800.jpg</image:loc>
+      <image:title>Sitio web de Jardín Lantana — jardín de eventos en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/minitas-800.jpg</image:loc>
+      <image:title>Sitio web de Hacienda Las Minitas — salón de eventos en Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/primavera-800.jpg</image:loc>
+      <image:title>Sitio web de El Marqués — salón de lujo en Hermosillo, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/sorteosjans-800.jpg</image:loc>
+      <image:title>Plataforma de rifas en línea Sorteos Jans — México</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/ascontentmedia-800.jpg</image:loc>
+      <image:title>Sitio web de AS Content Media — fotografía y video de eventos en Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/ibanidemo-800.jpg</image:loc>
+      <image:title>Demo plataforma de rifas IBANI Rifas — IBANI Digital</image:title>
+    </image:image>
+  </url>
+</urlset>

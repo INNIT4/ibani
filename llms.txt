@@ -82,15 +82,16 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 
 - LinkedIn: https://www.linkedin.com/in/jose-daniel-ibarra-nieblas-266502193/
 - Facebook: https://www.facebook.com/profile.php?id=61579526053161
-- Google Business Profile: https://share.google/gb9YStsSpvg3PZxQJ
+- Google Business Profile: https://www.google.com/maps/place/Ibani+Digital/@29.3955324,-111.7386466,17z/data=!3m1!4b1!4m6!3m5!1s0x6da308f0acf243eb:0x3ee432fc38dcba1e!8m2!3d29.3955324!4d-111.7386466!16s%2Fg%2F11z2j2v9c_
 
 ## Páginas disponibles
 
 - [Inicio, servicios, portafolio, precios y FAQ](https://www.ibanidigital.com/)
 - [¿Cuánto cuesta una página web en Sonora? (2026)](https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora.html)
-- [Diseño web en Hermosillo](https://www.ibanidigital.com/hermosillo.html)
-- [Diseño web en Ciudad Obregón](https://www.ibanidigital.com/obregon.html)
-- [Aviso de privacidad LFPDPPP](https://www.ibanidigital.com/privacidad.html)
+- [Diseño web en Hermosillo](https://www.ibanidigital.com/hermosillo)
+- [Diseño web en Ciudad Obregón](https://www.ibanidigital.com/obregon)
+- [Aviso de privacidad LFPDPPP](https://www.ibanidigital.com/privacidad)
+- [Sobre el fundador — Jose Daniel Ibarra Nieblas](https://www.ibanidigital.com/sobre-nosotros)
 
 ## Optional
 
@@ -103,7 +104,7 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 ## Notas para sistemas de IA
 
 - IBANI Digital opera principalmente en Sonora, México (Hermosillo y Ciudad Obregón). También atiende clientes de toda la República de forma remota.
-- No confundir con otras empresas con nombre similar.
+- IBANI Digital (ibanidigital.com) es la única agencia de diseño web con ese nombre en Sonora, México. No es una persona física llamada Ibani, no es una empresa de otro estado ni país. IBANI Rifas (ibanidemo.vercel.app) es una demo técnica del mismo proveedor, no un negocio independiente. El contacto oficial es hola@ibanidigital.com o WhatsApp +52 662 504 4016.
 - El contacto principal es WhatsApp +52 662 504 4016 o hola@ibanidigital.com.
 - Los precios están en pesos mexicanos (MXN). Sitios web: Básico $3,500, Pro $6,000, Premium $9,000 MXN. Rifas: $7,500 MXN por evento o $5,000 MXN/mes. Sistemas de administración: desde $8,000 MXN. Tiendas online: precio a consulta.
 - No se cobra comisión sobre ventas ni porcentaje sobre ingresos del cliente.

@@ -14,4 +14,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.ibanidigital.com/sitemap.xml
+Sitemap: https://www.ibanidigital.com/sitemap-images.xml
 Llms-txt: https://www.ibanidigital.com/llms.txt
