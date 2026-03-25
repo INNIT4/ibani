@@ -444,39 +444,39 @@
   padding: var(--space-8);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  background: var(--bg-2);
+  background: var(--bg);
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast), transform var(--dur-fast) var(--ease);
 }
 
 .pricing-card:hover {
   border-color: var(--border-2);
   box-shadow: var(--shadow);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .pricing-card--featured {
   background: var(--bg-3);
   border-color: var(--accent);
-  box-shadow: 0 0 40px rgba(224,112,72,0.12);
+  box-shadow: 0 0 40px rgba(200,90,40,0.10);
 }
 
 .pricing-card--featured:hover {
   border-color: var(--accent-2);
-  box-shadow: 0 0 60px rgba(224,112,72,0.2), var(--shadow);
+  box-shadow: 0 0 60px rgba(200,90,40,0.18), var(--shadow);
 }
 
 .pc-badge {
   display: inline-block;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-bg);
-  border: 1px solid rgba(224,112,72,0.2);
+  border: 1px solid rgba(200,90,40,0.18);
   padding: 3px 10px;
   border-radius: 999px;
   width: fit-content;
@@ -484,28 +484,38 @@
 
 .pc-name {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 300;
   color: var(--ink);
+  margin-top: var(--space-2);
 }
 
 .pc-price {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
+  min-height: 4rem;
 }
 
 .pc-amount {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 300;
   line-height: 1;
   color: var(--ink);
 }
 
+.pc-amount--consult {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.3;
+  font-style: italic;
+  color: var(--ink-2);
+  align-self: center;
+}
+
 .pc-currency {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 300;
   color: var(--ink-3);
 }
@@ -524,14 +534,16 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  flex: 1;
 }
 
 .pc-feature {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   color: var(--ink-2);
+  line-height: 1.5;
 }
 
 .pc-feature::before {
@@ -540,6 +552,19 @@
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
+  margin-top: 0.45em;
+}
+
+.pc-payment {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: fit-content;
 }
 
 /* ── Section Header ─────────────────────────────────────────── */
