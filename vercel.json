@@ -1,6 +1,5 @@
 {
   "outputDirectory": ".",
-  "buildCommand": "",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
