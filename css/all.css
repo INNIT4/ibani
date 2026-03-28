@@ -463,6 +463,9 @@ body::before {
 .header.scrolled .nav__dropdown a:hover { background: rgba(255,255,255,0.07); color: var(--bg); }
 .header.scrolled .nav__dropdown__label { color: rgba(250,248,241,0.3); }
 .header.scrolled .nav__dropdown a:hover .dd-content strong { color: var(--accent); }
+.header.scrolled .nav__mobile { background: rgba(12,12,12,0.97); border-top-color: rgba(255,255,255,.08); }
+.header.scrolled .nav__mobile a { color: rgba(250,248,241,0.85); }
+.header.scrolled .nav__mobile a:hover { color: var(--accent); }
 
 /* ── Dropdown wide (Servicios) ──────────────────────────────── */
 .nav__dropdown--wide {
