@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios y Precios — IBANI Digital · Diseño Web en Sonora</title>
+  <meta name="description" content="Landing pages desde $3,500, tiendas online, plataformas de rifas y sitios corporativos para negocios en Hermosillo y Sonora. Precios fijos, sin sorpresas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ibanidigital.com/servicios">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Servicios — IBANI Digital">
+  <meta property="og:description" content="Diseño web profesional en Sonora: landing pages, tiendas, rifas y sitios corporativos con precios transparentes.">
+  <meta property="og:url" content="https://www.ibanidigital.com/servicios">
+  <meta property="og:image" content="https://www.ibanidigital.com/og-image.jpg">
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="css/all.min.css">
+  <style>
+    @font-face{font-family:'Fraunces-fallback';src:local('Georgia');size-adjust:97%;ascent-override:94%;descent-override:normal;line-gap-override:normal}
+
+    /* ═══════════════════════════ HERO ═══════════════════════════ */
+    .svc-hero {
+      padding: 160px 0 100px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-hero__watermark {
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-52%);
+      font-family: var(--font-display);
+      font-size: clamp(10rem, 20vw, 20rem);
+      font-weight: 200;
+      line-height: 1;
+      letter-spacing: -.05em;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border-2);
+      pointer-events: none;
+      user-select: none;
+    }
+    .svc-hero__label {
+      display: flex; align-items: center; gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .svc-hero__label-line {
+      width: 40px; height: 1px; background: var(--border-3);
+    }
+    .svc-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3.8rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: .98;
+      letter-spacing: -.03em;
+      color: var(--ink);
+      margin-bottom: var(--space-8);
+    }
+    .svc-hero__title em { font-style: italic; color: var(--accent); }
+    .svc-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: var(--space-12);
+    }
+
+    /* nav pills */
+    .svc-nav {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .svc-nav__pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 22px; border-radius: 4px;
+      font-size: var(--text-sm); font-weight: 600;
+      background: transparent; color: var(--ink-2);
+      border: 1px solid var(--border-2);
+      transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+      letter-spacing: .01em;
+    }
+    .svc-nav__pill-num {
+      font-family: var(--font-display);
+      font-size: 0.68rem; font-weight: 300;
+      color: var(--ink-3);
+    }
+    .svc-nav__pill:hover {
+      background: var(--ink); color: var(--bg); border-color: var(--ink);
+    }
+    .svc-nav__pill:hover .svc-nav__pill-num { color: rgba(255,255,255,.35); }
+
+    /* ═══════════════════════════ SERVICE BLOCKS ═══════════════════════════ */
+    .svc-block {
+      padding: 120px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-block:nth-child(even) { background: var(--bg-2); }
+
+    /* Decorative large number */
+    .svc-block__bg-num {
+      position: absolute;
+      right: var(--space-8); bottom: -2rem;
+      font-family: var(--font-display);
+      font-size: clamp(9rem, 18vw, 18rem);
+      font-weight: 200; line-height: 1;
+      letter-spacing: -.05em;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border);
+      pointer-events: none; user-select: none;
+    }
+
+    .svc-block__inner {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: clamp(var(--space-12), 6vw, var(--space-16));
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    /* Even: flip columns */
+    .svc-block:nth-child(even) .svc-block__inner {
+      grid-template-columns: 45fr 55fr;
+    }
+    .svc-block:nth-child(even) .svc-visual { order: -1; }
+
+    /* ── Content ── */
+    .svc-content {}
+    .svc-content__index {
+      display: flex; align-items: center; gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .svc-content__index-line {
+      width: 36px; height: 1px; background: var(--accent);
+    }
+    .svc-content__index-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .svc-content__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      margin-bottom: var(--space-6);
+    }
+    .svc-content__title em { font-style: italic; color: var(--accent); }
+    .svc-content__text {
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.85;
+      margin-bottom: var(--space-4);
+      max-width: 54ch;
+    }
+    .svc-content__divider {
+      width: 48px; height: 1px;
+      background: var(--border-3);
+      margin: var(--space-7) 0;
+    }
+    .svc-content__tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: var(--space-8);
+    }
+    .svc-tag {
+      font-size: 0.66rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 3px;
+      background: transparent;
+      color: var(--ink-3);
+      border: 1px solid var(--border-2);
+    }
+
+    /* CTA arrow button */
+    .svc-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color var(--dur-fast), gap var(--dur-fast);
+    }
+    .svc-cta__arrow {
+      display: flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-3);
+      transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast) var(--ease);
+    }
+    .svc-cta__arrow svg { transition: transform var(--dur-fast) var(--ease); }
+    .svc-cta:hover { color: var(--accent); }
+    .svc-cta:hover .svc-cta__arrow {
+      background: var(--accent); border-color: var(--accent);
+      transform: scale(1.08);
+    }
+    .svc-cta:hover .svc-cta__arrow svg { transform: translate(2px, -2px); }
+    .svc-cta:hover .svc-cta__arrow svg path { stroke: white; }
+
+    /* ── Visual / Image ── */
+    .svc-visual {}
+    .svc-img-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-3);
+    }
+    .svc-img-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder (visible while no image) */
+    .svc-img-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: var(--space-4);
+      padding: var(--space-8);
+      text-align: center;
+      border: 2px dashed var(--border-3);
+      border-radius: 16px;
+    }
+    .svc-img-placeholder__icon {
+      opacity: .25;
+    }
+    .svc-img-placeholder__type {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .svc-img-placeholder__hint {
+      font-size: var(--text-sm); color: var(--ink-3);
+      line-height: 1.6; max-width: 28ch;
+    }
+
+    /* ═══════════════════════════ RESPONSIVE ═══════════════════════════ */
+    @media(max-width: 860px) {
+      .svc-block__inner,
+      .svc-block:nth-child(even) .svc-block__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+      }
+      .svc-block:nth-child(even) .svc-visual { order: -1; }
+      .svc-visual { order: -1; }
+      .svc-img-frame { aspect-ratio: 16 / 9; }
+      .svc-block__bg-num { display: none; }
+      .svc-hero__watermark { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital">
+        <span class="logo__name">IBANI</span>
+        <span class="logo__sub">Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/"           class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link active">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios#landing">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 13h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 10v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="dd-content"><strong>Landing Pages</strong><small>desde $4,500 MXN</small></span>
+              </a>
+              <a href="/servicios#tiendas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1h1.5l1.8 7h6.4l1.3-5H4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="11" cy="12" r="1" fill="currentColor"/></svg>
+                </span>
+                <span class="dd-content"><strong>Tiendas Online</strong><small>desde $8,500 MXN</small></span>
+              </a>
+              <a href="/servicios#rifas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 6h6M4 9h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,500/mes</small></span>
+              </a>
+              <a href="/servicios#software">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 5h6M4 8h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="dd-content"><strong>Software Administrativo</strong><small>desde $6,000 MXN</small></span>
+              </a>
+              <a href="/servicios#citas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v2M9 1v2M2 5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="dd-content"><strong>Sistema de Reservaciones</strong><small>Precio a consulta</small></span>
+              </a>
+              <a href="/servicios#sistemas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2v10M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="dd-content"><strong>Sistemas a Medida</strong><small>Precio a consulta</small></span>
+              </a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso"    class="nav__link">Proceso</a></li>
+          <li><a href="/blog"       class="nav__link">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
+           target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cotizar →</a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/servicios#landing"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
+      <a href="/servicios#tiendas"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios#rifas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
+      <a href="/servicios#software"     style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Software Administrativo</a>
+      <a href="/servicios#citas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistema de Reservaciones</a>
+      <a href="/servicios#sistemas"     style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistemas a Medida</a>
+      <a href="/portafolio">Portafolio</a>
+      <a href="/proceso">Proceso</a>
+      <a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Cotizar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- HERO                                                      -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-hero">
+      <div class="svc-hero__watermark" aria-hidden="true">Svc</div>
+      <div class="container">
+
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Servicios</li>
+          </ol>
+        </nav>
+
+        <div class="svc-hero__label anim-l" style="--delay:.05s">
+          <span class="svc-hero__label-line"></span>
+          Diseño Web · Sonora, México
+        </div>
+
+        <h1 class="svc-hero__title anim-l" style="--delay:.18s">
+          Lo que hacemos<br><em>y lo que cuesta</em>
+        </h1>
+
+        <p class="svc-hero__sub anim-r" style="--delay:.32s">
+          Precio fijo desde el primer mensaje. Sin sorpresas, sin comisiones sobre tus ventas.
+        </p>
+
+        <nav class="svc-nav anim-u" style="--delay:.48s" aria-label="Ir a servicio">
+          <a href="#landing"      class="svc-nav__pill"><span class="svc-nav__pill-num">01</span> Landing Pages</a>
+          <a href="#tiendas"      class="svc-nav__pill"><span class="svc-nav__pill-num">02</span> Tiendas Online</a>
+          <a href="#rifas"        class="svc-nav__pill"><span class="svc-nav__pill-num">03</span> Rifas</a>
+          <a href="#software"     class="svc-nav__pill"><span class="svc-nav__pill-num">04</span> Software Administrativo</a>
+          <a href="#citas"        class="svc-nav__pill"><span class="svc-nav__pill-num">05</span> Citas Online</a>
+          <a href="#asistencia"   class="svc-nav__pill"><span class="svc-nav__pill-num">06</span> Asistencia QR</a>
+          <a href="#sistemas"     class="svc-nav__pill"><span class="svc-nav__pill-num">07</span> Sistemas a Medida</a>
+        </nav>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 01 · LANDING PAGES                                        -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="landing">
+      <div class="svc-block__bg-num" aria-hidden="true">01</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-l">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 01</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-l" style="--delay:.08s">
+              Landing<br><em>Pages</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.14s">
+              La herramienta más efectiva para convertir visitantes en clientes. Diseñamos páginas con un único objetivo claro: que el visitante actúe — ya sea llamar, escribir por WhatsApp o agendar una cita.
+            </p>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.18s">
+              Cada landing incluye diseño personalizado desde cero, carga ultrarrápida en móviles, textos de persuasión, galería de fotos y llamados a la acción estratégicos. Dominio, hosting y SSL el primer año. Entrega en 3 días hábiles.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">Conversión</span>
+              <span class="svc-tag">SEO local</span>
+              <span class="svc-tag">3 días</span>
+              <span class="svc-tag">Precio fijo</span>
+            </div>
+            <a href="/servicios/landing-pages" class="svc-cta reveal" style="--delay:.32s">
+              Ver planes y precios
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-r" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <!--
+                IMAGEN 01 — Landing Pages
+                Reemplaza el div.svc-img-placeholder con:
+                <img src="/img/servicios/landing-mockup.jpg" alt="Mockup de landing page diseñada por IBANI Digital">
+
+                TIPO DE IMAGEN:
+                Mockup doble de laptop + celular mostrando una landing page
+                que hayas diseñado (ej. Sorteos Jans, Jardín Ferraris, etc.).
+                Herramientas para crear el mockup: shots.so, screely.com,
+                previewed.app. Fondo blanco o crema. Formato 4:3 (ej. 1200×900 px).
+              -->
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup laptop + celular con una landing page de tu portafolio. Fondo neutro, formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 02 · TIENDAS ONLINE                                       -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="tiendas">
+      <div class="svc-block__bg-num" aria-hidden="true">02</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-r">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 02</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-r" style="--delay:.08s">
+              Tiendas<br><em>Online</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.14s">
+              Tiendas en línea y catálogos digitales completos para negocios en Sonora que quieren vender sin depender de intermediarios.
+            </p>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.18s">
+              Carrito de compras, integración con pasarelas de pago (Clip, Conekta, Stripe), panel de administración de inventario y pedidos. Sin comisiones sobre tus ventas — todo lo que generes es 100% tuyo.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">E-commerce</span>
+              <span class="svc-tag">Pagos</span>
+              <span class="svc-tag">Panel admin</span>
+              <span class="svc-tag">Sin comisiones</span>
+            </div>
+            <a href="/servicios/tiendas" class="svc-cta reveal" style="--delay:.32s">
+              Ver planes y precios
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen (en even el visual va a la izquierda via CSS order:-1) -->
+          <div class="svc-visual reveal s3d-l" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <!--
+                IMAGEN 02 — Tiendas Online
+                Reemplaza el div.svc-img-placeholder con:
+                <img src="/img/servicios/tienda-mockup.jpg" alt="Tienda online para negocio local en Sonora">
+
+                TIPO DE IMAGEN:
+                Foto lifestyle de un negocio local (boutique, panadería,
+                tienda de ropa en Hermosillo) con una persona sosteniendo
+                un celular que muestra la tienda online. Luz natural,
+                fondo del local de fondo. Formato 4:3 (ej. 1200×900 px).
+              -->
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Foto lifestyle de negocio local con celular mostrando la tienda. Luz natural, formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 03 · PLATAFORMAS DE RIFAS                                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="rifas">
+      <div class="svc-block__bg-num" aria-hidden="true">03</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-l">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 03</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-l" style="--delay:.08s">
+              Plataformas<br><em>de Rifas</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.14s">
+              Sistema propio de rifas en línea para organizadores de sorteos en México. Los participantes seleccionan su boleto desde el celular, ven en tiempo real cuáles están disponibles y reciben confirmación por WhatsApp.
+            </p>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.18s">
+              Panel de administración completo para ver ventas, validar pagos y generar el sorteo con transparencia total. Panel secundario para empleados sin permisos de configuración. Sin plataformas externas, sin comisiones sobre el premio.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">Tiempo real</span>
+              <span class="svc-tag">Doble admin</span>
+              <span class="svc-tag">WhatsApp</span>
+              <span class="svc-tag">Sin comisiones</span>
+            </div>
+            <a href="/servicios/rifas" class="svc-cta reveal" style="--delay:.32s">
+              Ver planes y precios
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-r" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <!--
+                IMAGEN 03 — Plataforma de Rifas
+                Reemplaza el div.svc-img-placeholder con:
+                <img src="/img/servicios/rifas-demo.jpg" alt="Panel de administración de plataforma de rifas IBANI">
+
+                TIPO DE IMAGEN:
+                Screenshot del panel de boletos del demo (ibanidemo.vercel.app
+                o sorteosjans.com.mx) aplicado en un mockup de tablet o celular.
+                Puedes usar shots.so para el mockup. Fondo oscuro opcional
+                para contraste con la sección clara. Formato 4:3 (1200×900 px).
+              -->
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup de tablet/celular con el panel de boletos de IBANI Rifas. Formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 04 · SOFTWARE ADMINISTRATIVO                              -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="software">
+      <div class="svc-block__bg-num" aria-hidden="true">04</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-r">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 04</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-r" style="--delay:.08s">
+              Software<br><em>Administrativo</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.14s">
+              Sistema hecho a medida para negocios que necesitan orden: inventario, ventas, gastos, trabajadores, asistencia y más — todo desde un solo panel web, sin mensualidades de plataforma.
+            </p>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.18s">
+              Desde control básico de inventario hasta sistema empresarial con CFDI 4.0, punto de venta, multi-sucursal e integración con Clip y MercadoPago. El sistema es tuyo — incluye dominio, hosting y SSL el primer año.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">Inventario</span>
+              <span class="svc-tag">Ventas y POS</span>
+              <span class="svc-tag">CFDI 4.0</span>
+              <span class="svc-tag">Sin mensualidad</span>
+            </div>
+            <a href="/servicios/software-administrativo" class="svc-cta reveal" style="--delay:.32s">
+              Ver planes y precios
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-l" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <!--
+                IMAGEN 04 — Software Administrativo
+                Reemplaza el div.svc-img-placeholder con:
+                <img src="/img/servicios/software-mockup.jpg" alt="Panel de software administrativo IBANI Digital">
+
+                TIPO DE IMAGEN:
+                Screenshot del panel de administración (dashboard con gráficas
+                o vista de inventario) en mockup de laptop o monitor. Fondo
+                neutro o crema. Formato 4:3 (ej. 1200×900 px).
+              -->
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup laptop/monitor con panel de inventario o dashboard. Fondo neutro, formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 05 · SISTEMAS A MEDIDA                                    -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 05 · SISTEMA DE RESERVACIONES / CITAS ONLINE             -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="citas">
+      <div class="svc-block__bg-num" aria-hidden="true">05</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-l">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 05</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-l" style="--delay:.08s">
+              Sistema de<br><em>Reservaciones</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.14s">
+              Tus clientes agendan cita desde su celular, tú ves el calendario en tiempo real y recibes confirmación automática. Sin llamadas, sin confusiones y sin doble reservación.
+            </p>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.18s">
+              Ideal para clínicas, estéticas, spas, dentistas, restaurantes o cualquier negocio que trabaje con agenda. Configuras tus horarios, servicios y límite de citas por día — el sistema hace el resto.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">Agenda online</span>
+              <span class="svc-tag">Confirmación automática</span>
+              <span class="svc-tag">Panel de citas</span>
+              <span class="svc-tag">WhatsApp</span>
+            </div>
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20un%20sistema%20de%20reservaciones%20con%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="svc-cta reveal" style="--delay:.32s">
+              Cotizar mi sistema
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-r" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup de calendario de citas en celular o tablet. Formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 06 · SISTEMAS A MEDIDA                                    -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 06 · CONTROL DE ASISTENCIA QR                            -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="asistencia">
+      <div class="svc-block__bg-num" aria-hidden="true">06</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-r">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 06</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-r" style="--delay:.08s">
+              Asistencia<br><em>con QR</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.14s">
+              Cada empleado tiene su propio código QR. Lo escanea al entrar y al salir — el sistema registra la hora automáticamente y tú ves el reporte en tiempo real desde tu celular. Sin papel, sin Excel, sin llamadas.
+            </p>
+            <p class="svc-content__text reveal s3d-r" style="--delay:.18s">
+              Incluye validación por geolocalización: el registro solo funciona si el empleado está físicamente en el negocio. Panel de administrador con historial, faltas, horas trabajadas y exportación a Excel o PDF.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">QR por empleado</span>
+              <span class="svc-tag">Geolocalización</span>
+              <span class="svc-tag">Panel en tiempo real</span>
+              <span class="svc-tag">Reportes PDF/Excel</span>
+            </div>
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20sistema%20de%20asistencia%20QR%20de%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="svc-cta reveal" style="--delay:.32s">
+              Cotizar mi sistema
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-l" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup de celular escaneando QR + panel de asistencia en tablet. Formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- 07 · SISTEMAS A MEDIDA                                    -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="svc-block" id="sistemas">
+      <div class="svc-block__bg-num" aria-hidden="true">07</div>
+      <div class="container">
+        <div class="svc-block__inner">
+
+          <!-- Contenido -->
+          <div class="svc-content">
+            <div class="svc-content__index reveal s3d-l">
+              <span class="svc-content__index-line"></span>
+              <span class="svc-content__index-label">Servicio 07</span>
+            </div>
+            <h2 class="svc-content__title reveal s3d-l" style="--delay:.08s">
+              Sistemas<br><em>a Medida</em>
+            </h2>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.14s">
+              ¿Tu negocio necesita algo que no existe en ningún plan estándar? Lo construimos desde cero: dashboards de datos, chatbots para WhatsApp, automatizaciones de procesos, integraciones entre sistemas y más.
+            </p>
+            <p class="svc-content__text reveal s3d-l" style="--delay:.18s">
+              Definimos el alcance juntos, acordamos un precio fijo antes de iniciar y entregamos un sistema que resuelve exactamente tu problema — sin cobros por hora ni sorpresas al final.
+            </p>
+            <div class="svc-content__divider reveal" style="--delay:.22s"></div>
+            <div class="svc-content__tags reveal" style="--delay:.26s">
+              <span class="svc-tag">Dashboards</span>
+              <span class="svc-tag">Chatbot WhatsApp</span>
+              <span class="svc-tag">Automatizaciones</span>
+              <span class="svc-tag">Integraciones</span>
+            </div>
+            <a href="https://wa.me/526625044016?text=Hola%2C%20tengo%20una%20idea%20para%20un%20sistema%20a%20medida%20y%20me%20gustar%C3%ADa%20cotizarlo%20con%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="svc-cta reveal" style="--delay:.32s">
+              Cotizar mi proyecto
+              <span class="svc-cta__arrow" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 13 L13 3 M6 3 H13 V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Imagen -->
+          <div class="svc-visual reveal s3d-l" style="--delay:.1s">
+            <div class="svc-img-frame">
+              <div class="svc-img-placeholder">
+                <svg class="svc-img-placeholder__icon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                  <rect x="4" y="10" width="40" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="17" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M4 32 L14 22 L22 30 L30 22 L44 34" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span class="svc-img-placeholder__type">Imagen pendiente</span>
+                <p class="svc-img-placeholder__hint">Mockup de sistema a medida: citas, asistencia QR o dashboard. Formato 4:3.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- CTA FINAL                                                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="contact section--lg" style="background:var(--ink)">
+      <div class="container contact__inner">
+        <span class="label" style="color:rgba(255,255,255,.4)">IBANI Digital · Sonora</span>
+        <h2 class="contact__title" style="color:var(--bg)">
+          ¿Tienes dudas sobre<br><em style="color:var(--accent)">qué plan es el tuyo?</em>
+        </h2>
+        <p class="contact__sub" style="color:rgba(255,255,255,.6)">
+          Escríbenos y en menos de 30 minutos tienes una propuesta con precio fijo.
+        </p>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
+           target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span class="logo__sub">Digital</span></a>
+          <p class="footer__tagline">Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.</p>
+          <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
+            <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45)">hola@ibanidigital.com</a><br>
+            <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.45)">+52 662 504 4016</a>
+          </address>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="/servicios#landing">Landing Pages</a></li>
+              <li><a href="/servicios#tiendas">Tiendas Online</a></li>
+              <li><a href="/servicios#rifas">Plataformas de Rifas</a></li>
+              <li><a href="/servicios#software">Software Administrativo</a></li>
+              <li><a href="/servicios#citas">Sistema de Reservaciones</a></li>
+              <li><a href="/servicios#sistemas">Sistemas a Medida</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Empresa</p>
+            <ul class="footer__col-links">
+              <li><a href="/portafolio">Portafolio</a></li>
+              <li><a href="/proceso">Proceso</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.min.js" defer></script>
+</body>
+</html>

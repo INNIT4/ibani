@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Online — Tienda $8,500 MXN · IBANI Digital</title>
+  <meta name="description" content="Catálogo de productos online desde $8,500 MXN. Hasta 20 productos con fotos, diseño responsivo, dominio, hosting y SSL incluidos. Entrega en 3 días.">
+  <link rel="canonical" href="https://www.ibanidigital.com/servicios/tiendas/catalogo">
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/css/all.min.css">
+  <style>
+    .plan-hero { padding:140px 0 88px; background:var(--bg); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .plan-watermark { position:absolute; right:-2rem; top:50%; transform:translateY(-50%); font-family:var(--font-display); font-size:clamp(14rem,28vw,26rem); font-weight:300; color:transparent; -webkit-text-stroke:1px var(--border-2); line-height:1; letter-spacing:-0.04em; pointer-events:none; user-select:none; opacity:.7; }
+    .tier-track { display:flex; gap:5px; margin-bottom:var(--space-8); }
+    .tier-seg { height:2px; flex:1; background:var(--border-2); border-radius:99px; }
+    .tier-seg.on { background:var(--accent); }
+    .plan-hero__label { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-5); }
+    .plan-hero__num { font-size:0.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); }
+    .plan-hero__dot { width:5px; height:5px; border-radius:50%; background:var(--accent); }
+    .plan-hero__name { font-family:var(--font-display); font-size:clamp(3.5rem,8vw,6.5rem); font-weight:300; line-height:1; letter-spacing:-0.03em; color:var(--ink); margin-bottom:var(--space-5); }
+    .plan-hero__name em { font-style:italic; color:var(--accent); }
+    .plan-hero__price-row { display:flex; align-items:baseline; gap:var(--space-3); margin-bottom:var(--space-7); }
+    .plan-hero__price { font-family:var(--font-display); font-size:clamp(2.2rem,5vw,3.8rem); font-weight:300; color:var(--accent); letter-spacing:-0.02em; }
+    .plan-hero__price-note { font-size:var(--text-sm); color:var(--ink-3); }
+    .plan-hero__desc { font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; max-width:580px; margin-bottom:var(--space-8); }
+    .plan-hero__ideal { display:inline-flex; align-items:flex-start; gap:var(--space-3); background:var(--accent-bg); border:1px solid rgba(200,90,40,.15); border-radius:var(--radius); padding:var(--space-4) var(--space-5); font-size:var(--text-sm); color:var(--ink-2); line-height:1.5; max-width:520px; margin-bottom:var(--space-8); }
+    .plan-hero__ideal strong { color:var(--accent); white-space:nowrap; }
+    .plan-body { padding:var(--space-24) 0; }
+    .plan-grid { display:grid; grid-template-columns:1fr 320px; gap:var(--space-14); align-items:start; }
+    @media (max-width:900px) { .plan-grid { grid-template-columns:1fr; } }
+    .inc-head { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.2rem); font-weight:300; color:var(--ink); margin-bottom:var(--space-8); letter-spacing:-0.02em; }
+    .inc-head em { font-style:italic; color:var(--accent); }
+    .inc-list { list-style:none; padding:0; margin:0; }
+    .inc-item { display:flex; align-items:flex-start; gap:var(--space-4); padding:var(--space-4) 0; border-bottom:1px solid var(--border); font-size:var(--text-base); color:var(--ink-2); line-height:1.5; }
+    .inc-item:last-child { border-bottom:none; }
+    .inc-check { width:20px; height:20px; border-radius:50%; background:var(--accent-bg); border:1px solid rgba(200,90,40,.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+    .inc-check svg { width:10px; height:10px; stroke:var(--accent); fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .plan-card { background:var(--ink); border-radius:var(--radius-xl); padding:var(--space-7); position:sticky; top:100px; color:rgba(250,248,241,.8); }
+    .plan-card__name { font-family:var(--font-display); font-size:1.1rem; font-weight:300; color:rgba(250,248,241,.5); margin-bottom:var(--space-2); letter-spacing:.02em; }
+    .plan-card__price { font-family:var(--font-display); font-size:2.4rem; font-weight:300; color:var(--accent); letter-spacing:-0.02em; margin-bottom:var(--space-6); }
+    .plan-card__divider { height:1px; background:rgba(255,255,255,.08); margin:0 0 var(--space-6); }
+    .spec-table { width:100%; border-collapse:collapse; margin-bottom:var(--space-6); }
+    .spec-row td { padding:var(--space-2) 0; font-size:var(--text-sm); border-bottom:1px solid rgba(255,255,255,.06); }
+    .spec-row:last-child td { border-bottom:none; }
+    .spec-label { color:rgba(250,248,241,.35); }
+    .spec-val { text-align:right; font-weight:600; color:rgba(250,248,241,.85); }
+    .plan-card__cta { display:flex; flex-direction:column; gap:var(--space-3); margin-top:var(--space-6); }
+    .plan-card__cta .btn { text-align:center; justify-content:center; }
+    .plan-card__note { font-size:0.7rem; color:rgba(250,248,241,.25); text-align:center; letter-spacing:.05em; }
+    .compare-section { padding:var(--space-20) 0; background:var(--bg); border-top:1px solid var(--border); }
+    .compare-head { margin-bottom:var(--space-10); }
+    .compare-head__title { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.4rem); font-weight:300; color:var(--ink); margin-bottom:var(--space-3); letter-spacing:-.02em; }
+    .compare-head__title em { font-style:italic; color:var(--accent); }
+    .compare-head__sub { font-size:var(--text-sm); color:var(--ink-3); }
+    .compare-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--border); border-radius:var(--radius-xl); box-shadow:0 4px 24px rgba(0,0,0,.04); }
+    .compare-table { width:100%; border-collapse:collapse; min-width:700px; font-size:var(--text-sm); }
+    .compare-table thead th { padding:var(--space-4) var(--space-3); background:var(--ink); color:rgba(250,248,241,.45); font-weight:500; text-align:center; border-right:1px solid rgba(255,255,255,.06); font-size:.78rem; vertical-align:bottom; line-height:1.3; }
+    .compare-table thead th:first-child { text-align:left; color:rgba(250,248,241,.22); font-size:.58rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; min-width:180px; }
+    .compare-table thead .th-name { font-weight:600; font-size:.8rem; display:block; }
+    .compare-table thead .th-price { font-family:var(--font-display); font-size:1rem; font-weight:300; color:rgba(250,248,241,.5); display:block; margin-top:2px; }
+    .compare-table .group-row td { padding:var(--space-2) var(--space-5); background:var(--bg-3); font-size:.58rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); border-top:1px solid var(--border); }
+    .compare-table tbody tr:not(.group-row) td { padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--border); border-right:1px solid var(--border); text-align:center; color:var(--ink-3); vertical-align:middle; background:var(--bg); }
+    .compare-table tbody tr:not(.group-row) td:first-child { text-align:left; color:var(--ink); font-weight:500; background:var(--bg-2); border-right:1px solid var(--border-2); padding-left:var(--space-5); }
+    .compare-table tbody tr:not(.group-row):hover td { background:var(--bg-2); }
+    .compare-table tbody tr:not(.group-row):hover td:first-child { background:var(--bg-2); }
+    .compare-table tbody tr:last-child td { border-bottom:none; }
+    .compare-table.plan-1 thead th:nth-child(2) { background:var(--accent); color:#fff; }
+    .compare-table.plan-1 thead th:nth-child(2) .th-price { color:rgba(255,255,255,.75); }
+    .c-yes::before { content:'✓'; color:var(--accent); font-weight:700; }
+    .c-no::before { content:'—'; color:var(--border-2); }
+    .c-val { font-weight:600; color:var(--ink); }
+    .plan-nav { padding:var(--space-12) 0; border-top:1px solid var(--border); background:var(--bg); }
+    .plan-nav__label { font-size:0.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); margin-bottom:var(--space-5); }
+    .plan-nav__grid { display:flex; gap:var(--space-3); flex-wrap:wrap; }
+    .plan-nav__item { display:flex; flex-direction:column; padding:var(--space-3) var(--space-5); border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; transition:border-color .2s, background .2s; background:var(--bg); }
+    .plan-nav__item:hover { border-color:var(--border-2); background:var(--bg-2); }
+    .plan-nav__item.current { border-color:var(--accent); background:var(--accent-bg); }
+    .plan-nav__item-name { font-size:var(--text-sm); font-weight:600; color:var(--ink); }
+    .plan-nav__item-price { font-size:0.72rem; color:var(--ink-3); margin-top:2px; }
+    .plan-nav__item.current .plan-nav__item-name { color:var(--accent); }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital">
+        <span class="logo__name">IBANI</span>
+        <span class="logo__sub">Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link active">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios/landing-pages"><span class="dd-icon">🎯</span><span class="dd-content"><strong>Landing Pages</strong><small>desde $3,500 MXN</small></span></a>
+              <a href="/servicios/tiendas"><span class="dd-icon">🛍️</span><span class="dd-content"><strong>Tiendas Online</strong><small>desde $8,500 MXN</small></span></a>
+              <a href="/servicios/rifas"><span class="dd-icon">🎟️</span><span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span></a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso" class="nav__link">Proceso</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20Cat%C3%A1logo%20%248%2C500." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cotizar ahora →</a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/servicios/tiendas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--accent)">↳ Tiendas Online</a>
+      <a href="/portafolio">Portafolio</a><a href="/proceso">Proceso</a><a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Cotizar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="plan-hero">
+      <span class="plan-watermark" aria-hidden="true">01</span>
+      <div class="container">
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3);flex-wrap:wrap">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li><a href="/servicios/tiendas" style="color:var(--ink-3)">Tiendas Online</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Catálogo</li>
+          </ol>
+        </nav>
+
+        <div class="tier-track anim-l" style="--delay:.05s;max-width:260px">
+          <span class="tier-seg on"></span>
+          <span class="tier-seg"></span>
+          <span class="tier-seg"></span>
+          <span class="tier-seg"></span>
+        </div>
+
+        <div class="plan-hero__label anim-l" style="--delay:.1s">
+          <span class="plan-hero__dot"></span>
+          <span class="plan-hero__num">Plan 01 de 4 · Tiendas Online</span>
+        </div>
+
+        <h1 class="plan-hero__name anim-l" style="--delay:.18s">
+          Tienda <em>Catálogo</em>
+        </h1>
+
+        <div class="plan-hero__price-row anim-l" style="--delay:.26s">
+          <span class="plan-hero__price">$8,500 MXN</span>
+          <span class="plan-hero__price-note">pago único o 50/50</span>
+        </div>
+
+        <p class="plan-hero__ideal anim-r" style="--delay:.32s">
+          <strong>Ideal para:</strong> negocios que quieren mostrar sus productos en línea pero manejan ventas por WhatsApp o en persona.
+        </p>
+
+        <p class="plan-hero__desc anim-r" style="--delay:.38s">
+          Tu catálogo de productos presentado de forma profesional: fotos, descripciones, precios y un botón de WhatsApp para que el cliente te contacte directamente. Sin carrito, sin complicaciones. Listo en 3 días.
+        </p>
+
+        <div class="anim-u" style="--delay:.46s;display:flex;gap:var(--space-4);flex-wrap:wrap">
+          <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20Cat%C3%A1logo%20%248%2C500%20de%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Cotizar ahora →</a>
+          <a href="/servicios/tiendas#planes" class="btn btn--outline">Ver todos los planes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-body">
+      <div class="container">
+        <div class="plan-grid">
+
+          <div class="reveal s3d-l">
+            <h2 class="inc-head">Todo lo que <em>incluye</em></h2>
+            <ul class="inc-list">
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Hasta 20 productos con foto, nombre, descripción y precio</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Catálogo visual con filtros por categoría</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Botón de WhatsApp flotante — el cliente te contacta directamente</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Botón Click-to-Call para llamar desde el móvil</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Integración con tus redes sociales (Facebook, Instagram, TikTok)</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Diseño responsivo — perfecto en celular, tablet y computadora</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Dominio .com o .com.mx gratis por 1 año — registrado a tu nombre</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Hosting profesional gratis por 1 año</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Certificado SSL (HTTPS) — genera confianza en tus clientes</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>1 correo profesional tipo ventas@tunegocio.com</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Alta en Google y Bing</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Código limpio y optimizado para carga rápida</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>2 actualizaciones de información sin costo</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Capacitación incluida para que administres tu catálogo</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Entrega en 3 días hábiles (a partir de contar con la información completa)</li>
+            </ul>
+          </div>
+
+          <div class="reveal s3d-r">
+            <div class="plan-card">
+              <p class="plan-card__name">Tienda Catálogo</p>
+              <p class="plan-card__price">$8,500 MXN</p>
+              <div class="plan-card__divider"></div>
+              <table class="spec-table">
+                <tbody>
+                  <tr class="spec-row"><td class="spec-label">Productos</td><td class="spec-val">Hasta 20</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Carrito de compras</td><td class="spec-val">No</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Correos profesionales</td><td class="spec-val">1</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Actualizaciones</td><td class="spec-val">2</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Dominio incluido</td><td class="spec-val">1 año</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Hosting incluido</td><td class="spec-val">1 año</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Hosting mes 13+</td><td class="spec-val">$299/mes</td></tr>
+                  <tr class="spec-row"><td class="spec-label">SSL</td><td class="spec-val">Sí</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Pago</td><td class="spec-val">Único / 50·50</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Entrega</td><td class="spec-val">3 días hábiles</td></tr>
+                </tbody>
+              </table>
+              <div class="plan-card__cta">
+                <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20el%20Cat%C3%A1logo%20%248%2C500%20de%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Cotizar ahora →</a>
+                <a href="/servicios/tiendas#planes" class="btn btn--outline" style="color:rgba(250,248,241,.5);border-color:rgba(255,255,255,.12)">Ver todos los planes</a>
+                <p class="plan-card__note">RESPUESTA EN MENOS DE 30 MINUTOS</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="compare-section">
+      <div class="container">
+        <div class="compare-head reveal s3d-l">
+          <h2 class="compare-head__title">Compara todos los <em>planes</em></h2>
+          <p class="compare-head__sub">Ve exactamente qué incluye cada plan y qué funcionalidades extra obtienes al subir de nivel.</p>
+        </div>
+        <div class="compare-wrap reveal">
+          <table class="compare-table plan-1">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th><span class="th-name">Catálogo</span><span class="th-price">$8,500</span></th>
+                <th><span class="th-name">Básica</span><span class="th-price">$15,000</span></th>
+                <th><span class="th-name">Pro</span><span class="th-price">$22,000</span></th>
+                <th><span class="th-name">Plus</span><span class="th-price">$32,000</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="5">Productos</td></tr>
+              <tr><td>Número de productos</td><td><span class="c-val">20</span></td><td><span class="c-val">50</span></td><td><span class="c-val">200</span></td><td><span class="c-val">1,000</span></td></tr>
+              <tr><td>Catálogo con fotos</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Variantes (talla/color)</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="5">Venta</td></tr>
+              <tr><td>Carrito de compras</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>MercadoPago / PayPal</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Pagos por SPEI</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Stripe / Clip adicional</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Cupones y descuentos</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Panel de administración</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Gestión de pedidos</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Cálculo de envío automático</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Notificaciones al cliente</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="5">Contacto y marketing</td></tr>
+              <tr><td>WhatsApp + Click-to-Call</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Integración redes sociales</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Chat en línea (tawk.to)</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Blog integrado</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Correos profesionales</td><td><span class="c-val">1</span></td><td><span class="c-val">3</span></td><td><span class="c-val">5</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr class="group-row"><td colspan="5">SEO y analítica</td></tr>
+              <tr><td>Alta en Google y Bing</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>SSL incluido</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Google Analytics</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>SEO básico por producto</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>SEO avanzado</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Google My Business</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="5">Infraestructura</td></tr>
+              <tr><td>Dominio .com (1 año)</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Hosting profesional (1 año)</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Hosting mes 13+</td><td><span class="c-val">$299/mes</span></td><td><span class="c-val">$499/mes</span></td><td><span class="c-val">$799/mes</span></td><td><span class="c-val">$1,199/mes</span></td></tr>
+              <tr><td>Demo / Layout previo</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Capacitación incluida</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Actualizaciones sin costo</td><td><span class="c-val">2</span></td><td><span class="c-val">4</span></td><td><span class="c-val">8</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr><td>Tiempo de entrega</td><td><span class="c-val">3 días</span></td><td><span class="c-val">1 semana</span></td><td><span class="c-val">2 semanas</span></td><td><span class="c-val">3 semanas</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-nav">
+      <div class="container">
+        <p class="plan-nav__label">Otros planes de tienda</p>
+        <div class="plan-nav__grid">
+          <a href="/servicios/tiendas/catalogo" class="plan-nav__item current">
+            <span class="plan-nav__item-name">Catálogo</span>
+            <span class="plan-nav__item-price">$8,500 MXN</span>
+          </a>
+          <a href="/servicios/tiendas/basica" class="plan-nav__item">
+            <span class="plan-nav__item-name">Tienda Básica</span>
+            <span class="plan-nav__item-price">$15,000 MXN</span>
+          </a>
+          <a href="/servicios/tiendas/pro" class="plan-nav__item">
+            <span class="plan-nav__item-name">Tienda Pro</span>
+            <span class="plan-nav__item-price">$22,000 MXN</span>
+          </a>
+          <a href="/servicios/tiendas/plus" class="plan-nav__item">
+            <span class="plan-nav__item-name">Tienda Plus</span>
+            <span class="plan-nav__item-price">$32,000 MXN</span>
+          </a>
+          <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20tienda%20personalizada." class="plan-nav__item" target="_blank" rel="noopener noreferrer">
+            <span class="plan-nav__item-name">Personalizado</span>
+            <span class="plan-nav__item-price">Precio a consulta</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span class="logo__sub">Digital</span></a>
+          <p class="footer__tagline">Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.</p>
+          <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
+            <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45)">hola@ibanidigital.com</a><br>
+            <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.45)">+52 662 504 4016</a>
+          </address>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="/servicios/landing-pages">Landing Pages</a></li>
+              <li><a href="/servicios/tiendas">Tiendas Online</a></li>
+              <li><a href="/servicios/rifas">Plataformas de Rifas</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Empresa</p>
+            <ul class="footer__col-links">
+              <li><a href="/portafolio">Portafolio</a></li>
+              <li><a href="/proceso">Proceso</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.min.js" defer></script>
+</body>
+</html>

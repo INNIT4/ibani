@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — IBANI Digital · Diseño Web en Sonora</title>
+  <meta name="description" content="Guías, recursos y casos de éxito sobre diseño web en Sonora. Todo lo que necesitas saber para tener presencia digital en Hermosillo, Ciudad Obregón y el estado.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ibanidigital.com/blog">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Blog — IBANI Digital">
+  <meta property="og:description" content="Guías y recursos sobre diseño web en Sonora.">
+  <meta property="og:url"         content="https://www.ibanidigital.com/blog">
+  <meta property="og:image"       content="https://www.ibanidigital.com/og-image.jpg">
+  <meta property="og:locale"      content="es_MX">
+
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+
+  <link rel="stylesheet" href="css/all.min.css">
+
+  <style>
+    @font-face{font-family:'Fraunces-fallback';src:local('Georgia');size-adjust:97%;ascent-override:94%;descent-override:normal;line-gap-override:normal}
+
+    /* ── Blog Hero ───────────────────────────────────────────── */
+    .blog-hero {
+      padding: 140px 0 72px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: 'BLOG';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 18vw, 18rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border-2);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .blog-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+
+    .blog-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: var(--space-6);
+    }
+
+    .blog-hero__title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .blog-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── Blog Grid ───────────────────────────────────────────── */
+    .blog-section {
+      padding: var(--space-24) 0;
+      background: var(--bg);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Blog Card ───────────────────────────────────────────── */
+    .blog-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color 0.25s var(--ease-soft),
+                  box-shadow 0.35s var(--ease),
+                  transform 0.35s var(--ease);
+    }
+
+    .blog-card:hover {
+      border-color: var(--border-2);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.09), 0 4px 16px rgba(0,0,0,0.04);
+      transform: translateY(-6px);
+    }
+
+    /* Accent top bar */
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .blog-card:hover::before { transform: scaleX(1); }
+
+    .blog-card--hermosillo::before { background: linear-gradient(to right, #C85A28, #E07848); }
+    .blog-card--obregon::before    { background: linear-gradient(to right, #2563EB, #60A5FA); }
+    .blog-card--precios::before    { background: linear-gradient(to right, #16a34a, #4ade80); }
+
+    /* Thumbnail */
+    .blog-card__thumb {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: var(--bg-3);
+      overflow: hidden;
+    }
+
+    .blog-card__thumb-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .blog-card:hover .blog-card__thumb-inner { transform: scale(1.04); }
+
+    /* City map illustration (CSS-drawn) */
+    .blog-card__city-art {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card__city-art::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+    }
+
+    .blog-card--hermosillo .blog-card__city-art { background: linear-gradient(135deg, #1A1714 0%, #2a2320 100%); }
+    .blog-card--obregon    .blog-card__city-art { background: linear-gradient(135deg, #111827 0%, #1e2a3a 100%); }
+    .blog-card--precios    .blog-card__city-art { background: linear-gradient(135deg, #0f1f14 0%, #162412 100%); }
+
+    .city-label {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: rgba(255,255,255,0.08);
+      text-transform: uppercase;
+      position: absolute;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .city-accent {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      transition: opacity 0.4s, transform 0.4s var(--ease);
+    }
+
+    .blog-card:hover .city-accent { opacity: 0.55; transform: scale(1.1); }
+
+    .blog-card--hermosillo .city-accent { width: 200px; height: 200px; background: #C85A28; top: -40px; right: -40px; }
+    .blog-card--obregon    .city-accent { width: 200px; height: 200px; background: #2563EB; bottom: -40px; left: -40px; }
+    .blog-card--precios    .city-accent { width: 220px; height: 220px; background: #16a34a; top: -50px; right: -50px; }
+
+    .city-tag {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .blog-card:hover .city-tag { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+
+    .city-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .blog-card--hermosillo .city-tag-dot { background: #E07848; }
+    .blog-card--obregon    .city-tag-dot { background: #60A5FA; }
+    .blog-card--precios    .city-tag-dot { background: #4ade80; }
+
+    /* Card body */
+    .blog-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      padding: var(--space-8);
+      flex: 1;
+    }
+
+    .blog-card__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .blog-card__category {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      border: 1px solid rgba(200,90,40,0.15);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .blog-card--obregon .blog-card__category {
+      color: #2563EB;
+      background: rgba(37,99,235,0.08);
+      border-color: rgba(37,99,235,0.15);
+    }
+
+    .blog-card__read-time {
+      font-size: var(--text-xs);
+      color: var(--ink-3);
+    }
+
+    .blog-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      transition: color 0.22s;
+    }
+
+    .blog-card:hover .blog-card__title { color: var(--accent); }
+    .blog-card--obregon:hover .blog-card__title { color: #2563EB; }
+
+    .blog-card__excerpt {
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .blog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .blog-card__topics {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .blog-card__topic {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .blog-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--ink-2);
+      white-space: nowrap;
+      transition: color 0.22s, gap 0.22s var(--ease);
+    }
+
+    .blog-card:hover .blog-card__cta { color: var(--ink); gap: 10px; }
+
+    /* ── Section divider ─────────────────────────────────────── */
+    .blog-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+    }
+
+    .blog-divider::before, .blog-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .blog-divider span {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital">
+        <span class="logo__name">IBANI</span>
+        <span class="logo__sub">Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/"           class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios#landing">
+                <span class="dd-icon">🎯</span>
+                <span class="dd-content"><strong>Landing Pages</strong><small>desde $3,500 MXN</small></span>
+              </a>
+              <a href="/servicios#tiendas">
+                <span class="dd-icon">🛍️</span>
+                <span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span>
+              </a>
+              <a href="/servicios#rifas">
+                <span class="dd-icon">🎟️</span>
+                <span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span>
+              </a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso"    class="nav__link">Proceso</a></li>
+          <li><a href="/blog"       class="nav__link active">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
+           target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          Cotizar →
+        </a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/servicios#landing"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
+      <a href="/servicios#tiendas"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios#rifas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
+      <a href="/portafolio">Portafolio</a>
+      <a href="/proceso">Proceso</a>
+      <a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Cotizar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="blog-hero">
+      <div class="container">
+
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Blog</li>
+          </ol>
+        </nav>
+
+        <div class="blog-hero__eyebrow anim-l" style="--delay:.05s">
+          <span class="hero__dot" aria-hidden="true"></span>
+          <span class="label label--accent">Recursos · Diseño Web · Sonora</span>
+        </div>
+
+        <h1 class="blog-hero__title anim-l" style="--delay:.16s">
+          Guías de diseño web<br>
+          para negocios en <em>Sonora</em>
+        </h1>
+
+        <p class="blog-hero__sub anim-r" style="--delay:.3s">
+          Todo lo que debes saber sobre presencia digital en Hermosillo,
+          Ciudad Obregón y el resto del estado. Casos reales, precios y consejos prácticos.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- BLOG GRID -->
+    <section class="blog-section">
+      <div class="container">
+
+        <div class="blog-divider reveal s3d-l">
+          <span>Artículos recientes</span>
+        </div>
+
+        <div class="blog-grid">
+
+          <!-- Card 1: Hermosillo -->
+          <a href="/hermosillo" class="blog-card blog-card--hermosillo reveal s3d-l">
+
+            <div class="blog-card__thumb">
+              <div class="blog-card__thumb-inner">
+                <img src="/img/hermosillo.jpg" alt="Diseño web en Hermosillo, Sonora" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
+            </div>
+
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__category">Diseño Web Local</span>
+                <span class="blog-card__read-time">5 min de lectura</span>
+              </div>
+
+              <h2 class="blog-card__title">
+                Diseño web en Hermosillo: lo que necesita tu negocio para crecer en la capital de Sonora
+              </h2>
+
+              <p class="blog-card__excerpt">
+                Hermosillo concentra la mayor actividad comercial del estado. Descubre cómo los negocios locales — salones de eventos, tiendas, clínicas y despachos — están captando clientes desde Google con sitios profesionales entregados en 3 días.
+              </p>
+
+              <div class="blog-card__footer">
+                <div class="blog-card__topics">
+                  <span class="blog-card__topic">SEO local</span>
+                  <span class="blog-card__topic">Landing pages</span>
+                  <span class="blog-card__topic">Hermosillo</span>
+                </div>
+                <span class="blog-card__cta">Leer artículo →</span>
+              </div>
+            </div>
+
+          </a>
+
+          <!-- Card 2: Ciudad Obregón -->
+          <a href="/obregon" class="blog-card blog-card--obregon reveal s3d-r">
+
+            <div class="blog-card__thumb">
+              <div class="blog-card__thumb-inner">
+                <img src="/img/obregon.jpg" alt="Diseño web en Ciudad Obregón, Sonora" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
+            </div>
+
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__category">Diseño Web Local</span>
+                <span class="blog-card__read-time">5 min de lectura</span>
+              </div>
+
+              <h2 class="blog-card__title">
+                Diseño web en Ciudad Obregón: presencia digital para negocios del Valle del Yaqui
+              </h2>
+
+              <p class="blog-card__excerpt">
+                Ciudad Obregón es el motor agroindustrial del sur de Sonora. Conoce cómo Floresta Jardín, La Antigua Grecia y Jardín Lantana pasaron de depender de recomendaciones a recibir consultas diarias desde internet.
+              </p>
+
+              <div class="blog-card__footer">
+                <div class="blog-card__topics">
+                  <span class="blog-card__topic">SEO local</span>
+                  <span class="blog-card__topic">Portafolio</span>
+                  <span class="blog-card__topic">Obregón</span>
+                </div>
+                <span class="blog-card__cta">Leer artículo →</span>
+              </div>
+            </div>
+
+          </a>
+
+          <!-- Card 3: ¿Cuánto cuesta una página web? -->
+          <a href="/cuanto-cuesta-pagina-web-sonora" class="blog-card blog-card--precios reveal s3d-l">
+
+            <div class="blog-card__thumb">
+              <div class="blog-card__thumb-inner">
+                <img src="/img/como-crear-una-pagina-web.jpg" alt="¿Cuánto cuesta hacer una página web en Sonora?" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
+            </div>
+
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__category" style="background:rgba(22,163,74,.1);color:#16a34a;border-color:rgba(22,163,74,.25)">Guía de precios</span>
+                <span class="blog-card__read-time">6 min de lectura</span>
+              </div>
+
+              <h2 class="blog-card__title">
+                ¿Cuánto cuesta hacer una página web en Sonora? Precios reales en 2025
+              </h2>
+
+              <p class="blog-card__excerpt">
+                Landing page, tienda online o sitio corporativo: cuánto cobran las agencias, qué incluye cada precio y por qué contratar con alguien local en Hermosillo puede salirte mejor que usar plataformas como Wix o Squarespace.
+              </p>
+
+              <div class="blog-card__footer">
+                <div class="blog-card__topics">
+                  <span class="blog-card__topic">Precios</span>
+                  <span class="blog-card__topic">Landing pages</span>
+                  <span class="blog-card__topic">Sonora</span>
+                </div>
+                <span class="blog-card__cta">Leer artículo →</span>
+              </div>
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact section--lg" style="background:var(--ink)">
+      <div class="container contact__inner">
+        <span class="label" style="color:rgba(255,255,255,.4)">IBANI Digital · Sonora</span>
+        <h2 class="contact__title" style="color:var(--bg)">
+          ¿Tu negocio necesita<br><em style="color:var(--accent)">una página web?</em>
+        </h2>
+        <p class="contact__sub" style="color:rgba(255,255,255,.6)">
+          Cotización en menos de 30 minutos. Entrega en 3 días hábiles. Sin comisiones.
+        </p>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
+           target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital">
+            <span class="logo__name">IBANI</span>
+            <span class="logo__sub">Digital</span>
+          </a>
+          <p class="footer__tagline">
+            Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.
+          </p>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="/#servicios">Landing Pages</a></li>
+              <li><a href="/#servicios">Tiendas Online</a></li>
+              <li><a href="/plataforma-rifas-online">Plataformas de Rifas</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Blog</p>
+            <ul class="footer__col-links">
+              <li><a href="/hermosillo">Diseño Web Hermosillo</a></li>
+              <li><a href="/obregon">Diseño Web Obregón</a></li>
+              <li><a href="/cuanto-cuesta-pagina-web-sonora">¿Cuánto cuesta una web?</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.min.js" defer></script>
+
+</body>
+</html>

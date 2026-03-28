@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Empresarial — Sitio Web $14,000 MXN · IBANI Digital</title>
+  <meta name="description" content="Plan Empresarial de sitio web: 12 secciones, correos y videos ilimitados, SEO local avanzado, Google Analytics 4, 3 formularios y 1 ronda de revisiones. Todo por $14,000 MXN. Entrega en 7 días hábiles.">
+  <link rel="canonical" href="https://www.ibanidigital.com/servicios/landing-pages/empresarial">
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/css/all.min.css">
+  <style>
+    /* ── Plan Hero ─────────────────────────────────────────────── */
+    .plan-hero {
+      padding: 140px 0 88px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-watermark {
+      position: absolute;
+      right: -2rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(14rem, 28vw, 26rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--border-2);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      user-select: none;
+      opacity: .7;
+    }
+
+    /* Tier progress */
+    .tier-track {
+      display: flex;
+      gap: 5px;
+      margin-bottom: var(--space-8);
+    }
+    .tier-seg {
+      height: 2px;
+      flex: 1;
+      background: var(--border-2);
+      border-radius: 99px;
+    }
+    .tier-seg.on { background: var(--accent); }
+
+    .plan-hero__label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .plan-hero__num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .plan-hero__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+    .plan-hero__name {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: var(--space-5);
+    }
+    .plan-hero__name em { font-style: italic; color: var(--accent); }
+
+    .plan-hero__price-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-7);
+    }
+    .plan-hero__price {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .plan-hero__price-note {
+      font-size: var(--text-sm);
+      color: var(--ink-3);
+    }
+
+    .plan-hero__desc {
+      font-size: var(--text-lg);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: var(--space-8);
+    }
+
+    .plan-hero__ideal {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      background: var(--accent-bg);
+      border: 1px solid rgba(200,90,40,.15);
+      border-radius: var(--radius);
+      padding: var(--space-4) var(--space-5);
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.5;
+      max-width: 520px;
+      margin-bottom: var(--space-8);
+    }
+    .plan-hero__ideal strong { color: var(--accent); white-space: nowrap; }
+
+    /* ── Body ──────────────────────────────────────────────────── */
+    .plan-body { padding: var(--space-24) 0; }
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: var(--space-14);
+      align-items: start;
+    }
+    @media (max-width: 900px) { .plan-grid { grid-template-columns: 1fr; } }
+
+    /* Include list */
+    .inc-head {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: var(--space-8);
+      letter-spacing: -0.02em;
+    }
+    .inc-head em { font-style: italic; color: var(--accent); }
+
+    .inc-list { list-style: none; padding: 0; margin: 0; }
+    .inc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border);
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+    .inc-item:last-child { border-bottom: none; }
+    .inc-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-bg);
+      border: 1px solid rgba(200,90,40,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .inc-check svg { width: 10px; height: 10px; stroke: var(--accent); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Sidebar */
+    .plan-card {
+      background: var(--ink);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      position: sticky;
+      top: 100px;
+      color: rgba(250,248,241,.8);
+    }
+    .plan-card__name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(250,248,241,.5);
+      margin-bottom: var(--space-2);
+      letter-spacing: .02em;
+    }
+    .plan-card__price {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-6);
+    }
+    .plan-card__divider { height: 1px; background: rgba(255,255,255,.08); margin: 0 0 var(--space-6); }
+
+    .spec-table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-6); }
+    .spec-row td {
+      padding: var(--space-2) 0;
+      font-size: var(--text-sm);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .spec-row:last-child td { border-bottom: none; }
+    .spec-label { color: rgba(250,248,241,.35); }
+    .spec-val { text-align: right; font-weight: 600; color: rgba(250,248,241,.85); }
+
+    .plan-card__cta { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
+    .plan-card__cta .btn { text-align: center; justify-content: center; }
+    .plan-card__note {
+      font-size: 0.7rem;
+      color: rgba(250,248,241,.25);
+      text-align: center;
+      letter-spacing: .05em;
+    }
+
+    /* ── Extras ────────────────────────────────────────────────── */
+    .extras-section {
+      padding: var(--space-20) 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+    }
+    .extras-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-8);
+      margin-bottom: var(--space-10);
+      flex-wrap: wrap;
+    }
+    .extras-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .extras-title em { font-style: italic; color: var(--accent); }
+    .extras-sub { font-size: var(--text-sm); color: var(--ink-3); max-width: 320px; line-height: 1.55; }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-4);
+    }
+    .extra-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: var(--space-5) var(--space-6);
+    }
+    .extra-card__name {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-2);
+    }
+    .extra-card__desc {
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+      margin-bottom: var(--space-4);
+    }
+    .extra-card__price {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    /* ── Nav plans ─────────────────────────────────────────────── */
+    .plan-nav {
+      padding: var(--space-12) 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .plan-nav__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: var(--space-5);
+    }
+    .plan-nav__grid {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .plan-nav__item {
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-3) var(--space-5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+      background: var(--bg);
+    }
+    .plan-nav__item:hover { border-color: var(--border-2); background: var(--bg-2); }
+    .plan-nav__item.current { border-color: var(--accent); background: var(--accent-bg); }
+    .plan-nav__item-name { font-size: var(--text-sm); font-weight: 600; color: var(--ink); }
+    .plan-nav__item-price { font-size: 0.72rem; color: var(--ink-3); margin-top: 2px; }
+    .plan-nav__item.current .plan-nav__item-name { color: var(--accent); }
+
+    /* ── Feature Comparison Table ─────────────────────────────── */
+    .compare-section { padding: var(--space-20) 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .compare-head { margin-bottom: var(--space-10); }
+    .compare-head__title { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.4rem); font-weight:300; color:var(--ink); margin-bottom:var(--space-3); letter-spacing:-.02em; }
+    .compare-head__title em { font-style:italic; color:var(--accent); }
+    .compare-head__sub { font-size:var(--text-sm); color:var(--ink-3); }
+    .compare-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--border); border-radius:var(--radius-xl); box-shadow:0 4px 24px rgba(0,0,0,.04); }
+    .compare-table { width:100%; border-collapse:collapse; min-width:820px; font-size:var(--text-sm); }
+    .compare-table thead th { padding:var(--space-4) var(--space-3); background:var(--ink); color:rgba(250,248,241,.45); font-weight:500; text-align:center; border-right:1px solid rgba(255,255,255,.06); font-size:.78rem; vertical-align:bottom; line-height:1.3; }
+    .compare-table thead th:first-child { text-align:left; color:rgba(250,248,241,.22); font-size:.58rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; min-width:180px; }
+    .compare-table thead .th-name { font-weight:600; font-size:.8rem; display:block; }
+    .compare-table thead .th-price { font-family:var(--font-display); font-size:1rem; font-weight:300; color:rgba(250,248,241,.5); display:block; margin-top:2px; }
+    .compare-table .group-row td { padding:var(--space-2) var(--space-5); background:var(--bg-3); font-size:.58rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); border-top:1px solid var(--border); }
+    .compare-table tbody tr:not(.group-row) td { padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--border); border-right:1px solid var(--border); text-align:center; color:var(--ink-3); vertical-align:middle; background:var(--bg); }
+    .compare-table tbody tr:not(.group-row) td:first-child { text-align:left; color:var(--ink); font-weight:500; background:var(--bg-2); border-right:1px solid var(--border-2); padding-left:var(--space-5); }
+    .compare-table tbody tr:not(.group-row):hover td { background:var(--bg-2); }
+    .compare-table tbody tr:not(.group-row):hover td:first-child { background:var(--bg-2); }
+    .compare-table tbody tr:last-child td { border-bottom:none; }
+    .compare-table.plan-1 thead th:nth-child(2),.compare-table.plan-2 thead th:nth-child(3),.compare-table.plan-3 thead th:nth-child(4),.compare-table.plan-4 thead th:nth-child(5),.compare-table.plan-5 thead th:nth-child(6),.compare-table.plan-6 thead th:nth-child(7) { background:var(--accent); color:#fff; position:relative; }
+    .compare-table.plan-1 thead th:nth-child(2) .th-price,.compare-table.plan-2 thead th:nth-child(3) .th-price,.compare-table.plan-3 thead th:nth-child(4) .th-price,.compare-table.plan-4 thead th:nth-child(5) .th-price,.compare-table.plan-5 thead th:nth-child(6) .th-price,.compare-table.plan-6 thead th:nth-child(7) .th-price { color:rgba(255,255,255,.75); }
+    .compare-table.plan-1 thead th:nth-child(2)::after,.compare-table.plan-2 thead th:nth-child(3)::after,.compare-table.plan-3 thead th:nth-child(4)::after,.compare-table.plan-4 thead th:nth-child(5)::after,.compare-table.plan-5 thead th:nth-child(6)::after,.compare-table.plan-6 thead th:nth-child(7)::after { content:'Tu plan'; display:block; font-size:.52rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:rgba(255,255,255,.2); border-radius:99px; padding:2px 7px; color:rgba(255,255,255,.9); margin:4px auto 0; width:fit-content; }
+    .compare-table.plan-1 tbody tr:not(.group-row) td:nth-child(2),.compare-table.plan-2 tbody tr:not(.group-row) td:nth-child(3),.compare-table.plan-3 tbody tr:not(.group-row) td:nth-child(4),.compare-table.plan-4 tbody tr:not(.group-row) td:nth-child(5),.compare-table.plan-5 tbody tr:not(.group-row) td:nth-child(6),.compare-table.plan-6 tbody tr:not(.group-row) td:nth-child(7) { background:rgba(200,90,40,.06); border-right:1px solid rgba(200,90,40,.15); color:var(--ink-2); }
+    .compare-table.plan-1 tbody tr:not(.group-row):hover td:nth-child(2),.compare-table.plan-2 tbody tr:not(.group-row):hover td:nth-child(3),.compare-table.plan-3 tbody tr:not(.group-row):hover td:nth-child(4),.compare-table.plan-4 tbody tr:not(.group-row):hover td:nth-child(5),.compare-table.plan-5 tbody tr:not(.group-row):hover td:nth-child(6),.compare-table.plan-6 tbody tr:not(.group-row):hover td:nth-child(7) { background:rgba(200,90,40,.1); }
+    .c-yes { display:inline-flex; width:20px; height:20px; border-radius:50%; background:rgba(200,90,40,.1); border:1.5px solid rgba(200,90,40,.2); align-items:center; justify-content:center; margin:0 auto; }
+    .c-yes::before { content:'✓'; font-size:11px; color:var(--accent); font-weight:700; line-height:1; }
+    .c-no { color:var(--border-2); }
+    .c-no::before { content:'—'; }
+    .c-val { font-weight:600; color:var(--ink); font-size:.82rem; }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital">
+        <span class="logo__name">IBANI</span><span class="logo__sub">Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link active">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios/landing-pages"><span class="dd-icon">🌐</span><span class="dd-content"><strong>Sitios Web</strong><small>desde $3,500 MXN</small></span></a>
+              <a href="/servicios/tiendas"><span class="dd-icon">🛍️</span><span class="dd-content"><strong>Tiendas Online</strong><small>desde $8,500 MXN</small></span></a>
+              <a href="/servicios/rifas"><span class="dd-icon">🎟️</span><span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,500/mes</small></span></a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso" class="nav__link">Proceso</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Empresarial%20%2414%2C000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora →</a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/servicios/landing-pages" style="font-size:1.4rem;padding-left:1.2rem;color:var(--accent)">↳ Sitios Web</a>
+      <a href="/servicios/tiendas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios/rifas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Rifas</a>
+      <a href="/portafolio">Portafolio</a><a href="/proceso">Proceso</a><a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Cotizar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="plan-hero">
+      <span class="plan-watermark" aria-hidden="true">06</span>
+      <div class="container">
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3);flex-wrap:wrap">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li><a href="/servicios/landing-pages" style="color:var(--ink-3)">Sitios Web</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Plan Empresarial</li>
+          </ol>
+        </nav>
+
+        <div class="tier-track anim-l" style="--delay:.05s;max-width:260px">
+          <span class="tier-seg on"></span>
+          <span class="tier-seg on"></span>
+          <span class="tier-seg on"></span>
+          <span class="tier-seg on"></span>
+          <span class="tier-seg on"></span>
+          <span class="tier-seg on"></span>
+        </div>
+
+        <div class="plan-hero__label anim-l" style="--delay:.1s">
+          <span class="plan-hero__dot"></span>
+          <span class="plan-hero__num">Plan 06 de 6 · Sitios Web</span>
+          <span style="font-size:0.7rem;font-weight:700;letter-spacing:.05em;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(200,90,40,.2);border-radius:99px;padding:2px 10px;">Plan más completo</span>
+        </div>
+
+        <h1 class="plan-hero__name anim-l" style="--delay:.18s">
+          Plan <em>Empresarial</em>
+        </h1>
+
+        <div class="plan-hero__price-row anim-l" style="--delay:.26s">
+          <span class="plan-hero__price">$14,000 MXN</span>
+          <span class="plan-hero__price-note">pago en parcialidades</span>
+        </div>
+
+        <p class="plan-hero__ideal anim-r" style="--delay:.32s">
+          <strong>Ideal para:</strong> empresas consolidadas de Sonora que necesitan una presencia web de alto impacto, sin límites en contenido, con SEO avanzado y estadísticas profesionales.
+        </p>
+
+        <p class="plan-hero__desc anim-r" style="--delay:.38s">
+          El plan más completo de IBANI Digital. Sin límites: secciones ilimitadas en el diseño, correos ilimitados, videos ilimitados e imágenes ilimitadas. Incluye SEO local avanzado, estadísticas avanzadas con Google Analytics 4, 3 formularios y 1 ronda de revisiones. Tu sitio crece junto con tu empresa.
+        </p>
+
+        <div class="anim-u" style="--delay:.46s;display:flex;gap:var(--space-4);flex-wrap:wrap">
+          <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Empresarial%20%2414%2C000." target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Comprar ahora →</a>
+          <a href="/servicios/landing-pages#planes" class="btn btn--outline">Ver todos los planes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="plan-body">
+      <div class="container">
+        <div class="plan-grid">
+
+          <!-- Includes -->
+          <div class="reveal s3d-l">
+            <h2 class="inc-head">Todo lo que <em>incluye</em></h2>
+            <ul class="inc-list">
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>12 secciones de información (ej. Inicio, Servicios, Productos, Portafolio, Galería, Nosotros, Equipo, Testimonios, Precios, Blog, Políticas, Contacto)</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Todo lo incluido en el Plan PyME</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Correos profesionales ilimitados</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>3 formularios de contacto personalizados</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Videos de YouTube ilimitados integrados en la página</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Imágenes ilimitadas del cliente o de stock</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>SEO local avanzado — estrategia completa para Google My Business, palabras clave locales y estructura técnica profesional</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Estadísticas avanzadas — Google Analytics 4 con eventos personalizados y configuración de conversiones</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>15 actualizaciones de información sin costo (hasta 30 días después de entrega)</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>1 ronda de revisiones completa al diseño antes de publicar</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Diseño responsivo de alto nivel — perfecto en cualquier dispositivo</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Botón de WhatsApp flotante + Click-to-Call</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Certificado SSL, alta en Google y Bing, enlace a redes sociales</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Código altamente optimizado para máxima velocidad de carga y rendimiento</li>
+              <li class="inc-item"><span class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Entrega en 7 días hábiles (a partir de contar con la información completa)</li>
+            </ul>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="reveal s3d-r">
+            <div class="plan-card">
+              <p class="plan-card__name">Plan Empresarial</p>
+              <p class="plan-card__price">$14,000 MXN</p>
+              <div class="plan-card__divider"></div>
+              <table class="spec-table">
+                <tbody>
+                  <tr class="spec-row"><td class="spec-label">Secciones</td><td class="spec-val">12</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Espacio en disco</td><td class="spec-val">7 GB</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Ancho de banda</td><td class="spec-val">10 GB/mes</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Correos profesionales</td><td class="spec-val">Ilimitados</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Formularios de contacto</td><td class="spec-val">3</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Carruseles de imágenes</td><td class="spec-val">Ilimitados</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Videos de YouTube</td><td class="spec-val">Ilimitados</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Imágenes del cliente</td><td class="spec-val">Ilimitadas</td></tr>
+                  <tr class="spec-row"><td class="spec-label">SEO local avanzado</td><td class="spec-val">Sí</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Estadísticas avanzadas</td><td class="spec-val">Sí (GA4)</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Rondas de revisión</td><td class="spec-val">1</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Actualizaciones</td><td class="spec-val">15</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Dominio incluido</td><td class="spec-val">1 año</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Hosting incluido</td><td class="spec-val">1 año</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Renovación año 2+</td><td class="spec-val">$3,500 MXN/año</td></tr>
+                  <tr class="spec-row"><td class="spec-label">SSL</td><td class="spec-val">Sí</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Pago</td><td class="spec-val">Único / 50·50</td></tr>
+                  <tr class="spec-row"><td class="spec-label">Entrega</td><td class="spec-val">7 días hábiles</td></tr>
+                </tbody>
+              </table>
+              <div class="plan-card__cta">
+                <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Empresarial%20%2414%2C000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora →</a>
+                <a href="/servicios/landing-pages#planes" class="btn btn--outline" style="color:rgba(250,248,241,.5);border-color:rgba(255,255,255,.12)">Ver todos los planes</a>
+                <p class="plan-card__note">Respuesta en menos de 30 minutos</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="compare-section">
+      <div class="container">
+        <div class="compare-head reveal s3d-l">
+          <h2 class="compare-head__title">Compara todos los <em>planes</em></h2>
+          <p class="compare-head__sub">Ve exactamente qué incluye tu plan y qué funcionalidades extra obtienes al subir de nivel.</p>
+        </div>
+        <div class="compare-wrap reveal">
+          <table class="compare-table plan-6">
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th><span class="th-name">Económico</span><span class="th-price">$3,500</span></th>
+                <th><span class="th-name">Emprendedor</span><span class="th-price">$5,500</span></th>
+                <th><span class="th-name">Negocios</span><span class="th-price">$7,500</span></th>
+                <th><span class="th-name">Microempresa</span><span class="th-price">$9,500</span></th>
+                <th><span class="th-name">PyME</span><span class="th-price">$11,500</span></th>
+                <th><span class="th-name">Empresarial</span><span class="th-price">$14,000</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="7">Estructura</td></tr>
+              <tr><td>Secciones</td><td><span class="c-val">2</span></td><td><span class="c-val">4</span></td><td><span class="c-val">6</span></td><td><span class="c-val">8</span></td><td><span class="c-val">10</span></td><td><span class="c-val">12</span></td></tr>
+              <tr><td>Dominio .com (1 año)</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Hosting profesional (1 año)</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Demo-Layout previo</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="7">Diseño</td></tr>
+              <tr><td>Diseño personalizado</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Diseño responsivo</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Animaciones CSS3</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Textos de persuasión</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Ronda de revisiones</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-val">1</span></td><td><span class="c-val">1</span></td></tr>
+              <tr class="group-row"><td colspan="7">Contacto</td></tr>
+              <tr><td>WhatsApp + Click-to-Call</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Enlace a redes sociales</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Chat en Messenger</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Botones compartir en redes</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Chat en línea (tawk.to)</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Formularios de contacto</td><td><span class="c-val">1</span></td><td><span class="c-val">1</span></td><td><span class="c-val">1</span></td><td><span class="c-val">1</span></td><td><span class="c-val">2</span></td><td><span class="c-val">3</span></td></tr>
+              <tr><td>Correos profesionales</td><td><span class="c-val">1</span></td><td><span class="c-val">2</span></td><td><span class="c-val">5</span></td><td><span class="c-val">8</span></td><td><span class="c-val">12</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr><td>Google Maps</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="7">Multimedia</td></tr>
+              <tr><td>Imágenes del cliente</td><td><span class="c-val">10</span></td><td><span class="c-val">15</span></td><td><span class="c-val">30</span></td><td><span class="c-val">40</span></td><td><span class="c-val">50</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr><td>Videos de YouTube</td><td><span class="c-no"></span></td><td><span class="c-val">1</span></td><td><span class="c-val">2</span></td><td><span class="c-val">3</span></td><td><span class="c-val">5</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr><td>Carrusel de imágenes</td><td><span class="c-val">1</span></td><td><span class="c-val">1</span></td><td><span class="c-val">2</span></td><td><span class="c-val">2</span></td><td><span class="c-val">2</span></td><td><span class="c-val">∞</span></td></tr>
+              <tr><td>Galería con lightbox</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="7">SEO y Analítica</td></tr>
+              <tr><td>Alta en Google y Bing</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Certificado SSL</td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Google Analytics</td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Código QR del negocio</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>SEO técnico</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-val">Básico</span></td><td><span class="c-val">Básico</span></td><td><span class="c-val">Avanzado</span></td><td><span class="c-val">Avanzado</span></td></tr>
+              <tr><td>SEO local (Google My Business)</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="7">Funcionalidades adicionales</td></tr>
+              <tr><td>Traductor de idioma</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Sección de testimonios</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr><td>Sección de precios en el sitio</td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-no"></span></td><td><span class="c-yes"></span></td><td><span class="c-yes"></span></td></tr>
+              <tr class="group-row"><td colspan="7">Soporte y entrega</td></tr>
+              <tr><td>Actualizaciones sin costo</td><td><span class="c-val">3</span></td><td><span class="c-val">5</span></td><td><span class="c-val">7</span></td><td><span class="c-val">9</span></td><td><span class="c-val">11</span></td><td><span class="c-val">15</span></td></tr>
+              <tr><td>Tiempo de entrega</td><td><span class="c-val">3 días</span></td><td><span class="c-val">4 días</span></td><td><span class="c-val">5 días</span></td><td><span class="c-val">5 días</span></td><td><span class="c-val">7 días</span></td><td><span class="c-val">7 días</span></td></tr>
+              <tr><td>Forma de pago</td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td><td><span class="c-val" style="font-size:.72rem">Único/50·50</span></td></tr>
+              <tr><td>Renovación anual (año 2+)</td><td><span class="c-val" style="font-size:.72rem">$1,200</span></td><td><span class="c-val" style="font-size:.72rem">$1,800</span></td><td><span class="c-val" style="font-size:.72rem">$2,100</span></td><td><span class="c-val" style="font-size:.72rem">$2,400</span></td><td><span class="c-val" style="font-size:.72rem">$2,700</span></td><td><span class="c-val" style="font-size:.72rem">$3,500</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTRAS -->
+    <section class="extras-section">
+      <div class="container">
+        <div class="extras-head reveal s3d-l">
+          <div>
+            <h2 class="extras-title">Servicios <em>extras</em></h2>
+          </div>
+          <p class="extras-sub">Agrega funcionalidades opcionales a tu sitio en cualquier momento, antes o después de la entrega.</p>
+        </div>
+        <div class="extras-grid">
+          <div class="extra-card reveal s3d-l">
+            <p class="extra-card__name">Administrador de contenidos</p>
+            <p class="extra-card__desc">Actualiza texto, imágenes y promociones sin depender de nadie. Incluye capacitación vía remota o manual de usuario.</p>
+            <p class="extra-card__price">+ $3,500 MXN</p>
+          </div>
+          <div class="extra-card reveal s3d-r">
+            <p class="extra-card__name">App para Android</p>
+            <p class="extra-card__desc">Convertimos tu sitio en una aplicación para Android disponible en la Play Store.</p>
+            <p class="extra-card__price">+ $5,000 MXN <small style="font-size:.75rem;color:var(--ink-3)">+ $2,500/año Play Store</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN NAVIGATOR -->
+    <section class="plan-nav">
+      <div class="container">
+        <p class="plan-nav__label">Otros planes disponibles</p>
+        <div class="plan-nav__grid">
+          <a href="/servicios/landing-pages/economico" class="plan-nav__item"><span class="plan-nav__item-name">Económico</span><span class="plan-nav__item-price">$3,500 MXN</span></a>
+          <a href="/servicios/landing-pages/emprendedor" class="plan-nav__item"><span class="plan-nav__item-name">Emprendedor</span><span class="plan-nav__item-price">$5,500 MXN</span></a>
+          <a href="/servicios/landing-pages/negocios" class="plan-nav__item"><span class="plan-nav__item-name">Negocios</span><span class="plan-nav__item-price">$7,500 MXN</span></a>
+          <a href="/servicios/landing-pages/microempresa" class="plan-nav__item"><span class="plan-nav__item-name">Microempresa</span><span class="plan-nav__item-price">$9,500 MXN</span></a>
+          <a href="/servicios/landing-pages/pyme" class="plan-nav__item"><span class="plan-nav__item-name">PyME</span><span class="plan-nav__item-price">$11,500 MXN</span></a>
+          <a href="/servicios/landing-pages/empresarial" class="plan-nav__item current"><span class="plan-nav__item-name">Empresarial</span><span class="plan-nav__item-price">$14,000 MXN</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact section--lg" style="background:var(--ink)">
+      <div class="container contact__inner">
+        <span class="label" style="color:rgba(255,255,255,.3)">Plan Empresarial · $14,000 MXN · El más completo</span>
+        <h2 class="contact__title" style="color:var(--bg)">¿Listo para<br><em style="color:var(--accent)">tener tu sitio?</em></h2>
+        <p class="contact__sub" style="color:rgba(255,255,255,.55)">Escríbenos y comenzamos hoy. Entrega garantizada en 7 días hábiles.</p>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Empresarial%20%2414%2C000." target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Comprar Plan Empresarial
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span class="logo__sub">Digital</span></a>
+          <p class="footer__tagline">Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.</p>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Planes — Sitios Web</p>
+            <ul class="footer__col-links">
+              <li><a href="/servicios/landing-pages/economico">Económico — $3,500</a></li>
+              <li><a href="/servicios/landing-pages/emprendedor">Emprendedor — $5,500</a></li>
+              <li><a href="/servicios/landing-pages/negocios">Negocios — $7,500</a></li>
+              <li><a href="/servicios/landing-pages/microempresa">Microempresa — $9,500</a></li>
+              <li><a href="/servicios/landing-pages/pyme">PyME — $11,500</a></li>
+              <li><a href="/servicios/landing-pages/empresarial">Empresarial — $14,000</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+              <li><a href="/blog">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.min.js" defer></script>
+</body>
+</html>
