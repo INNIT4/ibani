@@ -319,6 +319,9 @@
     .logo__name{font-family:var(--font-display);font-size:1.3rem;font-weight:400;letter-spacing:.08em;color:var(--ink)}
     .logo__sub{font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
     .hero{min-height:100dvh;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 65% -10%,rgba(224,112,72,.07) 0%,transparent 60%),radial-gradient(ellipse 45% 35% at 10% 110%,rgba(224,112,72,.05) 0%,transparent 55%),var(--bg)}
+    /* Stretched-link: hace toda la tarjeta de servicio clickeable */
+    .svc-card__link::after{content:'';position:absolute;inset:0;z-index:1}
+    .svc-card__tags,.svc-card__price{position:relative;z-index:2}
   </style>
   <link rel="stylesheet" href="css/all.min.css">
 </head>
@@ -345,11 +348,28 @@
 
       <nav class="nav" aria-label="Navegación principal">
         <ul class="nav__list">
-          <li><a href="#servicios"  class="nav__link" data-section="servicios">Servicios</a></li>
-          <li><a href="#portafolio" class="nav__link" data-section="portafolio">Portafolio</a></li>
-          <li><a href="#proceso"    class="nav__link" data-section="proceso">Proceso</a></li>
-          <li><a href="#precios"    class="nav__link" data-section="precios">Precios</a></li>
-          <li><a href="#faq"        class="nav__link" data-section="faq">FAQ</a></li>
+          <li><a href="/"           class="nav__link active">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios#landing">
+                <span class="dd-icon">🎯</span>
+                <span class="dd-content"><strong>Landing Pages</strong><small>desde $3,500 MXN</small></span>
+              </a>
+              <a href="/servicios#tiendas">
+                <span class="dd-icon">🛍️</span>
+                <span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span>
+              </a>
+              <a href="/servicios#rifas">
+                <span class="dd-icon">🎟️</span>
+                <span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span>
+              </a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso"    class="nav__link">Proceso</a></li>
+          <li><a href="/blog"       class="nav__link">Blog</a></li>
         </ul>
 
         <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20con%20IBANI%20Digital."
@@ -365,11 +385,14 @@
 
     <!-- Mobile overlay -->
     <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
-      <a href="#servicios">Servicios</a>
-      <a href="#portafolio">Portafolio</a>
-      <a href="#proceso">Proceso</a>
-      <a href="#precios">Precios</a>
-      <a href="#faq">FAQ</a>
+      <a href="/">Inicio</a>
+      <a href="/servicios">Servicios</a>
+      <a href="/servicios#landing"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
+      <a href="/servicios#tiendas"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios#rifas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
+      <a href="/portafolio">Portafolio</a>
+      <a href="/proceso">Proceso</a>
+      <a href="/blog">Blog</a>
       <a href="#contacto" style="color:var(--accent)">Contactar →</a>
     </div>
   </header>
@@ -415,7 +438,7 @@
               <svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
               Cotizar por WhatsApp
             </a>
-            <a href="#portafolio" class="link-arrow fade-up" style="--delay:.8s">
+            <a href="/portafolio" class="link-arrow fade-up" style="--delay:.8s">
               Ver proyectos →
             </a>
           </div>
@@ -554,7 +577,7 @@
             </div>
             <div class="svc-card__footer">
               <span class="svc-card__price">desde <strong>$3,500</strong> MXN</span>
-              <a href="#precios" class="svc-card__link">Ver planes →</a>
+              <a href="/servicios/landing-pages" class="svc-card__link">Ver servicio →</a>
             </div>
           </article>
 
@@ -572,7 +595,7 @@
             </div>
             <div class="svc-card__footer">
               <span class="svc-card__price">Precio a consulta</span>
-              <a href="#precios" class="svc-card__link">Cotizar →</a>
+              <a href="/servicios/tiendas" class="svc-card__link">Ver servicio →</a>
             </div>
           </article>
 
@@ -590,27 +613,10 @@
             </div>
             <div class="svc-card__footer">
               <span class="svc-card__price">desde <strong>$5,000</strong> MXN/mes</span>
-              <a href="#precios" class="svc-card__link">Ver planes →</a>
+              <a href="/servicios/rifas" class="svc-card__link">Ver servicio →</a>
             </div>
           </article>
 
-          <article class="svc-card reveal reveal--d4">
-            <div class="svc-card__top">
-              <span class="svc-card__num">04</span>
-              <span class="svc-card__icon" aria-hidden="true">🏛️</span>
-            </div>
-            <h3 class="svc-card__title">Sitios Corporativos</h3>
-            <p class="svc-card__desc">Sitios web institucionales para empresas, salones de eventos, jardines, clínicas, escuelas y negocios establecidos en Sonora que necesitan presencia digital profesional. Cada sitio corporativo incluye: galería de fotos de instalaciones o servicios, sección de paquetes o precios, formulario de contacto o cotización, mapa de ubicación, optimización SEO local para aparecer en búsquedas de Hermosillo y Ciudad Obregón, y diseño alineado con la identidad visual del negocio. Clientes recientes: Jardín Ferraris, Casa Arias, La Antigua Grecia, El Marqués y Hacienda Las Minitas. Entrega en 3-5 días hábiles según la complejidad. Precio desde $6,000 MXN (plan Pro) con dominio, hosting y SSL el primer año incluidos. Sin sorpresas ni costos ocultos.</p>
-            <div class="svc-card__tags">
-              <span class="tag">Galerías</span>
-              <span class="tag">SEO local</span>
-              <span class="tag">Contacto</span>
-            </div>
-            <div class="svc-card__footer">
-              <span class="svc-card__price">desde <strong>$6,000</strong> MXN</span>
-              <a href="#precios" class="svc-card__link">Ver planes →</a>
-            </div>
-          </article>
 
         </div>
       </div>
@@ -1405,18 +1411,18 @@
           <div>
             <p class="footer__col-title">Servicios</p>
             <ul class="footer__col-links">
-              <li><a href="#servicios">Landing Pages</a></li>
-              <li><a href="#servicios">Tiendas Online</a></li>
+              <li><a href="/servicios">Landing Pages</a></li>
+              <li><a href="/servicios">Tiendas Online</a></li>
               <li><a href="/plataforma-rifas-online">Plataformas de Rifas</a></li>
-              <li><a href="#servicios">Sitios Corporativos</a></li>
+              <li><a href="/servicios">Sitios Corporativos</a></li>
             </ul>
           </div>
           <div>
             <p class="footer__col-title">Empresa</p>
             <ul class="footer__col-links">
-              <li><a href="#portafolio">Portafolio</a></li>
-              <li><a href="#proceso">Proceso</a></li>
-              <li><a href="#precios">Precios</a></li>
+              <li><a href="/portafolio">Portafolio</a></li>
+              <li><a href="/proceso">Proceso</a></li>
+              <li><a href="/blog">Blog</a></li>
               <li><a href="#faq">FAQ</a></li>
               <li><a href="/hermosillo">Hermosillo</a></li>
               <li><a href="/obregon">Ciudad Obregón</a></li>

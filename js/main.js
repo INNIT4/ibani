@@ -117,6 +117,28 @@ document.addEventListener('DOMContentLoaded', function () {
     counters.forEach(el => cObs.observe(el));
   }
 
+  /* ── Nav dropdown delay (prevent disappear before click) ─── */
+  document.querySelectorAll('.nav__item--has-dropdown').forEach(item => {
+    let hideTimer = null;
+
+    const show = () => {
+      clearTimeout(hideTimer);
+      item.classList.add('dd-open');
+    };
+    const hide = () => {
+      hideTimer = setTimeout(() => item.classList.remove('dd-open'), 180);
+    };
+
+    item.addEventListener('mouseenter', show);
+    item.addEventListener('mouseleave', hide);
+
+    const dropdown = item.querySelector('.nav__dropdown');
+    if (dropdown) {
+      dropdown.addEventListener('mouseenter', show);
+      dropdown.addEventListener('mouseleave', hide);
+    }
+  });
+
   /* ── FAQ Accordion ────────────────────────────────────────── */
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn  = item.querySelector('.faq-btn');

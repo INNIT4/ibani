@@ -14,10 +14,10 @@
 
 ## Archivos clave
 - `index.html` — página principal
-- `css/base.css` — design tokens (colores, tipografía, espaciado)
-- `css/components.css` — nav, botones, cards
-- `css/sections.css` — secciones del landing
-- `js/main.js` — scroll reveals, FAQ, animaciones
+- `css/all.min.css` — CSS compilado (el que se sirve en producción)
+- `css/base.css`, `css/components.css`, `css/sections.css` — fuentes CSS (editar aquí, recompilar en all.min.css)
+- `js/main.min.js` — JS compilado (el que se sirve; `js/main.js` es la fuente)
+- `servicios/` — páginas individuales: `landing-pages.html`, `tiendas.html`, `rifas.html`, `corporativos.html`
 - `privacidad.html` — aviso de privacidad LFPDPPP
 - `obregon.html` — página SEO local para Ciudad Obregón (indexable, con schema propio)
 - `llms.txt` — contexto para crawlers de IA (GPTBot, ClaudeBot, PerplexityBot)
@@ -37,3 +37,8 @@
 - `og:image` generada desde `og-image.html` vía Playwright (1200×630px)
 - Google Business Profile creado como negocio de área de servicio (sin dirección pública)
 - URL canónica: siempre `https://www.ibanidigital.com/` (con www)
+
+## Gotchas
+- No editar `all.min.css` ni `main.min.js` directamente — son compilados. Para CSS puntual en un HTML, usar un `<style>` en el `<head>`.
+- `.svc-card` tiene `position:relative; overflow:hidden` — el patrón stretched-link funciona con `::after { position:absolute; inset:0 }` en el link interior.
+- `vercel.json` tiene `cleanUrls:true` — URLs como `/servicios/rifas` sirven `servicios/rifas.html` automáticamente.

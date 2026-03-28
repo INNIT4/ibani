@@ -235,6 +235,56 @@ body::before {
 .scale-reveal.reveal--d5 { transition-delay: 0.40s; }
 .scale-reveal.reveal--d6 { transition-delay: 0.48s; }
 
+/* ── 3D Entrance Animations (hero: carga inmediata) ─────────── */
+@keyframes slideIn3DLeft {
+  from { opacity: 0; transform: perspective(900px) translateX(-90px) rotateY(16deg); }
+  to   { opacity: 1; transform: perspective(900px) translateX(0)     rotateY(0deg); }
+}
+@keyframes slideIn3DRight {
+  from { opacity: 0; transform: perspective(900px) translateX(90px)  rotateY(-16deg); }
+  to   { opacity: 1; transform: perspective(900px) translateX(0)     rotateY(0deg); }
+}
+@keyframes slideIn3DUp {
+  from { opacity: 0; transform: perspective(600px) translateY(60px)  rotateX(10deg); }
+  to   { opacity: 1; transform: perspective(600px) translateY(0)     rotateX(0deg); }
+}
+
+.anim-l {
+  opacity: 0;
+  animation: slideIn3DLeft 0.9s var(--ease) forwards;
+  animation-delay: var(--delay, 0s);
+}
+.anim-r {
+  opacity: 0;
+  animation: slideIn3DRight 0.9s var(--ease) forwards;
+  animation-delay: var(--delay, 0s);
+}
+.anim-u {
+  opacity: 0;
+  animation: slideIn3DUp 0.8s var(--ease) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* ── 3D Scroll Reveal Modifiers (usar junto con .reveal) ────── */
+.reveal.s3d-l {
+  transform: perspective(900px) translateX(-80px) rotateY(14deg);
+  transition-duration: 0.85s;
+}
+.reveal.s3d-r {
+  transform: perspective(900px) translateX(80px) rotateY(-14deg);
+  transition-duration: 0.85s;
+}
+.reveal.s3d-u {
+  transform: perspective(600px) translateY(60px) rotateX(10deg);
+  transition-duration: 0.8s;
+}
+
+.reveal.s3d-l.is-visible,
+.reveal.s3d-r.is-visible,
+.reveal.s3d-u.is-visible {
+  transform: perspective(900px) translateX(0) translateY(0) rotateY(0deg) rotateX(0deg);
+}
+
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
