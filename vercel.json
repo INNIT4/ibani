@@ -1,6 +1,10 @@
 {
-  "outputDirectory": ".",
   "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/servicios", "destination": "/servicios.html" },
+    { "source": "/blog",      "destination": "/blog.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
