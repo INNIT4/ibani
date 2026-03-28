@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-slate-900 transition-colors duration-300;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15%       { transform: scale(1.05); }
+  30%       { transform: scale(1); }
+  45%       { transform: scale(1.03); }
+  60%       { transform: scale(1); }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .number-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    gap: 8px;
+  }
+  .animate-heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-sm rounded-2xl;
+  }
+}
+
+/* Modern Minimalist decorative utilities */
+
+.clip-diagonal-bottom {
+  clip-path: none; /* Removed for minimalist look */
+}
+
+.clip-diagonal-top {
+  clip-path: none; /* Removed for minimalist look */
+}
+
+.racing-stripes {
+  background-image: none;
+}
+
+.glow-red {
+  box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.1), 0 4px 6px -4px rgba(225, 29, 72, 0.05);
+}
+
+.accent-bar {
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: #E11D48;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.accent-bar-center {
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: #E11D48;
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+.step-number {
+  border-radius: 50%;
+}
+
+.racing-chevrons::before {
+  content: "";
+}
