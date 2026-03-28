@@ -52,6 +52,13 @@
       .step-full { grid-template-columns:50px 1fr; gap:var(--space-5); }
       .step-num-big { font-size:2.5rem; }
     }
+
+    /* Etapas overview grid */
+    .etapas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:var(--space-6); }
+    .etapa { display:flex; flex-direction:column; gap:var(--space-4); padding:var(--space-8); border:1px solid var(--border); border-radius:var(--radius-lg); background:var(--bg); }
+    .etapa__num { font-family:var(--font-display); font-size:2.5rem; font-weight:200; color:var(--accent); line-height:1; }
+    .etapa__title { font-family:var(--font-display); font-size:clamp(1.1rem,2vw,1.4rem); font-weight:400; color:var(--ink); }
+    .etapa__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.75; }
   </style>
 </head>
 <body>
@@ -193,6 +200,50 @@
              target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="font-size:1.05rem;padding:.9rem 2.2rem">
             Cotizar por WhatsApp →
           </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Etapas del desarrollo -->
+    <section class="section section--sm" style="background:var(--bg-2);border-top:1px solid var(--border)">
+      <div class="container">
+
+        <div class="section-head reveal" style="margin-bottom:var(--space-12)">
+          <div class="section-head__eyebrow">
+            <span class="label">Metodología</span>
+          </div>
+          <h2 class="section-head__title">
+            Nuestro proceso<br><em>de trabajo</em>
+          </h2>
+        </div>
+
+        <div class="etapas-grid">
+
+          <div class="etapa reveal s3d-u">
+            <span class="etapa__num">01</span>
+            <h3 class="etapa__title">Análisis de Requisitos</h3>
+            <p class="etapa__desc">Analizamos las necesidades de tu negocio para determinar exactamente las características de tu sitio: qué secciones necesitas, la lógica de negocio y las reglas que deben funcionar dentro del portal.</p>
+          </div>
+
+          <div class="etapa reveal s3d-u reveal--d1">
+            <span class="etapa__num">02</span>
+            <h3 class="etapa__title">Diseño y Arquitectura</h3>
+            <p class="etapa__desc">Definimos la estructura visual e interna de la solución — paleta de colores, tipografía, layout — y describimos la arquitectura del sitio antes de escribir una sola línea de código.</p>
+          </div>
+
+          <div class="etapa reveal s3d-u reveal--d2">
+            <span class="etapa__num">03</span>
+            <h3 class="etapa__title">Implementación</h3>
+            <p class="etapa__desc">Construimos el sitio con tecnología moderna: HTML5, CSS y JavaScript. En caso de funcionalidades especiales integramos las bases de datos necesarias (MySQL, PostgreSQL, Firebase) para que todo opere en tiempo real.</p>
+          </div>
+
+          <div class="etapa reveal s3d-u reveal--d3">
+            <span class="etapa__num">04</span>
+            <h3 class="etapa__title">Producto Final</h3>
+            <p class="etapa__desc">Entregamos el sitio con pruebas ejecutadas en móvil y desktop. Tu negocio queda en línea con dominio, hosting y SSL incluidos — listo para recibir clientes las 24 horas.</p>
+          </div>
+
         </div>
 
       </div>
