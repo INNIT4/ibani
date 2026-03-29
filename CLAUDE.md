@@ -13,6 +13,8 @@
 - Para forzar deploy: hacer commit vacío con `git commit --allow-empty` en master
 
 ## Archivos clave
+- `servicios.html` — 7 bloques de servicios con IDs: `#landing`, `#tiendas`, `#rifas`, `#software`, `#citas`, `#asistencia`, `#sistemas`
+- `img/` — imágenes de servicios en WebP: `landing`, `tiendaonline`, `sorteos`, `gestion`, `reserva`, `codigoqr`, `logoahorro`
 - `index.html` — página principal
 - `css/all.min.css` — CSS compilado (el que se sirve en producción)
 - `css/base.css`, `css/components.css`, `css/sections.css` — fuentes CSS (editar aquí, recompilar en all.min.css)
@@ -39,6 +41,8 @@
 - URL canónica: siempre `https://www.ibanidigital.com/` (con www)
 
 ## Gotchas
+- `.svc-img-frame` usa `aspect-ratio: 4/3` + `object-fit: cover`. A 1280px: col. angosta (45fr) ≈ 518×389px, col. ancha (55fr) ≈ 634×476px
+- No levantar servidor local — el usuario prefiere no ejecutar `npx serve` u otros servidores de desarrollo
 - No editar `all.min.css` ni `main.min.js` directamente — son compilados. Para CSS puntual en un HTML, usar un `<style>` en el `<head>`.
 - `.svc-card` tiene `position:relative; overflow:hidden` — el patrón stretched-link funciona con `::after { position:absolute; inset:0 }` en el link interior.
 - `vercel.json` tiene `cleanUrls:true` — URLs como `/servicios/rifas` sirven `servicios/rifas.html` automáticamente.
