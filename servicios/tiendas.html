@@ -34,6 +34,16 @@
     .feature-card__title { font-family:var(--font-display); font-size:1.15rem; font-weight:500; color:var(--ink); margin-bottom:var(--space-2); }
     .feature-card__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.65; }
     .svc-pricing-section { padding:var(--space-24) 0; background:var(--bg-2); }
+    .svc-pricing-section .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+    @media (max-width: 640px) {
+      .svc-pricing-section .pricing__grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -168,7 +178,7 @@
           <h2 class="section-head__title">Elige tu<br><em>plan de tienda</em></h2>
           <p class="section-head__sub">Desde un catálogo simple hasta una tienda completa con SEO avanzado. Precio fijo, sin sorpresas.</p>
         </div>
-        <div class="pricing__grid" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">
+        <div class="pricing__grid">
 
           <!-- Catálogo -->
           <div class="pricing-card scale-reveal reveal--d1">

@@ -45,14 +45,14 @@
         "url": "https://www.ibanidigital.com/",
         "description": "Diseño y desarrollo web profesional para negocios en Sonora, México.",
         "inLanguage": "es-MX",
-        "dateModified": "2026-03-25"
+        "dateModified": "2026-03-31"
       },
       {
         "@type": "Person",
         "@id": "https://www.ibanidigital.com/#founder",
         "name": "Jose Daniel Ibarra Nieblas",
         "jobTitle": "Fundador y desarrollador web",
-        "image": "https://www.ibanidigital.com/foto-fundado.jpg",
+        "image": { "@type": "ImageObject", "url": "https://www.ibanidigital.com/foto-fundado.jpg", "width": 399, "height": 399 },
         "url": "https://www.ibanidigital.com/",
         "knowsAbout": ["Diseño web", "SEO local", "E-commerce", "Desarrollo frontend", "Plataformas de rifas"],
         "sameAs": ["https://www.linkedin.com/in/jose-daniel-ibarra-nieblas-266502193/"],
@@ -139,7 +139,8 @@
             "closes": "18:00"
           }
         ],
-        "hasOfferCatalog": { "@id": "https://www.ibanidigital.com/#servicios" }
+        "hasOfferCatalog": { "@id": "https://www.ibanidigital.com/#servicios" },
+        "founder": { "@id": "https://www.ibanidigital.com/#founder" }
       },
       {
         "@type": "FAQPage",
@@ -509,7 +510,7 @@
             <figure style="margin:0;position:relative">
               <img src="/foto-fundado.jpg"
                    alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital"
-                   width="399" height="399" loading="lazy"
+                   width="399" height="399" loading="eager" fetchpriority="high"
                    style="width:clamp(200px,25vw,320px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
               <figcaption style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase">
                 Jose Daniel Ibarra Nieblas

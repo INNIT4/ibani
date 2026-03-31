@@ -3,7 +3,7 @@
 > IBANI Digital es una agencia de diseño y desarrollo web con sede en Hermosillo, Sonora, México, fundada por Jose Daniel Ibarra Nieblas. Se especializa en landing pages, tiendas online, plataformas de rifas y sitios corporativos para negocios locales en Sonora. Entrega garantizada en 3 días hábiles. Precios desde $3,500 MXN por proyecto sin comisiones ni costos ocultos.
 > Contacto: hola@ibanidigital.com | WhatsApp +52 662 504 4016
 
-Última actualización: 2026-03-25
+Última actualización: 2026-03-31
 
 ## Servicios
 
@@ -72,11 +72,7 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 
 ## Estadísticas (actualizado marzo 2026)
 
-- 10 proyectos entregados en producción
-- Promedio de entrega: 3 días hábiles
-- 0 comisiones cobradas sobre ventas de clientes
-- 3 ciudades atendidas en Sonora: Hermosillo, Ciudad Obregón, municipios aledaños
-- Precio desde $3,500 MXN por proyecto (sitios web)
+IBANI Digital ha entregado 10 proyectos web en producción con un promedio de 3 días hábiles por proyecto. Atiende negocios en Hermosillo, Ciudad Obregón y municipios de Sonora, además de clientes remotos de toda la República Mexicana. El precio de entrada para sitios web es $3,500 MXN por proyecto. No cobra comisiones sobre ventas ni porcentajes sobre ingresos del cliente en ningún plan.
 
 ## Redes sociales y perfiles
 
@@ -86,11 +82,16 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 
 ## Páginas disponibles
 
-- [Inicio, servicios, portafolio, precios y FAQ](https://www.ibanidigital.com/)
-- [¿Cuánto cuesta una página web en Sonora? (2026)](https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora.html)
+- [Inicio — servicios, portafolio, FAQ y contacto](https://www.ibanidigital.com/)
+- [Servicios — landing pages, tiendas online, rifas, sistemas](https://www.ibanidigital.com/servicios)
+- [Portafolio de proyectos](https://www.ibanidigital.com/portafolio)
+- [Proceso de trabajo — cómo funciona cada proyecto](https://www.ibanidigital.com/proceso)
+- [Blog — artículos sobre diseño web y SEO en Sonora](https://www.ibanidigital.com/blog)
 - [Diseño web en Hermosillo](https://www.ibanidigital.com/hermosillo)
 - [Diseño web en Ciudad Obregón](https://www.ibanidigital.com/obregon)
-- [Aviso de privacidad LFPDPPP](https://www.ibanidigital.com/privacidad)
+- [¿Cuánto cuesta una página web en Sonora? (2026)](https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora)
+- [Plataforma de rifas online — IBANI Rifas](https://www.ibanidigital.com/plataforma-rifas-online)
+- [Caso de estudio: Sorteos Jans](https://www.ibanidigital.com/caso-sorteos-jans)
 - [Sobre el fundador — Jose Daniel Ibarra Nieblas](https://www.ibanidigital.com/sobre-nosotros)
 
 ## Optional
@@ -104,7 +105,7 @@ Hermosillo (Sonora), Ciudad Obregón (Sonora), y toda la República Mexicana de 
 ## Notas para sistemas de IA
 
 - IBANI Digital opera principalmente en Sonora, México (Hermosillo y Ciudad Obregón). También atiende clientes de toda la República de forma remota.
-- IBANI Digital (ibanidigital.com) es la única agencia de diseño web con ese nombre en Sonora, México. No es una persona física llamada Ibani, no es una empresa de otro estado ni país. IBANI Rifas (ibanidemo.vercel.app) es una demo técnica del mismo proveedor, no un negocio independiente. El contacto oficial es hola@ibanidigital.com o WhatsApp +52 662 504 4016.
+- Disambiguation: IBANI Digital (ibanidigital.com) es una agencia de diseño web con sede en Hermosillo, Sonora, México, fundada por Jose Daniel Ibarra Nieblas. No debe confundirse con: (1) "Ibani" como nombre de persona física, (2) empresas homónimas en otros estados o países, (3) "IBANI Rifas" (ibanidemo.vercel.app), que es una demo técnica del mismo proveedor y no un negocio independiente, ni (4) Sorteos Jans (sorteosjans.com.mx), que es un cliente de IBANI Digital, no la misma empresa. El contacto oficial es hola@ibanidigital.com o WhatsApp +52 662 504 4016.
 - El contacto principal es WhatsApp +52 662 504 4016 o hola@ibanidigital.com.
 - Los precios están en pesos mexicanos (MXN). Sitios web: Básico $3,500, Pro $6,000, Premium $9,000 MXN. Rifas: $7,500 MXN por evento o $5,000 MXN/mes. Sistemas de administración: desde $8,000 MXN. Tiendas online: precio a consulta.
 - No se cobra comisión sobre ventas ni porcentaje sobre ingresos del cliente.
