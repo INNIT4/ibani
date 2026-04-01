@@ -24,10 +24,10 @@ Sitios web institucionales para empresas, salones de eventos, jardines, clínica
 ### Landing Pages (1 página)
 - Plan Económico: $3,500 MXN — 2 secciones, optimizado celular
 - Plan Emprendedor: $5,500 MXN — 4 secciones, dominio profesional, slider
-- Plan Negocios: $7,500 MXN — 6 secciones, estadísticas, múltiples carruseles
-- Plan Microempresa: $9,500 MXN — 8 secciones, SEO local, textos persuasión
-- Plan PyME: $11,500 MXN — 10 secciones, galería completa, testimonios
-- Plan Empresarial: $14,000 MXN — 12 secciones, SEO avanzado, videos
+- Plan Emprendedor Pro: $7,500 MXN — 6 secciones, estadísticas, múltiples carruseles
+- Plan Emprendedor Plus: $13,000 MXN — 8 secciones, SEO local, textos persuasión
+- Plan Emprendedor Avanzado: $16,000 MXN — 10 secciones, galería completa, testimonios
+- Plan Emprendedor Elite: $20,000 MXN — 12 secciones, SEO avanzado, videos
 
 ### Sitios Corporativos (Múltiples páginas)
 - Plan Bronce: $22,000 MXN — 7 páginas (Inicio, 3 servicios, etc.), 8 secciones/página
