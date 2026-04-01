@@ -27,7 +27,10 @@ Sitios web institucionales para empresas, salones de eventos, jardines, clínica
 - Plan Premium (por proyecto): $9,000 MXN — hasta 10 secciones, dominio + hosting (1 año), galería, paquetes, testimonios, textos de persuasión, SEO local, 1 ronda de revisiones, entrega en 5 días
 
 ### Tiendas Online
-- Precio a consulta — catálogo y carrito, pasarelas de pago (Stripe, Clip, Conekta), panel de administración de pedidos
+- Catálogo (sin carrito): $13,500 MXN — hasta 20 productos, WhatsApp + Click-to-Call, dominio + hosting + SSL 1 año
+- Tienda Básica (e-commerce): $20,000 MXN — hasta 50 productos, carrito, MercadoPago/PayPal/SPEI, panel admin
+- Tienda Pro: $30,000 MXN — hasta 200 productos, cupones, variantes, cálculo de envío, blog integrado
+- Tienda Plus: $52,000 MXN — hasta 1,000 productos, SEO avanzado, Stripe/Clip, correos ilimitados, actualizaciones ilimitadas
 
 ### Plataformas de Rifas
 - Por evento: $7,500 MXN — selección de boletos en tiempo real, confirmación por WhatsApp, panel doble admin + empleado
