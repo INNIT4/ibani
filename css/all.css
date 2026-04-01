@@ -1778,3 +1778,6 @@ body::before {
 @media (max-width: 480px) {
   .footer__links { grid-template-columns: 1fr; }
 }
+
+.header.scrolled .nav__dropdown a .dd-content strong { color: rgba(250,248,241,0.95); }
+.header.scrolled .nav__dropdown a:hover .dd-content strong { color: var(--accent); }
