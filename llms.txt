@@ -21,10 +21,21 @@ Sitios web institucionales para empresas, salones de eventos, jardines, clínica
 
 ## Precios
 
-### Sitios Web
-- Plan Básico (por proyecto): $3,500 MXN — 3-4 secciones, diseño personalizado, dominio + hosting Vercel (1 año), entrega en 3 días
-- Plan Pro (por proyecto): $6,000 MXN — 5-7 secciones, dominio + hosting profesional (1 año), galería, formulario de contacto, SEO técnico básico, entrega en 4 días
-- Plan Premium (por proyecto): $9,000 MXN — hasta 10 secciones, dominio + hosting (1 año), galería, paquetes, testimonios, textos de persuasión, SEO local, 1 ronda de revisiones, entrega en 5 días
+### Landing Pages (1 página)
+- Plan Económico: $3,500 MXN — 2 secciones, optimizado celular
+- Plan Emprendedor: $5,500 MXN — 4 secciones, dominio profesional, slider
+- Plan Negocios: $7,500 MXN — 6 secciones, estadísticas, múltiples carruseles
+- Plan Microempresa: $9,500 MXN — 8 secciones, SEO local, textos persuasión
+- Plan PyME: $11,500 MXN — 10 secciones, galería completa, testimonios
+- Plan Empresarial: $14,000 MXN — 12 secciones, SEO avanzado, videos
+
+### Sitios Corporativos (Múltiples páginas)
+- Plan Bronce: $22,000 MXN — 7 páginas (Inicio, 3 servicios, etc.), 8 secciones/página
+- Plan Silver: $25,000 MXN — 10 páginas, 8 secciones/página, 6 correos
+- Plan Gold: $29,000 MXN — 15 páginas (+ Blog y buscador), 8 secciones/página
+- Plan Platino: $34,000 MXN — 20 páginas, 9 secciones/página, 10 correos
+- Plan Diamante: $38,000 MXN — 25 páginas, 9 secciones/página, 10 correos
+- Plan Esmeralda: $44,500 MXN — 30 páginas, 9 secciones/página, 10 correos
 
 ### Tiendas Online
 - Catálogo (sin carrito): $13,500 MXN — hasta 20 productos, WhatsApp + Click-to-Call, dominio + hosting + SSL 1 año
