@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+const fs = require('fs');
+
+const htmlContent = `<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -123,46 +125,49 @@
   </script>
 
   <!-- Fonts -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeA.woff2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Analytics -->
   <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
 
-  <link rel="stylesheet" href="css/all.min.css">
-
   <style>
+    :root{--bg:#FAF8F1;--bg-2:#F3F1E8;--bg-3:#EDEAE0;--bg-4:#E5E2D6;--ink:#1A1714;--ink-2:#5C5852;--ink-3:#9C9890;--accent:#C85A28;--accent-2:#E07848;--accent-bg:rgba(200,90,40,.08);--accent-bg2:rgba(200,90,40,.14);--border:rgba(0,0,0,.08);--border-2:rgba(0,0,0,.14);--border-3:rgba(0,0,0,.22);--font-display:'Fraunces','Fraunces-fallback',Georgia,serif;--font-body:'Plus Jakarta Sans',system-ui,sans-serif;--text-xs:.75rem;--text-sm:.8125rem;--text-base:1rem;--text-md:1.0625rem;--text-lg:1.25rem;--text-xl:1.5rem;--text-2xl:2rem;--text-3xl:2.75rem;--text-hero:clamp(3.5rem,8.5vw,8rem);--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--space-32:8rem;--container:1280px;--radius-sm:6px;--radius:12px;--radius-lg:20px;--radius-xl:28px;--shadow:0 4px 32px rgba(0,0,0,.5);--shadow-lg:0 16px 64px rgba(0,0,0,.6);--glow:0 0 40px rgba(224,112,72,.15);--ease:cubic-bezier(.16,1,.3,1);--ease-soft:cubic-bezier(.4,0,.2,1);--dur:.6s;--dur-fast:.22s}
     @font-face{font-family:'Fraunces-fallback';src:local('Georgia');size-adjust:97%;ascent-override:94%;descent-override:normal;line-gap-override:normal}
-    .obr-hero { padding:140px 0 80px; background:var(--bg); border-bottom:1px solid var(--border); }
-    .obr-hero__eyebrow { display:flex; align-items:center; gap:var(--space-2); margin-bottom:var(--space-6); }
-    .obr-hero__title { font-family:var(--font-display); font-size:clamp(2.8rem,7vw,5.5rem); font-weight:300; line-height:1.08; letter-spacing:-.02em; color:var(--ink); margin-bottom:var(--space-6); }
-    .obr-hero__title em { font-style:italic; color:var(--accent); }
-    .obr-hero__sub { font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; max-width:600px; margin-bottom:var(--space-6); }
-    .obr-hero__intro { font-size:var(--text-base); color:var(--ink-3); line-height:1.7; max-width:600px; margin-bottom:var(--space-8); }
-    .obr-section { padding:var(--space-24) 0; border-top:1px solid var(--border); }
-    .obr-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-12); align-items:start; }
-    @media(max-width:768px){ .obr-grid { grid-template-columns:1fr; } }
-    .obr-card { background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius); padding:var(--space-8); }
-    .obr-card__num { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:.12em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:var(--space-3); }
-    .obr-card__title { font-size:var(--text-xl); font-weight:600; color:var(--ink); margin-bottom:var(--space-3); }
-    .obr-card__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.7; }
-    .price-cards { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-6); margin-top:var(--space-8); }
-    @media(max-width:640px){ .price-cards { grid-template-columns:1fr; } }
-    .price-card { background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--space-10); }
-    .price-card--featured { border-color:var(--accent); background:var(--bg); }
-    .price-card__tag { font-size:var(--text-xs); font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--space-3); }
-    .price-card__amount { font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--ink); line-height:1; margin-bottom:var(--space-1); }
-    .price-card__period { font-size:var(--text-sm); color:var(--ink-3); margin-bottom:var(--space-6); }
-    .price-card__features { list-style:none; padding:0; display:flex; flex-direction:column; gap:var(--space-3); }
-    .price-card__features li { font-size:var(--text-sm); color:var(--ink-2); display:flex; gap:var(--space-2); }
-    .price-card__features li::before { content:"✓"; color:var(--accent); font-weight:700; flex-shrink:0; }
-    .faq-section { padding:var(--space-24) 0; border-top:1px solid var(--border); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-size:100%;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:var(--font-body);font-size:var(--text-md);line-height:1.65;color:var(--ink);background-color:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+    img,video,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    ul,ol{list-style:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    input,textarea{font-family:inherit;font-size:inherit}
+    p{max-width:65ch}
+    h1,h2,h3,h4{font-family:var(--font-display);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+    h1{font-size:var(--text-hero)}h2{font-size:clamp(2.5rem,5.5vw,4.5rem)}h3{font-size:clamp(1.4rem,2.5vw,2rem)}
+    .container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--space-8)}
+    .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0);transition:background var(--dur-fast) var(--ease-soft),border-color var(--dur-fast) var(--ease-soft);border-bottom:1px solid transparent}
+    .header__inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:var(--space-8)}
+    .logo{display:flex;flex-direction:column;line-height:1;gap:2px;flex-shrink:0}
+    .logo__name{font-family:var(--font-display);font-size:1.3rem;font-weight:400;letter-spacing:.08em;color:var(--ink)}
+    .logo__sub{font-family:var(--font-body);font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent)}
+    .hero{min-height:100dvh;display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 65% -10%,rgba(224,112,72,.07) 0%,transparent 60%),radial-gradient(ellipse 45% 35% at 10% 110%,rgba(224,112,72,.05) 0%,transparent 55%),var(--bg)}
   </style>
+  <link rel="stylesheet" href="css/all.min.css">
 </head>
 
 <body>
+
+  <!-- SVG sprite -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-wa" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </symbol>
+  </svg>
 
   <!-- HEADER -->
   <header class="header" id="header">
@@ -175,7 +180,7 @@
         <ul class="nav__list">
           <li><a href="/" class="nav__link">Inicio</a></li>
           <li class="nav__item--has-dropdown">
-            <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
+            <a href="/servicios" class="nav__link active">Servicios <span class="nav__caret">▾</span></a>
             <div class="nav__dropdown nav__dropdown--wide">
               <p class="nav__dropdown__label">¿Qué necesitas?</p>
               <a href="/servicios#landing">
@@ -194,7 +199,7 @@
                 </span>
                 <span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span>
               </a>
-              <a href="/servicios#rifas">
+              <a href="/plataforma-rifas-online">
                 <span class="dd-icon">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 6h6M4 9h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
                 </span>
@@ -237,7 +242,7 @@
       <a href="/servicios#landing"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
       <a href="/servicios/sitios-corporativos" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sitios Corporativos</a>
       <a href="/servicios#tiendas"      style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
-      <a href="/servicios#rifas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
+      <a href="/plataforma-rifas-online" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
       <a href="/servicios#software"     style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Software Admin</a>
       <a href="/servicios#citas"        style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Citas / Reservas</a>
       <a href="/servicios#sistemas"     style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistemas a Medida</a>
@@ -249,58 +254,73 @@
   </header>
 
   <main>
+    <!-- 1. HERO a lo moneda.com -->
+    <section class="hero section" id="inicio">
+      <div class="container hero__inner">
+        <div class="hero__main">
+          
+          <nav aria-label="Migas de pan" class="fade-up" style="--delay:0s; margin-bottom:var(--space-6)">
+            <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
+              <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+              <li aria-hidden="true" style="color:var(--border)">›</li>
+              <li><a href="/#servicios" style="color:var(--ink-3)">Servicios</a></li>
+              <li aria-hidden="true" style="color:var(--border)">›</li>
+              <li aria-current="page" style="color:var(--ink-2)">Rifas Online</li>
+            </ol>
+          </nav>
 
-    <!-- HERO -->
-    <section class="obr-hero">
-      <div class="container">
+          <div class="hero__eyebrow fade-up" style="--delay:.05s">
+            <span class="hero__dot" aria-hidden="true"></span>
+            <span class="label label--accent">Plataforma a medida · México</span>
+          </div>
 
-        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
-          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
-            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
-            <li aria-hidden="true" style="color:var(--border)">›</li>
-            <li><a href="/#servicios" style="color:var(--ink-3)">Servicios</a></li>
-            <li aria-hidden="true" style="color:var(--border)">›</li>
-            <li aria-current="page" style="color:var(--ink-2)">Rifas Online</li>
-          </ol>
-        </nav>
+          <h1 class="hero__title">
+            <span class="wr"><span class="ww" style="--i:0">Plataforma</span></span>
+            <span class="wr"><span class="ww" style="--i:1">de</span></span><br>
+            <span class="wr"><span class="ww accent" style="--i:2"><em>rifas online.</em></span></span>
+          </h1>
 
-        <div class="obr-hero__eyebrow">
-          <span class="hero__dot" aria-hidden="true"></span>
-          <span class="label label--accent">Plataforma a medida · México</span>
+          <p class="hero__sub fade-up" style="--delay:.55s">
+            Sistema profesional para organizar sorteos en línea. Los participantes eligen sus boletos
+            desde el celular, pagan y reciben confirmación automática por WhatsApp.
+            Sin instalar apps. Sin comisiones sobre el premio.
+          </p>
+
+          <div class="hero__cta fade-up" style="--delay:.7s">
+            <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20plataforma%20de%20rifas%20online%20con%20IBANI%20Digital."
+               target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+               <svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#icon-wa"/></svg>
+              Cotizar plataforma
+            </a>
+            <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener noreferrer" class="link-arrow fade-up" style="--delay:.8s">
+              Ver demo en vivo →
+            </a>
+          </div>
         </div>
 
-        <h1 class="obr-hero__title">
-          Plataforma de<br><em>rifas online</em>
-        </h1>
+        <aside class="hero__stats fade-up" style="--delay:.9s">
+          <div class="stat-block">
+            <span class="stat-block__value">100%</span>
+            <span class="stat-block__label">Transparencia</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__value">0%</span>
+            <span class="stat-block__label">Comisiones</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-block__value" data-count="2" data-suffix="+">2</span>
+            <span class="stat-block__label">Sistemas en prod</span>
+          </div>
+        </aside>
+      </div>
 
-        <p class="obr-hero__sub">
-          Sistema profesional para organizar sorteos en línea. Los participantes eligen sus boletos
-          desde el celular, pagan y reciben confirmación automática por WhatsApp.
-          Sin instalar apps. Sin comisiones sobre el premio.
-        </p>
-
-        <p class="obr-hero__intro">
-          Ya tenemos experiencia real: construimos el sistema de <strong>Sorteos Jans</strong>
-          (sorteosjans.com.mx) y la demo <strong>IBANI Rifas</strong> (ibanidemo.vercel.app).
-          Dos plataformas en producción con boletos en tiempo real y panel de administración doble.
-        </p>
-
-        <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;align-items:center">
-          <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20plataforma%20de%20rifas%20online%20con%20IBANI%20Digital."
-             target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            Cotizar mi plataforma
-          </a>
-          <a href="https://ibanidemo.vercel.app" target="_blank" rel="noopener noreferrer" class="link-arrow">
-            Ver demo en vivo →
-          </a>
-        </div>
-
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- CARACTERÍSTICAS -->
-    <section class="obr-section">
+    <!-- CARACTERÍSTICAS grid -->
+    <section class="section" style="background:var(--bg-2);border-top:1px solid var(--border)">
       <div class="container">
         <div class="section-head reveal" style="margin-bottom:var(--space-12)">
           <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
@@ -308,91 +328,47 @@
             Todo lo que necesita<br><em>tu sorteo</em>
           </h2>
         </div>
-        <div class="obr-grid">
-          <div class="obr-card reveal">
-            <span class="obr-card__num">01</span>
-            <p class="obr-card__title">Boletos en tiempo real</p>
-            <p class="obr-card__desc">Los participantes ven qué boletos están disponibles, apartados o vendidos al instante. Sin actualizaciones manuales. Sin boletos vendidos dos veces. La disponibilidad se sincroniza en todos los dispositivos de forma simultánea.</p>
+        <div class="services__grid">
+          <div class="step-card reveal">
+            <span class="step-card__num">01</span>
+            <p class="step-card__title">Boletos en tiempo real</p>
+            <p class="step-card__desc">Los participantes ven qué boletos están disponibles, apartados o vendidos al instante. Sin actualizaciones manuales. Sin boletos vendidos dos veces. La disponibilidad se sincroniza en todos los dispositivos de forma simultánea.</p>
           </div>
-          <div class="obr-card reveal reveal--d1">
-            <span class="obr-card__num">02</span>
-            <p class="obr-card__title">Confirmación automática por WhatsApp</p>
-            <p class="obr-card__desc">Al validar el pago, el sistema envía automáticamente el folio y el número de boleto al comprador por WhatsApp. Cero mensajes manuales del organizador. Cada participante tiene su comprobante al instante.</p>
+          <div class="step-card reveal reveal--d1">
+            <span class="step-card__num">02</span>
+            <p class="step-card__title">Confirmación por WhatsApp</p>
+            <p class="step-card__desc">Al validar el pago, el sistema envía automáticamente el folio y el número de boleto al comprador por WhatsApp. Cero mensajes manuales del organizador. Cada participante tiene su comprobante al instante.</p>
           </div>
-          <div class="obr-card reveal reveal--d2">
-            <span class="obr-card__num">03</span>
-            <p class="obr-card__title">Consulta de folio</p>
-            <p class="obr-card__desc">Cualquier participante puede verificar su boleto antes, durante y después del sorteo. Transparencia total que genera confianza y reduce dudas. Sin necesidad de contactar al organizador para confirmar.</p>
+          <div class="step-card reveal reveal--d2">
+            <span class="step-card__num">03</span>
+            <p class="step-card__title">Consulta de folio</p>
+            <p class="step-card__desc">Cualquier participante puede verificar su boleto antes, durante y después del sorteo. Transparencia total que genera confianza y reduce dudas. Sin necesidad de contactar al organizador para confirmar.</p>
           </div>
-          <div class="obr-card reveal">
-            <span class="obr-card__num">04</span>
-            <p class="obr-card__title">Panel de administración completo</p>
-            <p class="obr-card__desc">El organizador gestiona todo desde un dashboard: ventas en tiempo real, validación de pagos, asignación de boletos y sorteo transparente en vivo. Sin depender de listas en Excel ni mensajes de WhatsApp.</p>
+          <div class="step-card reveal reveal--d3">
+            <span class="step-card__num">04</span>
+            <p class="step-card__title">Panel de administración</p>
+            <p class="step-card__desc">El organizador gestiona todo desde un dashboard: ventas en tiempo real, validación de pagos, asignación de boletos y sorteo transparente en vivo. Sin depender de listas en Excel ni mensajes de WhatsApp.</p>
           </div>
-          <div class="obr-card reveal reveal--d1">
-            <span class="obr-card__num">05</span>
-            <p class="obr-card__title">Panel secundario para empleados</p>
-            <p class="obr-card__desc">Acceso restringido para el equipo de ventas: registran boletos y verifican pagos sin tener permiso de configuración ni acceso a datos sensibles del sorteo. Ideal si tienes varios vendedores trabajando en paralelo.</p>
+          <div class="step-card reveal reveal--d4">
+            <span class="step-card__num">05</span>
+            <p class="step-card__title">Panel para empleados</p>
+            <p class="step-card__desc">Acceso restringido para el equipo de ventas: registran boletos y verifican pagos sin tener permiso de configuración ni acceso a datos sensibles del sorteo. Ideal si tienes varios vendedores trabajando.</p>
           </div>
-          <div class="obr-card reveal reveal--d2">
-            <span class="obr-card__num">06</span>
-            <p class="obr-card__title">Sin app, sin comisiones</p>
-            <p class="obr-card__desc">Los participantes acceden desde cualquier celular con navegador — sin descargar nada. Y IBANI Digital no cobra ningún porcentaje sobre los boletos vendidos ni sobre el valor del premio. El negocio es 100% tuyo.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRECIOS -->
-    <section class="obr-section" style="background:var(--bg-2)">
-      <div class="container">
-        <div class="section-head reveal" style="margin-bottom:var(--space-4)">
-          <div class="section-head__eyebrow"><span class="label">Precios</span></div>
-          <h2 class="section-head__title">
-            Sin comisiones<br><em>sobre tus ventas</em>
-          </h2>
-          <p class="section-head__sub" style="max-width:540px">
-            Precio fijo por proyecto. Todo lo que recaudes en tu rifa es tuyo.
-          </p>
-        </div>
-        <div class="price-cards reveal">
-          <div class="price-card">
-            <p class="price-card__tag">Por evento</p>
-            <p class="price-card__amount">$7,500 <span style="font-size:var(--text-lg)">MXN</span></p>
-            <p class="price-card__period">pago único por sorteo</p>
-            <ul class="price-card__features">
-              <li>Selección de boletos en tiempo real</li>
-              <li>Confirmación automática por WhatsApp</li>
-              <li>Panel de administración completo</li>
-              <li>Panel secundario para empleados</li>
-              <li>Consulta de folio para participantes</li>
-              <li>Sorteo transparente en vivo</li>
-              <li>Sin comisiones sobre el premio</li>
-            </ul>
-          </div>
-          <div class="price-card price-card--featured">
-            <p class="price-card__tag">Plan mensual</p>
-            <p class="price-card__amount">$5,000 <span style="font-size:var(--text-lg)">MXN</span></p>
-            <p class="price-card__period">por mes · rifas ilimitadas</p>
-            <ul class="price-card__features">
-              <li>Todo lo del plan por evento</li>
-              <li>Rifas ilimitadas en el mes</li>
-              <li>Soporte prioritario</li>
-              <li>Cambios y ajustes incluidos</li>
-              <li>Historial de sorteos anteriores</li>
-              <li>Sin comisiones sobre ventas</li>
-            </ul>
+          <div class="step-card reveal reveal--d5">
+            <span class="step-card__num">06</span>
+            <p class="step-card__title">Sin app, sin comisiones</p>
+            <p class="step-card__desc">Los participantes acceden desde cualquier celular con navegador — sin descargar nada. Y no cobramos ningún porcentaje sobre los boletos vendidos ni sobre el premio. El negocio es tuyo.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CASO DE ESTUDIO -->
-    <section class="obr-section">
+    <section class="section" id="caso-sorteos-jans" style="background:var(--bg);border-top:1px solid var(--border)">
       <div class="container">
         <div class="section-head reveal" style="margin-bottom:var(--space-10)">
           <div class="section-head__eyebrow"><span class="label">Experiencia real</span></div>
-          <h2 class="section-head__title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">
+          <h2 class="section-head__title">
             Ya lo hicimos<br><em>con Sorteos Jans</em>
           </h2>
         </div>
@@ -403,7 +379,7 @@
               <img src="img/portfolio/sorteosjans-800.jpg"
                    alt="Plataforma de rifas Sorteos Jans — caso de estudio IBANI Digital"
                    width="800" height="600" loading="lazy"
-                   style="width:100%;border-radius:var(--radius-lg);border:1px solid var(--border)">
+                   style="width:100%;border-radius:var(--radius-lg);border:1px solid var(--border); box-shadow:var(--shadow)">
             </picture>
           </div>
           <div style="display:flex;flex-direction:column;gap:var(--space-5)">
@@ -425,31 +401,117 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section" style="background:var(--bg-2)">
+    <!-- PRECIOS -->
+    <section class="pricing section" style="background:var(--bg-2)">
       <div class="container">
-        <div class="section-head reveal" style="margin-bottom:var(--space-10)">
+        <div class="section-head reveal" style="margin-bottom:var(--space-12)">
+          <div class="section-head__eyebrow"><span class="label">Precios</span></div>
+          <h2 class="section-head__title">
+            Sin comisiones<br><em>sobre tus ventas</em>
+          </h2>
+          <p class="section-head__sub">
+            Precio fijo por proyecto. Todo lo que recaudes en tu rifa es tuyo.
+          </p>
+        </div>
+        
+        <div class="pricing__grid--2 reveal">
+          <!-- Evento -->
+          <div class="pricing-card">
+            <div class="pc-badge">Por evento</div>
+            <div class="pc-name">Única Rifa</div>
+            <div class="pc-price">
+              <span class="pc-amount">$7,500</span>
+              <span class="pc-currency">MXN</span>
+            </div>
+            <div class="pc-period">pago único por sorteo</div>
+            <hr class="pc-hr">
+            <div class="pc-features">
+              <div class="pc-feature">Selección de boletos en tiempo real</div>
+              <div class="pc-feature">Confirmación automática por WhatsApp</div>
+              <div class="pc-feature">Panel de administración completo</div>
+              <div class="pc-feature">Panel secundario para empleados</div>
+              <div class="pc-feature">Consulta de folio para participantes</div>
+              <div class="pc-feature">Sorteo transparente en vivo</div>
+              <div class="pc-feature">Sin comisiones sobre el premio</div>
+            </div>
+          </div>
+
+          <!-- Mensual -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pc-badge">Mensual</div>
+            <div class="pc-name">Plan ilimitado</div>
+            <div class="pc-price">
+              <span class="pc-amount">$5,000</span>
+              <span class="pc-currency">MXN</span>
+            </div>
+            <div class="pc-period">por mes · rifas ilimitadas</div>
+            <hr class="pc-hr">
+            <div class="pc-features">
+              <div class="pc-feature">Todo lo del plan por evento</div>
+              <div class="pc-feature">Rifas ilimitadas en el mes</div>
+              <div class="pc-feature">Soporte prioritario</div>
+              <div class="pc-feature">Cambios y ajustes incluidos</div>
+              <div class="pc-feature">Historial de sorteos anteriores</div>
+              <div class="pc-feature">Sin comisiones sobre ventas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section section" id="faq">
+      <div class="container">
+        <div class="section-head reveal" style="margin-bottom:var(--space-12)">
           <div class="section-head__eyebrow"><span class="label">Preguntas frecuentes</span></div>
-          <h2 class="section-head__title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">
+          <h2 class="section-head__title">
             Lo que más<br><em>nos preguntan</em>
           </h2>
         </div>
-        <div style="display:flex;flex-direction:column;gap:var(--space-4);max-width:720px">
-          <div class="obr-card reveal">
-            <p class="obr-card__title" style="font-size:var(--text-base);margin-bottom:var(--space-2)">¿Cuánto cuesta una plataforma de rifas online?</p>
-            <p class="obr-card__desc">$7,500 MXN por evento único o $5,000 MXN/mes con rifas ilimitadas. No hay comisiones sobre los boletos vendidos ni sobre el valor del premio.</p>
+        <div style="max-width:780px">
+          <div class="faq-item reveal reveal--d1">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Cuánto cuesta una plataforma de rifas online?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>$7,500 MXN por evento único o $5,000 MXN/mes con rifas ilimitadas. No hay comisiones sobre los boletos vendidos ni sobre el valor del premio.</p>
+              </div>
+            </div>
           </div>
-          <div class="obr-card reveal reveal--d1">
-            <p class="obr-card__title" style="font-size:var(--text-base);margin-bottom:var(--space-2)">¿Los compradores necesitan instalar una app?</p>
-            <p class="obr-card__desc">No. Acceden desde el navegador de su celular con solo abrir el enlace. Sin descargas, sin registro obligatorio. El proceso de compra dura menos de 2 minutos.</p>
+          <div class="faq-item reveal reveal--d2">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Los compradores necesitan instalar una app?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>No. Acceden desde el navegador de su celular con solo abrir el enlace. Sin descargas, sin registro obligatorio. El proceso de compra dura menos de 2 minutos.</p>
+              </div>
+            </div>
           </div>
-          <div class="obr-card reveal reveal--d2">
-            <p class="obr-card__title" style="font-size:var(--text-base);margin-bottom:var(--space-2)">¿Cómo reciben los compradores su boleto?</p>
-            <p class="obr-card__desc">Al validar el pago, el sistema envía automáticamente el folio por WhatsApp. El comprador también puede consultar su boleto en cualquier momento desde la plataforma.</p>
+          <div class="faq-item reveal reveal--d3">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Cómo reciben los compradores su boleto?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>Al validar el pago, el sistema envía automáticamente el folio por WhatsApp. El comprador también puede consultar su boleto en cualquier momento desde la plataforma.</p>
+              </div>
+            </div>
           </div>
-          <div class="obr-card reveal">
-            <p class="obr-card__title" style="font-size:var(--text-base);margin-bottom:var(--space-2)">¿Cuántos boletos puede manejar la plataforma?</p>
-            <p class="obr-card__desc">La plataforma se configura según el número de boletos de tu sorteo, desde rifas pequeñas de 100 boletos hasta sorteos de 5,000+. El precio depende del alcance: cuéntanos tu caso y cotizamos.</p>
+          <div class="faq-item reveal reveal--d4">
+            <button class="faq-btn" aria-expanded="false">
+              ¿Cuántos boletos puede manejar la plataforma?
+              <span class="faq-btn__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-body">
+              <div class="faq-body__inner">
+                <p>La plataforma se configura según el número de boletos de tu sorteo, desde rifas pequeñas de 100 boletos hasta sorteos de 5,000+. El precio depende del alcance: cuéntanos tu caso y cotizamos.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -457,7 +519,7 @@
 
     <!-- CTA -->
     <section class="contact section--lg" style="background:var(--ink)">
-      <div class="container" style="text-align:center">
+      <div class="container contact__inner">
         <h2 class="contact__title" style="color:var(--bg)">
           ¿Listo para tu<br><em>primera rifa online?</em>
         </h2>
@@ -466,7 +528,7 @@
         </p>
         <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20una%20plataforma%20de%20rifas%20online.%20Mi%20sorteo%20tiene..."
            target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+           <svg width="20" height="20" fill="white" aria-hidden="true"><use href="#icon-wa"/></svg>
           Cotizar mi plataforma de rifas
         </a>
         <p class="contact__meta" style="color:rgba(255,255,255,.4)">Respuesta en menos de 30 min · Lunes a Viernes 9-18h</p>
@@ -532,3 +594,7 @@
 
 </body>
 </html>
+\`;
+
+fs.writeFileSync('c:/Users/josei/rifaspro-landing/plataforma-rifas-online.html', htmlContent, 'utf-8');
+console.log('Successfully wrote to plataforma-rifas-online.html');

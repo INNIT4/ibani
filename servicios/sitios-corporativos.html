@@ -29,12 +29,88 @@
     .page-hero__title em { font-style:italic; color:var(--accent); }
     .page-hero__sub { font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; max-width:560px; }
 
-    /* Features grid */
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:var(--space-5); margin:var(--space-16) 0; }
-    .feature-card { padding:var(--space-7); background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius); }
-    .feature-card__icon { font-size:1.6rem; margin-bottom:var(--space-3); display:block; }
-    .feature-card__title { font-family:var(--font-display); font-size:1.15rem; font-weight:500; color:var(--ink); margin-bottom:var(--space-2); }
-    .feature-card__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.65; }
+    /* ── Includes / Bento grid ─────────────────────────── */
+    .includes-section { padding: var(--space-24) 0; }
+    .includes-intro {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-12);
+    }
+    .includes-intro .section-head { margin-bottom: 0; }
+    .includes-intro__sub {
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    @media (max-width: 900px)  { .bento-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px)  { .bento-grid { grid-template-columns: 1fr; } }
+
+    .bento-item {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) * 1.5);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .bento-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      border-color: var(--accent);
+    }
+    .bento-item--wide {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    @media (max-width: 900px) {
+      .bento-item--wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
+    }
+
+    .bento-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent) 0%, #9F6EFF 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      flex-shrink: 0;
+    }
+    .bento-item__body { flex: 1; }
+    .bento-item__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+    .bento-item__desc { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.72; }
+    .bento-item__tag {
+      display: inline-block;
+      margin-top: var(--space-3);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 999px;
+      padding: .22rem .8rem;
+    }
+
+    /* ── Pricing section ─────────────────────────── */
 
     /* Pricing section */
     .svc-pricing-section { padding:var(--space-24) 0; background:var(--bg-2); }
@@ -163,55 +239,79 @@
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="section" style="padding:var(--space-24) 0">
+        <!-- WHAT'S INCLUDED -->
+    <section class="includes-section">
       <div class="container">
-        <div class="section-head reveal s3d-l">
-          <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
-          <h2 class="section-head__title">Todo lo que<br><em>necesitas</em></h2>
-          <p class="section-head__sub">Sin configuraciones extras ni sorpresas. Lo que ves es lo que recibes.</p>
-        </div>
-        
-        <div class="reveal s3d-u" style="--delay:.1s">
-          <h3 style="font-size:1.5rem; margin-bottom:1rem;color:var(--ink)">Incluido en todos los Paquetes</h3>
-          <ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0.75rem 1rem;list-style:none;padding:0;color:var(--ink-2);margin-bottom:3rem">
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Desarrollo en WordPress / CMS Administrable</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Optimizado para SEO Básico (Alta en Google/Bing)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Optimización de Usabilidad (UX) e Interfaz (UI)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Diseños Modernos, Botones y Banners llamativos</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Imágenes y Galería de Imágenes Optimizada</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Optimización de Velocidad</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Plugins y Herramientas Profesionales</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Mapa de Ubicación y Enlaces a Redes Sociales</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Header y Footer dinámicos</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Chat en Línea (WhatsApp) y Formulario de Contacto</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Reproducción de Videos Integrada</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Copias de Seguridad Periódicas y Analíticas</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Sitio Web Escalable (más Páginas / Tienda)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>100% Responsivo y Accesible (Tabletas y Móviles)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Certificado SSL y Correos Profesionales **</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Revisiones de Cambios en todos los niveles</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>Páginas de Políticas de Privacidad y Cookies</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);line-height:1.5">✓</span> <span>PopUp / Banner de Aceptación de Cookies</span></li>
-          </ul>
-          <p style="font-size:0.85rem;color:var(--ink-3);margin-top:-2rem;margin-bottom:4rem">
-            ** Correos y SSL aplicables únicamente al contratar el servicio de hosting con nosotros.
+
+        <div class="includes-intro">
+          <div class="section-head reveal s3d-l">
+            <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
+            <h2 class="section-head__title">Todo lo que<br><em>necesitas</em></h2>
+          </div>
+          <p class="includes-intro__sub reveal s3d-r">
+            Infraestructura masiva para escalar operaciones corporativas formales 24/7 sin barreras de información.
           </p>
-          
-          <h3 style="font-size:1.5rem; margin-bottom:1rem;color:var(--ink)">Módulos Extra (Agregados Especiales)</h3>
-          <ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:0.75rem 1rem;list-style:none;padding:0;color:var(--ink-2);margin-bottom:3rem">
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Diseños 100% Personalizados y de Marca (Identidad)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Capacitación de Manejo (Videotutoriales a medida)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Hosting, Dominio y Licencias PRO (Elementor, etc.) ***</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Google Mi Negocio, Bing Negocios y Google Ads</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Creación de Contenido y Publicación Automática (Blogs/Redes)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Conversión a Tienda en Línea o Catálogo</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Múltiples Idiomas Adicionales y SEO Avanzado</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Mantenimiento Continuo y Soporte Avanzado</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>ChatBot Automatizado y Gestor CRM de Ventas</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Mega Menús, Menús Dinámicos y Accesibilidad (WCAG)</span></li>
-            <li style="display:flex;align-items:flex-start;gap:0.5rem"><span style="color:var(--accent);font-weight:bold;line-height:1.5">+</span> <span>Mapas Térmicos y Grabaciones de Comportamiento</span></li>
-            </ul>
+        </div>
+
+        <div class="bento-grid">
+
+          <!-- Card amplia -->
+          <div class="bento-item bento-item--wide reveal s3d-l">
+            <div class="bento-icon">🏢</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Arquitectura Multi-páginas CMS</h3>
+              <p class="bento-item__desc">Diseñados no solo para observarse, sino para crecer a largo plazo. Un robusto Gestor de Contenidos central (CMS) que estructura docenas de departamentos internos, servicios o portafolios masivos en un mismo lugar.</p>
+              <span class="bento-item__tag">Plataforma Escalable</span>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="bento-item reveal s3d-r reveal--d1">
+            <div class="bento-icon">📊</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Sub-divisiones y Organigramas</h3>
+              <p class="bento-item__desc">Divide fácilmente servicios B2B o B2C con Pestañas Internas detalladas e independientes para máxima conversión.</p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="bento-item reveal s3d-u reveal--d1">
+            <div class="bento-icon">🔎</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Búsquedas Inteligentes</h3>
+              <p class="bento-item__desc">Navegación dinámica. Filtra blogs, proyectos de portafolio y resultados con sistemas de Mega Menús anidados.</p>
+              <span class="bento-item__tag">Categorización Activa</span>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="bento-item reveal s3d-l reveal--d2">
+            <div class="bento-icon">🛡️</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Privacidad y Accesos</h3>
+              <p class="bento-item__desc">Políticas de cookies estructuradas y encriptaciones SSL integradas (si portas hosting) para proteger data sensible.</p>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="bento-item reveal s3d-u reveal--d2">
+            <div class="bento-icon">📈</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Dominio Nativo SEO</h3>
+              <p class="bento-item__desc">Despliegue semántico óptimo multi-página que enamora al algoritmo de Google. Sube puestos orgánicamente.</p>
+              <span class="bento-item__tag">Resultados Pasivos</span>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="bento-item reveal s3d-r reveal--d2">
+            <div class="bento-icon">📬</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Casillas y Embudos </h3>
+              <p class="bento-item__desc">Correos profesionales (hola@tuempresa.com) y sistemas multi-formularios para capturar Leads al departamento correcto.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -229,6 +329,7 @@
           <!-- Plan Bronce -->
           <div class="pricing-card scale-reveal reveal--d1">
             <div><span class="pc-badge">Corporativo</span><p class="pc-name">Sitio Bronce</p></div>
+            <p class="pc-desc">Sitio corporativo inicial de 7 páginas. Establece una presencia sólida y formal con espacio suficiente para desglosar detalladamente tus 3 servicios clave.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">22,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -243,12 +344,14 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Bronce%20de%20sitio%20corporativo%20%2422,000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/bronce" class="btn btn--outline">Características</a>
             </div>
           </div>
 
           <!-- Plan Silver -->
           <div class="pricing-card scale-reveal reveal--d2">
             <div><span class="pc-badge">Corporativo</span><p class="pc-name">Sitio Silver</p></div>
+            <p class="pc-desc">Expansión corporativa a 10 páginas. Perfecto si requieres mayor profundidad estructural, destacando 6 servicios y una sección robusta de portafolio o proyectos.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">25,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -263,12 +366,14 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Silver%20de%20sitio%20corporativo%20%2425,000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/silver" class="btn btn--outline">Características</a>
             </div>
           </div>
 
           <!-- Plan Gold (Featured) -->
           <div class="pricing-card pricing-card--featured scale-reveal reveal--d3">
             <div><span class="pc-badge">⭐ Más popular</span><p class="pc-name">Sitio Gold</p></div>
+            <p class="pc-desc">15 páginas. La matriz estándar. Añade integraciones dinámicas como artículos de blog y categorías extendidas para atraer tráfico orgánico pasivo en buscadores.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">29,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -283,12 +388,14 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Gold%20de%20sitio%20corporativo%20%2429,000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/gold" class="btn btn--outline">Características</a>
             </div>
           </div>
 
           <!-- Plan Platino -->
           <div class="pricing-card scale-reveal reveal--d1">
             <div><span class="pc-badge">Corporativo</span><p class="pc-name">Sitio Platino</p></div>
+            <p class="pc-desc">20 páginas de puro despliegue corporativo. Diseño para firmas a nivel nacional que separan por completo sus divisiones y unidades de negocio internas.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">34,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -303,12 +410,14 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Platino%20de%20sitio%20corporativo%20%2434,000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/platino" class="btn btn--outline">Características</a>
             </div>
           </div>
 
           <!-- Plan Diamante -->
           <div class="pricing-card scale-reveal reveal--d2">
             <div><span class="pc-badge">Corporativo</span><p class="pc-name">Sitio Diamante</p></div>
+            <p class="pc-desc">Autoridad masiva. 25 páginas internas exclusivas para grupos empresariales complejos que integran múltiples filiales, departamentos y embudos de cotización.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">38,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -323,12 +432,14 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Diamante%20de%20sitio%20corporativo%20%2438,000." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/diamante" class="btn btn--outline">Características</a>
             </div>
           </div>
 
           <!-- Plan Esmeralda -->
           <div class="pricing-card scale-reveal reveal--d3">
             <div><span class="pc-badge">Premium</span><p class="pc-name">Sitio Esmeralda</p></div>
+            <p class="pc-desc">La plataforma total de 30 páginas maestras. Interfaz extensa dedicada a empresas colosales que controlan masivos ecosistemas de bases informativas.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">44,500</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
@@ -343,6 +454,7 @@
             </ul>
             <div class="pc-actions">
               <a href="https://wa.me/526625044016?text=Hola%2C%20quiero%20el%20Plan%20Esmeralda%20de%20sitio%20corporativo%20%2444,500." target="_blank" rel="noopener noreferrer" class="btn btn--primary">Comprar ahora</a>
+            <a href="/servicios/sitios-corporativos/esmeralda" class="btn btn--outline">Características</a>
             </div>
           </div>
 

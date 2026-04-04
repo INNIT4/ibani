@@ -1,545 +1,256 @@
-# Auditoria SEO Completa — ibanidigital.com
-**Fecha:** 25 de marzo de 2026
-**Herramienta:** Claude Code SEO Audit (6 subagentes paralelos)
-**Paginas analizadas:** 5 (index, hermosillo, obregon, cuanto-cuesta, privacidad)
-**Stack:** HTML/CSS/JS estatico, Vercel, sin framework
+# Reporte SEO Completo — ibanidigital.com
+**Score: 76/100** | **Fecha: 1 de abril de 2026** | **Auditoría post-implementación (sesión 2)**
 
 ---
 
-## SEO Health Score Global: 73 / 100
+## Resumen Ejecutivo
 
-| Categoria | Peso | Puntuacion | Ponderado |
+| Categoría | Peso | Score | Aportación |
 |---|---|---|---|
 | Technical SEO | 25% | 74/100 | 18.5 |
-| Content Quality & E-E-A-T | 25% | 71/100 | 17.75 |
-| On-Page SEO | 20% | 76/100 | 15.2 |
-| Schema / Structured Data | 10% | 72/100 | 7.2 |
-| Performance (CWV) | 10% | 62/100 | 6.2 |
-| Imagenes | 5% | 82/100 | 4.1 |
-| AI Search Readiness (GEO) | 5% | 71/100 | 3.55 |
-| **TOTAL** | | | **72.5 / 100** |
+| Content Quality / E-E-A-T | 25% | 72/100 | 18.0 |
+| On-Page SEO | 20% | 80/100 | 16.0 |
+| Schema / Structured Data | 10% | 65/100 | 6.5 |
+| Performance (CWV) | 10% | 82/100 | 8.2 |
+| Images | 5% | 80/100 | 4.0 |
+| AI Search Readiness | 5% | 75/100 | 3.75 |
+| **TOTAL** | 100% | **76/100** | |
+
+**Evolución:** 73 → 76 (+3 puntos). Las páginas nuevas (sobre-nosotros, caso-sorteos-jans, plataforma-rifas-online) y las correcciones C1-C5 / A1-A6 / M1-M9 / B1-B5 elevaron el score. El avance es menor de lo proyectado porque emergieron 3 problemas críticos nuevos no detectados en la primera auditoría.
+
+### Top 5 problemas críticos activos
+
+1. **Sitemap con 3 URLs 404** — `/portafolio`, `/proceso`, `/blog` en sitemap.xml sin archivo HTML correspondiente
+2. **3 canonicals rotos en páginas de planes** — `emprendedor-avanzado.html` → canonical `/pyme` (inexistente), `emprendedor-plus.html` → `/microempresa`, `emprendedor-pro.html` → `/negocios`
+3. **Propiedad `founder` duplicada en index.html** — JSON-LD inválido; la clave duplicada silencia al primer nodo
+4. **14 páginas de planes sin noindex y sin sitemap** — estado de indexabilidad indefinido
+5. **CSP bloquea inline event handlers** — `onmouseover`/`onmouseout` en footer de index.html bloqueados por la política propia
 
 ---
 
-## Tipo de negocio detectado
-
-Agencia de diseno web unipersonal — ProfessionalService / LocalBusiness con area de servicio principal en Hermosillo y Ciudad Obregon, Sonora, Mexico. Mercado objetivo: negocios locales (salones de eventos, tiendas online, plataformas de sorteos). Fundador visible: Jose Daniel Ibarra Nieblas. Precios desde $3,500 MXN.
-
----
-
-## Top 5 Problemas Criticos
-
-1. **Meta description de index.html dice "desde $9,000 MXN"** cuando el precio real de entrada es $3,500 MXN — misleads usuarios, motores de busqueda y crawlers de IA.
-2. **Google Fonts render-blocking en hermosillo.html** — falta `media="print" onload`. Bloquea el render directamente, penaliza LCP y FCP.
-3. **Google Fonts render-blocking en cuanto-cuesta-pagina-web-sonora.html** — mismo problema. Carga bloqueante en la pagina con mayor potencial editorial.
-4. **AggregateRating en paginas de ciudad sin objetos Review** — obregon.html y hermosillo.html declaran un rating de 5 estrellas sin incluir los reviews que lo sustentan. Google puede marcar esto como error de schema en Search Console.
-5. **BlogPosting sin propiedad `image`** — el articulo de precios no puede aparecer como Article rich result ni en Google Discover sin esta propiedad.
-
----
-
-## Top 5 Quick Wins (menos de 30 min cada uno)
-
-1. **Corregir meta description en index.html** — cambiar "desde $9,000 MXN" por "desde $3,500 MXN". 5 minutos. Impacto: CTR, confianza, precision en AI search.
-2. **Corregir Google Fonts en hermosillo.html** — anadir `media="print" onload="this.media='all'"`. 2 minutos. Impacto: LCP/FCP directo.
-3. **Corregir Google Fonts en cuanto-cuesta-pagina-web-sonora.html** — mismo fix. 2 minutos.
-4. **Anadir `noindex, nofollow` a og-image.html** — evita que se indexe una pagina de plantilla sin contenido util. 2 minutos.
-5. **Anadir `image` al schema BlogPosting** en cuanto-cuesta-pagina-web-sonora.html. 10 minutos. Desbloquea Article rich results.
-
----
-
-## 1. Technical SEO — 74/100
-
-### 1.1 Rastreabilidad
-
-**Estado: PASS**
-
-- `robots.txt` bien configurado: permite todos los bots, lista explicitamente GPTBot, ClaudeBot, OAI-SearchBot, PerplexityBot.
-- Directiva `Llms-txt: https://www.ibanidigital.com/llms.txt` presente — practica de vanguardia.
-- Sitemap referenciado correctamente.
-- WARN: `og-image.html` en la raiz no tiene `noindex` — plantilla de generacion de imagen OG, no deberia indexarse.
-
-### 1.2 Indexabilidad
-
-**Estado: PASS con observaciones**
-
-- Canonicals correctos en las 5 paginas.
-- `privacidad.html` tiene `noindex, follow` — correcto.
-- www vs non-www: Vercel deberia manejar esto automaticamente pero no se pudo verificar sin curl live.
-- **WARN:** hermosillo.html y obregon.html comparten ~85% de estructura HTML identica. El contenido diferenciado (portafolio local, textos geo-especificos) es suficiente para evitar doorway page, pero es ajustado.
-
-### 1.3 Seguridad
-
-**Estado: PASS**
-
-- HTTPS + HSTS con `max-age=63072000; includeSubDomains; preload` — configuracion optima.
-- CSP presente en vercel.json con `frame-ancestors 'none'`, `default-src 'self'`.
-- `X-Content-Type-Options: nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy: strict-origin-when-cross-origin`.
-- WARN menor: CSP usa `'unsafe-inline'` en `style-src` (necesario para los estilos inline del HTML). No critico pero reduce la proteccion XSS.
-- LOW: Ausente `X-XSS-Protection` — deprecado pero algunos scanners lo senalan.
-
-### 1.4 Estructura de URLs
-
-**Estado: WARN**
-
-- Todas las subpaginas exponen `.html` en la URL (`/obregon.html`, `/hermosillo.html`).
-- `vercel.json` no tiene `"cleanUrls": true` — las URLs limpias (`/obregon`) son mas shareables.
-- La URL del articulo (`/cuanto-cuesta-pagina-web-sonora.html`) es descriptiva con keywords — buen trabajo.
-
-### 1.5 Rendimiento y Core Web Vitals (senales desde HTML)
-
-**Estado: WARN — 2 problemas criticos**
-
-**LCP:**
-- index.html: Fuentes no bloqueantes (media="print" onload + preload woff2 + preconnect). Excelente. CSS critico inline. JS con `defer`.
-- **CRITICO — hermosillo.html:** Google Fonts cargadas con `<link rel="stylesheet">` directo sin `media="print"` — RENDER-BLOCKING. Linea 140.
-- **CRITICO — cuanto-cuesta-pagina-web-sonora.html:** Mismo problema. Linea 95.
-- `obregon.html` y `privacidad.html`: Fuentes con patron correcto.
-- WARN: `/foto-fundado.jpg` (foto del fundador, above-the-fold en desktop) tiene `loading="lazy"`. Si es el LCP candidate real, esto lo retrasa. Verificar en DevTools.
-
-**CLS:**
-- Imagenes de portafolio tienen `width` y `height` explicitos — PASS.
-- Bloque `@font-face` de Fraunces fallback con `size-adjust: 97%` solo existe en `index.html`. Ausente en las 3 subpaginas. Sin el fallback, el font-swap genera CLS mayor.
-
-**Imagenes:**
-- Formato: Portfolio usa `<picture>` con AVIF > WebP > JPG, srcset 400w/800w, lazy loading — excelente.
-- WARN: No hay sitemap de imagenes. El portafolio tiene ~80 imagenes relevantes para busquedas de imagen.
-
-### 1.6 JavaScript Rendering
-
-**Estado: PASS**
-
-- HTML completamente pre-renderizado (SSR estatico). Googlebot puede indexar todo sin ejecutar JS.
-- `js/main.min.js` cargado con `defer` en todas las paginas.
-- Plausible Analytics con `defer` — no bloquea render.
-
-### 1.7 Estructura de Encabezados
-
-**Estado: PASS**
-
-| Pagina | H1 | H2 count | Issues |
-|---|---|---|---|
-| index.html | "Paginas web que trabajan por tu negocio" (aria-label correcto) | 8 | Ninguno |
-| hermosillo.html | "Diseno web en Hermosillo" | 4 | Ninguno |
-| obregon.html | "Diseno web en Ciudad Obregon" | 5 | Ninguno |
-| cuanto-cuesta | "?Cuanto cuesta una pagina web para negocio local en Sonora? (2026)" | 6 | Ninguno |
-
-### 1.8 Enlazado Interno
-
-**Estado: WARN — oportunidades perdidas**
-
-- index → hermosillo, obregon, cuanto-cuesta: PASS (footer).
-- hermosillo ↔ obregon: PASS (footer mutuo).
-- **MISS:** `cuanto-cuesta-pagina-web-sonora.html` menciona Hermosillo y Obregon 8+ veces sin enlazar a sus paginas SEO dedicadas.
-- **MISS:** Footer de `hermosillo.html` no enlaza a `/cuanto-cuesta-pagina-web-sonora.html` (footer de index y obregon si lo hacen).
-- Todos los links externos usan `rel="noopener noreferrer"` — correcto.
-- WARN: URLs de portafolio de clientes (ferraris.web.app, casaarias.web.app, etc.) estan en Firebase Hosting de los clientes — si cancela el cliente, el link 404 sin control de IBANI.
-
-### 1.9 Open Graph y Social
-
-**Estado: PASS con observaciones**
-
-- OG tags completos en todas las paginas.
-- Twitter/X cards presentes.
-- og:image (1200x630 JPEG) correcta en todas las paginas.
-- **MEDIUM:** `cuanto-cuesta-pagina-web-sonora.html` tiene `og:type="article"` pero falta `og:article:published_time` y `og:article:author`.
-- **LOW:** Ninguna pagina tiene `og:image:alt`.
-
-### 1.10 IndexNow
-
-**Estado: NO IMPLEMENTADO (LOW)**
-
-No hay clave IndexNow en la raiz ni llamadas al endpoint. Implementacion sencilla via script post-deploy en Vercel para notificar a Bing/Yandex/Naver.
-
----
-
-## 2. Content Quality & E-E-A-T — 71/100
-
-### 2.1 Puntuaciones por Pagina
-
-| Pagina | Contenido | E-E-A-T | AI Citabilidad |
-|---|---|---|---|
-| index.html | 78/100 | 74/100 | 72/100 |
-| hermosillo.html | 61/100 | 58/100 | 55/100 |
-| obregon.html | 63/100 | 60/100 | 57/100 |
-| cuanto-cuesta | 82/100 | 76/100 | 85/100 |
-
-### 2.2 Senales E-E-A-T Fuertes
-
-- Fundador nombrado con foto, LinkedIn, bio personal.
-- 10 proyectos de portafolio con URLs verificables publicamente.
-- Caso de estudio estructurado (Sorteos Jans: problema/solucion/resultado).
-- 3 testimonios con fechas, nombre completo y negocio del cliente.
-- Precios especificos y transparentes, incluyendo costos de infraestructura.
-- FAQ extenso con 6 preguntas y respuestas detalladas.
-- Google Business Profile activo.
-- Schema `Person` con LinkedIn.
-
-### 2.3 Debilidades E-E-A-T
-
-- Testimonios con 13-14 meses de antiguedad (enero-febrero 2025). Reviews viejos se deprecian.
-- Solo 3 testimonios — bajo para construir autoridad.
-- Sin certificaciones, premios ni menciones en medios externos.
-- Sin pagina `/sobre-nosotros.html` — quality raters notan la ausencia para un proveedor de servicios individual.
-- "100% Satisfaccion" en las estadisticas del hero es afirmacion no verificable.
-- No hay metricas cuantificadas en el caso de estudio (% de boletos vendidos, tiempo ahorrado).
-
-### 2.4 Unicidad de Contenido entre Paginas de Ciudad
-
-**WARN — alta similitud entre hermosillo.html y obregon.html**
-
-Los bloques identicos (palabra por palabra) representan aproximadamente el 60% del cuerpo visible:
-- Hero subtitle con solo el nombre de ciudad cambiado.
-- Tarjetas de ventajas competitivas.
-- CTA final.
-- Secciones de servicios (4 filas).
-- FAQ con respuestas casi identicas.
-
-El contenido diferenciado (portafolio con proyectos distintos por ciudad, seccion de contexto regional) representa ~40% y es genuinamente unico. Riesgo de doorway page: BAJO pero real. Se recomienda anadir al menos 2-3 parrafos de texto unico por pagina.
-
-### 2.5 Keyword Targeting
-
-| KW Principal | Pagina | Cobertura | Gaps |
-|---|---|---|---|
-| "diseno web en Hermosillo" | hermosillo.html | Titulo, H1, meta, schema, cuerpo | "agencia web Hermosillo", "crear pagina web Hermosillo" |
-| "diseno web en Ciudad Obregon" | obregon.html | Titulo, H1, meta, schema, cuerpo | "agencia web Obregon", KW precio Obregon en headings |
-| "cuanto cuesta una pagina web en Sonora" | cuanto-cuesta | Titulo, H1, meta, schema, cuerpo | Sin fuentes externas para respaldo de rangos de precio |
-| "diseno web en Sonora" | index.html | Hero, H2 servicios, schema | Profundidad editorial insuficiente para competir vs. paginas dedicadas |
-
-### 2.6 Contenido Faltante — Prioridad Alta
-
-1. **Pagina standalone de caso de estudio** (Sorteos Jans) con metricas especificas — activo de E-E-A-T mas valioso posible.
-2. **Testimonios de clientes locales en sus paginas de ciudad** — Alejandra Ferraris y Carlos Arias son de Hermosillo pero no aparecen en hermosillo.html. Ramon Flores es de Obregon pero no aparece en obregon.html.
-3. **Expandir cuanto-cuesta ~200 palabras** — articulo esta ~1,250 palabras vs. threshold recomendado de 1,500+. Gap tematico: comparacion "por proyecto" vs. "suscripcion mensual" y costo real del segundo ano.
-4. **Pagina de servicio dedicada a Plataformas de Rifas** — es el producto mas diferenciado del portafolio.
-5. **Pagina /sobre-nosotros.html** con bio expandida, fecha de fundacion, herramientas, filosofia.
-
-### 2.7 Legibilidad
-
-- Espanol correcto, natural y adecuado para el publico objetivo (negocios locales en Sonora).
-- Oraciones cortas, vocabulario accesible, tono de primera persona autentico.
-- Las listas con negritas al inicio son faciles de escanear.
-- Ninguna pagina muestra patrones tipicos de contenido AI de baja calidad.
-
----
-
-## 3. On-Page SEO — 76/100
-
-### 3.1 Titulos
-
-| Pagina | Titulo | Chars | Evaluacion |
-|---|---|---|---|
-| index.html | "IBANI Digital — Diseno Web para Negocios en Sonora" | 51 | PASS — dentro del rango 50-60 chars |
-| hermosillo.html | "Diseno Web en Hermosillo — IBANI Digital" | 41 | PASS |
-| obregon.html | "Diseno Web en Ciudad Obregon — IBANI Digital" | 45 | PASS |
-| cuanto-cuesta | "?Cuanto cuesta una pagina web en Sonora? (2026) — IBANI Digital" | 63 | WARN — levemente largo |
-| privacidad.html | N/A (noindex) | - | N/A |
-
-### 3.2 Meta Descriptions
-
-| Pagina | Meta Description | Evaluacion |
-|---|---|---|
-| index.html | "Diseno web en Hermosillo y Sonora: landing pages, tiendas online y sitios corporativos **desde $9,000 MXN**." | **CRITICO — precio incorrecto. El plan Basico es $3,500 MXN, no $9,000 MXN.** |
-| hermosillo.html | "Diseno y desarrollo web profesional para negocios en Hermosillo, capital de Sonora." | WARN — generica, sin precio ni diferenciador |
-| obregon.html | "Diseno y desarrollo web profesional para negocios en Ciudad Obregon, Sonora." | WARN — identica estructura a hermosillo, sin precio |
-| cuanto-cuesta | "Guia completa de precios para paginas web en Sonora en 2026..." | PASS |
-
-### 3.3 Enlazado Interno — Mapa Completo
-
+## TECHNICAL SEO — 74/100
+
+### Críticos
+
+#### C-1: Sitemap con 3 URLs que retornan 404
+**Archivo:** `sitemap.xml` líneas 23-34
+```xml
+<loc>https://www.ibanidigital.com/portafolio</loc>
+<loc>https://www.ibanidigital.com/proceso</loc>
+<loc>https://www.ibanidigital.com/blog</loc>
 ```
-/ (index)
-├── /hermosillo.html [footer]
-├── /obregon.html [footer]
-├── /cuanto-cuesta-pagina-web-sonora.html [footer]
-└── /privacidad.html [footer]
+No existen `portafolio.html`, `proceso.html` ni `blog.html` como archivos independientes. Con `cleanUrls: true`, Vercel retorna 404 para estas URLs. Google ya las tiene en el sitemap y puede intentar indexarlas, recibir 404 y marcarlas como errores en Search Console.
 
-/hermosillo.html
-├── / [header logo]
-├── /obregon.html [footer]
-├── /privacidad.html [footer]
-└── [MISS] /cuanto-cuesta-pagina-web-sonora.html — ausente en footer
+**Fix:** Eliminar las 3 entradas. Si `/portafolio` y `/proceso` son secciones de index.html, los links internos deben apuntar al ancla (`/#portafolio`), no a la URL.
 
-/obregon.html
-├── / [header logo]
-├── /hermosillo.html [footer]
-├── /cuanto-cuesta-pagina-web-sonora.html [footer]
-└── /privacidad.html [footer]
+#### C-2: 3 canonicals rotos en servicios/landing-pages/
+**Archivos:** `servicios/landing-pages/emprendedor-avanzado.html` (canonical → `/pyme`), `emprendedor-plus.html` (→ `/microempresa`), `emprendedor-pro.html` (→ `/negocios`), `emprendedor-elite.html` (→ `/empresarial`)
 
-/cuanto-cuesta-pagina-web-sonora.html
-├── / [header logo + breadcrumb]
-├── /hermosillo.html [footer]
-├── /obregon.html [footer]
-└── [MISS] sin enlaces contextuales dentro del cuerpo del articulo
-```
+Los archivos fueron renombrados en disco pero los canonicals no se actualizaron. El canonical apunta a una URL que no existe → Vercel retorna 404. Google ignora un canonical roto y canonicaliza la URL real — pero la configuración genera señales mixtas.
 
----
+**Fix:** Actualizar los 4 canonicals:
+- `emprendedor-avanzado.html` → `/servicios/landing-pages/emprendedor-avanzado`
+- `emprendedor-plus.html` → `/servicios/landing-pages/emprendedor-plus`
+- `emprendedor-pro.html` → `/servicios/landing-pages/emprendedor-pro`
+- `emprendedor-elite.html` → `/servicios/landing-pages/emprendedor-elite`
 
-## 4. Schema / Structured Data — 72/100
+### Altos
 
-### 4.1 Inventario
+#### A-1: CSP bloquea inline event handlers en index.html
+**Archivo:** `index.html` líneas 855-856 (footer)
+La política CSP en `vercel.json` (`script-src 'self' https://plausible.io`) bloquea los atributos `onmouseover`/`onmouseout` en el footer. Los efectos de hover implementados con handlers inline son silenciados en navegadores con CSP estricto.
+**Fix:** Mover los efectos hover a CSS puro (`:hover` en `css/components.css`).
 
-| Archivo | Tipos de schema presentes |
-|---|---|
-| index.html | WebSite, Person, ProfessionalService (con AggregateRating + 3 Review + OpeningHours + OfferCatalog), FAQPage (6Q), ItemList (10 proyectos), OfferCatalog (8 ofertas con precios en MXN) |
-| hermosillo.html | WebPage, ProfessionalService (con AggregateRating), BreadcrumbList, FAQPage (3Q) |
-| obregon.html | WebPage, ProfessionalService (con AggregateRating), BreadcrumbList, FAQPage (3Q) |
-| cuanto-cuesta | BlogPosting, BreadcrumbList, FAQPage (3Q) |
+#### A-2: 14 páginas de planes sin noindex y sin sitemap
+**Archivos:** `servicios/landing-pages/*.html` (6), `servicios/rifas/*.html` (2), `servicios/tiendas/*.html` (4), `servicios/software-administrativo/*.html` (4)
+Ninguna tiene `<meta name="robots" content="noindex">` y ninguna está en `sitemap.xml`. Google puede rastrearlas y decidir indexarlas de forma autónoma. Si el contenido es thin, diluye el dominio.
+**Fix recomendado:** Agregar `noindex` a todas mientras se evalúa el contenido caso por caso.
 
-### 4.2 Problemas por Severidad
+#### A-3: 4 páginas de servicio nivel-2 ausentes del sitemap
+**Faltantes en sitemap.xml:** `/servicios/landing-pages`, `/servicios/rifas`, `/servicios/tiendas`, `/servicios/software-administrativo`
 
-**CRITICO:**
+#### A-4: 2 claves IndexNow en el repo, ninguna en robots.txt
+**Archivos:** `361da0c5c6aa49dba10859713f581f5c.txt` (antigua), `e8eed06c576f819a4f9f8391c59421ad.txt` (activa)
+IndexNow no funciona operativamente. Bing/Yandex no pueden descubrir el soporte automáticamente.
+**Fix:** Eliminar la clave antigua. Agregar a `robots.txt`: `IndexNow-key: https://www.ibanidigital.com/e8eed06c576f819a4f9f8391c59421ad.txt`
 
-- **C1: AggregateRating sin Review objects en paginas de ciudad.** obregon.html y hermosillo.html declaran `aggregateRating` (5 estrellas, 3 reviews) sin incluir los objetos `Review`. Google puede marcar esto como error en Search Console y desactivar el rich snippet de estrellas. Fix: anadir los 3 objetos Review (identicos a los de index.html) o eliminar el `aggregateRating` de las paginas locales.
+#### A-5: `foto-fundado.jpg` en index.html con fetchpriority alto siendo below-the-fold
+**Archivo:** `index.html` sección #nosotros
+La imagen tiene `loading="eager" fetchpriority="high"` pero está en la segunda sección visible (below-the-fold). El LCP real de index.html es el `<h1>` de texto. El fetchpriority alto compite con recursos críticos del render path.
+**Fix:** Cambiar a `loading="lazy"` y eliminar `fetchpriority="high"`.
 
-**ADVERTENCIA:**
+### Medios
 
-- **W1: BlogPosting sin propiedad `image`** — requerida por Google para eligibilidad en Article rich results y Google Discover. Fix: anadir `"image": { "@type": "ImageObject", "url": "https://www.ibanidigital.com/og-image.jpg", "width": 1200, "height": 630 }`.
-- **W2: `hasOfferCatalog` duplicado en ProfessionalService de index.html** — el primer bloque tiene 4 ofertas sin precios; el segundo bloque tiene un OfferCatalog completo con 8 ofertas y precios. Fix: reemplazar el `hasOfferCatalog` inline del primer bloque por `"hasOfferCatalog": { "@id": "https://www.ibanidigital.com/#servicios" }`.
-- **W3: `Person.image` como string URL**, no como `ImageObject`. Google prefiere el objeto completo con dimensiones.
-- **W4: `WebSite.dateModified` dice `2026-03-21`** pero el sitemap y los archivos tienen `2026-03-25`. Actualizar.
-- **W5: FAQPage comercial no genera rich results** en Google desde agosto 2023 (solo govs/salud). El schema es valido y util para GEO/AI search, pero no aparecera como accordion en SERPs.
+#### M-1: sitemap-images.xml cubre solo la homepage
+Todas las imágenes de portafolio están bajo `<loc>https://www.ibanidigital.com/</loc>`. Las páginas `/hermosillo`, `/obregon`, `/caso-sorteos-jans` y `/plataforma-rifas-online` también tienen imágenes relevantes.
 
-**INFO:**
+#### M-2: Referencia a llms.txt comentada en robots.txt
+`# Llms-txt: https://www.ibanidigital.com/llms.txt` — comentada. Si se quiere que crawlers de IA la descubran vía robots.txt, descomentar.
 
-- `foto-fundado.jpg` — confirmado que el archivo existe con ese nombre. No es un typo.
-- La URL del GBP en `sameAs` (`https://share.google/gb9YStsSpvg3PZxQJ`) es un enlace de compartir, no el permalink canonico. Si Google rota esa URL, el schema pierde la conexion al GBP. Obtener la URL de formato `https://www.google.com/maps/place/?q=place_id:XXXX`.
-- FAQPage sin `@id` en paginas de ciudad y articulo — menor, facilita referencias futuras pero no es urgente.
+#### M-3: X-Frame-Options inconsistente con frame-ancestors
+`vercel.json`: `X-Frame-Options: SAMEORIGIN` (permite iframes del mismo origen) + `frame-ancestors 'none'` (bloquea todos). Contradictorios. Cambiar `X-Frame-Options` a `DENY`.
 
-### 4.3 Lo que funciona bien
+### Bajos
 
-- Schema `@graph` con IDs (`#website`, `#business`, `#founder`) que permiten referencias cruzadas correctas entre bloques.
-- OfferCatalog con precios exactos en MXN — inusualmente completo para un negocio local.
-- ItemList de portafolio con 10 items y LocalBusiness anidado.
-- `areaServed` con tres entidades: Hermosillo, Ciudad Obregon, Sonora.
-- `openingHoursSpecification` correcto.
-- `aggregateRating` con `review` objects en index.html — autenticidad reforzada porque los nombres de clientes coinciden con proyectos del portafolio.
-- BreadcrumbList en todas las subpaginas.
-- BlogPosting con `author` y `publisher` referenciando las entidades del grafo principal.
+#### B-1: `changefreq` y `priority` en una sola entrada del sitemap
+Solo `/servicios/sitios-corporativos` los tiene. Google los ignora; quitar para consistencia o agregar a todas.
 
 ---
 
-## 5. Performance / Core Web Vitals — 62/100
+## CONTENT QUALITY / E-E-A-T — 72/100
 
-### 5.1 Estado por Pagina
+### Score por página
+| Página | Score | Palabras | Principal brecha E-E-A-T |
+|---|---|---|---|
+| index.html | 7.5/10 | ~1,200 | Solo 3 reseñas para 10+ proyectos |
+| hermosillo.html | 6.5/10 | ~900 | 65% contenido duplicado con obregon, reseñas no localizadas |
+| obregon.html | 6.5/10 | ~900 | Carlos Arias (Hermosillo) en página de Obregón |
+| cuanto-cuesta-pagina-web-sonora.html | 8.5/10 | ~1,450 | Sin fuentes externas, precio inconsistente con homepage |
+| sobre-nosotros.html | 7.0/10 | ~700 | Sin testimonios visibles, sin credenciales formales |
+| caso-sorteos-jans.html | 8.0/10 | ~900 | Sin cita del cliente, sin métricas cuantitativas |
+| plataforma-rifas-online.html | 7.0/10 | ~900 | Features sin H3 (semánticamente planas) |
 
-| Pagina | Fonts blocking | JS blocking | @font-face fallback | LCP candidate |
-|---|---|---|---|---|
-| index.html | NO (media=print onload) | NO (defer) | SI | H1 o foto-fundado.jpg (lazy — WARN) |
-| hermosillo.html | **SI — CRITICO** | NO (defer) | NO | H1 probablemente |
-| obregon.html | NO | NO (defer) | NO | H1 probablemente |
-| cuanto-cuesta | **SI — CRITICO** | NO (defer) | NO | H1 probablemente |
-| privacidad.html | NO | NO | — | — |
+**E-E-A-T global: 69.85/100**
+- Experience: 72/100 — proyectos verificables, bio en primera persona, URLs de clientes en vivo
+- Expertise: 78/100 — precios concretos, stack técnico, tiempos documentados
+- Authoritativeness: 55/100 — **punto más débil**: 3 reseñas, sin menciones de prensa, sin validación del cliente más importante (Sorteos Jans), todo el contenido es autopresentación
+- Trustworthiness: 74/100 — contact info completo, HTTPS, aviso de privacidad, horario, LinkedIn
 
-### 5.2 Recomendaciones de Performance
+### Críticos de contenido
 
-1. Fix render-blocking en hermosillo.html (linea 140):
-   ```html
-   <!-- Cambiar esto: -->
-   <link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet">
-   <!-- Por esto: -->
-   <link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet" media="print" onload="this.media='all'">
-   <noscript><link href="https://fonts.googleapis.com/css2?family=..." rel="stylesheet"></noscript>
-   ```
+#### CC-1: Inconsistencia de precios entre artículo y homepage
+El artículo muestra "landing page $5,000-$12,000" (rango de mercado) pero el schema del homepage lista el plan Básico de IBANI en $3,500. Un usuario que lee ambas páginas detecta la contradicción. Daña Trustworthiness en el QRG.
 
-2. Mismo fix en cuanto-cuesta-pagina-web-sonora.html (linea 95).
+#### CC-2: Las mismas 3 reseñas en 4 páginas distintas
+`hermosillo.html`, `obregon.html`, `index.html`, `cuanto-cuesta` — mismo bloque de reviews verbatim. Carlos Arias (Casa Arias, Hermosillo) aparece como reviewer en la página de Obregón. Google puede detectar contenido duplicado en datos estructurados.
 
-3. Anadir bloque `@font-face` fallback de Fraunces (que esta en index.html linea 311) al `<style>` critico inline de las 3 subpaginas.
+### Altos de contenido
 
-4. Verificar si `/foto-fundado.jpg` en index.html es el LCP candidate con DevTools. Si lo es, cambiar a `loading="eager" fetchpriority="high"`.
+#### AC-1: Sin cita del cliente en caso-sorteos-jans
+Todo el caso de estudio es narrado por el proveedor. Sin una cita directa del organizador de Sorteos Jans, el contenido es autopublicitario. Es el cambio de mayor impacto E-E-A-T disponible en el sitio.
 
----
+#### AC-2: Features de plataforma-rifas-online sin H3
+Las 6 características de la plataforma usan `<p class="obr-card__title">` en lugar de `<h3>`. Son semánticamente invisibles para crawlers y LLMs.
 
-## 6. Imagenes — 82/100
-
-### 6.1 Fortalezas
-
-- Portfolio: `<picture>` con AVIF > WebP > JPG, srcset 400w/800w, `lazy loading`, `width` y `height` explicitos. Excelente practica.
-- Foto del fundador: dimensiones especificadas (399x399), `loading="lazy"` (ver advertencia en LCP).
-- `og-image.jpg` presente y correctamente dimensionada (1200x630).
-
-### 6.2 Problemas
-
-- No hay sitemap de imagenes. Con ~80 imagenes de portafolio, un `sitemap-images.xml` mejoraria la visibilidad en Google Images.
-- `og-image.html` (plantilla generadora) no tiene `noindex` — puede indexarse como pagina sin contenido util.
-- `og:image:alt` ausente en todas las paginas — recomendado por Open Graph spec.
+#### AC-3: sobre-nosotros sin testimonios visibles
+La página del fundador no tiene prueba social visual. Los testimonios existen solo en JSON-LD de index.html.
 
 ---
 
-## 7. AI Search Readiness (GEO) — 71/100
+## SCHEMA / STRUCTURED DATA — 65/100
 
-### 7.1 Score por Dimension
+### Críticos
 
-| Dimension | Score | Nota |
-|---|---|---|
-| Accesibilidad tecnica para IA | 90/100 | HTML estatico, todos los crawlers permitidos, schemas completos |
-| Legibilidad estructural | 82/100 | FAQ bien estructuradas, precios especificos, schema JSON-LD |
-| Citabilidad (passage-level) | 76/100 | Pasajes con hechos especificos pero algo cortos para el rango optimo 134-167 palabras |
-| Autoridad y senales de marca | 58/100 | Sin YouTube, GBP URL fragil, solo 3 reviews, sin menciones externas |
-| Contenido multi-modal | 42/100 | Sin video, sin infografias, sin contenido comparativo estructurado |
+#### SC-1: Propiedad `founder` duplicada en index.html
+**Líneas 96 y 143** del mismo objeto `ProfessionalService`. JSON con clave duplicada: la segunda instancia sobrescribe a la primera silenciosamente. Google Rich Results Test puede marcar el schema como inválido.
 
-### 7.2 llms.txt — Evaluacion
+### Medios
 
-**Muy bueno** — de los mejores para un negocio local en Mexico:
-- Bloque descriptivo inicial denso en hechos (47 palabras con precio, entrega, contacto, sede, especialidades).
-- Precios listados para todos los niveles de servicio.
-- Portafolio de 10 clientes con URLs.
-- Testimonios con nombre y negocio atribuido.
-- Seccion "Notas para sistemas de IA" con licencia explicita.
-- Fecha de actualizacion coincide con sitemap — consistencia valorada por modelos.
+#### SM-1: Missing `@id` en BreadcrumbList y FAQPage en 6 páginas
+`hermosillo.html`, `obregon.html`, `cuanto-cuesta`, `sobre-nosotros`, `caso-sorteos-jans`, `plataforma-rifas-online` — ninguna declara `@id` en sus nodos `BreadcrumbList` ni `FAQPage`. Sin `@id`, los nodos flotan sin conexión explícita a la `WebPage`.
+
+#### SM-2: `hasOfferCatalog` referencia entre bloques JSON-LD separados
+**index.html** — `ProfessionalService.hasOfferCatalog` referencia `{ "@id": ".../#servicios" }` que está en un segundo bloque `<script>` independiente. Google no vincula `@id` entre bloques separados.
+
+#### SM-3: index.html sin nodo `WebPage` en @graph
+Es la única página sin `WebPage` en su `@graph`. Todas las subpáginas sí lo tienen. Rompe la cadena canónica del schema.
+
+#### SM-4: BlogPosting.isPartOf apunta a WebSite directamente
+**cuanto-cuesta** y **caso-sorteos-jans** — el patrón correcto es `BlogPosting > WebPage > WebSite`. Estas páginas saltan la `WebPage`.
+
+#### SM-5: `og:type="profile"` en sobre-nosotros sin propiedades requeridas
+Requiere `og:profile:first_name` y `og:profile:last_name`. Sin ellas, Meta hace fallback a tipo genérico. Cambiar a `og:type="article"`.
+
+### Bajos
+
+#### SB-1: Person.image en sobre-nosotros como string, no como ImageObject
+Inconsistente con index.html donde el mismo nodo `#founder` usa `ImageObject` con width/height.
+
+#### SB-2: Article.about.SoftwareApplication.offers.price:"0" en caso-sorteos-jans
+Implica que el software es gratuito (incorrecto). Eliminar el bloque `offers` del `SoftwareApplication`.
+
+---
+
+## PERFORMANCE — 82/100
+
+| Página | LCP candidato | Estimación | Problema |
+|---|---|---|---|
+| index.html | `<h1>` texto | Bueno | foto-fundado con fetchpriority alto innecesario |
+| hermosillo.html | `<h1>` texto | Bueno | — |
+| obregon.html | `<h1>` texto | Bueno | — |
+| cuanto-cuesta | `<h1>` texto | Bueno | Sin preload de fuente woff2 |
+| sobre-nosotros | `foto-fundado.jpg` | **Necesita mejora** | Sin preload de imagen, sin WebP |
+| plataforma-rifas | `<h1>` texto | Bueno | Sin preload de fuente woff2 |
+
+**P1:** `sobre-nosotros.html` — LCP candidate sin `<link rel="preload">`. Añadir: `<link rel="preload" as="image" fetchpriority="high" href="/foto-fundado.jpg">`
+
+**P2:** `foto-fundado.jpg` solo en JPEG. Convertir a WebP reduce ~35% el peso.
+
+**P3:** `cuanto-cuesta`, `sobre-nosotros`, `plataforma-rifas` sin preload woff2 de Fraunces. Solo tienen `preconnect`. Añadir las 2 líneas de preload de font que tienen index.html, hermosillo.html y obregon.html.
+
+**P4:** `index.html` — `foto-fundado.jpg` con `loading="eager" fetchpriority="high"` below-the-fold. Cambiar a `loading="lazy"`.
+
+**Lo que funciona bien:** JS 100% deferido, Plausible con defer, patrón media="print" onload en todas las páginas, @font-face fallback métrico con size-adjust, imágenes de portafolio con AVIF+WebP+srcset+lazy loading.
+
+---
+
+## IMAGES — 80/100
+
+**Correcto:** Portfolio con `<picture>` AVIF+WebP+JPG, srcset 2 resoluciones, width/height explícitos, lazy loading. `og:image:alt` en todas las páginas indexables.
 
 **Problemas:**
-- Nota de disambiguation demasiado vaga: "No confundir con otras empresas con nombre similar" sin especificar cuales. Un modelo no puede resolver la ambiguedad con esta instruccion.
-- Estadisticas como bullets cortos (1 linea cada uno) — un parrafo cohesivo de ~140 palabras seria mas citable.
-- `privacidad.html` listada en "Paginas disponibles" — no aporta citabilidad, se puede omitir.
-
-### 7.3 Cobertura de Consultas Comunes de IA
-
-| Consulta | Cobertura | Calidad |
-|---|---|---|
-| "?Cuanto cuesta una pagina web en Hermosillo?" | SI — FAQ schema + llms.txt | Excelente |
-| "?En cuanto tiempo hacen una pagina web?" | SI — FAQ schema + llms.txt | Excelente |
-| "?Cobran comision sobre ventas?" | SI — FAQ schema + llms.txt | Excelente |
-| "?Cual es el proceso de trabajo?" | SI — proceso 4 pasos + llms.txt | Muy bueno |
-| "?Tienen clientes reales en Sonora?" | SI — ItemList con 10 proyectos | Bueno |
-| "?Hacen tiendas con Mercado Pago?" | NO — solo Stripe/Clip/Conekta mencionados | Gap |
-| "?Por que elegir IBANI vs Wix?" | Parcial — articulo de precios lo roza | Mejorar |
-| "?IBANI Digital vs agencia grande?" | Parcial | Mejorar |
-
-### 7.4 Scores Estimados por Plataforma
-
-| Plataforma | Score | Razon |
-|---|---|---|
-| Google AIO | 68/100 | FAQPage + GBP, pero sin autoridad externa (YouTube, backlinks) |
-| Perplexity | 74/100 | Valora datos numericos especificos y fechas — sitio tiene ambos |
-| ChatGPT (busqueda) | 62/100 | Sin YouTube, pocas backlinks, marca reciente |
-| Bing Copilot | 70/100 | Valora schema estructurado y SSR — ambos presentes |
-
-### 7.5 Gaps de GEO Prioritarios
-
-1. **Meta description dice "desde $9,000 MXN"** — es lo primero que lee un crawler. Puede citar ese precio incorrecto. Fix inmediato.
-2. **Sin presencia en YouTube** — correlacion ~0.737 con citaciones de IA. No requiere produccion profesional.
-3. **URL de GBP en `sameAs`** es enlace de compartir (`share.google/...`), no permalink canonico. Puede romperse.
-4. **Pasajes de FAQ demasiado cortos** para el rango optimo de citacion (134-167 palabras). Las respuestas actuales tienen 72-105 palabras en schema.
-5. **Disambiguation note vaga** en llms.txt.
+- `foto-fundado.jpg`: solo JPEG, afecta index.html y sobre-nosotros.html
+- `plataforma-rifas-online.html`: imagen Sorteos Jans sin source AVIF
+- `sitemap-images.xml`: solo cubre homepage
 
 ---
 
-## 8. Sitemap — PASS
+## AI SEARCH READINESS — 75/100
 
-- XML valido. 4 URLs correctas.
-- `privacidad.html` correctamente excluida (tiene `noindex`).
-- `og-image.html` no en sitemap — bien, pero deberia tener `noindex` en el propio HTML.
-- `changefreq` y `priority` ausentes — correcto (Google los ignora desde hace varios anos).
-- `lastmod` identico para todas las URLs (2026-03-25) — actualizar por pagina cuando cambie el contenido.
-- Sitemap referenciado en robots.txt — correcto.
-- **MISS menor:** hermosillo.html no enlaza de vuelta al articulo de precios (footer). El articulo enlaza a ambas ciudades pero no recibe el enlace de vuelta desde hermosillo.
+**Fortalezas:** `llms.txt` actualizado, robots.txt con Allow explícito para 4 bots de IA, FAQPage en 5 páginas, tabla de precios citable, patrón problema/solución/resultado en caso de estudio.
+
+**Debilidades:** IndexNow no operativo, sin fuentes externas verificables, sin menciones de prensa, sin testimonio de Sorteos Jans.
 
 ---
 
-## 9. Hallazgos por Archivo
+## SITEMAP — Estado de cobertura
 
-### index.html
-- CRITICO: meta description precio incorrecto ("$9,000 MXN" en lugar de "$3,500 MXN")
-- MEDIUM: `WebSite.dateModified` desactualizado (2026-03-21 en lugar de 2026-03-25)
-- MEDIUM: `hasOfferCatalog` duplicado en ProfessionalService
-- LOW: `Person.image` como string en lugar de ImageObject con dimensiones
-- LOW: `foto-fundado.jpg` tiene `loading="lazy"` — potencial LCP issue si es above-the-fold
-- INFO: "100% Satisfaccion" en estadisticas del hero — afirmacion sin respaldo
-
-### hermosillo.html
-- CRITICO: Google Fonts render-blocking (linea 140)
-- CRITICO: `AggregateRating` sin objetos `Review`
-- MEDIUM: Footer no enlaza a `/cuanto-cuesta-pagina-web-sonora.html`
-- MEDIUM: Sin @font-face fallback de Fraunces
-- MEDIUM: Meta description generica sin precio ni diferenciador fuerte
-- MEDIUM: Sin testimonios de clientes hermosillenses (Alejandra Ferraris, Carlos Arias estan en index.html pero no aqui)
-
-### obregon.html
-- CRITICO: `AggregateRating` sin objetos `Review`
-- MEDIUM: Sin @font-face fallback de Fraunces
-- MEDIUM: Meta description generica
-- MEDIUM: Sin testimonio de Ramon Flores de Floresta Jardin (existe en index.html, no aqui)
-- LOW: `ProfessionalService` sin propiedad `founder`
-
-### cuanto-cuesta-pagina-web-sonora.html
-- CRITICO: Google Fonts render-blocking (linea 95)
-- HIGH: `BlogPosting` sin propiedad `image` — inelegible para Article rich results
-- MEDIUM: Sin @font-face fallback de Fraunces
-- MEDIUM: `og:article:published_time` y `og:article:author` ausentes
-- MEDIUM: Sin enlaces contextuales a /hermosillo.html y /obregon.html dentro del cuerpo
-- LOW: ~1,250 palabras vs. threshold recomendado 1,500+
-
-### og-image.html
-- HIGH: Sin `<meta name="robots" content="noindex, nofollow">` — puede indexarse como pagina sin contenido util.
-
-### llms.txt
-- MEDIUM: Nota de disambiguation demasiado vaga
-- LOW: Estadisticas como bullets cortos en lugar de parrafo cohesivo
-- LOW: privacidad.html listada — no aporta citabilidad
-
-### robots.txt
-- PASS — sin problemas
-
-### sitemap.xml
-- PASS — sin problemas
-
----
-
-## 10. Resumen de Issues por Severidad
-
-### CRITICOS (5)
-| ID | Problema | Archivo | Esfuerzo |
-|---|---|---|---|
-| C1 | Meta description dice "desde $9,000 MXN" — precio incorrecto | index.html linea 7 | 5 min |
-| C2 | Google Fonts render-blocking | hermosillo.html linea 140 | 5 min |
-| C3 | Google Fonts render-blocking | cuanto-cuesta linea 95 | 5 min |
-| C4 | AggregateRating sin Review objects | obregon.html + hermosillo.html | 30 min |
-| C5 | BlogPosting sin propiedad `image` | cuanto-cuesta | 10 min |
-
-### ALTOS (6)
-| ID | Problema | Archivo | Esfuerzo |
-|---|---|---|---|
-| H1 | og-image.html sin noindex | og-image.html | 2 min |
-| H2 | @font-face fallback ausente en subpaginas | hermosillo, obregon, cuanto-cuesta | 15 min |
-| H3 | foto-fundado.jpg con loading=lazy (posible LCP) | index.html | 5 min + verificar |
-| H4 | Sin image sitemap para portfolio de ~80 imagenes | Nuevo archivo | 1-2h |
-| H5 | URL GBP en sameAs es enlace de compartir fragil | index, hermosillo, obregon + llms.txt | 30 min |
-| H6 | Sin enlaces contextuales en articulo de precios a paginas de ciudad | cuanto-cuesta | 15 min |
-
-### MEDIOS (10)
-| ID | Problema | Archivo |
-|---|---|---|
-| M1 | hasOfferCatalog duplicado en ProfessionalService | index.html |
-| M2 | WebSite.dateModified desactualizado | index.html |
-| M3 | Footer de hermosillo.html sin enlace al articulo de precios | hermosillo.html |
-| M4 | Meta descriptions genericas en paginas de ciudad | hermosillo.html, obregon.html |
-| M5 | Testimonios locales ausentes de paginas de ciudad | hermosillo.html, obregon.html |
-| M6 | OG article tags incompletos | cuanto-cuesta |
-| M7 | Clean URLs no configuradas (.html visible) | vercel.json |
-| M8 | Disambiguation vaga en llms.txt | llms.txt |
-| M9 | Person.image como string no ImageObject | index.html |
-| M10 | Alta similitud estructural entre paginas de ciudad | hermosillo.html, obregon.html |
-
-### BAJOS (8)
-| ID | Problema |
+| URL | Estado |
 |---|---|
-| L1 | og:image:alt ausente en todas las paginas |
-| L2 | IndexNow no implementado |
-| L3 | FAQ passages por debajo de 134-167 palabras optimas para citacion IA |
-| L4 | Estadisticas del hero ("100% Satisfaccion") sin respaldo verificable |
-| L5 | Sin presencia en YouTube (correlacion alta con citaciones de IA) |
-| L6 | Reviews en schema con 13+ meses de antiguedad |
-| L7 | Sin pagina /sobre-nosotros.html |
-| L8 | Sin pagina de servicio dedicada a Plataformas de Rifas |
+| `/` | Correcto |
+| `/hermosillo` | Correcto |
+| `/obregon` | Correcto |
+| `/cuanto-cuesta-pagina-web-sonora` | Correcto |
+| `/servicios` | Correcto |
+| `/portafolio` | **404 — eliminar** |
+| `/proceso` | **404 — eliminar** |
+| `/blog` | **404 — eliminar** |
+| `/sobre-nosotros` | Correcto |
+| `/caso-sorteos-jans` | Correcto |
+| `/plataforma-rifas-online` | Correcto |
+| `/servicios/sitios-corporativos` | Correcto |
+| `/servicios/landing-pages` | **Falta** |
+| `/servicios/rifas` | **Falta** |
+| `/servicios/tiendas` | **Falta** |
+| `/servicios/software-administrativo` | **Falta** |
+
+## Canonicals rotos en servicios/landing-pages/
+
+| Archivo | Canonical actual | Canonical correcto |
+|---|---|---|
+| emprendedor-avanzado.html | `/servicios/landing-pages/pyme` | `/servicios/landing-pages/emprendedor-avanzado` |
+| emprendedor-plus.html | `/servicios/landing-pages/microempresa` | `/servicios/landing-pages/emprendedor-plus` |
+| emprendedor-pro.html | `/servicios/landing-pages/negocios` | `/servicios/landing-pages/emprendedor-pro` |
+| emprendedor-elite.html | `/servicios/landing-pages/empresarial` | `/servicios/landing-pages/emprendedor-elite` |
 
 ---
 
-## Apendice: Paginas Auditadas
+## Proyección de score
 
-| URL | Indexable | En sitemap | Schema |
-|---|---|---|---|
-| https://www.ibanidigital.com/ | SI | SI | WebSite, Person, ProfessionalService, FAQPage, ItemList, OfferCatalog |
-| https://www.ibanidigital.com/hermosillo.html | SI | SI | WebPage, ProfessionalService, BreadcrumbList, FAQPage |
-| https://www.ibanidigital.com/obregon.html | SI | SI | WebPage, ProfessionalService, BreadcrumbList, FAQPage |
-| https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora.html | SI | SI | BlogPosting, BreadcrumbList, FAQPage |
-| https://www.ibanidigital.com/privacidad.html | NO (noindex) | NO | — |
-| https://www.ibanidigital.com/og-image.html | Sin noindex (BUG) | NO | — |
+| Fase | Acciones | Score estimado |
+|---|---|---|
+| Actual | — | **76/100** |
+| Críticos resueltos | C1-C4 sitemap + canonicals + founder | **79/100** |
+| Altos resueltos | A1-A8 performance + schema + IndexNow | **81/100** |
+| Medios resueltos | M1-M9 schema chain + contenido | **84/100** |
+| Bajos + Contenido | B1-B5 + N1-N5 testimonio Jans + reviews | **86/100** |

@@ -13,15 +13,19 @@
 - Para forzar deploy: hacer commit vacío con `git commit --allow-empty` en master
 
 ## Archivos clave
+- `index.html` — página principal
 - `servicios.html` — 7 bloques de servicios con IDs: `#landing`, `#tiendas`, `#rifas`, `#software`, `#citas`, `#asistencia`, `#sistemas`
 - `img/` — imágenes de servicios en WebP: `landing`, `tiendaonline`, `sorteos`, `gestion`, `reserva`, `codigoqr`, `logoahorro`
-- `index.html` — página principal
 - `css/all.min.css` — CSS compilado (el que se sirve en producción)
 - `css/base.css`, `css/components.css`, `css/sections.css` — fuentes CSS (editar aquí, recompilar en all.min.css)
 - `js/main.min.js` — JS compilado (el que se sirve; `js/main.js` es la fuente)
-- `servicios/` — páginas individuales: `landing-pages.html`, `tiendas.html`, `rifas.html`, `corporativos.html`
-- `privacidad.html` — aviso de privacidad LFPDPPP
+- `servicios/` — hub pages: `landing-pages.html`, `rifas.html`, `tiendas.html`, `software-administrativo.html`, `sitios-corporativos.html` + subdirectorios con planes individuales (`landing-pages/*.html`, `rifas/*.html`, `tiendas/*.html`, `software-administrativo/*.html`)
+- `hermosillo.html` — página SEO local para Hermosillo (indexable, con schema propio)
 - `obregon.html` — página SEO local para Ciudad Obregón (indexable, con schema propio)
+- `cuanto-cuesta-pagina-web-sonora.html` — artículo de precios (BlogPosting schema, indexable)
+- `sobre-nosotros.html`, `caso-sorteos-jans.html`, `plataforma-rifas-online.html` — páginas de contenido (indexables)
+- `privacidad.html` — aviso de privacidad LFPDPPP
+- `e8eed06c576f819a4f9f8391c59421ad.txt` — clave IndexNow activa (la otra clave en el repo es obsoleta)
 - `llms.txt` — contexto para crawlers de IA (GPTBot, ClaudeBot, PerplexityBot)
 - `FULL-AUDIT-REPORT.md` — auditoría SEO completa (actualizar tras cambios mayores)
 - `ACTION-PLAN.md` — plan de acción SEO priorizado
@@ -34,8 +38,8 @@
 ## SEO
 - JSON-LD: `@graph` con WebSite + ProfessionalService + FAQPage + Reviews
 - Segundo bloque JSON-LD: ItemList (portfolio) + OfferCatalog
-- `obregon.html` tiene su propio ProfessionalService schema con geo de Obregón
-- `sitemap.xml` y `robots.txt` en raíz
+- `hermosillo.html` y `obregon.html` tienen su propio ProfessionalService schema con geo local
+- `sitemap.xml`, `sitemap-images.xml` y `robots.txt` en raíz
 - `og:image` generada desde `og-image.html` vía Playwright (1200×630px)
 - Google Business Profile creado como negocio de área de servicio (sin dirección pública)
 - URL canónica: siempre `https://www.ibanidigital.com/` (con www)
@@ -46,3 +50,7 @@
 - No editar `all.min.css` ni `main.min.js` directamente — son compilados. Para CSS puntual en un HTML, usar un `<style>` en el `<head>`.
 - `.svc-card` tiene `position:relative; overflow:hidden` — el patrón stretched-link funciona con `::after { position:absolute; inset:0 }` en el link interior.
 - `vercel.json` tiene `cleanUrls:true` — URLs como `/servicios/rifas` sirven `servicios/rifas.html` automáticamente.
+- `vercel.json` tiene rewrites: `/servicios` → `servicios.html`, `/blog` → `blog.html` (sin estos retornan 404).
+- `/portafolio` y `/proceso` NO son páginas independientes — son secciones de `index.html` (`#portafolio`, `#proceso`). No crear archivos para ellas ni agregarlas al sitemap.
+- `servicios/landing-pages/*.html` — al renombrar archivos, actualizar el canonical `<link>` para que coincida con el nuevo nombre.
+- `foto-fundado.jpg` existe solo en JPEG (sin WebP/AVIF). Al agregar `<picture>` en el futuro, generar las versiones modernas primero.

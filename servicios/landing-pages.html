@@ -29,12 +29,86 @@
     .page-hero__title em { font-style:italic; color:var(--accent); }
     .page-hero__sub { font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; max-width:560px; }
 
-    /* Features grid */
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:var(--space-5); margin:var(--space-16) 0; }
-    .feature-card { padding:var(--space-7); background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius); }
-    .feature-card__icon { font-size:1.6rem; margin-bottom:var(--space-3); display:block; }
-    .feature-card__title { font-family:var(--font-display); font-size:1.15rem; font-weight:500; color:var(--ink); margin-bottom:var(--space-2); }
-    .feature-card__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.65; }
+    /* ── Includes / Bento grid ─────────────────────────── */
+    .includes-section { padding: var(--space-24) 0; }
+    .includes-intro {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-12);
+    }
+    .includes-intro .section-head { margin-bottom: 0; }
+    .includes-intro__sub {
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    @media (max-width: 900px)  { .bento-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px)  { .bento-grid { grid-template-columns: 1fr; } }
+
+    .bento-item {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) * 1.5);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .bento-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      border-color: var(--accent);
+    }
+    .bento-item--wide {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-8);
+    }
+    @media (max-width: 900px) {
+      .bento-item--wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
+    }
+
+    .bento-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent) 0%, #9F6EFF 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem;
+      flex-shrink: 0;
+    }
+    .bento-item__body { flex: 1; }
+    .bento-item__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+    .bento-item__desc { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.72; }
+    .bento-item__tag {
+      display: inline-block;
+      margin-top: var(--space-3);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-radius: 999px;
+      padding: .22rem .8rem;
+    }
 
     /* Pricing section */
     .svc-pricing-section { padding:var(--space-24) 0; background:var(--bg-2); }
@@ -42,6 +116,16 @@
     .pricing__grid--6 { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-5); }
     @media (max-width:1024px) { .pricing__grid--6 { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:600px)  { .pricing__grid--6 { grid-template-columns:1fr; } }
+
+    /* Plan description subtitle */
+    .pc-desc {
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin: calc(var(--space-2) * -1) 0 var(--space-4);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
 
     /* Two-button actions */
     .pc-actions { display:flex; gap:var(--space-3); margin:var(--space-6) 0 0; }
@@ -154,7 +238,7 @@
           Sitios Web<br><em>desde $3,500 MXN</em>
         </h1>
         <p class="page-hero__sub anim-r" style="--delay:.32s">
-          Diseño personalizado, entrega rápida y precio fijo. Elige el plan que más se ajuste a tu emprendimiento — desde una página sencilla hasta un sitio corporativo completo.
+          Tu negocio en Hermosillo merece una presencia digital que genere clientes, no solo likes. Páginas web profesionales con diseño a tu medida, precio fijo sin sorpresas y entrega en días — no en meses.
         </p>
         <div class="anim-u" style="--delay:.5s;display:flex;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-8)">
           <a href="#planes" class="btn btn--primary">Ver planes y precios →</a>
@@ -163,45 +247,103 @@
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="section" style="padding:var(--space-24) 0">
+    <!-- WHAT IS A LANDING PAGE -->
+    <section class="section--lg" style="background:var(--bg-2); padding-top: var(--space-16); padding-bottom: var(--space-16);">
       <div class="container">
-        <div class="section-head reveal s3d-l">
-          <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
-          <h2 class="section-head__title">Todo lo que<br><em>necesitas</em></h2>
-          <p class="section-head__sub">Sin configuraciones extras ni sorpresas. Lo que ves es lo que recibes.</p>
+        <div style="max-width:800px; margin:0 auto; text-align:center">
+          <div class="section-head__eyebrow" style="justify-content:center; margin-bottom:var(--space-4)"><span class="label">Concepto Fundamental</span></div>
+          <h2 class="section-head__title" style="margin-bottom:var(--space-6)">¿Qué es una <br><em style="color:var(--accent)">Landing Page?</em></h2>
+          <p style="font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; margin-bottom:var(--space-8)">
+            Una Landing Page (página de aterrizaje) no es un sitio web tradicional con pestañas interminables donde el cliente se pierde. Es <strong>una sola página diseñada estratégicamente de arriba a abajo</strong> para lograr un único objetivo: <strong>Que el visitante te contacte, cotice o compre ahora mismo</strong>.
+          </p>
+          
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-8); text-align:left; background:var(--bg); border:1px solid var(--border); padding:var(--space-8); border-radius:calc(var(--radius)*1.5)">
+            <div>
+              <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-bottom:var(--space-3)">¿Para quién NO es?</h3>
+              <p style="color:var(--ink-3); line-height:1.6; font-size:calc(var(--text-sm)*1.1)">No es para quienes buscan catálogos con cientos de productos filtrables, blogs extensos o tiendas e-commerce departamentales masivas.</p>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-bottom:var(--space-3); color:var(--accent)">¿Para quién SÍ es?</h3>
+              <p style="color:var(--ink-2); line-height:1.6; font-size:calc(var(--text-sm)*1.1)">Ideal para profesionistas, clínicas, talleres o campañas en Google Ads/Facebook que necesitan <strong>ofrecer un servicio específico</strong> y recibir prospectos directos por WhatsApp.</p>
+            </div>
+          </div>
         </div>
-        <div class="features-grid">
-          <div class="feature-card reveal s3d-l">
-            <span class="feature-card__icon">🎨</span>
-            <h3 class="feature-card__title">Diseño personalizado</h3>
-            <p class="feature-card__desc">Cada sitio se diseña desde cero según los colores, logo y tono de tu negocio. Nunca usamos plantillas genéricas.</p>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="includes-section">
+      <div class="container">
+
+        <div class="includes-intro">
+          <div class="section-head reveal s3d-l">
+            <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
+            <h2 class="section-head__title">Todo lo que<br><em>necesitas</em></h2>
           </div>
-          <div class="feature-card reveal s3d-u reveal--d1">
-            <span class="feature-card__icon">📱</span>
-            <h3 class="feature-card__title">100% responsive</h3>
-            <p class="feature-card__desc">Funciona perfecto en celular, tablet y computadora. Más del 80% de tus visitantes llegan desde el móvil.</p>
+          <p class="includes-intro__sub reveal s3d-r">
+            Sin configuraciones extras ni sorpresas. Lo que ves es lo que recibes desde el primer día.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+
+          <!-- Card amplia: Diseño personalizado -->
+          <div class="bento-item bento-item--wide reveal s3d-l">
+            <div class="bento-icon">🎨</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Diseño personalizado</h3>
+              <p class="bento-item__desc">Cada sitio se diseña desde cero según los colores, logo y tono de tu negocio. Nunca usamos plantillas genéricas. Tu sitio es único, igual que tu marca.</p>
+              <span class="bento-item__tag">Sin plantillas</span>
+            </div>
           </div>
-          <div class="feature-card reveal s3d-r reveal--d2">
-            <span class="feature-card__icon">⚡</span>
-            <h3 class="feature-card__title">Carga ultrarrápida</h3>
-            <p class="feature-card__desc">Código limpio y optimizado. Una página lenta pierde clientes; la tuya cargará en menos de 2 segundos.</p>
+
+          <!-- Card: 100% Responsive -->
+          <div class="bento-item reveal s3d-r reveal--d1">
+            <div class="bento-icon">📱</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">100% Responsive</h3>
+              <p class="bento-item__desc">Funciona perfecto en celular, tablet y computadora. Más del 80% de tus visitantes llegan desde el móvil.</p>
+            </div>
           </div>
-          <div class="feature-card reveal s3d-l reveal--d1">
-            <span class="feature-card__icon">💬</span>
-            <h3 class="feature-card__title">Botón de WhatsApp</h3>
-            <p class="feature-card__desc">Flotante y siempre visible. El camino más corto entre tu cliente y tú.</p>
+
+          <!-- Card: Carga ultrarrápida -->
+          <div class="bento-item reveal s3d-u reveal--d1">
+            <div class="bento-icon">⚡</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Carga ultrarrápida</h3>
+              <p class="bento-item__desc">Código limpio y optimizado. Una página lenta pierde clientes; la tuya carga en menos de 2 segundos.</p>
+              <span class="bento-item__tag">&lt; 2 segundos</span>
+            </div>
           </div>
-          <div class="feature-card reveal s3d-u reveal--d2">
-            <span class="feature-card__icon">🌐</span>
-            <h3 class="feature-card__title">Dominio + Hosting</h3>
-            <p class="feature-card__desc">Primer año incluido en todos los planes. El dominio queda a tu nombre, no al nuestro.</p>
+
+          <!-- Card: Botón WhatsApp -->
+          <div class="bento-item reveal s3d-l reveal--d2">
+            <div class="bento-icon">💬</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Botón de WhatsApp</h3>
+              <p class="bento-item__desc">Flotante y siempre visible. El camino más corto entre tu cliente y tú, en un solo clic.</p>
+            </div>
           </div>
-          <div class="feature-card reveal s3d-r reveal--d3">
-            <span class="feature-card__icon">🔒</span>
-            <h3 class="feature-card__title">SSL gratuito</h3>
-            <p class="feature-card__desc">Certificado HTTPS incluido. Genera confianza en tus visitantes y ayuda al posicionamiento en Google.</p>
+
+          <!-- Card: Dominio + Hosting -->
+          <div class="bento-item reveal s3d-u reveal--d2">
+            <div class="bento-icon">🌐</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">Dominio + Hosting</h3>
+              <p class="bento-item__desc">Primer año incluido en todos los planes. El dominio queda a tu nombre, no al nuestro.</p>
+              <span class="bento-item__tag">1er año gratis</span>
+            </div>
           </div>
+
+          <!-- Card: SSL -->
+          <div class="bento-item reveal s3d-r reveal--d2">
+            <div class="bento-icon">🔒</div>
+            <div class="bento-item__body">
+              <h3 class="bento-item__title">SSL gratuito</h3>
+              <p class="bento-item__desc">Certificado HTTPS incluido. Genera confianza en tus visitantes y mejora tu posicionamiento en Google.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -219,6 +361,7 @@
           <!-- Plan Económico -->
           <div class="pricing-card scale-reveal reveal--d1">
             <div><span class="pc-badge">Por proyecto</span><p class="pc-name">Económico</p></div>
+            <p class="pc-desc">Landing Page esencial de 2 secciones para capturar contactos rápidos sin distracciones. Ideal para asesorías o respuestas urgentes.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">3,500</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago único o 50/50</p>
@@ -246,6 +389,7 @@
           <!-- Plan Emprendedor -->
           <div class="pricing-card scale-reveal reveal--d2">
             <div><span class="pc-badge">Por proyecto</span><p class="pc-name">Emprendedor</p></div>
+            <p class="pc-desc">Landing Page de 4 secciones. Permite extender más la venta al sumar el perfil de tu clínica o empresa y una galería de resultados.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">5,500</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago único o 50/50</p>
@@ -268,9 +412,10 @@
             </div>
           </div>
 
-          <!-- Plan Negocios (Featured) -->
+          <!-- Plan%20Emprendedor%20Pro (Featured) -->
           <div class="pricing-card pricing-card--featured scale-reveal reveal--d3">
             <div><span class="pc-badge">⭐ Más popular</span><p class="pc-name">Emprendedor Pro</p></div>
+            <p class="pc-desc">Landing Page persuasiva de 6 secciones. Rompe objeciones publicando testimonios reales y desglosando al detalle lo que ofreces.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">7,500</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago único o 50/50</p>
@@ -296,6 +441,7 @@
           <!-- Plan Microempresa -->
           <div class="pricing-card scale-reveal reveal--d1">
             <div><span class="pc-badge">Por proyecto</span><p class="pc-name">Emprendedor Plus</p></div>
+            <p class="pc-desc">Landing Page avanzada de 8 secciones enfocada en responder dudas. Añade Preguntas Frecuentes (FAQs), Garantías y Especificaciones.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">13,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago único o 50/50</p>
@@ -320,6 +466,7 @@
           <!-- Plan PyME -->
           <div class="pricing-card scale-reveal reveal--d2">
             <div><span class="pc-badge">Por proyecto</span><p class="pc-name">Emprendedor Avanzado</p></div>
+            <p class="pc-desc">Formato largo de ventas (High-Ticket) con 10 sec. Integra casos de éxito y metodologías profundas para cerrar servicios de alto valor.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">16,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago único o parcialidades</p>
@@ -346,6 +493,7 @@
           <!-- Plan Empresarial -->
           <div class="pricing-card scale-reveal reveal--d3">
             <div><span class="pc-badge">Por proyecto</span><p class="pc-name">Emprendedor Elite</p></div>
+            <p class="pc-desc">La obra maestra inmersiva de 12 secciones. Múltiples llamados a la acción y máxima retención visual, pensada para lanzamientos enormes.</p>
             <div class="pc-price"><span class="pc-currency">$</span><span class="pc-amount">20,000</span><span class="pc-period">MXN</span></div>
             <hr class="pc-hr">
             <p class="pc-payment">💳 Pago en parcialidades</p>
