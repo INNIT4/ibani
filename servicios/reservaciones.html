@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Reservaciones y Citas Online para Negocios — IBANI Digital · Sonora</title>
+  <meta name="description"
+    content="Sistema de reservaciones y citas en línea para clínicas, estéticas, spas, dentistas, restaurantes y negocios en Hermosillo y Sonora. Agenda online 24/7, confirmación por WhatsApp, panel de administración. Sin mensualidades.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ibanidigital.com/servicios/reservaciones">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sistema de Reservaciones y Citas Online — IBANI Digital · Sonora">
+  <meta property="og:description"
+    content="Agenda online 24/7, confirmación automática por WhatsApp y panel de administración para clínicas, estéticas, spas y negocios con citas en Hermosillo y Sonora.">
+  <meta property="og:url" content="https://www.ibanidigital.com/servicios/reservaciones">
+  <meta property="og:image" content="https://www.ibanidigital.com/og-image.jpg">
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: 'Fraunces-fallback';
+      src: local('Georgia');
+      size-adjust: 97%;
+      ascent-override: 94%;
+      descent-override: normal;
+      line-gap-override: normal
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* HERO — Split layout with 3D mockup                        */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-hero {
+      padding: 160px 0 100px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rsv-hero__watermark {
+      display: none;
+    }
+
+    .rsv-hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-14);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .rsv-hero__visual {
+      perspective: 1200px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .rsv-hero__mockup-wrap {
+      position: relative;
+      transform: rotateY(-8deg) rotateX(2deg);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .rsv-hero__mockup-wrap:hover {
+      transform: rotateY(-2deg) rotateX(1deg) translateY(-12px);
+    }
+
+    .rsv-hero__desktop {
+      width: 100%;
+      max-width: 520px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-2);
+      display: block;
+    }
+
+    .rsv-hero__mobile {
+      position: absolute;
+      bottom: -10%;
+      left: -12%;
+      width: 35%;
+      border-radius: calc(var(--radius) * 1.5);
+      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(250, 248, 241, 0.15);
+      z-index: 2;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .rsv-hero__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+      }
+
+      .rsv-hero__visual {
+        order: -1;
+        justify-content: center;
+        perspective: none;
+      }
+
+      .rsv-hero__mockup-wrap {
+        transform: none;
+      }
+
+      .rsv-hero__mockup-wrap:hover {
+        transform: translateY(-6px);
+      }
+
+      .rsv-hero__desktop {
+        max-width: 90%;
+      }
+
+      .rsv-hero__mobile {
+        width: 30%;
+        bottom: -8%;
+        left: 2%;
+      }
+
+      .rsv-hero__watermark {
+        display: none;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* FEATURES                                                   */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-features {
+      padding: var(--space-24) 0;
+      background: var(--bg);
+    }
+
+    .rsv-features__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: var(--space-14);
+    }
+
+    .rsv-fcard {
+      padding: var(--space-8);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rsv-fcard::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(196, 167, 103, 0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+
+    .rsv-fcard:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+    }
+
+    .rsv-fcard:hover::before {
+      opacity: 1;
+    }
+
+    .rsv-fcard__icon {
+      font-size: 2rem;
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+
+    .rsv-fcard__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .rsv-fcard__desc {
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* HOW IT WORKS — Process Steps                               */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-process {
+      padding: var(--space-24) 0;
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rsv-process__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--space-10);
+      margin-top: var(--space-14);
+      counter-reset: step;
+    }
+
+    .rsv-step {
+      position: relative;
+      padding: var(--space-8);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    }
+
+    .rsv-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    .rsv-step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+
+    .rsv-step__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .rsv-step__desc {
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* SHOWCASE — Dashboard Preview                               */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-showcase {
+      padding: var(--space-24) 0;
+      background: var(--bg);
+    }
+
+    .rsv-showcase__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-14);
+      align-items: center;
+      margin-top: var(--space-14);
+    }
+
+    .rsv-showcase__img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .rsv-showcase__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .rsv-showcase__item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+      padding: var(--space-5) var(--space-6);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .rsv-showcase__item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .rsv-showcase__check {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3px;
+    }
+
+    .rsv-showcase__check svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .rsv-showcase__text {
+      font-size: var(--text-base);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .rsv-showcase__text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .rsv-showcase__text span {
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .rsv-showcase__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* USE CASES                                                   */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-usecases {
+      padding: var(--space-24) 0;
+      background: var(--ink);
+      color: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rsv-usecases__watermark {
+      position: absolute;
+      left: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 14rem);
+      font-weight: 200;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .rsv-usecases__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-8);
+      margin-top: var(--space-14);
+      position: relative;
+      z-index: 1;
+    }
+
+    .rsv-usecase {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      transition: border-color 0.3s, transform 0.3s var(--ease);
+    }
+
+    .rsv-usecase:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .rsv-usecase__icon {
+      font-size: 2.4rem;
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+
+    .rsv-usecase__name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* FAQ                                                         */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-faq {
+      padding: var(--space-24) 0;
+      background: var(--bg-2);
+    }
+
+    .rsv-faq__list {
+      max-width: 740px;
+      margin: var(--space-14) auto 0;
+    }
+
+    .rsv-faq__item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rsv-faq__q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: var(--space-6) 0;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .rsv-faq__q::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--accent);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .rsv-faq__item.open .rsv-faq__q::after {
+      transform: rotate(45deg);
+    }
+
+    .rsv-faq__a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+      padding: 0 0;
+    }
+
+    .rsv-faq__item.open .rsv-faq__a {
+      max-height: 300px;
+      padding: 0 0 var(--space-6);
+    }
+
+    .rsv-faq__a p {
+      font-size: var(--text-sm);
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* CTA FINAL                                                   */
+    /* ══════════════════════════════════════════════════════════ */
+    .rsv-cta {
+      padding: var(--space-24) 0;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .rsv-cta__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: var(--space-6);
+    }
+
+    .rsv-cta__title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .rsv-cta__sub {
+      font-size: var(--text-lg);
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 100%;
+      margin: 0 auto var(--space-10);
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════════════════════════ */
+    /* STRUCTURED DATA                                             */
+    /* ══════════════════════════════════════════════════════════ */
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Sistema de Reservaciones Online",
+    "provider": {
+      "@type": "Organization",
+      "name": "IBANI Digital",
+      "url": "https://www.ibanidigital.com"
+    },
+    "description": "Sistema de reservaciones y citas en línea para clínicas, estéticas, spas, restaurantes y más en Sonora.",
+    "areaServed": {
+      "@type": "State",
+      "name": "Sonora"
+    },
+    "url": "https://www.ibanidigital.com/servicios/reservaciones"
+  }
+  </script>
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.ibanidigital.com/servicios" },
+      { "@type": "ListItem", "position": 3, "name": "Sistema de Reservaciones", "item": "https://www.ibanidigital.com/servicios/reservaciones" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿El cliente necesita descargar alguna app para agendar cita?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Todo funciona desde el navegador del celular. Tu cliente abre un link, elige servicio, fecha y hora, y listo. No necesita crear cuenta ni descargar nada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo configurar diferentes servicios con distintos precios y duración?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Defines cada servicio con su nombre, descripción, precio y duración. El sistema calcula automáticamente cuántas citas caben en tu jornada según la duración de cada servicio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué pasa si dos personas intentan agendar el mismo horario?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El sistema valida disponibilidad en tiempo real. Cuando un horario se ocupa, desaparece instantáneamente del calendario público. Nunca verás dos citas en el mismo espacio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo agregar varios empleados con su propia agenda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Cada profesional o empleado tiene su propio calendario. El cliente elige con quién quiere la cita y solo ve los horarios disponibles de esa persona."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay una mensualidad por usar el sistema de reservaciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El sistema se desarrolla con un pago único. Incluye dominio, hosting y SSL el primer año. A partir del segundo año la renovación anual es opcional y tiene un costo mínimo para mantener el servicio activo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo integrarlo con mi página web o redes sociales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Por supuesto. Te damos un link directo y un botón embebible que puedes pegar en tu Instagram, Facebook, Google Business, WhatsApp o cualquier página web existente."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital">
+        <span class="logo__name">IBANI</span>
+        <span class="logo__sub">Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios#landing">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M4 13h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                    <path d="M7 10v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Landing Pages</strong><small>desde $4,500 MXN</small></span>
+              </a>
+              <a href="/servicios/sitios-corporativos">
+                <span class="dd-icon">🏢</span>
+                <span class="dd-content"><strong>Sitios Corporativos</strong><small>desde $22,000 MXN</small></span>
+              </a>
+              <a href="/servicios/tiendas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M1 1h1.5l1.8 7h6.4l1.3-5H4.5" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="6" cy="12" r="1" fill="currentColor" />
+                    <circle cx="11" cy="12" r="1" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span>
+              </a>
+              <a href="/servicios/rifas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M4 6h6M4 9h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span>
+              </a>
+              <a href="/servicios/software-administrativo">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M4 5h6M4 8h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Software Administrativo</strong><small>desde $6,000 MXN</small></span>
+              </a>
+              <a href="/servicios/reservaciones">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <rect x="2" y="2" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" />
+                    <path d="M5 1v2M9 1v2M2 5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Sistema de Reservaciones</strong><small>Precio a
+                    consulta</small></span>
+              </a>
+              <a href="/servicios#sistemas">
+                <span class="dd-icon">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M2 7h10M7 2v10M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.4"
+                      stroke-linecap="round" />
+                  </svg>
+                </span>
+                <span class="dd-content"><strong>Sistemas a Medida</strong><small>Precio a consulta</small></span>
+              </a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso" class="nav__link">Proceso</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20un%20sistema%20de%20reservaciones%20con%20IBANI%20Digital."
+          target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="padding:0.7rem 1.5rem">Cotizar →</a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false" style="padding:4px 0">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios" style="margin-bottom:0.2rem">Servicios:</a>
+      <a href="/servicios#landing" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
+      <a href="/servicios/sitios-corporativos" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sitios
+        Corporativos</a>
+      <a href="/servicios/tiendas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios/rifas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de
+        Rifas</a>
+      <a href="/servicios/software-administrativo" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳
+        Software Admin</a>
+      <a href="/servicios/reservaciones" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳
+        Reservaciones</a>
+      <a href="/servicios#sistemas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistemas a
+        Medida</a>
+      <a href="/portafolio" style="margin-top:0.4rem">Portafolio</a>
+      <a href="/proceso">Proceso</a>
+      <a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer"
+        style="color:var(--accent);margin-top:0.5rem">Contactar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- HERO                                                      -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-hero">
+      <div class="rsv-hero__watermark" aria-hidden="true">Citas</div>
+      <div class="container">
+
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol
+            style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li><a href="/servicios" style="color:var(--ink-3)">Servicios</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Sistema de Reservaciones</li>
+          </ol>
+        </nav>
+
+        <div class="rsv-hero__grid">
+          <div class="rsv-hero__content">
+            <div class="anim-l"
+              style="--delay:.05s;display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6)">
+              <span style="width:40px;height:1px;background:var(--accent)"></span>
+              <span
+                style="font-size:0.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)">Servicio
+                06</span>
+            </div>
+
+            <h1
+              style="font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.02;letter-spacing:-.03em;color:var(--ink);margin-bottom:var(--space-6)"
+              class="anim-l" aria-label="Sistema de Reservaciones Online">
+              Sistema de<br><em style="font-style:italic;color:var(--accent)">Reservaciones</em>
+            </h1>
+
+            <p style="font-size:var(--text-lg);color:var(--ink-2);line-height:1.7;max-width:480px;margin-bottom:var(--space-8)"
+              class="anim-r" aria-label="Descripción del sistema">
+              Tus clientes agendan cita desde su celular, tú ves el calendario en tiempo real y recibes confirmación
+              automática por WhatsApp. Sin llamadas, sin confusiones.
+            </p>
+
+            <div class="anim-u" style="--delay:.5s;display:flex;gap:var(--space-4);flex-wrap:wrap">
+              <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20un%20sistema%20de%20reservaciones%20con%20IBANI%20Digital."
+                target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+                <svg width="16" height="16" fill="currentColor" aria-hidden="true" style="margin-right:6px">
+                  <use href="#icon-wa" />
+                </svg>
+                Cotizar mi sistema
+              </a>
+              <a href="#como-funciona" class="btn btn--outline">Ver cómo funciona →</a>
+            </div>
+
+            <div style="display:flex;gap:var(--space-10);margin-top:var(--space-10)" class="anim-u"
+              aria-label="Estadísticas de citas">
+              <div>
+                <span
+                  style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">24/7</span>
+                <span
+                  style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Agenda
+                  activa</span>
+              </div>
+              <div>
+                <span
+                  style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">0</span>
+                <span
+                  style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Doble
+                  reserva</span>
+              </div>
+              <div>
+                <span
+                  style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">100%</span>
+                <span
+                  style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Tuyo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rsv-hero__visual anim-l" style="--delay:.35s">
+            <div class="rsv-hero__mockup-wrap">
+              <img class="rsv-hero__desktop" src="/img/reservaciones-hero.png"
+                alt="Sistema de reservaciones online - vista de escritorio" loading="eager" width="1200" height="900">
+              <img class="rsv-hero__mobile" src="/img/reservaciones-mobile.png"
+                alt="Sistema de reservaciones online - vista móvil" loading="eager" width="400" height="800">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- FEATURES                                                  -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-features">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Qué incluye</span></div>
+          <h2 class="section-head__title">Tu agenda,<br><em>siempre bajo control</em></h2>
+          <p class="section-head__sub">Todo lo que necesita un negocio con citas para operar sin fricción, sin dobles
+            reservaciones, sin perder clientes.</p>
+        </div>
+
+        <div class="rsv-features__grid">
+          <div class="rsv-fcard reveal s3d-l">
+            <span class="rsv-fcard__icon">📅</span>
+            <h3 class="rsv-fcard__title">Calendario inteligente</h3>
+            <p class="rsv-fcard__desc">Vista diaria, semanal y mensual de todas tus citas. Configura horarios, días de
+              descanso y límites por hora. El sistema bloquea automáticamente los espacios ocupados.</p>
+          </div>
+          <div class="rsv-fcard reveal s3d-u reveal--d1">
+            <span class="rsv-fcard__icon">📱</span>
+            <h3 class="rsv-fcard__title">Reservación desde celular</h3>
+            <p class="rsv-fcard__desc">Tus clientes eligen servicio, fecha y horario disponible directamente desde su
+              navegador. Sin apps, sin cuentas, sin fricción. Funciona en cualquier dispositivo.</p>
+          </div>
+          <div class="rsv-fcard reveal s3d-r reveal--d2">
+            <span class="rsv-fcard__icon">💬</span>
+            <h3 class="rsv-fcard__title">Confirmación por WhatsApp</h3>
+            <p class="rsv-fcard__desc">El cliente recibe confirmación instantánea de su cita por WhatsApp con los
+              detalles completos: servicio, fecha, hora y dirección de tu negocio.</p>
+          </div>
+          <div class="rsv-fcard reveal s3d-l reveal--d1">
+            <span class="rsv-fcard__icon">🔔</span>
+            <h3 class="rsv-fcard__title">Recordatorios automáticos</h3>
+            <p class="rsv-fcard__desc">Envío de recordatorios antes de la cita para reducir faltas. El cliente puede
+              confirmar, reprogramar o cancelar con un solo toque desde el mensaje.</p>
+          </div>
+          <div class="rsv-fcard reveal s3d-u reveal--d2">
+            <span class="rsv-fcard__icon">🛡️</span>
+            <h3 class="rsv-fcard__title">Sin dobles reservaciones</h3>
+            <p class="rsv-fcard__desc">El sistema valida disponibilidad en tiempo real. Si el horario se acaba de
+              ocupar, el cliente lo ve al instante y elige otro. Cero conflictos de agenda.</p>
+          </div>
+          <div class="rsv-fcard reveal s3d-r reveal--d3">
+            <span class="rsv-fcard__icon">📊</span>
+            <h3 class="rsv-fcard__title">Panel de administración</h3>
+            <p class="rsv-fcard__desc">Visualiza tus citas del día, historial de clientes, servicios más solicitados y
+              métricas de ocupación. Todo desde tu celular o computadora.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- HOW IT WORKS                                              -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-process" id="como-funciona">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Cómo funciona</span></div>
+          <h2 class="section-head__title">Así de fácil<br><em>agendan tus clientes</em></h2>
+          <p class="section-head__sub">Desde que tu cliente abre el link hasta que recibe confirmación, todo sucede en
+            menos de 60 segundos.</p>
+        </div>
+
+        <div class="rsv-process__grid">
+          <div class="rsv-step reveal s3d-u">
+            <h3 class="rsv-step__title">Abre tu link</h3>
+            <p class="rsv-step__desc">El cliente entra desde un botón en tu Instagram, WhatsApp, Google Maps o página
+              web. Sin descargar nada.</p>
+          </div>
+          <div class="rsv-step reveal s3d-u reveal--d1">
+            <h3 class="rsv-step__title">Elige servicio</h3>
+            <p class="rsv-step__desc">Ve tu catálogo de servicios con precios y duración. Selecciona el que necesita y
+              pasa al calendario.</p>
+          </div>
+          <div class="rsv-step reveal s3d-u reveal--d2">
+            <h3 class="rsv-step__title">Selecciona fecha y hora</h3>
+            <p class="rsv-step__desc">Solo ve los horarios disponibles en tiempo real. Elige día y hora sin riesgo de
+              conflicto con otro cliente.</p>
+          </div>
+          <div class="rsv-step reveal s3d-u reveal--d3">
+            <h3 class="rsv-step__title">Confirma por WhatsApp</h3>
+            <p class="rsv-step__desc">Recibe al instante un mensaje con todos los detalles de su cita. Tú también
+              recibes notificación en tu panel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- SHOWCASE — Dashboard                                      -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-showcase">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Tu panel</span></div>
+          <h2 class="section-head__title">Administra todo<br><em>desde un solo lugar</em></h2>
+          <p class="section-head__sub">Dashboard completo con visibilidad de tu agenda, historial de clientes y métricas
+            de ocupación.</p>
+        </div>
+
+        <div class="rsv-showcase__grid">
+          <div class="reveal s3d-l">
+            <img class="rsv-showcase__img" src="/img/reservaciones-dashboard.png"
+              alt="Panel de administración del sistema de reservaciones" loading="lazy" width="1200" height="900">
+          </div>
+
+          <div class="reveal s3d-r">
+            <ul class="rsv-showcase__list">
+              <li class="rsv-showcase__item">
+                <span class="rsv-showcase__check"><svg viewBox="0 0 12 12">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg></span>
+                <div class="rsv-showcase__text">
+                  <strong>Vista de agenda diaria</strong>
+                  <span>Ve quién tiene cita y a qué hora. Reprograma o cancela con un clic.</span>
+                </div>
+              </li>
+              <li class="rsv-showcase__item">
+                <span class="rsv-showcase__check"><svg viewBox="0 0 12 12">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg></span>
+                <div class="rsv-showcase__text">
+                  <strong>Historial de clientes</strong>
+                  <span>Registro completo de cada visita: servicio, fecha, notas y frecuencia.</span>
+                </div>
+              </li>
+              <li class="rsv-showcase__item">
+                <span class="rsv-showcase__check"><svg viewBox="0 0 12 12">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg></span>
+                <div class="rsv-showcase__text">
+                  <strong>Métricas de ocupación</strong>
+                  <span>Gráficas de citas por día, semana y mes. Identifica tus horarios pico.</span>
+                </div>
+              </li>
+              <li class="rsv-showcase__item">
+                <span class="rsv-showcase__check"><svg viewBox="0 0 12 12">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg></span>
+                <div class="rsv-showcase__text">
+                  <strong>Configuración flexible</strong>
+                  <span>Define servicios, precios, duración, horarios y cuántas citas tomas por hora.</span>
+                </div>
+              </li>
+              <li class="rsv-showcase__item">
+                <span class="rsv-showcase__check"><svg viewBox="0 0 12 12">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg></span>
+                <div class="rsv-showcase__text">
+                  <strong>Multi-empleado</strong>
+                  <span>Si tienes varios profesionales, cada uno tiene su propio calendario y disponibilidad.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- USE CASES                                                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-usecases">
+      <div class="rsv-usecases__watermark" aria-hidden="true">Para ti</div>
+      <div class="container">
+        <div class="section-head reveal s3d-l" style="color:var(--bg)">
+          <div class="section-head__eyebrow"><span class="label" style="color:rgba(255,255,255,.4)">¿Para quién?</span>
+          </div>
+          <h2 class="section-head__title" style="color:var(--bg)">Ideal para negocios<br><em
+              style="color:var(--accent)">que trabajan con citas</em></h2>
+          <p class="section-head__sub" style="color:rgba(255,255,255,.55)">Si tu negocio pierde tiempo coordinando citas
+            por teléfono o WhatsApp, este sistema te devuelve horas al día.</p>
+        </div>
+
+        <div class="rsv-usecases__grid">
+          <div class="rsv-usecase reveal s3d-u">
+            <span class="rsv-usecase__icon">💇‍♀️</span>
+            <p class="rsv-usecase__name">Estéticas y Salones</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d1">
+            <span class="rsv-usecase__icon">💆</span>
+            <p class="rsv-usecase__name">Spas y Masajes</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d2">
+            <span class="rsv-usecase__icon">🦷</span>
+            <p class="rsv-usecase__name">Consultorios Dentales</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d3">
+            <span class="rsv-usecase__icon">🏥</span>
+            <p class="rsv-usecase__name">Clínicas y Consultorios</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d4">
+            <span class="rsv-usecase__icon">🍽️</span>
+            <p class="rsv-usecase__name">Restaurantes</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d5">
+            <span class="rsv-usecase__icon">🏋️</span>
+            <p class="rsv-usecase__name">Gimnasios y Estudios</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d6">
+            <span class="rsv-usecase__icon">🐾</span>
+            <p class="rsv-usecase__name">Veterinarias</p>
+          </div>
+          <div class="rsv-usecase reveal s3d-u reveal--d7">
+            <span class="rsv-usecase__icon">📸</span>
+            <p class="rsv-usecase__name">Fotógrafos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- FAQ                                                        -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">FAQ</span></div>
+          <h2 class="section-head__title">Lo que más<br><em>nos preguntan</em></h2>
+        </div>
+
+        <div class="rsv-faq__list">
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿El cliente necesita descargar alguna app?</button>
+            <div class="rsv-faq__a">
+              <p>No. Todo funciona desde el navegador del celular. Tu cliente abre un link, elige servicio, fecha y
+                hora, y listo. No necesita crear cuenta ni descargar nada.</p>
+            </div>
+          </div>
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿Puedo configurar diferentes servicios con distintos
+              precios y duración?</button>
+            <div class="rsv-faq__a">
+              <p>Sí. Defines cada servicio con su nombre, descripción, precio y duración. El sistema calcula
+                automáticamente cuántas citas caben en tu jornada según la duración de cada servicio.</p>
+            </div>
+          </div>
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿Qué pasa si dos personas intentan agendar el mismo
+              horario?</button>
+            <div class="rsv-faq__a">
+              <p>El sistema valida disponibilidad en tiempo real. Cuando un horario se ocupa, desaparece
+                instantáneamente del calendario público. Nunca verás dos citas en el mismo espacio.</p>
+            </div>
+          </div>
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿Puedo agregar varios empleados con su propia
+              agenda?</button>
+            <div class="rsv-faq__a">
+              <p>Sí. Cada profesional o empleado tiene su propio calendario. El cliente elige con quién quiere la cita y
+                solo ve los horarios disponibles de esa persona.</p>
+            </div>
+          </div>
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿Hay una mensualidad por usar el sistema?</button>
+            <div class="rsv-faq__a">
+              <p>El sistema se desarrolla con un pago único. Incluye dominio, hosting y SSL el primer año. A partir del
+                segundo año la renovación anual es opcional y tiene un costo mínimo para mantener el servicio activo.
+              </p>
+            </div>
+          </div>
+          <div class="rsv-faq__item">
+            <button class="rsv-faq__q" aria-expanded="false">¿Puedo integrarlo con mi página web o redes?</button>
+            <div class="rsv-faq__a">
+              <p>Por supuesto. Te damos un link directo y un botón embebible que puedes pegar en tu Instagram, Facebook,
+                Google Business, WhatsApp o cualquier página web existente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- CTA FINAL                                                 -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <section class="rsv-cta">
+      <div class="container">
+        <h2 class="rsv-cta__title reveal s3d-u">¿Listo para automatizar<br><em>tus citas?</em></h2>
+        <p class="rsv-cta__sub reveal s3d-u reveal--d1" style="text-align:center">Escríbenos y en menos de 30 minutos
+          tienes una propuesta personalizada con precio fijo.
+        </p>
+        <div class="reveal s3d-u reveal--d2"
+          style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap">
+          <a href="https://wa.me/526625044016?text=Hola%2C%20me%20interesa%20un%20sistema%20de%20reservaciones%20con%20IBANI%20Digital."
+            target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"
+              aria-hidden="true">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+            </svg>
+            Cotizar por WhatsApp
+          </a>
+          <a href="/servicios" class="btn btn--outline btn--lg">Ver todos los servicios</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span
+              class="logo__sub">Digital</span></a>
+          <p class="footer__tagline">Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.
+          </p>
+          <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
+            <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45)">hola@ibanidigital.com</a><br>
+            <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer"
+              style="color:rgba(255,255,255,.45)">+52 662 504 4016</a>
+          </address>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="/servicios#landing">Landing Pages</a></li>
+              <li><a href="/servicios/tiendas">Tiendas Online</a></li>
+              <li><a href="/servicios/rifas">Plataformas de Rifas</a></li>
+              <li><a href="/servicios/software-administrativo">Software Administrativo</a></li>
+              <li><a href="/servicios/reservaciones">Reservaciones</a></li>
+              <li><a href="/servicios#sistemas">Sistemas a Medida</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Empresa</p>
+            <ul class="footer__col-links">
+              <li><a href="/portafolio">Portafolio</a></li>
+              <li><a href="/proceso">Proceso</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank"
+                  rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp icon for hero button -->
+  <svg style="display:none">
+    <symbol id="icon-wa" viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </symbol>
+  </svg>
+
+  <script src="/js/main.min.js" defer></script>
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.rsv-faq__q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.rsv-faq__item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.rsv-faq__item.open').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+        btn.setAttribute('aria-expanded', !wasOpen);
+      });
+    });
+  </script>
+</body>
+
+</html>

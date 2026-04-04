@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas a Medida para Negocios — IBANI Digital · Sonora</title>
+  <meta name="description"
+    content="Desarrollo de software a medida para negocios en Hermosillo y Sonora. Chatbots WhatsApp, dashboards, automatizaciones, integraciones y sistemas web personalizados. Sin mensualidades de plataforma.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ibanidigital.com/servicios/sistemas-a-medida">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sistemas a Medida — IBANI Digital · Sonora">
+  <meta property="og:description"
+    content="Software personalizado, chatbots WhatsApp, dashboards y automatizaciones para negocios en Hermosillo y Sonora. Soluciones únicas con precio fijo.">
+  <meta property="og:url" content="https://www.ibanidigital.com/servicios/sistemas-a-medida">
+  <meta property="og:image" content="https://www.ibanidigital.com/og-image.jpg">
+  <meta name="theme-color" content="#1A1714">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
+  <script defer data-domain="ibanidigital.com" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/css/all.min.css">
+  <style>
+    @font-face { font-family:'Fraunces-fallback'; src:local('Georgia'); size-adjust:97%; ascent-override:94%; descent-override:normal; line-gap-override:normal }
+
+    .sam-hero { padding:160px 0 100px; background:var(--bg); border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .sam-hero__grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-14); align-items:center; position:relative; z-index:1; }
+    .sam-hero__visual { perspective:1200px; display:flex; justify-content:flex-end; }
+    .sam-hero__mockup-wrap { position:relative; transform:rotateY(-8deg) rotateX(2deg); transition:transform .5s cubic-bezier(.16,1,.3,1); }
+    .sam-hero__mockup-wrap:hover { transform:rotateY(-2deg) rotateX(1deg) translateY(-12px); }
+    .sam-hero__desktop { width:100%; max-width:520px; border-radius:var(--radius-lg); box-shadow:0 40px 80px rgba(0,0,0,.12); border:1px solid var(--border-2); display:block; }
+    @media(max-width:900px){
+      .sam-hero__grid { grid-template-columns:1fr; gap:var(--space-10); }
+      .sam-hero__visual { order:-1; justify-content:center; perspective:none; }
+      .sam-hero__mockup-wrap { transform:none; }
+      .sam-hero__mockup-wrap:hover { transform:translateY(-6px); }
+      .sam-hero__desktop { max-width:90%; }
+    }
+
+    .sam-features { padding:var(--space-24) 0; background:var(--bg); }
+    .sam-features__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:2.5rem; margin-top:var(--space-14); }
+    .sam-fcard { padding:var(--space-8); background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius); transition:transform .35s var(--ease),box-shadow .35s var(--ease); position:relative; overflow:hidden; }
+    .sam-fcard::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(196,167,103,.06) 0%,transparent 60%); opacity:0; transition:opacity .35s; }
+    .sam-fcard:hover { transform:translateY(-6px); box-shadow:0 24px 48px rgba(0,0,0,.06); }
+    .sam-fcard:hover::before { opacity:1; }
+    .sam-fcard__icon { font-size:2rem; margin-bottom:var(--space-4); display:block; }
+    .sam-fcard__title { font-family:var(--font-display); font-size:1.2rem; font-weight:500; color:var(--ink); margin-bottom:var(--space-2); }
+    .sam-fcard__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.7; }
+
+    .sam-process { padding:var(--space-24) 0; background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .sam-process__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:var(--space-10); margin-top:var(--space-14); counter-reset:step; }
+    .sam-step { position:relative; padding:var(--space-8); background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); transition:transform .35s var(--ease),box-shadow .35s var(--ease); }
+    .sam-step:hover { transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.05); }
+    .sam-step::before { counter-increment:step; content:counter(step,decimal-leading-zero); display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--accent); color:white; font-family:var(--font-display); font-size:.85rem; font-weight:600; margin-bottom:var(--space-4); }
+    .sam-step__title { font-family:var(--font-display); font-size:1.15rem; font-weight:500; color:var(--ink); margin-bottom:var(--space-2); }
+    .sam-step__desc { font-size:var(--text-sm); color:var(--ink-2); line-height:1.7; }
+
+    .sam-showcase { padding:var(--space-24) 0; background:var(--bg); }
+    .sam-showcase__grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-14); align-items:center; margin-top:var(--space-14); }
+    .sam-showcase__img { width:100%; border-radius:var(--radius-lg); box-shadow:0 32px 64px rgba(0,0,0,.08); border:1px solid var(--border); display:block; }
+    .sam-showcase__list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:var(--space-4); }
+    .sam-showcase__item { display:flex; align-items:flex-start; gap:var(--space-5); padding:var(--space-5) var(--space-6); background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius); transition:transform .3s var(--ease),box-shadow .3s var(--ease); }
+    .sam-showcase__item:hover { transform:translateX(6px); box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .sam-showcase__check { flex-shrink:0; width:28px; height:28px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; margin-top:3px; }
+    .sam-showcase__check svg { width:14px; height:14px; stroke:white; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+    .sam-showcase__text { font-size:var(--text-base); color:var(--ink); line-height:1.6; }
+    .sam-showcase__text strong { display:block; font-family:var(--font-display); font-weight:500; margin-bottom:3px; }
+    .sam-showcase__text span { font-size:var(--text-sm); color:var(--ink-2); line-height:1.6; }
+    @media(max-width:900px){ .sam-showcase__grid { grid-template-columns:1fr; gap:var(--space-10); } }
+
+    .sam-usecases { padding:var(--space-24) 0; background:var(--ink); color:var(--bg); position:relative; overflow:hidden; }
+    .sam-usecases__watermark { position:absolute; left:-2rem; top:50%; transform:translateY(-50%); font-family:var(--font-display); font-size:clamp(6rem,15vw,14rem); font-weight:200; line-height:1; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.06); pointer-events:none; user-select:none; }
+    .sam-usecases__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:var(--space-8); margin-top:var(--space-14); position:relative; z-index:1; }
+    .sam-usecase { text-align:center; padding:var(--space-8) var(--space-4); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); transition:border-color .3s,transform .3s var(--ease); }
+    .sam-usecase:hover { border-color:var(--accent); transform:translateY(-4px); }
+    .sam-usecase__icon { font-size:2.4rem; margin-bottom:var(--space-3); display:block; }
+    .sam-usecase__name { font-family:var(--font-display); font-size:1rem; font-weight:500; color:rgba(255,255,255,.9); }
+
+    .sam-faq { padding:var(--space-24) 0; background:var(--bg-2); }
+    .sam-faq__list { max-width:740px; margin:var(--space-14) auto 0; }
+    .sam-faq__item { border-bottom:1px solid var(--border); }
+    .sam-faq__q { width:100%; background:none; border:none; padding:var(--space-6) 0; font-family:var(--font-display); font-size:1.1rem; font-weight:500; color:var(--ink); text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:var(--space-4); }
+    .sam-faq__q::after { content:'+'; font-size:1.4rem; font-weight:300; color:var(--accent); transition:transform .3s; flex-shrink:0; }
+    .sam-faq__item.open .sam-faq__q::after { transform:rotate(45deg); }
+    .sam-faq__a { max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .3s; padding:0; }
+    .sam-faq__item.open .sam-faq__a { max-height:300px; padding:0 0 var(--space-6); }
+    .sam-faq__a p { font-size:var(--text-sm); color:var(--ink-2); line-height:1.7; }
+
+    .sam-cta { padding:var(--space-24) 0; background:var(--bg); text-align:center; }
+    .sam-cta__title { font-family:var(--font-display); font-size:clamp(2.4rem,5vw,4rem); font-weight:300; line-height:1.1; letter-spacing:-.02em; color:var(--ink); margin-bottom:var(--space-6); }
+    .sam-cta__title em { font-style:italic; color:var(--accent); }
+    .sam-cta__sub { font-size:var(--text-lg); color:var(--ink-2); line-height:1.7; max-width:100%; margin:0 auto var(--space-10); text-align:center; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"Service",
+    "name":"Sistemas a Medida",
+    "provider":{"@type":"Organization","name":"IBANI Digital","url":"https://www.ibanidigital.com"},
+    "description":"Desarrollo de software a medida: chatbots WhatsApp, dashboards, automatizaciones e integraciones para negocios en Sonora.",
+    "areaServed":{"@type":"State","name":"Sonora"},
+    "url":"https://www.ibanidigital.com/servicios/sistemas-a-medida"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.ibanidigital.com/"},
+      {"@type":"ListItem","position":2,"name":"Servicios","item":"https://www.ibanidigital.com/servicios"},
+      {"@type":"ListItem","position":3,"name":"Sistemas a Medida","item":"https://www.ibanidigital.com/servicios/sistemas-a-medida"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Qué tipo de sistemas pueden desarrollar?","acceptedAnswer":{"@type":"Answer","text":"Cualquier sistema web: chatbots de WhatsApp, paneles de control, CRMs, sistemas de cotización, plataformas internas, automatizaciones y más. Si se puede hacer en web, lo hacemos."}},
+      {"@type":"Question","name":"¿Cuánto cuesta un sistema a medida?","acceptedAnswer":{"@type":"Answer","text":"Depende de la complejidad. Después de una llamada de 15 minutos te entregamos una cotización con precio fijo, sin sorpresas. No cobramos por hora."}},
+      {"@type":"Question","name":"¿Cuánto tiempo toma el desarrollo?","acceptedAnswer":{"@type":"Answer","text":"Proyectos sencillos en 2-3 semanas. Proyectos complejos en 4-8 semanas. Siempre con fecha de entrega pactada desde el primer día."}},
+      {"@type":"Question","name":"¿Hay mensualidad después de la entrega?","acceptedAnswer":{"@type":"Answer","text":"No. El sistema es tuyo con un pago único. Solo pagas hosting y dominio anual (mínimo). Si quieres soporte extendido o nuevas funciones, se cotizan aparte."}},
+      {"@type":"Question","name":"¿Puedo integrar mi sistema con WhatsApp u otras herramientas?","acceptedAnswer":{"@type":"Answer","text":"Sí. Integramos con WhatsApp Business API, Stripe, MercadoPago, Clip, Google Sheets, correo electrónico y cualquier API pública que necesites."}},
+      {"@type":"Question","name":"¿Qué pasa si necesito cambios después de la entrega?","acceptedAnswer":{"@type":"Answer","text":"Incluimos un período de ajustes post-entrega. Cambios adicionales o nuevas funcionalidades se cotizan por separado con el mismo modelo de precio fijo."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span class="logo__sub">Digital</span></a>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="/" class="nav__link">Inicio</a></li>
+          <li class="nav__item--has-dropdown">
+            <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
+            <div class="nav__dropdown nav__dropdown--wide">
+              <p class="nav__dropdown__label">¿Qué necesitas?</p>
+              <a href="/servicios#landing"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 13h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 10v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="dd-content"><strong>Landing Pages</strong><small>desde $4,500 MXN</small></span></a>
+              <a href="/servicios/sitios-corporativos"><span class="dd-icon">🏢</span><span class="dd-content"><strong>Sitios Corporativos</strong><small>desde $22,000 MXN</small></span></a>
+              <a href="/servicios/tiendas"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1h1.5l1.8 7h6.4l1.3-5H4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="12" r="1" fill="currentColor"/><circle cx="11" cy="12" r="1" fill="currentColor"/></svg></span><span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span></a>
+              <a href="/servicios/rifas"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 6h6M4 9h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span></a>
+              <a href="/servicios/software-administrativo"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="1" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M4 5h6M4 8h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="dd-content"><strong>Software Administrativo</strong><small>desde $6,000 MXN</small></span></a>
+              <a href="/servicios/reservaciones"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="2" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 1v2M9 1v2M2 5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="dd-content"><strong>Reservaciones</strong><small>Precio a consulta</small></span></a>
+              <a href="/servicios/sistemas-a-medida"><span class="dd-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2v10M4 4l6 6M10 4l-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="dd-content"><strong>Sistemas a Medida</strong><small>Precio a consulta</small></span></a>
+            </div>
+          </li>
+          <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
+          <li><a href="/proceso" class="nav__link">Proceso</a></li>
+          <li><a href="/blog" class="nav__link">Blog</a></li>
+        </ul>
+        <a href="https://wa.me/526625044016?text=Hola%2C%20tengo%20una%20idea%20para%20un%20sistema%20a%20medida%20y%20me%20gustar%C3%ADa%20cotizarlo%20con%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="padding:0.7rem 1.5rem">Cotizar →</a>
+        <button class="nav__toggle" aria-label="Menú" aria-expanded="false" style="padding:4px 0"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+    <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
+      <a href="/">Inicio</a>
+      <a href="/servicios" style="margin-bottom:0.2rem">Servicios:</a>
+      <a href="/servicios#landing" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
+      <a href="/servicios/sitios-corporativos" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sitios Corporativos</a>
+      <a href="/servicios/tiendas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
+      <a href="/servicios/rifas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
+      <a href="/servicios/software-administrativo" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Software Admin</a>
+      <a href="/servicios/reservaciones" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Reservaciones</a>
+      <a href="/servicios/sistemas-a-medida" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistemas a Medida</a>
+      <a href="/portafolio" style="margin-top:0.4rem">Portafolio</a>
+      <a href="/proceso">Proceso</a>
+      <a href="/blog">Blog</a>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent);margin-top:0.5rem">Contactar →</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="sam-hero">
+      <div class="container">
+        <nav aria-label="Migas de pan" style="margin-bottom:var(--space-8)">
+          <ol style="display:flex;gap:var(--space-2);align-items:center;list-style:none;padding:0;font-size:var(--text-sm);color:var(--ink-3)">
+            <li><a href="/" style="color:var(--ink-3)">Inicio</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li><a href="/servicios" style="color:var(--ink-3)">Servicios</a></li>
+            <li aria-hidden="true" style="color:var(--border)">›</li>
+            <li aria-current="page" style="color:var(--ink-2)">Sistemas a Medida</li>
+          </ol>
+        </nav>
+
+        <div class="sam-hero__grid">
+          <div>
+            <div class="anim-l" style="--delay:.05s;display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6)">
+              <span style="width:40px;height:1px;background:var(--accent)"></span>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)">Servicio 07</span>
+            </div>
+            <h1 style="font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;line-height:1.02;letter-spacing:-.03em;color:var(--ink);margin-bottom:var(--space-6)" class="anim-l">
+              Sistemas<br><em style="font-style:italic;color:var(--accent)">a Medida</em>
+            </h1>
+            <p style="font-size:var(--text-lg);color:var(--ink-2);line-height:1.7;max-width:480px;margin-bottom:var(--space-8)" class="anim-r">
+              ¿Tu negocio necesita algo que no existe? Lo construimos. Desde chatbots de WhatsApp hasta plataformas completas — todo hecho a la medida de tu operación.
+            </p>
+            <div class="anim-u" style="--delay:.5s;display:flex;gap:var(--space-4);flex-wrap:wrap">
+              <a href="https://wa.me/526625044016?text=Hola%2C%20tengo%20una%20idea%20para%20un%20sistema%20a%20medida%20y%20me%20gustar%C3%ADa%20cotizarlo%20con%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Cotizar mi proyecto →</a>
+              <a href="#como-funciona" class="btn btn--outline">Ver proceso →</a>
+            </div>
+            <div style="display:flex;gap:var(--space-10);margin-top:var(--space-10)" class="anim-u">
+              <div>
+                <span style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">100%</span>
+                <span style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Personalizado</span>
+              </div>
+              <div>
+                <span style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">$0</span>
+                <span style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Mensualidad</span>
+              </div>
+              <div>
+                <span style="font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--accent)">Fijo</span>
+                <span style="display:block;font-size:var(--text-xs);color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em">Precio</span>
+              </div>
+            </div>
+          </div>
+          <div class="sam-hero__visual anim-l" style="--delay:.35s">
+            <div class="sam-hero__mockup-wrap">
+              <img class="sam-hero__desktop" src="/img/sistemas-hero.png" alt="Sistema a medida desarrollado por IBANI Digital" loading="eager" width="1200" height="900">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="sam-features">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Qué construimos</span></div>
+          <h2 class="section-head__title">Si lo puedes imaginar,<br><em>lo podemos construir</em></h2>
+          <p class="section-head__sub">Soluciones digitales únicas que se adaptan a tu negocio — no al revés.</p>
+        </div>
+        <div class="sam-features__grid">
+          <div class="sam-fcard reveal s3d-l">
+            <span class="sam-fcard__icon">🤖</span>
+            <h3 class="sam-fcard__title">Chatbots de WhatsApp</h3>
+            <p class="sam-fcard__desc">Bots inteligentes que responden preguntas, toman pedidos, agendan citas y envían confirmaciones automáticas por WhatsApp Business API.</p>
+          </div>
+          <div class="sam-fcard reveal s3d-u reveal--d1">
+            <span class="sam-fcard__icon">📊</span>
+            <h3 class="sam-fcard__title">Dashboards y reportes</h3>
+            <p class="sam-fcard__desc">Paneles de control con gráficas en tiempo real, KPIs, filtros y exportación a Excel. Visualiza la salud de tu negocio de un vistazo.</p>
+          </div>
+          <div class="sam-fcard reveal s3d-r reveal--d2">
+            <span class="sam-fcard__icon">⚡</span>
+            <h3 class="sam-fcard__title">Automatizaciones</h3>
+            <p class="sam-fcard__desc">Elimina tareas repetitivas: generación de reportes, envío de correos, actualización de inventarios, notificaciones programadas y más.</p>
+          </div>
+          <div class="sam-fcard reveal s3d-l reveal--d1">
+            <span class="sam-fcard__icon">🔗</span>
+            <h3 class="sam-fcard__title">Integraciones API</h3>
+            <p class="sam-fcard__desc">Conectamos tu sistema con Stripe, MercadoPago, Clip, Google Sheets, SAT (CFDI), WhatsApp y cualquier servicio con API pública.</p>
+          </div>
+          <div class="sam-fcard reveal s3d-u reveal--d2">
+            <span class="sam-fcard__icon">🏗️</span>
+            <h3 class="sam-fcard__title">Plataformas web completas</h3>
+            <p class="sam-fcard__desc">Desde CRMs hasta marketplaces. Sistemas con login, roles de usuario, base de datos, panel admin y lógica de negocio personalizada.</p>
+          </div>
+          <div class="sam-fcard reveal s3d-r reveal--d3">
+            <span class="sam-fcard__icon">📱</span>
+            <h3 class="sam-fcard__title">Aplicaciones móviles web</h3>
+            <p class="sam-fcard__desc">Apps progresivas (PWA) que se instalan en el celular sin App Store. Ideales para equipos de trabajo, repartidores o vendedores en campo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="sam-process" id="como-funciona">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Nuestro proceso</span></div>
+          <h2 class="section-head__title">De la idea<br><em>al sistema funcionando</em></h2>
+          <p class="section-head__sub">Un proceso claro, con entregables definidos y sin sorpresas en el precio.</p>
+        </div>
+        <div class="sam-process__grid">
+          <div class="sam-step reveal s3d-u">
+            <h3 class="sam-step__title">Llamada de descubrimiento</h3>
+            <p class="sam-step__desc">En 15-30 minutos entendemos tu problema, el flujo actual y lo que necesitas que haga el sistema. Sin compromiso.</p>
+          </div>
+          <div class="sam-step reveal s3d-u reveal--d1">
+            <h3 class="sam-step__title">Propuesta con precio fijo</h3>
+            <p class="sam-step__desc">Recibes un documento con alcance, funcionalidades, precio total y fecha estimada de entrega. Sin letra chica.</p>
+          </div>
+          <div class="sam-step reveal s3d-u reveal--d2">
+            <h3 class="sam-step__title">Desarrollo iterativo</h3>
+            <p class="sam-step__desc">Construimos por fases con demos semanales. Ves el avance en tiempo real y das retroalimentación antes de avanzar.</p>
+          </div>
+          <div class="sam-step reveal s3d-u reveal--d3">
+            <h3 class="sam-step__title">Entrega y soporte</h3>
+            <p class="sam-step__desc">Desplegamos en producción, capacitamos a tu equipo y te damos un período de ajustes post-entrega incluido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="sam-showcase">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">Tecnología</span></div>
+          <h2 class="section-head__title">Construido con<br><em>las mejores herramientas</em></h2>
+          <p class="section-head__sub">Usamos tecnología moderna para que tu sistema sea rápido, seguro y escalable.</p>
+        </div>
+        <div class="sam-showcase__grid">
+          <div class="reveal s3d-l">
+            <img class="sam-showcase__img" src="/img/sistemas-dashboard.png" alt="Dashboard personalizado desarrollado por IBANI Digital" loading="lazy" width="1200" height="900">
+          </div>
+          <div class="reveal s3d-r">
+            <ul class="sam-showcase__list">
+              <li class="sam-showcase__item">
+                <span class="sam-showcase__check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <div class="sam-showcase__text"><strong>Código propio, no plantillas</strong><span>Cada línea se escribe desde cero para tu caso de uso. Sin WordPress, sin limitaciones.</span></div>
+              </li>
+              <li class="sam-showcase__item">
+                <span class="sam-showcase__check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <div class="sam-showcase__text"><strong>Responsive por defecto</strong><span>Funciona perfecto en celulares, tablets y computadoras. Sin versión aparte.</span></div>
+              </li>
+              <li class="sam-showcase__item">
+                <span class="sam-showcase__check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <div class="sam-showcase__text"><strong>SSL y seguridad</strong><span>Certificado SSL, autenticación segura, encriptación de datos y backups automáticos.</span></div>
+              </li>
+              <li class="sam-showcase__item">
+                <span class="sam-showcase__check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <div class="sam-showcase__text"><strong>Hosting optimizado</strong><span>Servidores rápidos con CDN global. Tu sistema carga en menos de 2 segundos.</span></div>
+              </li>
+              <li class="sam-showcase__item">
+                <span class="sam-showcase__check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <div class="sam-showcase__text"><strong>Escalable</strong><span>Arquitectura que crece con tu negocio. Si mañana tienes 10x más usuarios, el sistema aguanta.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="sam-usecases">
+      <div class="sam-usecases__watermark" aria-hidden="true">Código</div>
+      <div class="container">
+        <div class="section-head reveal s3d-l" style="color:var(--bg)">
+          <div class="section-head__eyebrow"><span class="label" style="color:rgba(255,255,255,.4)">Ejemplos reales</span></div>
+          <h2 class="section-head__title" style="color:var(--bg)">Proyectos que<br><em style="color:var(--accent)">hemos construido</em></h2>
+          <p class="section-head__sub" style="color:rgba(255,255,255,.55)">Cada negocio es diferente. Estos son algunos tipos de sistemas que hemos desarrollado.</p>
+        </div>
+        <div class="sam-usecases__grid">
+          <div class="sam-usecase reveal s3d-u"><span class="sam-usecase__icon">🎰</span><p class="sam-usecase__name">Plataformas de Rifas</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d1"><span class="sam-usecase__icon">📦</span><p class="sam-usecase__name">Control de Inventarios</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d2"><span class="sam-usecase__icon">💰</span><p class="sam-usecase__name">Punto de Venta</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d3"><span class="sam-usecase__icon">🤖</span><p class="sam-usecase__name">Chatbots WhatsApp</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d4"><span class="sam-usecase__icon">📋</span><p class="sam-usecase__name">CRMs personalizados</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d5"><span class="sam-usecase__icon">🧾</span><p class="sam-usecase__name">Facturación CFDI</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d6"><span class="sam-usecase__icon">🚚</span><p class="sam-usecase__name">Logística y Rutas</p></div>
+          <div class="sam-usecase reveal s3d-u reveal--d7"><span class="sam-usecase__icon">📅</span><p class="sam-usecase__name">Agenda y Citas</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sam-faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal s3d-l">
+          <div class="section-head__eyebrow"><span class="label">FAQ</span></div>
+          <h2 class="section-head__title">Lo que más<br><em>nos preguntan</em></h2>
+        </div>
+        <div class="sam-faq__list">
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Qué tipo de sistemas pueden desarrollar?</button><div class="sam-faq__a"><p>Cualquier sistema web: chatbots de WhatsApp, paneles de control, CRMs, sistemas de cotización, plataformas internas, automatizaciones y más. Si se puede hacer en web, lo hacemos.</p></div></div>
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Cuánto cuesta un sistema a medida?</button><div class="sam-faq__a"><p>Depende de la complejidad. Después de una llamada de 15 minutos te entregamos una cotización con precio fijo, sin sorpresas. No cobramos por hora.</p></div></div>
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Cuánto tiempo toma el desarrollo?</button><div class="sam-faq__a"><p>Proyectos sencillos en 2-3 semanas. Proyectos complejos en 4-8 semanas. Siempre con fecha de entrega pactada desde el primer día.</p></div></div>
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Hay mensualidad después de la entrega?</button><div class="sam-faq__a"><p>No. El sistema es tuyo con un pago único. Solo pagas hosting y dominio anual (mínimo). Si quieres soporte extendido o nuevas funciones, se cotizan aparte.</p></div></div>
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Puedo integrar mi sistema con WhatsApp u otras herramientas?</button><div class="sam-faq__a"><p>Sí. Integramos con WhatsApp Business API, Stripe, MercadoPago, Clip, Google Sheets, correo electrónico y cualquier API pública que necesites.</p></div></div>
+          <div class="sam-faq__item"><button class="sam-faq__q" aria-expanded="false">¿Qué pasa si necesito cambios después de la entrega?</button><div class="sam-faq__a"><p>Incluimos un período de ajustes post-entrega. Cambios adicionales o nuevas funcionalidades se cotizan por separado con el mismo modelo de precio fijo.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sam-cta">
+      <div class="container">
+        <h2 class="sam-cta__title reveal s3d-u">¿Tienes una idea?<br><em>Hagámosla realidad</em></h2>
+        <p class="sam-cta__sub reveal s3d-u reveal--d1" style="text-align:center">Cuéntanos tu proyecto y en menos de 24 horas recibes una propuesta con precio fijo y fecha de entrega.</p>
+        <div class="reveal s3d-u reveal--d2" style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap">
+          <a href="https://wa.me/526625044016?text=Hola%2C%20tengo%20una%20idea%20para%20un%20sistema%20a%20medida%20y%20me%20gustar%C3%ADa%20cotizarlo%20con%20IBANI%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Cotizar por WhatsApp
+          </a>
+          <a href="/servicios" class="btn btn--outline btn--lg">Ver todos los servicios</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="logo" aria-label="IBANI Digital"><span class="logo__name">IBANI</span><span class="logo__sub">Digital</span></a>
+          <p class="footer__tagline">Diseño web profesional para negocios en Hermosillo, Ciudad Obregón y toda Sonora.</p>
+          <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
+            <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45)">hola@ibanidigital.com</a><br>
+            <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.45)">+52 662 504 4016</a>
+          </address>
+        </div>
+        <div class="footer__links">
+          <div>
+            <p class="footer__col-title">Servicios</p>
+            <ul class="footer__col-links">
+              <li><a href="/servicios#landing">Landing Pages</a></li>
+              <li><a href="/servicios/tiendas">Tiendas Online</a></li>
+              <li><a href="/servicios/rifas">Plataformas de Rifas</a></li>
+              <li><a href="/servicios/software-administrativo">Software Administrativo</a></li>
+              <li><a href="/servicios/reservaciones">Reservaciones</a></li>
+              <li><a href="/servicios/sistemas-a-medida">Sistemas a Medida</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Empresa</p>
+            <ul class="footer__col-links">
+              <li><a href="/portafolio">Portafolio</a></li>
+              <li><a href="/proceso">Proceso</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer__col-title">Contacto</p>
+            <ul class="footer__col-links">
+              <li><a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61579526053161" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
+        <span><a href="/privacidad" style="color:rgba(255,255,255,.25)">Aviso de Privacidad</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.min.js" defer></script>
+  <script>
+    document.querySelectorAll('.sam-faq__q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.sam-faq__item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.sam-faq__item.open').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+        btn.setAttribute('aria-expanded', !wasOpen);
+      });
+    });
+  </script>
+</body>
+
+</html>
