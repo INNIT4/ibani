@@ -53,15 +53,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── Active nav (IntersectionObserver) ───────────────────── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav__link[data-section]');
+  /* ── Active nav (Path-based + IntersectionObserver) ───────── */
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav__link');
 
-  if (sections.length && navLinks.length) {
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (currentPath === linkPath || (linkPath !== '/' && currentPath.startsWith(linkPath) && currentPath.length > 1)) {
+      link.classList.add('active');
+    }
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const dataLinks = document.querySelectorAll('.nav__link[data-section]');
+
+  if (sections.length && dataLinks.length) {
     const sObs = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting)
-          navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+          dataLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
       }),
       { rootMargin: '-40% 0px -55% 0px' }
     );

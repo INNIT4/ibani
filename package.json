@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "build": "lightningcss --minify --bundle css/all.css -o css/all.min.css && terser js/main.js -o js/main.min.js --compress --mangle"
+    "build:html": "node tools/build-html.js",
+    "build:css": "lightningcss --minify --bundle css/all.css -o css/all.min.css",
+    "build:js": "terser js/main.js -o js/main.min.js --compress --mangle",
+    "build": "node tools/build-html.js && npm run build:css && npm run build:js",
+    "serve": "npx -y serve . -p 3000"
   },
   "devDependencies": {
     "lightningcss-cli": "^1.32.0",
