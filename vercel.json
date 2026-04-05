@@ -3,8 +3,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/servicios", "destination": "/servicios.html" },
-    { "source": "/blog",      "destination": "/blog.html" }
+    { "source": "/servicios",                       "destination": "/servicios.html" },
+    { "source": "/blog",                            "destination": "/blog.html" },
+    { "source": "/servicios/reservaciones",         "destination": "/servicios/reservaciones.html" },
+    { "source": "/servicios/sistemas-a-medida",     "destination": "/servicios/sistemas-a-medida.html" }
   ],
   "headers": [
     {
