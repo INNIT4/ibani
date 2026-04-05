@@ -181,8 +181,10 @@
 .header.scrolled .nav__dropdown a:hover { background: rgba(255,255,255,0.07); color: var(--bg); }
 .header.scrolled .nav__dropdown__label { color: rgba(250,248,241,0.3); }
 .header.scrolled .nav__mobile { background: rgb(12,12,12); border-top-color: rgba(255,255,255,.08); }
-.header.scrolled .nav__mobile a { color: rgba(250,248,241,0.85); }
-.header.scrolled .nav__mobile a:hover { color: var(--accent); }
+.header.scrolled .nav__mobile a,
+.header.scrolled .nav__mobile button { color: rgba(250,248,241,0.85); }
+.header.scrolled .nav__mobile a:hover,
+.header.scrolled .nav__mobile button:hover { color: var(--accent); }
 
 /* ── Nav Links ──────────────────────────────────────────────── */
 .nav {
@@ -261,15 +263,66 @@
 
 .nav__mobile.open { display: flex; }
 
-.nav__mobile a {
+.nav__mobile a,
+.nav__mobile button {
   font-family: var(--font-display);
   font-size: 2.2rem;
   font-weight: 300;
   color: var(--ink);
   transition: color var(--dur-fast);
+  text-align: left;
 }
 
-.nav__mobile a:hover { color: var(--accent); }
+.nav__mobile a:hover,
+.nav__mobile button:hover { color: var(--accent); }
+
+/* ── Mobile services toggle ────────────────────────────────── */
+.mob-svc-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mob-svc-caret {
+  font-size: 0.55em;
+  transition: transform 0.25s var(--ease-soft);
+}
+
+.mob-svc-toggle[aria-expanded="true"] .mob-svc-caret {
+  transform: rotate(180deg);
+}
+
+.mob-svc-list {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: 1.2rem;
+}
+
+.mob-svc-list.open { display: flex; }
+
+.mob-svc-list a {
+  font-size: 1.4rem;
+  color: var(--ink-2);
+}
+
+.mob-cta {
+  color: var(--accent) !important;
+  margin-top: var(--space-2);
+}
+
+/* ── Nav CTA (desktop) ─────────────────────────────────────── */
+.nav__cta {
+  margin-left: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .nav__cta { display: none; }
+}
 
 /* ── Botones ────────────────────────────────────────────────── */
 .btn {

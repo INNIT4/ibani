@@ -220,56 +220,22 @@
         <li><a href="/" class="nav__link">Inicio</a></li>
         <li class="nav__item--has-dropdown">
           <a href="/servicios" class="nav__link">Servicios <span class="nav__caret">▾</span></a>
-          <div class="nav__dropdown nav__dropdown--wide">
+          <div class="nav__dropdown">
             <p class="nav__dropdown__label">¿Qué necesitas?</p>
-            <a href="/servicios#landing">
-              <span class="dd-icon">
-                <img src="/img/landing.webp" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Landing Pages</strong><small>desde $4,500 MXN</small></span>
-            </a>
-            <a href="/servicios/sitios-corporativos">
-              <span class="dd-icon">
-                <img src="/img/corporativo_mockup.png" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Sitios Corporativos</strong><small>desde $22,000 MXN</small></span>
-            </a>
-            <a href="/servicios/tiendas">
-              <span class="dd-icon">
-                <img src="/img/tiendaonline.webp" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Tiendas Online</strong><small>precio a consulta</small></span>
-            </a>
-            <a href="/servicios/rifas">
-              <span class="dd-icon">
-                <img src="/img/sorteos.webp" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Plataformas de Rifas</strong><small>desde $5,000/mes</small></span>
-            </a>
-            <a href="/servicios/software-administrativo">
-              <span class="dd-icon">
-                <img src="/img/gestion.webp" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Software Administrativo</strong><small>desde $6,000 MXN</small></span>
-            </a>
-            <a href="/servicios/reservaciones">
-              <span class="dd-icon">
-                <img src="/img/reserva.webp" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Sistema de Reservaciones</strong><small>Precio a consulta</small></span>
-            </a>
-            <a href="/servicios#sistemas">
-              <span class="dd-icon">
-                <img src="/img/sistemas-hero.png" alt="" style="width:100%;height:100%;object-fit:cover">
-              </span>
-              <span class="dd-content"><strong>Sistemas a Medida</strong><small>Precio a consulta</small></span>
-            </a>
+            <a href="/servicios#landing"><span class="dd-dot"></span> Landing Pages</a>
+            <a href="/servicios/sitios-corporativos"><span class="dd-dot"></span> Sitios Corporativos</a>
+            <a href="/servicios/tiendas"><span class="dd-dot"></span> Tiendas Online</a>
+            <a href="/servicios/rifas"><span class="dd-dot"></span> Plataformas de Rifas</a>
+            <a href="/servicios/software-administrativo"><span class="dd-dot"></span> Software Administrativo</a>
+            <a href="/servicios/reservaciones"><span class="dd-dot"></span> Reservaciones</a>
+            <a href="/servicios#sistemas"><span class="dd-dot"></span> Sistemas a Medida</a>
           </div>
         </li>
         <li><a href="/portafolio" class="nav__link">Portafolio</a></li>
         <li><a href="/proceso"    class="nav__link">Proceso</a></li>
         <li><a href="/blog"       class="nav__link">Blog</a></li>
       </ul>
+      <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" class="btn btn--sm nav__cta">Contactar</a>
       <button class="nav__toggle" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -277,20 +243,24 @@
   </div>
   <div class="nav__mobile" role="navigation" aria-label="Menú móvil">
     <a href="/">Inicio</a>
-    <a href="/servicios" style="margin-bottom:0.2rem">Servicios:</a>
-    <a href="/servicios#landing" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Landing Pages</a>
-    <a href="/servicios/sitios-corporativos" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sitios Corporativos</a>
-    <a href="/servicios/tiendas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Tiendas Online</a>
-    <a href="/servicios/rifas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Plataformas de Rifas</a>
-    <a href="/servicios/software-administrativo" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Software Admin</a>
-    <a href="/servicios/reservaciones" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Reservaciones</a>
-    <a href="/servicios#sistemas" style="font-size:1.4rem;padding-left:1.2rem;color:var(--ink-2)">↳ Sistemas a Medida</a>
-    <a href="/portafolio" style="margin-top:0.4rem">Portafolio</a>
+    <button class="mob-svc-toggle" aria-expanded="false">Servicios <span class="mob-svc-caret">▾</span></button>
+    <div class="mob-svc-list">
+      <a href="/servicios">Ver todos</a>
+      <a href="/servicios#landing">Landing Pages</a>
+      <a href="/servicios/sitios-corporativos">Sitios Corporativos</a>
+      <a href="/servicios/tiendas">Tiendas Online</a>
+      <a href="/servicios/rifas">Plataformas de Rifas</a>
+      <a href="/servicios/software-administrativo">Software Admin</a>
+      <a href="/servicios/reservaciones">Reservaciones</a>
+      <a href="/servicios#sistemas">Sistemas a Medida</a>
+    </div>
+    <a href="/portafolio">Portafolio</a>
     <a href="/proceso">Proceso</a>
     <a href="/blog">Blog</a>
-    <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:var(--accent);margin-top:0.5rem">Contactar →</a>
+    <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" class="mob-cta">Contactar →</a>
   </div>
 </header>
+
 
 
 
@@ -679,6 +649,7 @@
     </div>
   </div>
 </footer>
+
 
 
 

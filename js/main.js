@@ -19,12 +19,27 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileNav = document.querySelector('.nav__mobile');
 
   if (toggle && mobileNav) {
+    var svcToggle = mobileNav.querySelector('.mob-svc-toggle');
+    var svcList   = mobileNav.querySelector('.mob-svc-list');
+
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
       mobileNav.classList.toggle('open', !open);
       document.body.style.overflow = open ? '' : 'hidden';
+      if (open && svcToggle && svcList) {
+        svcToggle.setAttribute('aria-expanded', 'false');
+        svcList.classList.remove('open');
+      }
     });
+
+    if (svcToggle && svcList) {
+      svcToggle.addEventListener('click', () => {
+        var expanded = svcToggle.getAttribute('aria-expanded') === 'true';
+        svcToggle.setAttribute('aria-expanded', String(!expanded));
+        svcList.classList.toggle('open', !expanded);
+      });
+    }
 
     mobileNav.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
