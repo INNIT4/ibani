@@ -180,7 +180,7 @@
 .header.scrolled .nav__dropdown a { color: rgba(250,248,241,0.55); }
 .header.scrolled .nav__dropdown a:hover { background: rgba(255,255,255,0.07); color: var(--bg); }
 .header.scrolled .nav__dropdown__label { color: rgba(250,248,241,0.3); }
-.header.scrolled .nav__mobile { background: rgba(12,12,12,0.97); border-top-color: rgba(255,255,255,.08); }
+.header.scrolled .nav__mobile { background: rgb(12,12,12); border-top-color: rgba(255,255,255,.08); }
 .header.scrolled .nav__mobile a { color: rgba(250,248,241,0.85); }
 .header.scrolled .nav__mobile a:hover { color: var(--accent); }
 
@@ -253,9 +253,10 @@
   gap: var(--space-6);
   background: var(--bg-2);
   border-top: 1px solid var(--border);
-  position: absolute;
-  top: 68px; left: 0; right: 0;
+  position: fixed;
+  top: 68px; left: 0; right: 0; bottom: 0;
   z-index: 99;
+  overflow-y: auto;
 }
 
 .nav__mobile.open { display: flex; }
