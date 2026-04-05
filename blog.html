@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — IBANI Digital · Diseño Web en Sonora</title>
-  <meta name="description" content="Guías, recursos y casos de éxito sobre diseño web en Sonora. Todo lo que necesitas saber para tener presencia digital en Hermosillo, Ciudad Obregón y el estado.">
+  <title>Blog — IBANI Digital · Diseño Web en México</title>
+  <meta name="description" content="Guías, precios reales y casos de éxito sobre diseño web en México. Presencia digital para negocios en Hermosillo, Ciudad Obregón, Sonora y toda la República.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.ibanidigital.com/blog">
 
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Blog — IBANI Digital">
-  <meta property="og:description" content="Guías y recursos sobre diseño web en Sonora.">
+  <meta property="og:description" content="Guías, precios reales y casos de éxito sobre diseño web en México.">
   <meta property="og:url"         content="https://www.ibanidigital.com/blog">
   <meta property="og:image"       content="https://www.ibanidigital.com/og-image.jpg">
   <meta property="og:locale"      content="es_MX">
@@ -28,8 +28,8 @@
         "@type": "Blog",
         "@id": "https://www.ibanidigital.com/blog#webpage",
         "url": "https://www.ibanidigital.com/blog",
-        "name": "Blog — IBANI Digital · Diseño Web en Sonora",
-        "description": "Guías, recursos y casos de éxito sobre diseño web en Sonora. Todo lo que necesitas saber para tener presencia digital en Hermosillo, Ciudad Obregón y el estado.",
+        "name": "Blog — IBANI Digital · Diseño Web en México",
+        "description": "Guías, precios reales y casos de éxito sobre diseño web en México. Presencia digital para negocios en Hermosillo, Ciudad Obregón, Sonora y toda la República.",
         "inLanguage": "es-MX",
         "isPartOf": { "@id": "https://www.ibanidigital.com/#website" },
         "publisher": { "@id": "https://www.ibanidigital.com/#business" }
@@ -215,11 +215,16 @@
 
     .blog-card:hover::before { transform: scaleX(1); }
 
-    .blog-card--hermosillo::before { background: linear-gradient(to right, #C85A28, #E07848); }
-    .blog-card--obregon::before    { background: linear-gradient(to right, #2563EB, #60A5FA); }
     .blog-card--precios::before    { background: linear-gradient(to right, #16a34a, #4ade80); }
     .blog-card--seo::before        { background: linear-gradient(to right, #7c3aed, #a78bfa); }
     .blog-card--compare::before    { background: linear-gradient(to right, #0891b2, #22d3ee); }
+    .blog-card--caso::before       { background: linear-gradient(to right, #C85A28, #E07848); }
+    .blog-card--rifas::before      { background: linear-gradient(to right, #d97706, #fbbf24); }
+    .blog-card--industria::before  { background: linear-gradient(to right, #2563EB, #60A5FA); }
+    .blog-card--conceptos::before  { background: linear-gradient(to right, #6b7280, #9ca3af); }
+    .blog-card--conversion::before { background: linear-gradient(to right, #dc2626, #f87171); }
+    .blog-card--software::before   { background: linear-gradient(to right, #0d9488, #5eead4); }
+    .blog-card--tendencias::before { background: linear-gradient(to right, #e11d48, #fb7185); }
 
     /* Thumbnail */
     .blog-card__thumb {
@@ -258,11 +263,16 @@
       opacity: 0.06;
     }
 
-    .blog-card--hermosillo .blog-card__city-art { background: linear-gradient(135deg, #1A1714 0%, #2a2320 100%); }
-    .blog-card--obregon    .blog-card__city-art { background: linear-gradient(135deg, #111827 0%, #1e2a3a 100%); }
     .blog-card--precios    .blog-card__city-art { background: linear-gradient(135deg, #0f1f14 0%, #162412 100%); }
     .blog-card--seo        .blog-card__city-art { background: linear-gradient(135deg, #150d29 0%, #1e1040 100%); }
     .blog-card--compare    .blog-card__city-art { background: linear-gradient(135deg, #061520 0%, #0a2030 100%); }
+    .blog-card--caso       .blog-card__city-art { background: linear-gradient(135deg, #1A1714 0%, #2a2320 100%); }
+    .blog-card--rifas      .blog-card__city-art { background: linear-gradient(135deg, #1a1508 0%, #2a2210 100%); }
+    .blog-card--industria  .blog-card__city-art { background: linear-gradient(135deg, #111827 0%, #1e2a3a 100%); }
+    .blog-card--conceptos  .blog-card__city-art { background: linear-gradient(135deg, #18181b 0%, #27272a 100%); }
+    .blog-card--conversion .blog-card__city-art { background: linear-gradient(135deg, #1a0a0a 0%, #2a1010 100%); }
+    .blog-card--software   .blog-card__city-art { background: linear-gradient(135deg, #0a1a18 0%, #102a25 100%); }
+    .blog-card--tendencias .blog-card__city-art { background: linear-gradient(135deg, #1a0a14 0%, #2a1020 100%); }
 
     .city-label {
       font-family: var(--font-display);
@@ -287,11 +297,16 @@
 
     .blog-card:hover .city-accent { opacity: 0.55; transform: scale(1.1); }
 
-    .blog-card--hermosillo .city-accent { width: 200px; height: 200px; background: #C85A28; top: -40px; right: -40px; }
-    .blog-card--obregon    .city-accent { width: 200px; height: 200px; background: #2563EB; bottom: -40px; left: -40px; }
     .blog-card--precios    .city-accent { width: 220px; height: 220px; background: #16a34a; top: -50px; right: -50px; }
     .blog-card--seo        .city-accent { width: 220px; height: 220px; background: #7c3aed; bottom: -50px; left: -50px; }
     .blog-card--compare    .city-accent { width: 220px; height: 220px; background: #0891b2; top: -50px; right: -50px; }
+    .blog-card--caso       .city-accent { width: 200px; height: 200px; background: #C85A28; top: -40px; right: -40px; }
+    .blog-card--rifas      .city-accent { width: 220px; height: 220px; background: #d97706; bottom: -50px; left: -50px; }
+    .blog-card--industria  .city-accent { width: 200px; height: 200px; background: #2563EB; top: -40px; right: -40px; }
+    .blog-card--conceptos  .city-accent { width: 200px; height: 200px; background: #6b7280; bottom: -40px; left: -40px; }
+    .blog-card--conversion .city-accent { width: 220px; height: 220px; background: #dc2626; top: -50px; right: -50px; }
+    .blog-card--software   .city-accent { width: 220px; height: 220px; background: #0d9488; bottom: -50px; left: -50px; }
+    .blog-card--tendencias .city-accent { width: 220px; height: 220px; background: #e11d48; top: -50px; right: -50px; }
 
     .city-tag {
       position: relative;
@@ -319,11 +334,16 @@
       border-radius: 50%;
     }
 
-    .blog-card--hermosillo .city-tag-dot { background: #E07848; }
-    .blog-card--obregon    .city-tag-dot { background: #60A5FA; }
     .blog-card--precios    .city-tag-dot { background: #4ade80; }
     .blog-card--seo        .city-tag-dot { background: #a78bfa; }
     .blog-card--compare    .city-tag-dot { background: #22d3ee; }
+    .blog-card--caso       .city-tag-dot { background: #E07848; }
+    .blog-card--rifas      .city-tag-dot { background: #fbbf24; }
+    .blog-card--industria  .city-tag-dot { background: #60A5FA; }
+    .blog-card--conceptos  .city-tag-dot { background: #9ca3af; }
+    .blog-card--conversion .city-tag-dot { background: #f87171; }
+    .blog-card--software   .city-tag-dot { background: #5eead4; }
+    .blog-card--tendencias .city-tag-dot { background: #fb7185; }
 
     /* Card body */
     .blog-card__body {
@@ -352,12 +372,6 @@
       border-radius: 999px;
     }
 
-    .blog-card--obregon .blog-card__category {
-      color: #2563EB;
-      background: rgba(37,99,235,0.08);
-      border-color: rgba(37,99,235,0.15);
-    }
-
     .blog-card__read-time {
       font-size: var(--text-xs);
       color: var(--ink-3);
@@ -373,7 +387,6 @@
     }
 
     .blog-card:hover .blog-card__title { color: var(--accent); }
-    .blog-card--obregon:hover .blog-card__title { color: #2563EB; }
 
     .blog-card__excerpt {
       font-size: var(--text-base);
@@ -444,6 +457,187 @@
       text-transform: uppercase;
       color: var(--ink-3);
     }
+
+    /* ── Featured Card ───────────────────────────────────────── */
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      text-decoration: none;
+      margin-bottom: var(--space-12);
+      transition: border-color 0.25s var(--ease-soft), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+    }
+    .blog-featured:hover {
+      border-color: var(--border-2);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.09), 0 4px 16px rgba(0,0,0,0.04);
+      transform: translateY(-4px);
+    }
+    .blog-featured__thumb {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+    }
+    .blog-featured__thumb-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.5s var(--ease);
+    }
+    .blog-featured:hover .blog-featured__thumb-inner { transform: scale(1.04); }
+    .blog-featured__badge {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      z-index: 2;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .blog-featured__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-4);
+      padding: var(--space-10);
+    }
+    .blog-featured__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--ink);
+      transition: color 0.22s;
+    }
+    .blog-featured:hover .blog-featured__title { color: var(--accent); }
+    .blog-featured__excerpt {
+      font-size: var(--text-base);
+      color: var(--ink-2);
+      line-height: 1.75;
+    }
+    .blog-featured__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--accent);
+      transition: gap 0.22s var(--ease);
+    }
+    .blog-featured:hover .blog-featured__cta { gap: 12px; }
+    @media (max-width: 768px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured__thumb { min-height: 220px; }
+      .blog-featured__body { padding: var(--space-8); }
+    }
+
+    /* ── Search + Filters ────────────────────────────────────── */
+    .blog-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-10);
+    }
+    .blog-search {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 320px;
+    }
+    .blog-search__input {
+      width: 100%;
+      padding: 10px 16px 10px 40px;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--ink);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .blog-search__input:focus { border-color: var(--accent); }
+    .blog-search__input::placeholder { color: var(--ink-3); }
+    .blog-search__icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--ink-3);
+      pointer-events: none;
+    }
+    .blog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .blog-filter {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .blog-filter:hover { border-color: var(--ink-3); color: var(--ink-2); }
+    .blog-filter.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
+    }
+
+    /* ── Load More ───────────────────────────────────────────── */
+    .blog-load-more {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--space-12);
+    }
+    .blog-load-more__btn {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--ink-2);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .blog-load-more__btn:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    /* ── No results ──────────────────────────────────────────── */
+    .blog-empty {
+      display: none;
+      text-align: center;
+      padding: var(--space-16) 0;
+      color: var(--ink-3);
+      font-size: var(--text-lg);
+    }
+
+    /* ── Hidden card ─────────────────────────────────────────── */
+    .blog-card.is-hidden { display: none; }
   </style>
 </head>
 
@@ -553,17 +747,17 @@
 
         <div class="blog-hero__eyebrow anim-l" style="--delay:.05s">
           <span class="hero__dot" aria-hidden="true"></span>
-          <span class="label label--accent">Recursos · Diseño Web · Sonora</span>
+          <span class="label label--accent">Recursos · Diseño Web · México</span>
         </div>
 
         <h1 class="blog-hero__title anim-l" style="--delay:.16s">
-          Guías de diseño web<br>
-          para negocios en <em>Sonora</em>
+          Aprende sobre diseño web<br>
+          para <em>tu negocio</em>
         </h1>
 
         <p class="blog-hero__sub anim-r" style="--delay:.3s">
-          Todo lo que debes saber sobre presencia digital en Hermosillo,
-          Ciudad Obregón y el resto del estado. Casos reales, precios y consejos prácticos.
+          Precios reales, guías prácticas y casos de éxito. Todo lo que necesitas
+          saber antes de invertir en una página web — desde Sonora para todo México.
         </p>
 
       </div>
@@ -573,119 +767,68 @@
     <section class="blog-section">
       <div class="container">
 
+        <!-- Featured article -->
         <div class="blog-divider reveal s3d-l">
-          <span>Artículos recientes</span>
+          <span>Artículo destacado</span>
         </div>
 
-        <div class="blog-grid">
-
-          <!-- Card 1: Hermosillo -->
-          <a href="/hermosillo" class="blog-card blog-card--hermosillo reveal s3d-l">
-
-            <div class="blog-card__thumb">
-              <div class="blog-card__thumb-inner">
-                <img src="/img/hermosillo.jpg" alt="Diseño web en Hermosillo, Sonora" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
-              </div>
-            </div>
-
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="blog-card__category">Diseño Web Local</span>
-                <span class="blog-card__read-time">5 min de lectura</span>
-              </div>
-
-              <h2 class="blog-card__title">
-                Diseño web en Hermosillo: lo que necesita tu negocio para crecer en la capital de Sonora
-              </h2>
-
-              <p class="blog-card__excerpt">
-                Hermosillo concentra la mayor actividad comercial del estado. Descubre cómo los negocios locales — salones de eventos, tiendas, clínicas y despachos — están captando clientes desde Google con sitios profesionales entregados en 3 días.
-              </p>
-
-              <div class="blog-card__footer">
-                <div class="blog-card__topics">
-                  <span class="blog-card__topic">SEO local</span>
-                  <span class="blog-card__topic">Landing pages</span>
-                  <span class="blog-card__topic">Hermosillo</span>
+        <a href="/landing-page-vs-sitio-web" class="blog-featured blog-card--compare reveal s3d-l">
+          <div class="blog-featured__thumb">
+            <div class="blog-featured__thumb-inner">
+              <div class="blog-card__city-art">
+                <span class="city-label" style="font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-.02em;opacity:.06;white-space:nowrap">LANDING VS WEB</span>
+                <div class="city-accent"></div>
+                <div class="city-tag">
+                  <span class="city-tag-dot"></span>
+                  Comparativa
                 </div>
-                <span class="blog-card__cta">Leer artículo →</span>
               </div>
             </div>
-
-          </a>
-
-          <!-- Card 2: Ciudad Obregón -->
-          <a href="/obregon" class="blog-card blog-card--obregon reveal s3d-r">
-
-            <div class="blog-card__thumb">
-              <div class="blog-card__thumb-inner">
-                <img src="/img/obregon.jpg" alt="Diseño web en Ciudad Obregón, Sonora" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
-              </div>
+            <span class="blog-featured__badge">Nuevo</span>
+          </div>
+          <div class="blog-featured__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__category" style="background:rgba(8,145,178,.1);color:#0891b2;border-color:rgba(8,145,178,.2)">Comparativa</span>
+              <span class="blog-card__read-time">7 min de lectura</span>
             </div>
-
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="blog-card__category">Diseño Web Local</span>
-                <span class="blog-card__read-time">5 min de lectura</span>
-              </div>
-
-              <h2 class="blog-card__title">
-                Diseño web en Ciudad Obregón: presencia digital para negocios del Valle del Yaqui
-              </h2>
-
-              <p class="blog-card__excerpt">
-                Ciudad Obregón es el motor agroindustrial del sur de Sonora. Conoce cómo Floresta Jardín, La Antigua Grecia y Jardín Lantana pasaron de depender de recomendaciones a recibir consultas diarias desde internet.
-              </p>
-
-              <div class="blog-card__footer">
-                <div class="blog-card__topics">
-                  <span class="blog-card__topic">SEO local</span>
-                  <span class="blog-card__topic">Portafolio</span>
-                  <span class="blog-card__topic">Obregón</span>
-                </div>
-                <span class="blog-card__cta">Leer artículo →</span>
-              </div>
+            <h2 class="blog-featured__title">
+              Landing page vs sitio web: ¿cuál necesita tu negocio?
+            </h2>
+            <p class="blog-featured__excerpt">
+              Cuándo conviene una landing page de una sola página y cuándo necesitas un sitio web completo — con comparativa de precios, tiempos de entrega y casos reales.
+            </p>
+            <div class="blog-card__topics" style="margin-top:var(--space-2)">
+              <span class="blog-card__topic">Landing pages</span>
+              <span class="blog-card__topic">Precios</span>
+              <span class="blog-card__topic">México</span>
             </div>
+            <span class="blog-featured__cta">Leer artículo →</span>
+          </div>
+        </a>
 
-          </a>
+        <!-- Toolbar: search + filters -->
+        <div class="blog-divider reveal s3d-l" style="margin-top:var(--space-16)">
+          <span>Todos los artículos</span>
+        </div>
 
-          <!-- Card 3: ¿Cuánto cuesta una página web? -->
-          <a href="/cuanto-cuesta-pagina-web-sonora" class="blog-card blog-card--precios reveal s3d-l">
+        <div class="blog-toolbar">
+          <div class="blog-search">
+            <svg class="blog-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="blog-search__input" placeholder="Buscar artículo..." id="blogSearch">
+          </div>
+          <div class="blog-filters" id="blogFilters">
+            <button class="blog-filter active" data-filter="all">Todos</button>
+            <button class="blog-filter" data-filter="precios">Precios</button>
+            <button class="blog-filter" data-filter="seo">SEO</button>
+            <button class="blog-filter" data-filter="compare">Comparativas</button>
+            <button class="blog-filter" data-filter="caso">Casos de éxito</button>
+          </div>
+        </div>
 
-            <div class="blog-card__thumb">
-              <div class="blog-card__thumb-inner">
-                <img src="/img/como-crear-una-pagina-web.jpg" alt="¿Cuánto cuesta hacer una página web en Sonora?" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
-              </div>
-            </div>
+        <div class="blog-grid" id="blogGrid">
 
-            <div class="blog-card__body">
-              <div class="blog-card__meta">
-                <span class="blog-card__category" style="background:rgba(22,163,74,.1);color:#16a34a;border-color:rgba(22,163,74,.25)">Guía de precios</span>
-                <span class="blog-card__read-time">6 min de lectura</span>
-              </div>
-
-              <h2 class="blog-card__title">
-                ¿Cuánto cuesta hacer una página web en Sonora? Precios reales en 2025
-              </h2>
-
-              <p class="blog-card__excerpt">
-                Landing page, tienda online o sitio corporativo: cuánto cobran las agencias, qué incluye cada precio y por qué contratar con alguien local en Hermosillo puede salirte mejor que usar plataformas como Wix o Squarespace.
-              </p>
-
-              <div class="blog-card__footer">
-                <div class="blog-card__topics">
-                  <span class="blog-card__topic">Precios</span>
-                  <span class="blog-card__topic">Landing pages</span>
-                  <span class="blog-card__topic">Sonora</span>
-                </div>
-                <span class="blog-card__cta">Leer artículo →</span>
-              </div>
-            </div>
-
-          </a>
-
-          <!-- Card 4: ¿Por qué no apareces en Google? -->
-          <a href="/por-que-negocio-no-aparece-google-sonora" class="blog-card blog-card--seo reveal s3d-r">
+          <!-- Card: ¿Por qué no apareces en Google? -->
+          <a href="/por-que-negocio-no-aparece-google-sonora" class="blog-card blog-card--seo reveal s3d-l" data-category="seo" data-title="por qué tu negocio no aparece en google guía para sonora seo google maps">
 
             <div class="blog-card__thumb">
               <div class="blog-card__thumb-inner">
@@ -726,41 +869,34 @@
 
           </a>
 
-          <!-- Card 5: Landing page vs sitio web -->
-          <a href="/landing-page-vs-sitio-web" class="blog-card blog-card--compare reveal s3d-l">
+          <!-- Card: ¿Cuánto cuesta una página web? -->
+          <a href="/cuanto-cuesta-pagina-web-sonora" class="blog-card blog-card--precios reveal s3d-r" data-category="precios" data-title="cuánto cuesta hacer una página web en sonora precios landing tienda corporativo">
 
             <div class="blog-card__thumb">
               <div class="blog-card__thumb-inner">
-                <div class="blog-card__city-art">
-                  <span class="city-label" style="font-size:clamp(2rem,5vw,4rem);letter-spacing:-.02em;opacity:.06;white-space:nowrap">LANDING VS WEB</span>
-                  <div class="city-accent"></div>
-                  <div class="city-tag">
-                    <span class="city-tag-dot"></span>
-                    Comparativa
-                  </div>
-                </div>
+                <img src="/img/como-crear-una-pagina-web.jpg" alt="¿Cuánto cuesta hacer una página web en Sonora?" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
               </div>
             </div>
 
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="blog-card__category" style="background:rgba(8,145,178,.1);color:#0891b2;border-color:rgba(8,145,178,.2)">Guía</span>
-                <span class="blog-card__read-time">7 min de lectura</span>
+                <span class="blog-card__category" style="background:rgba(22,163,74,.1);color:#16a34a;border-color:rgba(22,163,74,.25)">Guía de precios</span>
+                <span class="blog-card__read-time">6 min de lectura</span>
               </div>
 
               <h2 class="blog-card__title">
-                Landing page vs sitio web: ¿cuál necesita tu negocio en Sonora?
+                ¿Cuánto cuesta hacer una página web en Sonora? Precios reales (2026)
               </h2>
 
               <p class="blog-card__excerpt">
-                Cuándo conviene una landing page de una sola página y cuándo necesitas un sitio web completo — con comparativa de precios, tiempos de entrega y casos reales en Hermosillo.
+                Landing page, tienda online o sitio corporativo: cuánto cobran las agencias, qué incluye cada precio y por qué contratar con alguien local puede salirte mejor que Wix o Squarespace.
               </p>
 
               <div class="blog-card__footer">
                 <div class="blog-card__topics">
-                  <span class="blog-card__topic">Landing pages</span>
                   <span class="blog-card__topic">Precios</span>
-                  <span class="blog-card__topic">Sonora</span>
+                  <span class="blog-card__topic">Landing pages</span>
+                  <span class="blog-card__topic">México</span>
                 </div>
                 <span class="blog-card__cta">Leer artículo →</span>
               </div>
@@ -768,6 +904,47 @@
 
           </a>
 
+          <!-- Card: Caso Sorteos Jans -->
+          <a href="/caso-sorteos-jans" class="blog-card blog-card--caso reveal s3d-l" data-category="caso" data-title="caso de estudio sorteos jans plataforma de rifas online">
+
+            <div class="blog-card__thumb">
+              <div class="blog-card__thumb-inner">
+                <img src="/img/portfolio/sorteosjans-800.jpg" alt="Plataforma de rifas online Sorteos Jans — caso de éxito IBANI Digital" loading="lazy" width="800" height="450" style="width:100%;height:100%;object-fit:cover;display:block;">
+              </div>
+            </div>
+
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__category">Caso de éxito</span>
+                <span class="blog-card__read-time">5 min de lectura</span>
+              </div>
+
+              <h2 class="blog-card__title">
+                Caso de estudio: Sorteos Jans — Plataforma de rifas online
+              </h2>
+
+              <p class="blog-card__excerpt">
+                Cómo construimos una plataforma de rifas en línea que vendió más de 11,600 boletos en 22 rifas — con selección en tiempo real, confirmación por WhatsApp y panel de administración doble.
+              </p>
+
+              <div class="blog-card__footer">
+                <div class="blog-card__topics">
+                  <span class="blog-card__topic">Rifas</span>
+                  <span class="blog-card__topic">Portafolio</span>
+                  <span class="blog-card__topic">México</span>
+                </div>
+                <span class="blog-card__cta">Leer caso →</span>
+              </div>
+            </div>
+
+          </a>
+
+        </div>
+
+        <p class="blog-empty" id="blogEmpty">No se encontraron artículos con ese filtro.</p>
+
+        <div class="blog-load-more" id="blogLoadMore" style="display:none">
+          <button class="blog-load-more__btn" id="blogLoadBtn">Ver más artículos</button>
         </div>
 
       </div>
@@ -776,9 +953,8 @@
     <!-- SEO TEXT BLOCK -->
     <section class="section" style="padding:var(--space-16) 0; background:var(--bg); border-top:1px solid var(--border)">
       <div class="container" style="max-width:800px; text-align:center">
-        <h2 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--ink); margin-bottom:var(--space-4); font-weight:300;">Sobre nuestro blog de diseño y marketing en Sonora</h2>
-        <p style="font-size:var(--text-base); line-height:1.7; color:var(--ink-2); margin-bottom:var(--space-4)">En IBANI Digital nos especializamos en crear soluciones web que generan ventas reales para negocios físicos y digitales. A través de este blog, compartimos nuestro conocimiento sobre posicionamiento SEO local, diseño de landing pages, plataformas de sorteos y estrategias de comercio electrónico, con un enfoque geográfico especial en el estado de Sonora (Hermosillo, Ciudad Obregón, Guaymas, Navojoa).</p>
-        <p style="font-size:var(--text-base); line-height:1.7; color:var(--ink-2)">El objetivo principal de nuestros artículos es empoderar a dueños de negocios locales, emprendedores y agencias con información transparente. Queremos que conozcas los precios reales del mercado, los procesos técnicos detrás de una página exitosa y casos de éxito comprobables. Creemos firmemente que una página web no debe ser solo una tarjeta de presentación bonita, sino una herramienta medible que impulse el crecimiento comercial de tu empresa de forma constante y predecible.</p>
+        <h2 style="font-family:var(--font-display); font-size:var(--text-xl); color:var(--ink); margin-bottom:var(--space-4); font-weight:300;">Información real para dueños de negocios</h2>
+        <p style="font-size:var(--text-base); line-height:1.7; color:var(--ink-2)">Precios de mercado sin inflar, comparativas honestas y casos reales de negocios en Sonora que ya generan clientes desde Google. IBANI Digital ha entregado 10 proyectos web en producción con un promedio de 3 días hábiles — aquí compartimos lo que aprendimos en cada uno.</p>
       </div>
     </section>
 
@@ -874,6 +1050,66 @@
 
 
   <script src="js/main.min.js" defer></script>
+
+  <script>
+  (function(){
+    var VISIBLE_COUNT = 8;
+    var grid = document.getElementById('blogGrid');
+    var cards = grid ? Array.from(grid.querySelectorAll('.blog-card')) : [];
+    var filters = document.getElementById('blogFilters');
+    var search = document.getElementById('blogSearch');
+    var empty = document.getElementById('blogEmpty');
+    var loadMore = document.getElementById('blogLoadMore');
+    var loadBtn = document.getElementById('blogLoadBtn');
+    var activeFilter = 'all';
+    var shown = VISIBLE_COUNT;
+
+    function applyFilters(){
+      var query = (search ? search.value : '').toLowerCase().trim();
+      var visible = 0;
+      shown = VISIBLE_COUNT;
+
+      cards.forEach(function(card){
+        var cat = card.getAttribute('data-category') || '';
+        var text = card.getAttribute('data-title') || '';
+        var matchFilter = activeFilter === 'all' || cat === activeFilter;
+        var matchSearch = !query || text.indexOf(query) !== -1;
+        if(matchFilter && matchSearch){
+          visible++;
+          card.classList.toggle('is-hidden', visible > shown);
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+
+      if(empty) empty.style.display = visible === 0 ? 'block' : 'none';
+      if(loadMore) loadMore.style.display = visible > shown ? 'flex' : 'none';
+    }
+
+    if(filters){
+      filters.addEventListener('click', function(e){
+        if(!e.target.classList.contains('blog-filter')) return;
+        filters.querySelector('.active').classList.remove('active');
+        e.target.classList.add('active');
+        activeFilter = e.target.getAttribute('data-filter');
+        applyFilters();
+      });
+    }
+
+    if(search){
+      search.addEventListener('input', applyFilters);
+    }
+
+    if(loadBtn){
+      loadBtn.addEventListener('click', function(){
+        shown += VISIBLE_COUNT;
+        applyFilters();
+      });
+    }
+
+    applyFilters();
+  })();
+  </script>
 
 </body>
 </html>
