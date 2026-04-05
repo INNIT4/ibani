@@ -499,10 +499,14 @@
           <!-- Foto del fundador -->
           <div class="reveal" style="flex-shrink:0">
             <figure style="margin:0;position:relative">
-              <img src="/foto-fundado.jpg"
-                   alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital"
-                   width="399" height="399" loading="lazy"
-                   style="width:clamp(200px,25vw,320px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
+              <picture>
+                <source srcset="/foto-fundado.avif" type="image/avif">
+                <source srcset="/foto-fundado.webp" type="image/webp">
+                <img src="/foto-fundado.jpg"
+                     alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital"
+                     width="399" height="399" loading="lazy"
+                     style="width:clamp(200px,25vw,320px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
+              </picture>
               <figcaption style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase">
                 Jose Daniel Ibarra Nieblas
               </figcaption>

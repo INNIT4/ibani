@@ -29,7 +29,8 @@
   <meta name="theme-color" content="#1A1714">
 
   <!-- LCP preload -->
-  <link rel="preload" as="image" fetchpriority="high" href="/foto-fundado.jpg">
+  <link rel="preload" as="image" fetchpriority="high" href="/foto-fundado.avif" type="image/avif">
+  <link rel="preload" as="image" fetchpriority="high" href="/foto-fundado.webp" type="image/webp" imagesrcset="/foto-fundado.webp">
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -304,11 +305,15 @@
           <!-- Foto -->
           <div class="reveal" style="flex-shrink:0">
             <figure style="margin:0">
-              <img src="/foto-fundado.jpg"
-                   alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital, Hermosillo Sonora"
-                   width="399" height="399"
-                   loading="eager" fetchpriority="high"
-                   style="width:clamp(180px,20vw,280px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
+              <picture>
+                <source srcset="/foto-fundado.avif" type="image/avif">
+                <source srcset="/foto-fundado.webp" type="image/webp">
+                <img src="/foto-fundado.jpg"
+                     alt="Jose Daniel Ibarra Nieblas — Fundador de IBANI Digital, Hermosillo Sonora"
+                     width="399" height="399"
+                     loading="eager" fetchpriority="high"
+                     style="width:clamp(180px,20vw,280px);aspect-ratio:1;object-fit:cover;object-position:top;border-radius:var(--radius-lg);display:block;border:1px solid var(--border)">
+              </picture>
               <figcaption style="margin-top:var(--space-3);font-size:var(--text-xs);color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase">
                 Jose Daniel Ibarra Nieblas · Fundador
               </figcaption>
