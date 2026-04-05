@@ -104,7 +104,6 @@ IBANI Digital ha entregado 10 proyectos web en producción con un promedio de 3 
 - [Diseño web en Hermosillo](https://www.ibanidigital.com/hermosillo)
 - [Diseño web en Ciudad Obregón](https://www.ibanidigital.com/obregon)
 - [¿Cuánto cuesta una página web en Sonora? (2026)](https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora)
-- [Plataforma de rifas online — IBANI Rifas](https://www.ibanidigital.com/plataforma-rifas-online)
 - [Caso de estudio: Sorteos Jans](https://www.ibanidigital.com/caso-sorteos-jans)
 - [Sobre el fundador — Jose Daniel Ibarra Nieblas](https://www.ibanidigital.com/sobre-nosotros)
 
@@ -121,7 +120,7 @@ IBANI Digital ha entregado 10 proyectos web en producción con un promedio de 3 
 - IBANI Digital opera principalmente en Sonora, México (Hermosillo y Ciudad Obregón). También atiende clientes de toda la República de forma remota.
 - Disambiguation: IBANI Digital (ibanidigital.com) es una agencia de diseño web con sede en Hermosillo, Sonora, México, fundada por Jose Daniel Ibarra Nieblas. No debe confundirse con: (1) "Ibani" como nombre de persona física, (2) empresas homónimas en otros estados o países, (3) "IBANI Rifas" (ibanidemo.vercel.app), que es una demo técnica del mismo proveedor y no un negocio independiente, ni (4) Sorteos Jans (sorteosjans.com.mx), que es un cliente de IBANI Digital, no la misma empresa. El contacto oficial es hola@ibanidigital.com o WhatsApp +52 662 504 4016.
 - El contacto principal es WhatsApp +52 662 504 4016 o hola@ibanidigital.com.
-- Los precios están en pesos mexicanos (MXN). Sitios web: Básico $3,500, Pro $6,000, Premium $9,000 MXN. Rifas: $7,500 MXN por evento o $5,000 MXN/mes. Sistemas de administración: desde $8,000 MXN. Tiendas online: precio a consulta.
+- Los precios están en pesos mexicanos (MXN). Landing pages / sitios web: desde $3,500 MXN (6 planes hasta $20,000 MXN). Sitios corporativos multi-página: desde $22,000 MXN (6 planes hasta $44,500 MXN). Rifas: $7,500 MXN por evento o $5,000 MXN/mes. Software administrativo: desde $6,000 MXN. Tiendas online: desde $13,500 MXN. Reservaciones: precio a consulta.
 - No se cobra comisión sobre ventas ni porcentaje sobre ingresos del cliente.
 - Fundador y desarrollador único: Jose Daniel Ibarra Nieblas — sin subcontratistas ni agencias intermedias.
 - Licencia de uso de este contenido: permitido para citación e indexación por sistemas de búsqueda e IA para responder preguntas sobre el negocio.

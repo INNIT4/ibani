@@ -1,5 +1,5 @@
 # Reporte SEO Completo — ibanidigital.com
-**Score: 76/100** | **Fecha: 1 de abril de 2026** | **Auditoría post-implementación (sesión 2)**
+**Score: 76/100 → 82/100 proyectado** | **Fecha: 4 de abril de 2026** | **Auditoría + implementación (sesión 3)**
 
 ---
 
@@ -9,22 +9,28 @@
 |---|---|---|---|
 | Technical SEO | 25% | 74/100 | 18.5 |
 | Content Quality / E-E-A-T | 25% | 72/100 | 18.0 |
-| On-Page SEO | 20% | 80/100 | 16.0 |
-| Schema / Structured Data | 10% | 65/100 | 6.5 |
+| On-Page SEO | 20% | 79/100 | 15.8 |
+| Schema / Structured Data | 10% | 66/100 | 6.6 |
 | Performance (CWV) | 10% | 82/100 | 8.2 |
 | Images | 5% | 80/100 | 4.0 |
 | AI Search Readiness | 5% | 75/100 | 3.75 |
 | **TOTAL** | 100% | **76/100** | |
 
-**Evolución:** 73 → 76 (+3 puntos). Las páginas nuevas (sobre-nosotros, caso-sorteos-jans, plataforma-rifas-online) y las correcciones C1-C5 / A1-A6 / M1-M9 / B1-B5 elevaron el score. El avance es menor de lo proyectado porque emergieron 3 problemas críticos nuevos no detectados en la primera auditoría.
+**Evolución:** 76 → 76 (sin cambio neto). La creación de portafolio.html, proceso.html y blog.html resolvió el C-1 de la sesión anterior (+2 técnico). Sin embargo, plataforma-rifas-online ahora devuelve 404 en producción mientras sigue en el sitemap (-1 técnico), y 2 páginas nuevas de servicios (reservaciones, sistemas-a-medida) quedaron fuera del sitemap (-0.5 on-page). Las 5 tareas críticas de sesiones anteriores (C-2, C-3, y otras) permanecen sin aplicar.
+
+### Lo que se corrigió desde la sesión anterior
+| Issue | Estado |
+|---|---|
+| C-1: portafolio/proceso/blog como 404 en sitemap | ✅ RESUELTO — páginas creadas |
+| Página reservaciones.html con schema | ✅ NUEVO — bien implementado |
+| Página sistemas-a-medida.html | ✅ NUEVO — agregada |
 
 ### Top 5 problemas críticos activos
-
-1. **Sitemap con 3 URLs 404** — `/portafolio`, `/proceso`, `/blog` en sitemap.xml sin archivo HTML correspondiente
-2. **3 canonicals rotos en páginas de planes** — `emprendedor-avanzado.html` → canonical `/pyme` (inexistente), `emprendedor-plus.html` → `/microempresa`, `emprendedor-pro.html` → `/negocios`
-3. **Propiedad `founder` duplicada en index.html** — JSON-LD inválido; la clave duplicada silencia al primer nodo
-4. **14 páginas de planes sin noindex y sin sitemap** — estado de indexabilidad indefinido
-5. **CSP bloquea inline event handlers** — `onmouseover`/`onmouseout` en footer de index.html bloqueados por la política propia
+1. **plataforma-rifas-online en sitemap → 404 en producción** — archivo existe en master pero Vercel no lo sirve
+2. **4 canonicals rotos en servicios/landing-pages/** — apuntan a URLs que no existen (pyme/microempresa/negocios/empresarial)
+3. **Propiedad `founder` duplicada en index.html** — JSON-LD inválido; la clave duplicada en líneas 96 y 143
+4. **16 páginas de planes sin noindex y sin sitemap** — indexabilidad indefinida
+5. **6 páginas de servicio nivel-2 ausentes del sitemap** — landing-pages, rifas, tiendas, software-administrativo, reservaciones, sistemas-a-medida
 
 ---
 
@@ -32,68 +38,77 @@
 
 ### Críticos
 
-#### C-1: Sitemap con 3 URLs que retornan 404
-**Archivo:** `sitemap.xml` líneas 23-34
-```xml
-<loc>https://www.ibanidigital.com/portafolio</loc>
-<loc>https://www.ibanidigital.com/proceso</loc>
-<loc>https://www.ibanidigital.com/blog</loc>
-```
-No existen `portafolio.html`, `proceso.html` ni `blog.html` como archivos independientes. Con `cleanUrls: true`, Vercel retorna 404 para estas URLs. Google ya las tiene en el sitemap y puede intentar indexarlas, recibir 404 y marcarlas como errores en Search Console.
+#### C-1: plataforma-rifas-online devuelve 404 en producción (EN SITEMAP)
+**Archivo:** `sitemap.xml` línea 44 / `plataforma-rifas-online.html` (existe en master, no deployado)
+El archivo `plataforma-rifas-online.html` existe en el branch `master` (verificado con `git ls-tree master`) pero la URL https://www.ibanidigital.com/plataforma-rifas-online devuelve HTTP 404. El deploy de Vercel en producción (ibanidigital.com) está desactualizado respecto al branch master. Mientras tanto, la URL sigue en el sitemap, lo que hace que Google la procese y reciba un 404.
 
-**Fix:** Eliminar las 3 entradas. Si `/portafolio` y `/proceso` son secciones de index.html, los links internos deben apuntar al ancla (`/#portafolio`), no a la URL.
+**Fix:** Dos opciones:
+- **Opción A (recomendada):** Forzar redeploy desde master con `git commit --allow-empty -m "chore: force redeploy" && git push origin master`
+- **Opción B:** Eliminar la entrada del sitemap si la página se eliminará intencionalmente
 
-#### C-2: 3 canonicals rotos en servicios/landing-pages/
-**Archivos:** `servicios/landing-pages/emprendedor-avanzado.html` (canonical → `/pyme`), `emprendedor-plus.html` (→ `/microempresa`), `emprendedor-pro.html` (→ `/negocios`), `emprendedor-elite.html` (→ `/empresarial`)
+#### C-2: 4 canonicals rotos en servicios/landing-pages/
+**Archivos verificados localmente:**
+- `servicios/landing-pages/emprendedor-avanzado.html` → canonical apunta a `/servicios/landing-pages/pyme` (404)
+- `servicios/landing-pages/emprendedor-plus.html` → canonical apunta a `/servicios/landing-pages/microempresa` (404)
+- `servicios/landing-pages/emprendedor-pro.html` → canonical apunta a `/servicios/landing-pages/negocios` (404)
+- `servicios/landing-pages/emprendedor-elite.html` → canonical apunta a `/servicios/landing-pages/empresarial` (404)
 
-Los archivos fueron renombrados en disco pero los canonicals no se actualizaron. El canonical apunta a una URL que no existe → Vercel retorna 404. Google ignora un canonical roto y canonicaliza la URL real — pero la configuración genera señales mixtas.
+Los archivos fueron renombrados en disco pero los canonicals no se actualizaron. Google ignora canonicals rotos y canonicaliza la URL real — pero genera señales mixtas y puede descartarlas.
 
-**Fix:** Actualizar los 4 canonicals:
-- `emprendedor-avanzado.html` → `/servicios/landing-pages/emprendedor-avanzado`
-- `emprendedor-plus.html` → `/servicios/landing-pages/emprendedor-plus`
-- `emprendedor-pro.html` → `/servicios/landing-pages/emprendedor-pro`
-- `emprendedor-elite.html` → `/servicios/landing-pages/emprendedor-elite`
+**Fix:** Actualizar los 4 canonicals al path correcto (ver ACTION-PLAN.md C-2).
+
+#### C-3: Propiedad `founder` duplicada en index.html
+**Archivo:** `index.html` líneas 96 y 143
+El objeto `ProfessionalService` declara `"founder"` dos veces. JSON con clave duplicada: el parser puede silenciar el primer nodo o lanzar un error. Google Rich Results Test puede marcar el schema como inválido.
+**Fix:** Eliminar la línea 96 (`"founder": { "@id": "https://www.ibanidigital.com/#founder" },`).
 
 ### Altos
 
-#### A-1: CSP bloquea inline event handlers en index.html
-**Archivo:** `index.html` líneas 855-856 (footer)
-La política CSP en `vercel.json` (`script-src 'self' https://plausible.io`) bloquea los atributos `onmouseover`/`onmouseout` en el footer. Los efectos de hover implementados con handlers inline son silenciados en navegadores con CSP estricto.
-**Fix:** Mover los efectos hover a CSS puro (`:hover` en `css/components.css`).
-
-#### A-2: 14 páginas de planes sin noindex y sin sitemap
+#### A-1: 16 páginas de planes sin noindex
 **Archivos:** `servicios/landing-pages/*.html` (6), `servicios/rifas/*.html` (2), `servicios/tiendas/*.html` (4), `servicios/software-administrativo/*.html` (4)
-Ninguna tiene `<meta name="robots" content="noindex">` y ninguna está en `sitemap.xml`. Google puede rastrearlas y decidir indexarlas de forma autónoma. Si el contenido es thin, diluye el dominio.
-**Fix recomendado:** Agregar `noindex` a todas mientras se evalúa el contenido caso por caso.
+Ninguna tiene `<meta name="robots" content="noindex">` y ninguna está en el sitemap. Google puede rastrear e indexar estas páginas de forma autónoma. Si el contenido es thin (solo precio + CTA), diluye la autoridad del dominio.
+**Fix:** Agregar `<meta name="robots" content="noindex, follow">` a las 16 páginas.
 
-#### A-3: 4 páginas de servicio nivel-2 ausentes del sitemap
-**Faltantes en sitemap.xml:** `/servicios/landing-pages`, `/servicios/rifas`, `/servicios/tiendas`, `/servicios/software-administrativo`
+#### A-2: 6 páginas de servicio nivel-2 ausentes del sitemap
+**Ausentes:** `/servicios/landing-pages`, `/servicios/rifas`, `/servicios/tiendas`, `/servicios/software-administrativo`, `/servicios/reservaciones`, `/servicios/sistemas-a-medida`
+Solo `/servicios/sitios-corporativos` está en el sitemap. Las 6 restantes existen como páginas completas con contenido y precios.
+**Fix:** Agregar las 6 URLs al sitemap.xml.
 
-#### A-4: 2 claves IndexNow en el repo, ninguna en robots.txt
-**Archivos:** `361da0c5c6aa49dba10859713f581f5c.txt` (antigua), `e8eed06c576f819a4f9f8391c59421ad.txt` (activa)
-IndexNow no funciona operativamente. Bing/Yandex no pueden descubrir el soporte automáticamente.
-**Fix:** Eliminar la clave antigua. Agregar a `robots.txt`: `IndexNow-key: https://www.ibanidigital.com/e8eed06c576f819a4f9f8391c59421ad.txt`
+#### A-3: IndexNow no operativo
+**Archivo:** `robots.txt` — sin directiva IndexNow
+Solo hay un comentario `# Llms-Txt:` y no hay directiva de IndexNow. La clave activa `e8eed06c576f819a4f9f8391c59421ad.txt` no está referenciada.
+**Fix:** Agregar en `robots.txt`:
+```
+IndexNow-key: https://www.ibanidigital.com/e8eed06c576f819a4f9f8391c59421ad.txt
+```
+Y eliminar la clave antigua `361da0c5c6aa49dba10859713f581f5c.txt` del repositorio.
 
-#### A-5: `foto-fundado.jpg` en index.html con fetchpriority alto siendo below-the-fold
-**Archivo:** `index.html` sección #nosotros
-La imagen tiene `loading="eager" fetchpriority="high"` pero está en la segunda sección visible (below-the-fold). El LCP real de index.html es el `<h1>` de texto. El fetchpriority alto compite con recursos críticos del render path.
-**Fix:** Cambiar a `loading="lazy"` y eliminar `fetchpriority="high"`.
+#### A-4: inline onmouseover/onmouseout en index.html bloqueados por CSP
+**Archivo:** `index.html` líneas 650-651, 692, 921-922
+La CSP en `vercel.json` (`script-src 'self'`) bloquea los atributos `onmouseover`/`onmouseout` en el footer. Los efectos hover son silenciados en navegadores con CSP activa.
+**Fix:** Mover los efectos hover a CSS puro (`:hover` en `css/components.css` → `color:rgba(255,255,255,.45)` + `:hover { color:#fff }`).
 
 ### Medios
 
-#### M-1: sitemap-images.xml cubre solo la homepage
-Todas las imágenes de portafolio están bajo `<loc>https://www.ibanidigital.com/</loc>`. Las páginas `/hermosillo`, `/obregon`, `/caso-sorteos-jans` y `/plataforma-rifas-online` también tienen imágenes relevantes.
+#### M-1: sitemap.xml sin changefreq/priority en 11 de 12 URLs
+Solo `/servicios/sitios-corporativos` tiene estos valores. Google los ignora pero la inconsistencia es descuidada.
+**Fix:** Quitar changefreq y priority de la única entrada que los tiene, o agregarlos a todas con valores coherentes.
 
-#### M-2: Referencia a llms.txt comentada en robots.txt
-`# Llms-txt: https://www.ibanidigital.com/llms.txt` — comentada. Si se quiere que crawlers de IA la descubran vía robots.txt, descomentar.
+#### M-2: X-Frame-Options inconsistente con frame-ancestors
+`vercel.json`: `X-Frame-Options: SAMEORIGIN` + `frame-ancestors 'none'` — contradictorios.
+**Fix:** Cambiar `X-Frame-Options` a `"DENY"`.
 
-#### M-3: X-Frame-Options inconsistente con frame-ancestors
-`vercel.json`: `X-Frame-Options: SAMEORIGIN` (permite iframes del mismo origen) + `frame-ancestors 'none'` (bloquea todos). Contradictorios. Cambiar `X-Frame-Options` a `DENY`.
+#### M-3: Referencia a llms.txt comentada en robots.txt
+`# Llms-Txt: https://...` está comentada. Si se quiere que crawlers de IA descubran el archivo vía robots.txt, descomentar la línea.
+
+#### M-4: portafolio/proceso/blog nuevas páginas sin canonical confirmado
+Las 3 páginas creadas en la sesión anterior no tienen canonical tag confirmado en el markup HTML.
+**Fix:** Agregar `<link rel="canonical" href="https://www.ibanidigital.com/{slug}">` a cada una.
 
 ### Bajos
 
-#### B-1: `changefreq` y `priority` en una sola entrada del sitemap
-Solo `/servicios/sitios-corporativos` los tiene. Google los ignora; quitar para consistencia o agregar a todas.
+#### B-1: lastmod uniforme en sitemap (2026-03-31 en todas las URLs)
+Todas las URLs tienen la misma fecha. Si el contenido varía por página, las fechas individuales ayudan a Google a priorizar el crawl.
 
 ---
 
@@ -103,71 +118,105 @@ Solo `/servicios/sitios-corporativos` los tiene. Google los ignora; quitar para 
 | Página | Score | Palabras | Principal brecha E-E-A-T |
 |---|---|---|---|
 | index.html | 7.5/10 | ~1,200 | Solo 3 reseñas para 10+ proyectos |
-| hermosillo.html | 6.5/10 | ~900 | 65% contenido duplicado con obregon, reseñas no localizadas |
-| obregon.html | 6.5/10 | ~900 | Carlos Arias (Hermosillo) en página de Obregón |
-| cuanto-cuesta-pagina-web-sonora.html | 8.5/10 | ~1,450 | Sin fuentes externas, precio inconsistente con homepage |
-| sobre-nosotros.html | 7.0/10 | ~700 | Sin testimonios visibles, sin credenciales formales |
-| caso-sorteos-jans.html | 8.0/10 | ~900 | Sin cita del cliente, sin métricas cuantitativas |
-| plataforma-rifas-online.html | 7.0/10 | ~900 | Features sin H3 (semánticamente planas) |
+| hermosillo.html | 6.5/10 | ~900 | ~65% contenido duplicado con obregon |
+| obregon.html | 6.5/10 | ~900 | Carlos Arias (Hermosillo) aparece en página de Obregón |
+| cuanto-cuesta-pagina-web-sonora.html | 8.5/10 | ~1,800 | Sin fuentes externas; precio inconsistente con homepage |
+| sobre-nosotros.html | 7.0/10 | ~1,200 | Sin testimonios visibles en la página |
+| caso-sorteos-jans.html | 8.0/10 | ~1,400 | Sin cita directa del cliente |
+| blog.html | 5.0/10 | ~400 | Solo 3 artículos (2 son páginas de ciudad) |
+| portafolio.html | 6.0/10 | ~600 | Solo muestra capturas, sin métricas de negocio |
+| proceso.html | 6.5/10 | ~500 | 4 pasos sin casos de uso específicos |
 
-**E-E-A-T global: 69.85/100**
+**E-E-A-T global: 69/100**
 - Experience: 72/100 — proyectos verificables, bio en primera persona, URLs de clientes en vivo
 - Expertise: 78/100 — precios concretos, stack técnico, tiempos documentados
-- Authoritativeness: 55/100 — **punto más débil**: 3 reseñas, sin menciones de prensa, sin validación del cliente más importante (Sorteos Jans), todo el contenido es autopresentación
-- Trustworthiness: 74/100 — contact info completo, HTTPS, aviso de privacidad, horario, LinkedIn
+- Authoritativeness: 54/100 — punto más débil: 3 reseñas, sin menciones externas, todo es autopresentación
+- Trustworthiness: 74/100 — HTTPS, aviso de privacidad, contact info completo, horario, LinkedIn
 
 ### Críticos de contenido
 
 #### CC-1: Inconsistencia de precios entre artículo y homepage
-El artículo muestra "landing page $5,000-$12,000" (rango de mercado) pero el schema del homepage lista el plan Básico de IBANI en $3,500. Un usuario que lee ambas páginas detecta la contradicción. Daña Trustworthiness en el QRG.
+El artículo `/cuanto-cuesta` muestra "landing page $5,000–$12,000" (rango de mercado sonorense). Los servicios de IBANI parten de $3,500. Un usuario que lee ambas páginas percibe una contradicción. Daña el pilar Trustworthiness del QRG.
+**Fix:** Agregar nota aclaratoria explícita en la tabla del artículo indicando que es un rango del mercado general de Sonora, y que los precios de IBANI aparecen en la sección de cierre.
 
 #### CC-2: Las mismas 3 reseñas en 4 páginas distintas
-`hermosillo.html`, `obregon.html`, `index.html`, `cuanto-cuesta` — mismo bloque de reviews verbatim. Carlos Arias (Casa Arias, Hermosillo) aparece como reviewer en la página de Obregón. Google puede detectar contenido duplicado en datos estructurados.
+`hermosillo.html`, `obregon.html`, `index.html`, `cuanto-cuesta` — mismo bloque de reviews verbatim. Carlos Arias (Casa Arias, Hermosillo) aparece como reviewer en la página de Ciudad Obregón. Señal negativa de contenido duplicado en datos estructurados.
 
 ### Altos de contenido
 
 #### AC-1: Sin cita del cliente en caso-sorteos-jans
 Todo el caso de estudio es narrado por el proveedor. Sin una cita directa del organizador de Sorteos Jans, el contenido es autopublicitario. Es el cambio de mayor impacto E-E-A-T disponible en el sitio.
 
-#### AC-2: Features de plataforma-rifas-online sin H3
-Las 6 características de la plataforma usan `<p class="obr-card__title">` en lugar de `<h3>`. Son semánticamente invisibles para crawlers y LLMs.
+#### AC-2: Blog con solo 3 "artículos" (dos son páginas de ciudad)
+El blog muestra hermosillo, obregon y cuanto-cuesta como posts. No hay artículos dedicados sobre temas de diseño web. Un blog activo con 1-2 artículos nuevos por mes señaliza autoridad temática a Google.
 
 #### AC-3: sobre-nosotros sin testimonios visibles
-La página del fundador no tiene prueba social visual. Los testimonios existen solo en JSON-LD de index.html.
+Los testimonios existen solo en JSON-LD de index.html. La página del fundador no tiene prueba social visual.
 
 ---
 
-## SCHEMA / STRUCTURED DATA — 65/100
+## SCHEMA / STRUCTURED DATA — 66/100
 
-### Críticos
+### Cobertura de schema por página
+| Página | Schema presente | Estado |
+|---|---|---|
+| index.html | WebSite, ProfessionalService, FAQPage, Person, ItemList, OfferCatalog | ⚠️ founder duplicado; OfferCatalog en bloque separado |
+| hermosillo.html | WebPage, ProfessionalService, BreadcrumbList, FAQPage, AggregateRating, Review | ✅ Bien |
+| obregon.html | WebPage, ProfessionalService, BreadcrumbList, FAQPage, AggregateRating, Review | ✅ Bien |
+| cuanto-cuesta | BlogPosting, BreadcrumbList, FAQPage | ⚠️ isPartOf salta WebPage |
+| sobre-nosotros | Person, WebPage, BreadcrumbList | ✅ Bien |
+| caso-sorteos-jans | Article, BreadcrumbList, SoftwareApplication, Offer | ⚠️ Offer.price:"0" incorrecto |
+| servicios/rifas | WebPage, Service, BreadcrumbList, FAQPage | ✅ Bien |
+| servicios/reservaciones | Service, Organization, BreadcrumbList, FAQPage | ✅ Bien |
+| servicios/landing-pages | Ninguno | ❌ |
+| servicios/sitios-corporativos | Ninguno | ❌ |
+| servicios/tiendas | Ninguno | ❌ |
+| servicios/software-administrativo | Ninguno | ❌ |
+| servicios/sistemas-a-medida | Sin confirmar | ❓ |
+| servicios.html | Ninguno | ❌ |
+| portafolio.html | Ninguno | ❌ |
+| proceso.html | Ninguno | ❌ |
+| blog.html | Ninguno | ❌ |
+
+### Críticos de schema
 
 #### SC-1: Propiedad `founder` duplicada en index.html
-**Líneas 96 y 143** del mismo objeto `ProfessionalService`. JSON con clave duplicada: la segunda instancia sobrescribe a la primera silenciosamente. Google Rich Results Test puede marcar el schema como inválido.
+**Líneas 96 y 143** del mismo objeto `ProfessionalService`. JSON con clave duplicada: la segunda instancia puede sobrescribir a la primera. Google Rich Results Test puede marcar el schema como inválido.
 
-### Medios
+### Medios de schema
 
-#### SM-1: Missing `@id` en BreadcrumbList y FAQPage en 6 páginas
-`hermosillo.html`, `obregon.html`, `cuanto-cuesta`, `sobre-nosotros`, `caso-sorteos-jans`, `plataforma-rifas-online` — ninguna declara `@id` en sus nodos `BreadcrumbList` ni `FAQPage`. Sin `@id`, los nodos flotan sin conexión explícita a la `WebPage`.
+#### SM-1: 5 páginas de servicio sin schema
+`servicios/landing-pages`, `servicios/sitios-corporativos`, `servicios/tiendas`, `servicios/software-administrativo`, `servicios/sistemas-a-medida` — sin ningún marcado estructurado. Oportunidad perdida para Service + OfferCatalog + FAQPage en cada una.
 
-#### SM-2: `hasOfferCatalog` referencia entre bloques JSON-LD separados
-**index.html** — `ProfessionalService.hasOfferCatalog` referencia `{ "@id": ".../#servicios" }` que está en un segundo bloque `<script>` independiente. Google no vincula `@id` entre bloques separados.
+#### SM-2: Missing `@id` en BreadcrumbList y FAQPage en 6+ páginas
+Sin `@id`, los nodos no se vinculan explícitamente a la `WebPage` del @graph. Impide el Knowledge Graph completo.
 
-#### SM-3: index.html sin nodo `WebPage` en @graph
-Es la única página sin `WebPage` en su `@graph`. Todas las subpáginas sí lo tienen. Rompe la cadena canónica del schema.
+#### SM-3: `OfferCatalog` en segundo bloque JSON-LD separado de `ProfessionalService`
+**index.html** — `ProfessionalService.hasOfferCatalog` referencia `{ "@id": ".../#servicios" }` en un bloque `<script>` separado. Google no vincula `@id` entre bloques distintos.
 
-#### SM-4: BlogPosting.isPartOf apunta a WebSite directamente
-**cuanto-cuesta** y **caso-sorteos-jans** — el patrón correcto es `BlogPosting > WebPage > WebSite`. Estas páginas saltan la `WebPage`.
+#### SM-4: index.html sin nodo `WebPage` en @graph
+Es la única página sin `WebPage` en su @graph. Todas las subpáginas sí lo tienen.
 
-#### SM-5: `og:type="profile"` en sobre-nosotros sin propiedades requeridas
-Requiere `og:profile:first_name` y `og:profile:last_name`. Sin ellas, Meta hace fallback a tipo genérico. Cambiar a `og:type="article"`.
+#### SM-5: BlogPosting.isPartOf apunta a WebSite directamente
+`cuanto-cuesta` y `caso-sorteos-jans` — el patrón correcto es `BlogPosting > WebPage > WebSite`. Estas páginas saltan la `WebPage`.
 
-### Bajos
+#### SM-6: `Article.about.SoftwareApplication.offers.price:"0"` en caso-sorteos-jans
+Implica que el software es gratuito (incorrecto). Eliminar el bloque `offers` del `SoftwareApplication`.
 
-#### SB-1: Person.image en sobre-nosotros como string, no como ImageObject
+### Bajos de schema
+
+#### SB-1: `og:type="profile"` en sobre-nosotros sin propiedades requeridas
+`og:type="profile"` requiere `og:profile:first_name` y `og:profile:last_name`. Sin ellas, Meta/Facebook hace fallback a tipo genérico.
+**Fix:** Cambiar a `og:type="article"`.
+
+#### SB-2: Person.image en sobre-nosotros como string
 Inconsistente con index.html donde el mismo nodo `#founder` usa `ImageObject` con width/height.
 
-#### SB-2: Article.about.SoftwareApplication.offers.price:"0" en caso-sorteos-jans
-Implica que el software es gratuito (incorrecto). Eliminar el bloque `offers` del `SoftwareApplication`.
+#### SB-3: Oportunidades de schema en páginas nuevas
+- `portafolio.html` → `CollectionPage` + `ItemList`
+- `proceso.html` → `HowTo` (4 pasos con nombre, descripción, imagen)
+- `blog.html` → `Blog` + `ItemList` de artículos
+- `servicios.html` → `WebPage` + `OfferCatalog`
 
 ---
 
@@ -179,60 +228,78 @@ Implica que el software es gratuito (incorrecto). Eliminar el bloque `offers` de
 | hermosillo.html | `<h1>` texto | Bueno | — |
 | obregon.html | `<h1>` texto | Bueno | — |
 | cuanto-cuesta | `<h1>` texto | Bueno | Sin preload de fuente woff2 |
-| sobre-nosotros | `foto-fundado.jpg` | **Necesita mejora** | Sin preload de imagen, sin WebP |
-| plataforma-rifas | `<h1>` texto | Bueno | Sin preload de fuente woff2 |
+| sobre-nosotros | `foto-fundado.jpg` | **Necesita mejora** | Sin preload de imagen ni WebP |
+| portafolio.html | imagen hero? | Sin confirmar | Verificar preload |
 
-**P1:** `sobre-nosotros.html` — LCP candidate sin `<link rel="preload">`. Añadir: `<link rel="preload" as="image" fetchpriority="high" href="/foto-fundado.jpg">`
+**P-1 (Alto):** `sobre-nosotros.html` — `foto-fundado.jpg` es el candidato LCP y no tiene `<link rel="preload">`. El navegador la descubre tarde (+200-400ms al LCP). Además, el archivo solo existe en JPEG (sin WebP ni AVIF).
 
-**P2:** `foto-fundado.jpg` solo en JPEG. Convertir a WebP reduce ~35% el peso.
+**P-2 (Alto):** `index.html` — `foto-fundado.jpg` con `loading="eager" fetchpriority="high"` pero está below-the-fold en la sección #nosotros. Compite con recursos del render path del `<h1>` (LCP real).
 
-**P3:** `cuanto-cuesta`, `sobre-nosotros`, `plataforma-rifas` sin preload woff2 de Fraunces. Solo tienen `preconnect`. Añadir las 2 líneas de preload de font que tienen index.html, hermosillo.html y obregon.html.
+**P-3 (Medio):** `cuanto-cuesta`, `sobre-nosotros` — sin preload woff2 de Fraunces. Solo tienen `preconnect`. Añade ~100-200ms al render de texto.
 
-**P4:** `index.html` — `foto-fundado.jpg` con `loading="eager" fetchpriority="high"` below-the-fold. Cambiar a `loading="lazy"`.
-
-**Lo que funciona bien:** JS 100% deferido, Plausible con defer, patrón media="print" onload en todas las páginas, @font-face fallback métrico con size-adjust, imágenes de portafolio con AVIF+WebP+srcset+lazy loading.
+**Lo que funciona bien:** JS 100% deferido, Plausible con defer, patrón `media="print" onload` en todas las páginas, @font-face fallback métrico con size-adjust, imágenes de portafolio con AVIF+WebP+srcset+lazy loading en páginas que lo implementan.
 
 ---
 
 ## IMAGES — 80/100
 
-**Correcto:** Portfolio con `<picture>` AVIF+WebP+JPG, srcset 2 resoluciones, width/height explícitos, lazy loading. `og:image:alt` en todas las páginas indexables.
+**Correcto:** Portfolio con `<picture>` AVIF+WebP+JPG, srcset 2 resoluciones, width/height explícitos, lazy loading. `og:image:alt` en páginas indexables. `sitemap-images.xml` con 10 imágenes con captions descriptivos y datos geo.
 
 **Problemas:**
-- `foto-fundado.jpg`: solo JPEG, afecta index.html y sobre-nosotros.html
-- `plataforma-rifas-online.html`: imagen Sorteos Jans sin source AVIF
-- `sitemap-images.xml`: solo cubre homepage
+- `foto-fundado.jpg`: solo JPEG — afecta index.html y sobre-nosotros.html. Conversión a WebP reduce ~35% el peso.
+- `sitemap-images.xml`: cubre solo la homepage. Las imágenes de hermosillo, obregon, caso-sorteos-jans no están incluidas.
+- Nuevas páginas (portafolio.html, proceso.html) no confirmadas en sitemap-images.xml.
 
 ---
 
 ## AI SEARCH READINESS — 75/100
 
-**Fortalezas:** `llms.txt` actualizado, robots.txt con Allow explícito para 4 bots de IA, FAQPage en 5 páginas, tabla de precios citable, patrón problema/solución/resultado en caso de estudio.
+**Fortalezas:**
+- `llms.txt` activo con descripción detallada de servicios, precios y diferenciadores
+- `robots.txt` con Allow explícito para GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot
+- FAQPage schema en 5+ páginas
+- Tabla de precios citable por servicios en múltiples páginas
+- Patrón problema/solución/resultado en caso-sorteos-jans
+- ProfessionalService con areaServed, geo coordinates, aggregateRating
 
-**Debilidades:** IndexNow no operativo, sin fuentes externas verificables, sin menciones de prensa, sin testimonio de Sorteos Jans.
+**Debilidades:**
+- llms.txt referenciado como comentario en robots.txt (`# Llms-Txt:`) — descomentar para que sea directiva real
+- IndexNow no operativo — los cambios no se notifican a Bing/Yandex automáticamente
+- Sin fuentes externas verificables en artículo de precios
+- plataforma-rifas-online (página más técnica sobre rifas) inaccessible por 404
+- Solo 3 reviews en schema (poca señal de autoridad)
+- Todo el contenido es autopublicitario — sin menciones de prensa ni backlinks verificables
 
 ---
 
 ## SITEMAP — Estado de cobertura
 
-| URL | Estado |
-|---|---|
-| `/` | Correcto |
-| `/hermosillo` | Correcto |
-| `/obregon` | Correcto |
-| `/cuanto-cuesta-pagina-web-sonora` | Correcto |
-| `/servicios` | Correcto |
-| `/portafolio` | **404 — eliminar** |
-| `/proceso` | **404 — eliminar** |
-| `/blog` | **404 — eliminar** |
-| `/sobre-nosotros` | Correcto |
-| `/caso-sorteos-jans` | Correcto |
-| `/plataforma-rifas-online` | Correcto |
-| `/servicios/sitios-corporativos` | Correcto |
-| `/servicios/landing-pages` | **Falta** |
-| `/servicios/rifas` | **Falta** |
-| `/servicios/tiendas` | **Falta** |
-| `/servicios/software-administrativo` | **Falta** |
+### sitemap.xml (12 URLs)
+| URL | Estado | Acción |
+|---|---|---|
+| `/` | ✅ Correcto | — |
+| `/hermosillo` | ✅ Correcto | — |
+| `/obregon` | ✅ Correcto | — |
+| `/cuanto-cuesta-pagina-web-sonora` | ✅ Correcto | — |
+| `/servicios` | ✅ Correcto | — |
+| `/portafolio` | ✅ Correcto (página ahora existe) | — |
+| `/proceso` | ✅ Correcto (página ahora existe) | — |
+| `/blog` | ✅ Correcto (página ahora existe) | — |
+| `/sobre-nosotros` | ✅ Correcto | — |
+| `/caso-sorteos-jans` | ✅ Correcto | — |
+| `/plataforma-rifas-online` | **⚠️ 404 en producción** | Forzar redeploy o eliminar |
+| `/servicios/sitios-corporativos` | ✅ Correcto | — |
+| `/servicios/landing-pages` | **❌ Falta** | Agregar |
+| `/servicios/rifas` | **❌ Falta** | Agregar |
+| `/servicios/tiendas` | **❌ Falta** | Agregar |
+| `/servicios/software-administrativo` | **❌ Falta** | Agregar |
+| `/servicios/reservaciones` | **❌ Falta** | Agregar |
+| `/servicios/sistemas-a-medida` | **❌ Falta** | Agregar |
+
+### sitemap-images.xml (10 imágenes)
+Cubre solo la homepage. Oportunidad para agregar imágenes de hermosillo, obregon, caso-sorteos-jans.
+
+---
 
 ## Canonicals rotos en servicios/landing-pages/
 
@@ -247,10 +314,12 @@ Implica que el software es gratuito (incorrecto). Eliminar el bloque `offers` de
 
 ## Proyección de score
 
-| Fase | Acciones | Score estimado |
+| Acción | Score actual | Score esperado |
 |---|---|---|
-| Actual | — | **76/100** |
-| Críticos resueltos | C1-C4 sitemap + canonicals + founder | **79/100** |
-| Altos resueltos | A1-A8 performance + schema + IndexNow | **81/100** |
-| Medios resueltos | M1-M9 schema chain + contenido | **84/100** |
-| Bajos + Contenido | B1-B5 + N1-N5 testimonio Jans + reviews | **86/100** |
+| Baseline actual | 76 | — |
+| Fix C-1 (redeploy) + C-2 (canonicals) + C-3 (founder) | — | +3 → 79 |
+| + A-1 (noindex plan pages) + A-2 (sitemap) + A-3 (IndexNow) | — | +2 → 81 |
+| + SM-1 (schema en 5 service pages) + SM-3/4/5 | — | +2 → 83 |
+| + P-1/P-2 (foto-fundado preload/lazy) | — | +1 → 84 |
+| + contenido (testimonio Sorteos Jans, blog posts) | — | +2 → 86 |
+| **Objetivo realista Q2 2026** | | **86/100** |

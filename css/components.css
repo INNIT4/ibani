@@ -942,6 +942,18 @@
 
 .footer__col-links a:hover { color: var(--ink); }
 
+.footer__contact-link {
+  color: rgba(255,255,255,.45);
+  transition: color .2s;
+}
+.footer__contact-link:hover { color: #fff; }
+
+.footer__privacy-link {
+  color: rgba(255,255,255,.25);
+  transition: color .2s;
+}
+.footer__privacy-link:hover { color: rgba(255,255,255,.6); }
+
 .footer__bottom {
   display: flex;
   align-items: center;
