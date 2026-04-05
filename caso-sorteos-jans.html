@@ -34,14 +34,24 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <!-- Schema: Article + BreadcrumbList -->
+  <!-- Schema: WebPage + Article + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/caso-sorteos-jans#webpage",
+        "url": "https://www.ibanidigital.com/caso-sorteos-jans",
+        "name": "Caso de estudio: Sorteos Jans — Plataforma de rifas online · IBANI Digital",
+        "description": "Cómo construimos la plataforma de rifas en línea de Sorteos Jans: de gestión manual por WhatsApp a boletos en tiempo real, confirmaciones automáticas y panel de administración completo.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
         "@type": "Article",
         "@id": "https://www.ibanidigital.com/caso-sorteos-jans#article",
+        "mainEntityOfPage": { "@id": "https://www.ibanidigital.com/caso-sorteos-jans#webpage" },
         "headline": "Caso de estudio: Sorteos Jans — de rifas manuales a plataforma en tiempo real",
         "description": "Cómo IBANI Digital construyó la plataforma de rifas en línea de Sorteos Jans: boletos interactivos, confirmaciones automáticas por WhatsApp y panel de administración completo.",
         "url": "https://www.ibanidigital.com/caso-sorteos-jans",
@@ -61,15 +71,16 @@
           "name": "Plataforma de rifas Sorteos Jans",
           "url": "https://sorteosjans.com.mx",
           "applicationCategory": "WebApplication",
-          "operatingSystem": "All",
+          "operatingSystem": "All"
         },
         "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
       },
       {
         "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/caso-sorteos-jans#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Portafolio", "item": "https://www.ibanidigital.com/#portafolio" },
+          { "@type": "ListItem", "position": 2, "name": "Portafolio", "item": "https://www.ibanidigital.com/portafolio" },
           { "@type": "ListItem", "position": 3, "name": "Caso: Sorteos Jans", "item": "https://www.ibanidigital.com/caso-sorteos-jans" }
         ]
       }

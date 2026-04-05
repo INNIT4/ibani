@@ -43,5 +43,61 @@
       <image:loc>https://www.ibanidigital.com/img/portfolio/ibanidemo-800.jpg</image:loc>
       <image:title>Demo plataforma de rifas IBANI Rifas — IBANI Digital</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/foto-fundado.jpg</image:loc>
+      <image:title>Jose Daniel Ibarra Nieblas — Fundador y desarrollador web de IBANI Digital, Hermosillo Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/og-image.jpg</image:loc>
+      <image:title>IBANI Digital — Diseño web profesional para negocios en Hermosillo y Sonora</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.ibanidigital.com/hermosillo</loc>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/ferraris-800.jpg</image:loc>
+      <image:title>Jardín Ferraris — cliente de IBANI Digital en Hermosillo, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/casaarias-800.jpg</image:loc>
+      <image:title>Casa Arias — cliente de IBANI Digital en Hermosillo, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/primavera-800.jpg</image:loc>
+      <image:title>El Marqués — cliente de IBANI Digital en Hermosillo, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/og-image.jpg</image:loc>
+      <image:title>IBANI Digital — Diseño web en Hermosillo, Sonora</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.ibanidigital.com/obregon</loc>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/floresta-800.jpg</image:loc>
+      <image:title>Floresta Jardín — cliente de IBANI Digital en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/antiguagrecia-800.jpg</image:loc>
+      <image:title>La Antigua Grecia Salón — cliente de IBANI Digital en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/lantana-800.jpg</image:loc>
+      <image:title>Jardín Lantana — cliente de IBANI Digital en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/og-image.jpg</image:loc>
+      <image:title>IBANI Digital — Diseño web en Ciudad Obregón, Sonora</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.ibanidigital.com/caso-sorteos-jans</loc>
+    <image:image>
+      <image:loc>https://www.ibanidigital.com/img/portfolio/sorteosjans-800.jpg</image:loc>
+      <image:title>Plataforma de rifas en línea Sorteos Jans — desarrollada por IBANI Digital</image:title>
+    </image:image>
   </url>
 </urlset>

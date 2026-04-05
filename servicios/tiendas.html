@@ -15,6 +15,79 @@
   <meta name="theme-color" content="#1A1714">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema: Service + WebPage + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/servicios/tiendas#webpage",
+        "url": "https://www.ibanidigital.com/servicios/tiendas",
+        "name": "Tiendas Online en Sonora — IBANI Digital",
+        "description": "Tiendas en línea y catálogos digitales con carrito, pagos y panel de administración para negocios en Sonora. Sin comisiones sobre ventas.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.ibanidigital.com/servicios/tiendas#service",
+        "name": "Tiendas Online con carrito y pagos",
+        "description": "Tiendas en línea y catálogos digitales para negocios que quieren vender sin intermediarios. Incluye carrito de compras, integración con pasarelas de pago nacionales (Clip, Conekta) e internacionales (Stripe), panel de administración de inventario y pedidos, diseño responsive y WhatsApp Business. Sin comisiones sobre ventas.",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "serviceType": "Desarrollo de tienda online y e-commerce",
+        "areaServed": { "@type": "Country", "name": "México" },
+        "offers": [
+          { "@type": "Offer", "name": "Catálogo Digital", "price": "13500", "priceCurrency": "MXN", "description": "Hasta 20 productos, WhatsApp + Click-to-Call, sin carrito de compras. Dominio, hosting y SSL 1 año.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Tienda Básica", "price": "20000", "priceCurrency": "MXN", "description": "Hasta 50 productos, carrito, MercadoPago/PayPal/SPEI, panel de administración.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Tienda Pro", "price": "30000", "priceCurrency": "MXN", "description": "Hasta 200 productos, cupones, variantes, cálculo de envío, blog integrado.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Tienda Plus", "price": "52000", "priceCurrency": "MXN", "description": "Hasta 1,000 productos, SEO avanzado, Stripe/Clip, correos ilimitados, actualizaciones ilimitadas.", "availability": "https://schema.org/InStock" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/servicios/tiendas#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.ibanidigital.com/servicios" },
+          { "@type": "ListItem", "position": 3, "name": "Tiendas Online", "item": "https://www.ibanidigital.com/servicios/tiendas" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.ibanidigital.com/servicios/tiendas#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta una tienda online en México?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IBANI Digital ofrece 4 planes: Catálogo Digital $13,500 MXN (sin carrito, hasta 20 productos), Tienda Básica $20,000 MXN (carrito + pagos, hasta 50 productos), Tienda Pro $30,000 MXN (hasta 200 productos + blog) y Tienda Plus $52,000 MXN (hasta 1,000 productos, SEO avanzado y actualizaciones ilimitadas). Dominio, hosting y SSL incluidos el primer año."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cobran comisión sobre las ventas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. IBANI Digital no cobra ningún porcentaje sobre las ventas. Solo pagas el costo único del plan. Las pasarelas de pago (Stripe, Clip, MercadoPago) sí cobran su propia comisión por transacción, que es independiente del costo del desarrollo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué métodos de pago pueden integrar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se integran pasarelas nacionales como Clip y Conekta (SPEI, tarjetas), MercadoPago e internacionales como Stripe y PayPal, dependiendo del plan seleccionado."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

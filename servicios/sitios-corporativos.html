@@ -15,6 +15,81 @@
   <meta name="theme-color" content="#1A1714">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema: Service + WebPage + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/servicios/sitios-corporativos#webpage",
+        "url": "https://www.ibanidigital.com/servicios/sitios-corporativos",
+        "name": "Sitios Web Corporativos en Sonora desde $22,000 MXN — IBANI Digital",
+        "description": "Sitios web institucionales multipágina para empresas, salones de eventos, clínicas y negocios en Sonora. 6 planes desde $22,000 hasta $44,500 MXN.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.ibanidigital.com/servicios/sitios-corporativos#service",
+        "name": "Sitios Corporativos Multipágina",
+        "description": "Sitios web institucionales para empresas, salones de eventos, jardines, clínicas, escuelas y negocios en Sonora. Incluye galería de fotos, sección de paquetes o precios, formulario de contacto, mapa de ubicación y SEO local. Diseño alineado con la identidad visual del negocio.",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "serviceType": "Diseño de sitios web corporativos",
+        "areaServed": { "@type": "State", "name": "Sonora" },
+        "offers": [
+          { "@type": "Offer", "name": "Plan Bronce", "price": "22000", "priceCurrency": "MXN", "description": "7 páginas (Inicio, 3 servicios, etc.), 8 secciones/página.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Silver", "price": "25000", "priceCurrency": "MXN", "description": "10 páginas, 8 secciones/página, 6 correos corporativos.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Gold", "price": "29000", "priceCurrency": "MXN", "description": "15 páginas (+ Blog y buscador), 8 secciones/página.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Platino", "price": "34000", "priceCurrency": "MXN", "description": "20 páginas, 9 secciones/página, 10 correos.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Diamante", "price": "38000", "priceCurrency": "MXN", "description": "25 páginas, 9 secciones/página, 10 correos.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Esmeralda", "price": "44500", "priceCurrency": "MXN", "description": "30 páginas, 9 secciones/página, 10 correos.", "availability": "https://schema.org/InStock" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/servicios/sitios-corporativos#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.ibanidigital.com/servicios" },
+          { "@type": "ListItem", "position": 3, "name": "Sitios Corporativos", "item": "https://www.ibanidigital.com/servicios/sitios-corporativos" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.ibanidigital.com/servicios/sitios-corporativos#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta un sitio web corporativo en Sonora?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IBANI Digital ofrece 6 planes para sitios corporativos multipágina: desde $22,000 MXN (plan Bronce, 7 páginas) hasta $44,500 MXN (plan Esmeralda, 30 páginas). Todos incluyen diseño personalizado, dominio, hosting y SSL el primer año. Sin comisiones ni costos ocultos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo tarda en entregarse un sitio corporativo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La entrega estándar para sitios corporativos es de 3 a 5 días hábiles desde la aprobación del diseño, dependiendo del número de páginas. Clientes como Jardín Ferraris, Casa Arias y Floresta Jardín recibieron su sitio completo en ese plazo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Los correos corporativos están incluidos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. A partir del plan Silver se incluyen 6 correos corporativos (ej. info@tunegocio.com) y los planes superiores incluyen hasta 10 correos. El plan Bronce no incluye correos corporativos."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

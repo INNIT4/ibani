@@ -19,6 +19,62 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+  <!-- Schema: Blog + ItemList + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://www.ibanidigital.com/blog#webpage",
+        "url": "https://www.ibanidigital.com/blog",
+        "name": "Blog — IBANI Digital · Diseño Web en Sonora",
+        "description": "Guías, recursos y casos de éxito sobre diseño web en Sonora. Todo lo que necesitas saber para tener presencia digital en Hermosillo, Ciudad Obregón y el estado.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" },
+        "publisher": { "@id": "https://www.ibanidigital.com/#business" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.ibanidigital.com/blog#articles",
+        "name": "Artículos del blog — IBANI Digital",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "BlogPosting",
+              "url": "https://www.ibanidigital.com/cuanto-cuesta-pagina-web-sonora",
+              "name": "¿Cuánto cuesta una página web en Sonora? (2026)",
+              "datePublished": "2026-03-25",
+              "author": { "@id": "https://www.ibanidigital.com/#founder" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Article",
+              "url": "https://www.ibanidigital.com/caso-sorteos-jans",
+              "name": "Caso de estudio: Sorteos Jans — Plataforma de rifas online",
+              "datePublished": "2026-03-25",
+              "author": { "@id": "https://www.ibanidigital.com/#founder" }
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/blog#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.ibanidigital.com/blog" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

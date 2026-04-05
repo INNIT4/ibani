@@ -56,7 +56,7 @@
         "jobTitle": "Fundador y Desarrollador Web",
         "description": "Diseñador y desarrollador web con más de 3 años de experiencia construyendo sitios profesionales para negocios en Hermosillo, Ciudad Obregón y toda Sonora. Especializado en landing pages, sitios corporativos, tiendas online y plataformas de rifas en tiempo real.",
         "url": "https://www.ibanidigital.com/sobre-nosotros",
-        "image": "https://www.ibanidigital.com/foto-fundado.jpg",
+        "image": { "@type": "ImageObject", "url": "https://www.ibanidigital.com/foto-fundado.jpg", "width": 399, "height": 399 },
         "email": "hola@ibanidigital.com",
         "telephone": "+526625044016",
         "address": {
@@ -85,6 +85,7 @@
       },
       {
         "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/sobre-nosotros#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
           { "@type": "ListItem", "position": 2, "name": "Sobre Nosotros", "item": "https://www.ibanidigital.com/sobre-nosotros" }
@@ -95,6 +96,8 @@
   </script>
 
   <!-- Fonts -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeA.woff2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

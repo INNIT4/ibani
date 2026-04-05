@@ -15,6 +15,78 @@
   <meta name="theme-color" content="#1A1714">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema: Service + WebPage + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/servicios/software-administrativo#webpage",
+        "url": "https://www.ibanidigital.com/servicios/software-administrativo",
+        "name": "Software Administrativo para Negocios — IBANI Digital",
+        "description": "Sistemas administrativos a medida: inventario, ventas, gastos, CFDI y POS. Desde $8,000 MXN. Sin mensualidades de plataforma.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.ibanidigital.com/servicios/software-administrativo#service",
+        "name": "Sistemas de Administración a Medida",
+        "description": "Software administrativo personalizado para negocios: módulos de inventario, ventas, gastos, trabajadores, CFDI y punto de venta. Sin mensualidades ni licencias de terceros. Acceso desde computadora y celular según el plan.",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "serviceType": "Desarrollo de software administrativo",
+        "areaServed": { "@type": "Country", "name": "México" },
+        "offers": [
+          { "@type": "Offer", "name": "Plan Básico", "price": "8000", "priceCurrency": "MXN", "description": "2-3 módulos, 1 usuario, solo computadora, entrega en 7 días.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Pro", "price": "14000", "priceCurrency": "MXN", "description": "4-5 módulos, hasta 3 usuarios, computadora y celular, entrega en 14 días.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Personalizado", "priceCurrency": "MXN", "description": "Módulos ilimitados, usuarios ilimitados, integraciones especiales. Precio a consulta.", "availability": "https://schema.org/InStock" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/servicios/software-administrativo#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.ibanidigital.com/servicios" },
+          { "@type": "ListItem", "position": 3, "name": "Software Administrativo", "item": "https://www.ibanidigital.com/servicios/software-administrativo" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.ibanidigital.com/servicios/software-administrativo#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta un sistema administrativo personalizado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IBANI Digital ofrece tres niveles: Plan Básico a $8,000 MXN (2-3 módulos, 1 usuario, solo computadora), Plan Pro a $14,000 MXN (4-5 módulos, hasta 3 usuarios, computadora y celular) y Plan Personalizado con precio a consulta para módulos e integraciones ilimitadas. Sin mensualidades ni licencias de plataformas externas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hay cobro mensual por el sistema?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. El sistema se entrega con un solo pago. No hay mensualidades, licencias anuales ni costos por usuario adicional dentro del plan contratado. El código es completamente a medida y no depende de plataformas de terceros con tarifas recurrentes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿El sistema funciona en celular?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El Plan Pro y el Plan Personalizado incluyen acceso desde computadora y celular. El Plan Básico está optimizado solo para computadora. En todos los casos el sistema es web, sin instalación de app."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

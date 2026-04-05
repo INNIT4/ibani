@@ -15,6 +15,81 @@
   <meta name="theme-color" content="#1A1714">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema: Service + WebPage + BreadcrumbList + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/servicios/landing-pages#webpage",
+        "url": "https://www.ibanidigital.com/servicios/landing-pages",
+        "name": "Sitios Web en Sonora desde $3,500 MXN — IBANI Digital",
+        "description": "Landing pages y páginas web profesionales para negocios en Hermosillo y Sonora. 6 planes desde $3,500 hasta $20,000 MXN.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.ibanidigital.com/servicios/landing-pages#service",
+        "name": "Landing Pages para negocios locales",
+        "description": "Páginas de aterrizaje diseñadas para convertir visitantes en clientes. Diseño personalizado desde cero (sin plantillas), carga ultrarrápida en móviles, textos orientados a la acción, SEO local y llamados a la acción estratégicos. Dominio, hosting y SSL incluidos el primer año.",
+        "provider": { "@id": "https://www.ibanidigital.com/#business" },
+        "serviceType": "Diseño y desarrollo de landing pages",
+        "areaServed": { "@type": "State", "name": "Sonora" },
+        "offers": [
+          { "@type": "Offer", "name": "Plan Económico", "price": "3500", "priceCurrency": "MXN", "description": "2 secciones, optimizado para celular.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Emprendedor", "price": "5500", "priceCurrency": "MXN", "description": "4 secciones, dominio profesional, slider.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Emprendedor Pro", "price": "7500", "priceCurrency": "MXN", "description": "6 secciones, estadísticas, múltiples carruseles.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Emprendedor Plus", "price": "13000", "priceCurrency": "MXN", "description": "8 secciones, SEO local, textos de persuasión.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Emprendedor Avanzado", "price": "16000", "priceCurrency": "MXN", "description": "10 secciones, galería completa, testimonios.", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Plan Emprendedor Elite", "price": "20000", "priceCurrency": "MXN", "description": "12 secciones, SEO avanzado, videos.", "availability": "https://schema.org/InStock" }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/servicios/landing-pages#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://www.ibanidigital.com/servicios" },
+          { "@type": "ListItem", "position": 3, "name": "Landing Pages", "item": "https://www.ibanidigital.com/servicios/landing-pages" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.ibanidigital.com/servicios/landing-pages#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta una landing page en Sonora?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IBANI Digital ofrece 6 planes de landing pages: desde $3,500 MXN (plan Económico, 2 secciones) hasta $20,000 MXN (plan Emprendedor Elite, 12 secciones, SEO avanzado y video). Todos incluyen diseño personalizado, dominio, hosting y SSL el primer año. Sin comisiones sobre ventas ni costos ocultos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo tarda en entregarse la página?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La entrega estándar es en 3 días hábiles desde la aprobación del diseño. El proceso incluye cotización, mockup basado en tu identidad visual, desarrollo y entrega con dominio y hosting configurados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Usan plantillas o el diseño es desde cero?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El diseño es 100% personalizado desde cero, sin plantillas de WordPress, Wix ni constructores de páginas. Cada sitio se adapta a la identidad visual del negocio y está optimizado para carga rápida en dispositivos móviles."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

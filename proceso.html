@@ -15,6 +15,73 @@
   <meta name="theme-color" content="#1A1714">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Schema: WebPage + HowTo + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ibanidigital.com/proceso#webpage",
+        "url": "https://www.ibanidigital.com/proceso",
+        "name": "Cómo Trabajamos — IBANI Digital · Proceso en 4 Pasos",
+        "description": "Proceso de trabajo de IBANI Digital: cotización, diseño, desarrollo y entrega en 3 días hábiles. Sin sorpresas ni costos ocultos.",
+        "inLanguage": "es-MX",
+        "isPartOf": { "@id": "https://www.ibanidigital.com/#website" }
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.ibanidigital.com/proceso#howto",
+        "name": "Cómo obtener tu página web con IBANI Digital",
+        "description": "Proceso en 4 pasos para tener tu página web profesional en 3 días hábiles.",
+        "totalTime": "PT3D",
+        "supply": [
+          { "@type": "HowToSupply", "name": "Información de tu negocio (fotos, textos, colores de marca)" }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Cotización",
+            "text": "Propuesta sin compromiso en menos de 30 minutos por WhatsApp. Precio fijo desde el primer mensaje, sin formularios ni llamadas de ventas.",
+            "url": "https://www.ibanidigital.com/proceso#cotizacion"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Diseño",
+            "text": "Mockup basado en la identidad visual de tu negocio. Cambios ilimitados sin costo extra hasta que el diseño te convenza al 100%.",
+            "url": "https://www.ibanidigital.com/proceso#diseno"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Desarrollo",
+            "text": "Código limpio, rápido en móviles y optimizado para Google. Sin plantillas genéricas — cada sitio se construye desde cero.",
+            "url": "https://www.ibanidigital.com/proceso#desarrollo"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Entrega",
+            "text": "Publicación con dominio, hosting profesional y certificado SSL incluidos. Entrega garantizada en 3 días hábiles desde la aprobación del diseño.",
+            "url": "https://www.ibanidigital.com/proceso#entrega"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ibanidigital.com/proceso#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ibanidigital.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Proceso", "item": "https://www.ibanidigital.com/proceso" }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/fraunces/v38/6NU58FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChjeveQ.woff2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
