@@ -6,11 +6,10 @@
 - Repo: github.com/INNIT4/ibani
 
 ## Ramas y deploy
-- `main` → preview en `ibanidemo.vercel.app` (demo)
-- `master` → producción `ibanidigital.com`
-- **Siempre hacer push solo a master:** `git checkout master && git merge main --no-edit && git push origin master && git checkout main`
-- Los deploys NO se activan automáticamente — verificar config en Vercel dashboard
-- Para forzar deploy: hacer commit vacío con `git commit --allow-empty` en master
+- `main` → producción `ibanidigital.com` (rama única, master eliminado)
+- **Hacer push a main:** `git push origin main`
+- Los deploys se activan automáticamente en cada push a `main`
+- Para forzar deploy: hacer commit vacío con `git commit --allow-empty -m "chore: force redeploy"` en main
 
 ## Archivos clave
 - `index.html` — página principal
@@ -23,7 +22,8 @@
 - `hermosillo.html` — página SEO local para Hermosillo (indexable, con schema propio)
 - `obregon.html` — página SEO local para Ciudad Obregón (indexable, con schema propio)
 - `cuanto-cuesta-pagina-web-sonora.html` — artículo de precios (BlogPosting schema, indexable)
-- `sobre-nosotros.html`, `caso-sorteos-jans.html`, `plataforma-rifas-online.html` — páginas de contenido (indexables)
+- `sobre-nosotros.html`, `caso-sorteos-jans.html` — páginas de contenido (indexables)
+- `portafolio.html`, `proceso.html`, `blog.html` — páginas independientes indexables (en sitemap)
 - `privacidad.html` — aviso de privacidad LFPDPPP
 - `e8eed06c576f819a4f9f8391c59421ad.txt` — clave IndexNow activa (la otra clave en el repo es obsoleta)
 - `llms.txt` — contexto para crawlers de IA (GPTBot, ClaudeBot, PerplexityBot)
@@ -51,6 +51,6 @@
 - `.svc-card` tiene `position:relative; overflow:hidden` — el patrón stretched-link funciona con `::after { position:absolute; inset:0 }` en el link interior.
 - `vercel.json` tiene `cleanUrls:true` — URLs como `/servicios/rifas` sirven `servicios/rifas.html` automáticamente.
 - `vercel.json` tiene rewrites: `/servicios` → `servicios.html`, `/blog` → `blog.html` (sin estos retornan 404).
-- `/portafolio` y `/proceso` NO son páginas independientes — son secciones de `index.html` (`#portafolio`, `#proceso`). No crear archivos para ellas ni agregarlas al sitemap.
+- `/portafolio` y `/proceso` son páginas HTML independientes con canonical propio — sí están en el sitemap.
 - `servicios/landing-pages/*.html` — al renombrar archivos, actualizar el canonical `<link>` para que coincida con el nuevo nombre.
 - `foto-fundado.jpg` existe solo en JPEG (sin WebP/AVIF). Al agregar `<picture>` en el futuro, generar las versiones modernas primero.
