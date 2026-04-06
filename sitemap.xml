@@ -77,32 +77,6 @@
     <lastmod>2026-04-04</lastmod>
   </url>
 
-  <!-- Landing Pages — planes individuales -->
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/economico</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/emprendedor</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/emprendedor-pro</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/emprendedor-plus</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/emprendedor-avanzado</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/landing-pages/emprendedor-elite</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-
   <!-- Sitios Corporativos — planes individuales -->
   <url>
     <loc>https://www.ibanidigital.com/servicios/sitios-corporativos/bronce</loc>
@@ -129,49 +103,4 @@
     <lastmod>2026-04-05</lastmod>
   </url>
 
-  <!-- Tiendas Online — planes individuales -->
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/tiendas/catalogo</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/tiendas/basica</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/tiendas/pro</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/tiendas/plus</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-
-  <!-- Plataformas de Rifas — planes individuales -->
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/rifas/por-evento</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/rifas/mensual</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-
-  <!-- Software Administrativo — planes individuales -->
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/software-administrativo/basico</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/software-administrativo/gestion</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/software-administrativo/empresarial</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
-  <url>
-    <loc>https://www.ibanidigital.com/servicios/software-administrativo/admin</loc>
-    <lastmod>2026-04-05</lastmod>
-  </url>
 </urlset>

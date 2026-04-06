@@ -286,6 +286,10 @@
     /* Stretched-link: hace toda la tarjeta de servicio clickeable */
     .svc-card__link::after{content:'';position:absolute;inset:0;z-index:1}
     .svc-card__tags,.svc-card__price{position:relative;z-index:2}
+    .footer__contact-link{color:rgba(255,255,255,.45);transition:color .2s}
+    .footer__contact-link:hover{color:#fff}
+    .footer__privacy-link{color:rgba(255,255,255,.25);transition:color .2s}
+    .footer__privacy-link:hover{color:rgba(255,255,255,.6)}
   </style>
   <link rel="stylesheet" href="css/all.min.css">
 </head>
@@ -587,8 +591,8 @@
           Fundador · Jose Daniel Ibarra Nieblas
         </p>
         <address class="footer__tagline" style="font-style:normal;margin-top:.5rem">
-          <a href="mailto:hola@ibanidigital.com" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">hola@ibanidigital.com</a><br>
-          <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.45);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.45)'">+52 662 504 4016</a>
+          <a href="mailto:hola@ibanidigital.com" class="footer__contact-link">hola@ibanidigital.com</a><br>
+          <a href="https://wa.me/526625044016" target="_blank" rel="noopener noreferrer" class="footer__contact-link">+52 662 504 4016</a>
         </address>
       </div>
 
@@ -629,7 +633,7 @@
     <div class="footer__bottom">
       <span>© 2026 IBANI Digital · Hermosillo, Sonora, México</span>
       <span>
-        <a href="/privacidad" style="color:rgba(255,255,255,.25);transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,.6)'" onmouseout="this.style.color='rgba(255,255,255,.25)'">Aviso de Privacidad</a>
+        <a href="/privacidad" class="footer__privacy-link">Aviso de Privacidad</a>
         &nbsp;·&nbsp; SSL · Hosting Pro · Entrega en 3 días
       </span>
     </div>
