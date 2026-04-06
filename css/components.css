@@ -318,6 +318,14 @@
 /* ── Nav CTA (desktop) ─────────────────────────────────────── */
 .nav__cta {
   margin-left: var(--space-4);
+  flex-shrink: 0;
+}
+
+/* Keeps accent color visible on both light and dark header states */
+.header.scrolled .nav__cta {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 @media (max-width: 768px) {
