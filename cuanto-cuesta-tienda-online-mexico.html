@@ -642,6 +642,12 @@
       margin: 0;
     }
 
+    /* ── SPECIFICITY OVERRIDES: undo .article-content ul/ol padding on custom components ── */
+    .article-content .faq-list  { padding-left: 0; list-style: none; }
+    .article-content .step-list { padding-left: 0; }
+    .article-content .pc-list   { padding-left: 0; list-style: none; }
+    .article-content .faq-item  { border-top: none; } /* handled by :first-child rule */
+
     /* ── CTA ── */
     .article-cta {
       margin-top: var(--space-16);
@@ -1035,77 +1041,69 @@
 
             <div class="calc-grid" id="calcOptions">
 
-              <label class="calc-opt" data-cost="0">
-                <input type="checkbox" checked disabled>
+              <div class="calc-opt checked always-checked" data-cost="0">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Diseño personalizado + carrito + pagos</span>
                   <span class="calc-opt__price">Incluido en base</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="0">
-                <input type="checkbox" checked disabled>
+              <div class="calc-opt checked always-checked" data-cost="0">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Dominio, hosting y SSL el primer año</span>
                   <span class="calc-opt__price">Incluido en base</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="2000" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="2000" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Catálogo grande (50–200 productos)</span>
                   <span class="calc-opt__price">+ $2,000 MXN</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="5000" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="5000" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Catálogo extenso (+200 productos)</span>
                   <span class="calc-opt__price">+ $5,000 MXN</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="1500" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="1500" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Blog integrado para SEO</span>
                   <span class="calc-opt__price">+ $1,500 MXN</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="2000" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="2000" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Filtros avanzados por categoría</span>
                   <span class="calc-opt__price">+ $2,000 MXN</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="4000" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="4000" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Integración con facturación CFDI</span>
                   <span class="calc-opt__price">+ $4,000 MXN</span>
                 </span>
-              </label>
+              </div>
 
-              <label class="calc-opt" data-cost="3500" tabindex="0">
-                <input type="checkbox">
+              <div class="calc-opt" data-cost="3500" tabindex="0" role="checkbox" aria-checked="false">
                 <span class="calc-opt__check"></span>
                 <span class="calc-opt__text">
                   <span class="calc-opt__label">Programa de puntos o cupones</span>
                   <span class="calc-opt__price">+ $3,500 MXN</span>
                 </span>
-              </label>
+              </div>
 
             </div>
 
@@ -1334,77 +1332,91 @@
   <script src="js/main.min.js" defer></script>
 
   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
     // ── PLATFORM TABS ──
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('aria-controls');
-        btn.closest('.platform-tabs').querySelectorAll('.tab-btn').forEach(b => {
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.getAttribute('aria-controls');
+        var tabs = btn.closest('.platform-tabs');
+        tabs.querySelectorAll('.tab-btn').forEach(function(b) {
           b.classList.remove('active');
           b.setAttribute('aria-selected', 'false');
         });
-        btn.closest('.platform-tabs').querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        tabs.querySelectorAll('.tab-panel').forEach(function(p) {
+          p.classList.remove('active');
+        });
         btn.classList.add('active');
         btn.setAttribute('aria-selected', 'true');
-        document.getElementById(target).classList.add('active');
+        var panel = document.getElementById(target);
+        if (panel) panel.classList.add('active');
       });
     });
 
     // ── COST CALCULATOR ──
-    const BASE = 13500;
-    const opts = document.querySelectorAll('#calcOptions .calc-opt[data-cost]');
-    const display = document.getElementById('calcPrice');
+    var BASE = 13500;
+    var display = document.getElementById('calcPrice');
 
     function fmt(n) {
       return '$' + n.toLocaleString('es-MX') + ' MXN';
     }
 
     function recalc() {
-      let total = BASE;
-      opts.forEach(opt => {
-        const cost = parseInt(opt.dataset.cost, 10);
-        const cb = opt.querySelector('input[type="checkbox"]');
-        if (cb && !cb.disabled && cb.checked) total += cost;
+      var total = BASE;
+      document.querySelectorAll('#calcOptions .calc-opt[data-cost]').forEach(function(opt) {
+        if (opt.classList.contains('always-checked')) return;
+        if (opt.classList.contains('checked')) {
+          total += parseInt(opt.dataset.cost, 10) || 0;
+        }
       });
-      display.textContent = fmt(total);
+      if (display) display.textContent = fmt(total);
     }
 
-    opts.forEach(opt => {
-      const cb = opt.querySelector('input[type="checkbox"]');
-      if (!cb || cb.disabled) {
-        opt.classList.add('checked');
-        return;
-      }
-      opt.addEventListener('click', () => {
-        cb.checked = !cb.checked;
-        opt.classList.toggle('checked', cb.checked);
+    document.querySelectorAll('#calcOptions .calc-opt[data-cost]').forEach(function(opt) {
+      if (opt.classList.contains('always-checked')) return;
+
+      function toggle() {
+        var isChecked = opt.classList.contains('checked');
+        opt.classList.toggle('checked', !isChecked);
+        opt.setAttribute('aria-checked', String(!isChecked));
         recalc();
-      });
-      opt.addEventListener('keydown', e => {
-        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); opt.click(); }
+      }
+
+      opt.addEventListener('click', toggle);
+      opt.addEventListener('keydown', function(e) {
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
       });
     });
 
     // ── FAQ ACCORDION ──
-    document.querySelectorAll('.faq-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        const answerId = btn.getAttribute('aria-controls');
-        const answer = document.getElementById(answerId);
+    document.querySelectorAll('.faq-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        var answerId = btn.getAttribute('aria-controls');
+        var answer = document.getElementById(answerId);
 
-        // Close all
-        document.querySelectorAll('.faq-btn').forEach(b => {
+        // Cerrar todos
+        document.querySelectorAll('.faq-btn').forEach(function(b) {
           b.setAttribute('aria-expanded', 'false');
-          const a = document.getElementById(b.getAttribute('aria-controls'));
-          if (a) a.style.maxHeight = '0';
+          var a = document.getElementById(b.getAttribute('aria-controls'));
+          if (a) a.style.maxHeight = '0px';
         });
 
-        // Open clicked (if was closed)
-        if (!expanded) {
+        // Abrir el clickeado si estaba cerrado
+        if (!isOpen && answer) {
           btn.setAttribute('aria-expanded', 'true');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
+          // Forzar reflow para que scrollHeight sea correcto
+          answer.style.maxHeight = 'none';
+          var h = answer.scrollHeight;
+          answer.style.maxHeight = '0px';
+          // Trigger reflow
+          answer.offsetHeight; // eslint-disable-line
+          answer.style.maxHeight = h + 'px';
         }
       });
     });
+
+  });
   </script>
 
 </body>
