@@ -369,7 +369,7 @@ Artículos existentes: 6 (no incluidos). Los 52 de abajo son nuevos.
 
 ## Control de publicación
 
-- [ ] Sem 1 — #1 ¿Cuánto cuesta una tienda online?
+- [x] Sem 1 — #1 ¿Cuánto cuesta una tienda online? → /cuanto-cuesta-tienda-online-mexico
 - [ ] Sem 2 — #12 Google Maps paso a paso
 - [ ] Sem 3 — #6 Wix vs página web profesional
 - [ ] Sem 4 — #19 Web para salones de eventos
