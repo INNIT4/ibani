@@ -370,11 +370,11 @@ Artículos existentes: 6 (no incluidos). Los 52 de abajo son nuevos.
 ## Control de publicación
 
 - [x] Sem 1 — #1 ¿Cuánto cuesta una tienda online? → /cuanto-cuesta-tienda-online-mexico
-- [ ] Sem 2 — #12 Google Maps paso a paso
-- [ ] Sem 3 — #6 Wix vs página web profesional
-- [ ] Sem 4 — #19 Web para salones de eventos
-- [ ] Sem 5 — #29 Rifa online legal en México
-- [ ] Sem 6 — #13 Reseñas de Google
+- [x] Sem 2 — #12 Google Maps paso a paso → /como-crear-perfil-google-maps
+- [x] Sem 3 — #6 Wix vs página web profesional → /wix-vs-pagina-web-profesional
+- [x] Sem 4 — #19 Web para salones de eventos → /pagina-web-salones-eventos-hermosillo
+- [x] Sem 5 — #29 Rifa online legal en México → /rifa-online-legal-mexico
+- [x] Sem 6 — #13 Reseñas de Google → /resenas-google-negocio-local
 - [ ] Sem 7 — #37 ¿Necesitas página web?
 - [ ] Sem 8 — #7 WordPress vs desarrollo a medida
 - [ ] Sem 9 — #20 Web para clínicas en Sonora
